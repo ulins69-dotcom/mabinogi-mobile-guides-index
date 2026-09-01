@@ -18,8 +18,12 @@ import requests
 
 import classify  # 規則版，作為降級備援與 is_featured 計算
 
-MODEL = "gemini-2.5-flash"  # 2.0 已從官方模型清單下架（2026-09 查證），呼叫會 404 靜默降級回規則版
-ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+MODEL = "gemini-2.5-flash"  # 2.0 已從官方模型清單下架（2026-09 查證）
+# 2026-09 查證：Gemini 換代成新版 Interactions API，舊的
+# /v1beta/models/{MODEL}:generateContent 端點跟 contents/candidates 回應格式
+# 都已經被取代。新端點固定是 /v1beta/interactions，不用把 MODEL 接在路徑裡，
+# 改成放在 request body 的 "model" 欄位。見 ai.google.dev/api/interactions-api。
+ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
 BATCH_SIZE = 15
 VALID_CATEGORIES = ["新手指南", "職業解析", "副本攻略", "活動情報"]
 
@@ -52,16 +56,48 @@ def _build_prompt(batch: list[dict]) -> str:
 """
 
 
+def _extract_text(data: dict) -> str | None:
+    """從 Interaction 資源的 steps 裡找出模型輸出的文字（見 ModelOutputStep）。"""
+    for step in reversed(data.get("steps", [])):
+        if step.get("type") != "model_output":
+            continue
+        parts = [
+            c.get("text", "") for c in step.get("content", [])
+            if isinstance(c, dict) and c.get("type") == "text"
+        ]
+        if parts:
+            return "".join(parts)
+    return None
+
+
 def _call_gemini(prompt: str, key: str) -> list | None:
     body = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
+        "model": MODEL,
+        "input": prompt,
+        "response_format": {"type": "text", "mime_type": "application/json"},
     }
     try:
         r = requests.post(f"{ENDPOINT}?key={key}", json=body, timeout=60)
+        if r.status_code in (401, 403):
+            # 2026-09 起 Gemini 開始拒絕「標準 API 金鑰」，要求改用 AI Studio
+            # 產生的「驗證金鑰」（見 ai.google.dev/gemini-api/docs/api-key）。
+            # 401/403 十之八九是這個，不是程式邏輯問題，印清楚一點方便判斷。
+            print(
+                f"[AI] 呼叫失敗（HTTP {r.status_code}），這批降級為規則版。"
+                "常見原因：GEMINI_API_KEY 是舊式「標準金鑰」被拒絕，"
+                "需要去 Google AI Studio 重新產生「驗證金鑰」並更新 GitHub Secret。"
+                f"原始回應：{r.text[:300]}"
+            )
+            return None
         r.raise_for_status()
         data = r.json()
-        text = data["candidates"][0]["content"]["parts"][0]["text"]
+        if data.get("status") not in (None, "completed"):
+            print(f"[AI] 呼叫失敗，這批降級為規則版：status={data.get('status')} errors={data.get('errors')}")
+            return None
+        text = _extract_text(data)
+        if text is None:
+            print(f"[AI] 呼叫失敗，這批降級為規則版：回應裡找不到 model_output 文字內容")
+            return None
         parsed = json.loads(text)
         return parsed if isinstance(parsed, list) else None
     except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
