@@ -17,8 +17,8 @@
 
 | 名稱 | 網址 | 備註 |
 |---|---|---|
-| 瑪奇 Mobile 哈啦板 | https://forum.gamer.com.tw/B.php?bsn=32564 | **已接入** `scraper/bahamut.py`（bsn=32564） |
-| 精華區 | （待查證正確路徑） | 使用者提供的 `B.php`/`C.php?bsn=XXXX` 是列表頁/內文頁樣式，不是精華區專屬路徑；巴哈精華區通常需另外的網址模式，待確認 |
+| 瑪奇 Mobile 哈啦板 | https://forum.gamer.com.tw/B.php?bsn=32564 | **已接入** `scraper/bahamut.py`（bsn=32564），近期列表 + 逐篇補內文摘要 |
+| 精華區 | https://forum.gamer.com.tw/G1.php?bsn=32564 | **已接入** `scraper/bahamut_essence.py`。真正路徑是 `G1.php`（資料夾索引）/`G2.php`（文章），不是使用者原提供的 `B.php`/`C.php?bsn=XXXX` 樣式。收「遊戲攻略/職業攻略/情報分享/副本攻略」四個資料夾，近乎全收；`RE:` 開頭的項目是留言不是更新，略過 |
 
 ## YouTube（候選頻道，尚未指定頻道 ID）
 
