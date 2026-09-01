@@ -18,6 +18,7 @@ import json
 import sys
 
 import bahamut
+import bahamut_essence
 import youtube
 import inven
 import nexon_kr
@@ -30,6 +31,10 @@ def build(no_youtube=False, no_kr=False, pages=2) -> dict:
 
     # 台服
     raw.extend(bahamut.fetch(pages=pages))
+    try:
+        raw.extend(bahamut_essence.fetch())
+    except Exception as e:
+        print(f"[主控] 巴哈精華區 略過（{e}）", file=sys.stderr)
 
     # 韓服
     if not no_kr:

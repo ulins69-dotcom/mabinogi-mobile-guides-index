@@ -18,7 +18,15 @@ from __future__ import annotations
 CATEGORY_RULES = [
     ("新手指南", ["新手", "入門", "前期", "萌新", "零課", "練等", "練功", "路線", "配裝入門", "該做什麼"]),
     ("副本攻略", ["副本", "地城", "深淵", "王", "boss", "首領", "機制", "打法", "團隊", "攻堅", "討伐"]),
-    ("職業解析", ["職業", "轉職", "法師", "戰士", "弓手", "弓箭", "刺客", "牧師", "技能", "配點", "天賦", "加點", "輸出手法", "流派"]),
+    ("職業解析", [
+        "職業", "轉職", "技能", "配點", "天賦", "加點", "輸出手法", "流派",
+        "法師", "冰霜術士", "火焰術士", "電擊術士",
+        "戰士", "大劍戰士", "劍術士", "騎士",
+        "弓手", "弓箭", "弩手", "長弓兵",
+        "治癒師", "祭司", "修道士", "暗黑術士",
+        "吟遊詩人", "樂師", "舞者",
+        "盜賊", "格鬥家", "雙刀客", "刺客",
+    ]),
     ("活動情報", ["活動", "改版", "更新", "版本", "獎勵", "情報", "公告", "限時", "簽到", "抽獎", "禮包", "序號"]),
 ]
 DEFAULT_CATEGORY = "新手指南"  # 都沒命中時的保底分類
@@ -143,9 +151,17 @@ def mark_featured(items: list[dict], top_ratio: float = 0.2) -> None:
     就地標記精華：以互動分數排序，取前 top_ratio（至少 1 篇）為精華。
     互動分數 = 正規化(觀看/GP) + 正規化(回覆/留言)。
     用「相對排名」而非絕對門檻，避免因資料量或熱度基準變動而全有或全無。
+
+    來源已經幫忙人工篩選過的資料（如巴哈精華區，見 scraper/bahamut_essence.py）
+    會在產出時就把 is_featured 預先設成 True；這種「已知精華」不吃瀏覽數演算法
+    （精華區文章本來就抓不到瀏覽/回覆數，套演算法只會全部落選），
+    直接保留，只對其餘沒有預先標記的項目做正常排名。
     """
     if not items:
         return
+
+    curated = [it for it in items if it.get("is_featured") is True]
+    rest = [it for it in items if it.get("is_featured") is not True]
 
     def engagement(it: dict) -> float:
         views = float(it.get("views", 0) or 0)      # YouTube viewCount / 巴哈 GP
@@ -154,11 +170,13 @@ def mark_featured(items: list[dict], top_ratio: float = 0.2) -> None:
         import math
         return math.log1p(views) * 1.0 + math.log1p(replies) * 1.5
 
-    ranked = sorted(items, key=engagement, reverse=True)
-    n_featured = max(1, round(len(ranked) * top_ratio))
+    ranked = sorted(rest, key=engagement, reverse=True)
+    n_featured = max(1, round(len(rest) * top_ratio)) if rest else 0
     featured_ids = {id(it) for it in ranked[:n_featured]}
-    for it in items:
+    for it in rest:
         it["is_featured"] = id(it) in featured_ids
+    for it in curated:
+        it["is_featured"] = True
 
 
 def enrich(items: list[dict]) -> list[dict]:
