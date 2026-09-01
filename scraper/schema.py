@@ -74,11 +74,44 @@ def validate(record: dict) -> list[str]:
 
 
 def dedupe(records: list[dict]) -> list[dict]:
-    seen, out = set(), []
+    """先照 id 去重，再補一層「摘要開頭幾乎一樣」的內容去重。
+
+    這是為了處理巴哈一般列表（bahamut.py）跟精華區（bahamut_essence.py）
+    抓到同一篇文章的情況——兩邊各自有自己的一套 id（snA vs sn），精華區
+    文章頁面又沒有連回原文 snA 的線索（見 bahamut_essence.py 開頭說明），
+    id 比對抓不到這種重複，只能靠內容比對（2026-09-02 實測抓到過真實案例）。
+    不比對作者：實測發現兩邊的作者選擇器有時會抓到不同東西（例如精華區
+    那次抓到貼文裡提到的暱稱而非真正樓主），比對作者反而會漏抓真正的重複。
+    摘要開頭取 80 字，一般文章不太可能剛好開頭 80 字完全相同卻是不同篇。
+    同一組重複裡優先留精華區那筆（board-curated，預設會是精華）。
+    """
+    seen_ids, out = set(), []
     for r in records:
         rid = r.get("id")
-        if not rid or rid in seen:
+        if not rid or rid in seen_ids:
             continue
-        seen.add(rid)
+        seen_ids.add(rid)
         out.append(r)
-    return out
+
+    def content_key(r: dict) -> str | None:
+        summary = (r.get("summary") or "").strip()[:80]
+        return summary if len(summary) >= 20 else None  # 太短的摘要不夠獨特，不比對
+
+    groups: dict[str, list[dict]] = {}
+    passthrough = []
+    for r in out:
+        key = content_key(r)
+        if key is None:
+            passthrough.append(r)
+        else:
+            groups.setdefault(key, []).append(r)
+
+    deduped = list(passthrough)
+    for records_in_group in groups.values():
+        if len(records_in_group) == 1:
+            deduped.append(records_in_group[0])
+            continue
+        essence = next((r for r in records_in_group if str(r.get("id", "")).startswith("bahamut-essence-")), None)
+        deduped.append(essence or records_in_group[0])
+
+    return deduped

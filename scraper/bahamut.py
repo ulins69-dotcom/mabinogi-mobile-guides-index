@@ -49,7 +49,10 @@ def _get(url: str) -> str | None:
     try:
         resp = requests.get(url, headers=HEADERS, timeout=15)
         resp.raise_for_status()
-        resp.encoding = resp.apparent_encoding or "utf-8"
+        # gamer.com.tw 全站固定 UTF-8。原本用 resp.apparent_encoding（chardet
+        # 猜編碼）偶爾會把 UTF-8 的中文誤判成西里爾字母系編碼，抓出一整篇亂碼
+        # 標題（實測抓到過，見 2026-09-02 除錯記錄）。直接寫死不用猜。
+        resp.encoding = "utf-8"
         return resp.text
     except requests.RequestException as e:
         print(f"[巴哈] 取得失敗 {url}: {e}")
