@@ -18,7 +18,7 @@ import requests
 
 import classify  # 規則版，作為降級備援與 is_featured 計算
 
-MODEL = "gemini-2.0-flash"
+MODEL = "gemini-2.5-flash"  # 2.0 已從官方模型清單下架（2026-09 查證），呼叫會 404 靜默降級回規則版
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 BATCH_SIZE = 15
 VALID_CATEGORIES = ["新手指南", "職業解析", "副本攻略", "活動情報"]
@@ -89,11 +89,15 @@ def enrich(items: list[dict]) -> list[dict]:
         classify.mark_featured(items)
         return items
 
-    print(f"[AI] 啟用 Gemini，共 {len(items)} 筆，分 {(len(items)+BATCH_SIZE-1)//BATCH_SIZE} 批")
+    print(f"[AI] 啟用 Gemini（{MODEL}），共 {len(items)} 筆，分 {(len(items)+BATCH_SIZE-1)//BATCH_SIZE} 批")
+    failed_batches = 0
+    total_batches = 0
     for start in range(0, len(items), BATCH_SIZE):
         batch = items[start:start + BATCH_SIZE]
+        total_batches += 1
         result = _call_gemini(_build_prompt(batch), key)
         if result is None:
+            failed_batches += 1
             for it in batch:
                 _apply_rule_fallback(it)
             continue
@@ -117,6 +121,15 @@ def enrich(items: list[dict]) -> list[dict]:
             it["title_zh"] = str(r.get("title_zh") or it.get("title", ""))
             it["summary"] = str(r.get("summary_zh") or it.get("summary", ""))
         time.sleep(1)  # 禮貌節流，避開每分鐘速率上限
+
+    if failed_batches == total_batches and total_batches > 0:
+        print(
+            f"[AI] 警告：{total_batches} 批全數呼叫失敗，本次 GEMINI_API_KEY 形同沒設定"
+            "（金鑰本身可能沒問題，常見原因是 MODEL 常數指到的模型已下架/改名，"
+            "去看上面每批印出的失敗原因）"
+        )
+    elif failed_batches:
+        print(f"[AI] {failed_batches}/{total_batches} 批呼叫失敗，已降級為規則版")
 
     classify.mark_featured(items)
     return items
