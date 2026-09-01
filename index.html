@@ -83,6 +83,12 @@
         <option value="副本攻略">副本攻略</option>
         <option value="活動情報">活動情報</option>
       </select>
+      <select id="class-filter">
+        <option value="all">全部職業</option>
+      </select>
+      <select id="tag-filter">
+        <option value="all">全部標籤</option>
+      </select>
       <label><input type="checkbox" id="featured"> 只顯示精華</label>
     </div>
     <div id="count" class="count"></div>
@@ -96,6 +102,12 @@
     "use strict";
     let guides = [];
     let currentRegion = "all";
+
+    // 職業標籤白名單，需與 scraper/classify.py 的 TAG_DICT 職業區段同步
+    const CLASS_TAGS = [
+      "法師", "冰霜術士", "電擊術士", "戰士", "大劍戰士", "弓手", "弩手",
+      "刺客", "雙刀客", "牧師", "治癒師", "樂師", "格鬥家",
+    ];
 
     const str = (v, f = "") => (typeof v === "string" && v ? v : f);
     const arr = (v) => (Array.isArray(v) ? v : []);
@@ -162,11 +174,43 @@
       return card;
     }
 
+    // 依「目前地區」實際存在的資料，動態算出選單選項與出現次數；沒有資料的職業/標籤不會出現。
+    function populateDynamicFilters() {
+      const inRegion = guides.filter((g) => currentRegion === "all" || g.region === currentRegion);
+      const freq = new Map();
+      inRegion.forEach((g) => g.tags.forEach((t) => freq.set(t, (freq.get(t) || 0) + 1)));
+
+      const classOptions = CLASS_TAGS.filter((t) => freq.has(t))
+        .sort((a, b) => freq.get(b) - freq.get(a));
+      const otherOptions = [...freq.keys()].filter((t) => !CLASS_TAGS.includes(t))
+        .sort((a, b) => freq.get(b) - freq.get(a));
+
+      fillSelect("class-filter", "全部職業", classOptions, freq);
+      fillSelect("tag-filter", "全部標籤", otherOptions, freq);
+    }
+
+    function fillSelect(id, allLabel, options, freq) {
+      const select = document.getElementById(id);
+      const prev = select.value;
+      select.textContent = "";
+      const allOpt = el("option", null, allLabel);
+      allOpt.value = "all";
+      select.appendChild(allOpt);
+      options.forEach((t) => {
+        const opt = el("option", null, t + "（" + freq.get(t) + "）");
+        opt.value = t;
+        select.appendChild(opt);
+      });
+      select.value = options.includes(prev) ? prev : "all";
+    }
+
     function render() {
       const list = document.getElementById("guide-list");
       const state = document.getElementById("state");
       const countEl = document.getElementById("count");
       const category = document.getElementById("category").value;
+      const classFilter = document.getElementById("class-filter").value;
+      const tagFilter = document.getElementById("tag-filter").value;
       const keyword = document.getElementById("search-box").value.trim().toLowerCase();
       const showFeatured = document.getElementById("featured").checked;
 
@@ -176,6 +220,8 @@
       const filtered = guides
         .filter((g) => currentRegion === "all" || g.region === currentRegion)
         .filter((g) => category === "all" || g.category === category)
+        .filter((g) => classFilter === "all" || g.tags.includes(classFilter))
+        .filter((g) => tagFilter === "all" || g.tags.includes(tagFilter))
         .filter((g) => !showFeatured || g.is_featured)
         .filter((g) => {
           if (!keyword) return true;
@@ -206,6 +252,7 @@
         const data = await res.json();
         const rawList = Array.isArray(data) ? data : arr(data.guides);
         guides = rawList.map(normalize);
+        populateDynamicFilters();
         render();
       } catch (err) {
         console.error("載入攻略失敗", err);
@@ -219,11 +266,14 @@
         currentRegion = btn.dataset.region;
         document.querySelectorAll("#region-tabs button").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
+        populateDynamicFilters();
         render();
       });
     });
     document.getElementById("search-box").addEventListener("input", debounce(render, 200));
     document.getElementById("category").addEventListener("change", render);
+    document.getElementById("class-filter").addEventListener("change", render);
+    document.getElementById("tag-filter").addEventListener("change", render);
     document.getElementById("featured").addEventListener("change", render);
 
     loadGuides();
