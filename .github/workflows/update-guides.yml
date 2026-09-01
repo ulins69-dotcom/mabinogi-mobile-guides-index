@@ -29,7 +29,7 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         working-directory: scraper
-        run: python main.py --pages 2 --out ../guides.json
+        run: python main.py --pages 5 --out ../guides.json
 
       - name: 提交更新後的 guides.json
         run: |

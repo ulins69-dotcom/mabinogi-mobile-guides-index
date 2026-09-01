@@ -25,6 +25,25 @@ import nexon_kr
 import ai_enrich
 import schema
 
+# 韓服搶先報的「活動情報」類是時效性內容（版本/活動預告），超過這個天數
+# 就從輸出濾掉，避免舊情報一直佔著版面。「職業解析」「副本攻略」這種玩法
+# 教學不算時效性內容，不受此限制。
+# 見 2026-09-02 討論：使用者提出「搶先報用最近三個月資料，攻略型/職業介紹
+# 可以在沒更新前用現有狀態」。
+KR_NEWS_MAX_AGE_DAYS = 90
+
+
+def _is_stale_kr_news(record: dict, today: datetime.date) -> bool:
+    if record["region"] != "kr" or record["category"] != "活動情報":
+        return False
+    if not record["published_at"]:
+        return False  # 沒日期就不篩，保守起見留著讓人判斷
+    try:
+        published = datetime.date.fromisoformat(record["published_at"])
+    except ValueError:
+        return False
+    return (today - published).days > KR_NEWS_MAX_AGE_DAYS
+
 
 def build(no_youtube=False, no_kr=False, pages=2) -> dict:
     raw = []
@@ -70,6 +89,12 @@ def build(no_youtube=False, no_kr=False, pages=2) -> dict:
             print(f"[主控] 丟棄 {r.get('id')}: {problems}")
         else:
             valid.append(r)
+
+    today = datetime.date.today()
+    stale = sum(1 for r in valid if _is_stale_kr_news(r, today))
+    if stale:
+        valid = [r for r in valid if not _is_stale_kr_news(r, today)]
+        print(f"[主控] 濾掉 {stale} 筆超過 {KR_NEWS_MAX_AGE_DAYS} 天的韓服活動情報（時效性內容）")
 
     valid.sort(key=lambda r: r.get("published_at", ""), reverse=True)
 

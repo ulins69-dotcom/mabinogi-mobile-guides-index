@@ -20,7 +20,7 @@ QUERIES = {
     "tw": (["瑪奇 Mobile 攻略", "瑪奇 Mobile 新手", "瑪奇 Mobile 活動"], "zh-Hant"),
     "kr": (["마비노기 모바일 공략", "마비노기 모바일 업데이트"], "ko"),
 }
-MAX_PER_QUERY = 15
+MAX_PER_QUERY = 50  # YouTube API 上限；search.list 每次固定收 100 units，跟 maxResults 無關，拉滿不加錢
 
 
 def _key() -> str:
