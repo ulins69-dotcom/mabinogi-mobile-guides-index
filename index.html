@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 攻略索引</title>
+  <style>
+    :root {
+      --bg: #f9f9f9; --card: #fff; --ink: #333; --muted: #666;
+      --line: #ddd; --brand: #3498db; --dark: #2c3e50; --nav: #34495e;
+      --featured: #f39c12; --kr: #c0392b;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 0;
+      background: var(--bg); color: var(--ink); line-height: 1.6; }
+    header { background: var(--dark); color: #fff; padding: 1.2rem 1rem; text-align: center; }
+    header h1 { margin: 0 0 .3rem; font-size: 1.5rem; }
+    header p { margin: 0; opacity: .85; font-size: .9rem; }
+    .container { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
+    h2 { border-left: 5px solid var(--brand); padding-left: .6rem; color: var(--brand); font-size: 1.3rem; }
+    .region-tabs { display: flex; gap: .5rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
+    .region-tabs button {
+      padding: .5rem 1.1rem; font-size: 1rem; border: 1px solid var(--line);
+      background: #fff; border-radius: 20px; cursor: pointer; color: var(--ink); }
+    .region-tabs button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .region-tabs button.kr.active { background: var(--kr); border-color: var(--kr); }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .filter-bar input[type=text], .filter-bar select {
+      padding: .55rem .7rem; font-size: 1rem; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+    .filter-bar input[type=text] { flex: 1 1 240px; min-width: 180px; }
+    .filter-bar label { display: inline-flex; align-items: center; gap: .3rem; font-size: .95rem; cursor: pointer; }
+    .count { text-align: center; color: var(--muted); font-size: .85rem; margin-bottom: 1rem; }
+    .kr-note { text-align:center; background:#fdecea; color:var(--kr); border:1px solid #f5c6cb;
+      border-radius:6px; padding:.5rem .8rem; margin-bottom:1rem; font-size:.85rem; }
+    .guide-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .guide-card { background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+      padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,.08); display: flex; flex-direction: column; }
+    .guide-card.featured { border: 2px solid var(--featured); }
+    .guide-card h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
+    .guide-card .orig { font-size: .78rem; color: #999; margin: 0 0 .4rem; }
+    .guide-card .meta { font-size: .85rem; color: var(--muted); margin: .15rem 0; }
+    .badge { display: inline-block; font-size: .75rem; padding: .1rem .5rem; border-radius: 10px;
+      background: #eef4fb; color: var(--brand); margin-right: .3rem; }
+    .badge.star { background: #fdf3e3; color: var(--featured); }
+    .badge.kr { background: #fdecea; color: var(--kr); }
+    .tags { margin: .4rem 0; }
+    .tag { font-size: .75rem; color: var(--muted); background: #f0f0f0; border-radius: 4px;
+      padding: .05rem .4rem; margin-right: .3rem; display: inline-block; }
+    .guide-card a.link { margin-top: auto; padding-top: .6rem; color: var(--brand); text-decoration: none; font-weight: 600; }
+    .guide-card a.link:hover { text-decoration: underline; }
+    .state { text-align: center; padding: 3rem 1rem; color: var(--muted); }
+    .state.error { color: #c0392b; }
+    footer { background: var(--dark); color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>瑪奇 Mobile 攻略索引</h1>
+    <p>整合台服（巴哈姆特、YouTube）與 🇰🇷 韓服搶先情報</p>
+    <nav style="margin-top:.6rem;">
+      <a href="index.html" style="color:#fff;margin:0 .8rem;text-decoration:underline;">攻略索引</a>
+      <a href="calculator.html" style="color:#cfe3f3;margin:0 .8rem;text-decoration:none;">🗡️ 傷害計算機</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="region-tabs" id="region-tabs">
+      <button data-region="all" class="active">全部</button>
+      <button data-region="tw">🇹🇼 台服</button>
+      <button data-region="kr" class="kr">🇰🇷 韓服搶先</button>
+    </div>
+
+    <div id="kr-note" class="kr-note" style="display:none;">
+      🔮 韓服搶先：韓服領先台服約 15 個月，以下內容是台服未來可能推出的方向，供提前準備參考。
+    </div>
+
+    <div class="filter-bar">
+      <input id="search-box" type="text" placeholder="搜尋標題／作者／標籤…" autocomplete="off">
+      <select id="category">
+        <option value="all">全部分類</option>
+        <option value="新手指南">新手指南</option>
+        <option value="職業解析">職業解析</option>
+        <option value="副本攻略">副本攻略</option>
+        <option value="活動情報">活動情報</option>
+      </select>
+      <label><input type="checkbox" id="featured"> 只顯示精華</label>
+    </div>
+    <div id="count" class="count"></div>
+    <div id="guide-list" class="guide-list"></div>
+    <div id="state" class="state">載入中…</div>
+  </div>
+
+  <footer><p>© 2026 瑪奇 Mobile 攻略索引網站</p></footer>
+
+  <script>
+    "use strict";
+    let guides = [];
+    let currentRegion = "all";
+
+    const str = (v, f = "") => (typeof v === "string" && v ? v : f);
+    const arr = (v) => (Array.isArray(v) ? v : []);
+    const bool = (v) => v === true;
+
+    function safeUrl(v) {
+      const s = str(v);
+      try { const u = new URL(s, window.location.href);
+        return (u.protocol === "http:" || u.protocol === "https:") ? u.href : "";
+      } catch (e) { return ""; }
+    }
+
+    function normalize(raw) {
+      const g = raw && typeof raw === "object" ? raw : {};
+      const title = str(g.title, "（無標題）");
+      return {
+        id: str(g.id), title,
+        title_original: str(g.title_original, title),
+        author: str(g.author, "未知"),
+        category: str(g.category, "未分類"),
+        tags: arr(g.tags).map((t) => str(t)).filter(Boolean),
+        url: safeUrl(g.url), summary: str(g.summary),
+        source: str(g.source, "未知來源"),
+        region: str(g.region, "tw"),
+        published_at: str(g.published_at),
+        is_featured: bool(g.is_featured),
+      };
+    }
+
+    function el(tag, className, text) {
+      const n = document.createElement(tag);
+      if (className) n.className = className;
+      if (text !== undefined) n.textContent = text;
+      return n;
+    }
+
+    function buildCard(g) {
+      const card = el("div", "guide-card" + (g.is_featured ? " featured" : ""));
+      card.appendChild(el("h3", null, g.title));
+      // 韓服顯示韓文原文
+      if (g.region === "kr" && g.title_original && g.title_original !== g.title) {
+        card.appendChild(el("div", "orig", "🇰🇷 原文：" + g.title_original));
+      }
+      const badges = el("div");
+      if (g.region === "kr") badges.appendChild(el("span", "badge kr", "🇰🇷 韓服"));
+      badges.appendChild(el("span", "badge", g.category));
+      if (g.is_featured) badges.appendChild(el("span", "badge star", "★ 精華"));
+      card.appendChild(badges);
+
+      card.appendChild(el("div", "meta", "作者：" + g.author + "｜來源：" + g.source));
+      if (g.published_at) card.appendChild(el("div", "meta", "發布：" + g.published_at));
+      if (g.summary) card.appendChild(el("div", "meta", g.summary));
+
+      if (g.tags.length) {
+        const tw = el("div", "tags");
+        g.tags.forEach((t) => tw.appendChild(el("span", "tag", "#" + t)));
+        card.appendChild(tw);
+      }
+      if (g.url) {
+        const a = el("a", "link", "查看攻略 →");
+        a.href = g.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+        card.appendChild(a);
+      }
+      return card;
+    }
+
+    function render() {
+      const list = document.getElementById("guide-list");
+      const state = document.getElementById("state");
+      const countEl = document.getElementById("count");
+      const category = document.getElementById("category").value;
+      const keyword = document.getElementById("search-box").value.trim().toLowerCase();
+      const showFeatured = document.getElementById("featured").checked;
+
+      document.getElementById("kr-note").style.display = currentRegion === "kr" ? "block" : "none";
+      list.textContent = "";
+
+      const filtered = guides
+        .filter((g) => currentRegion === "all" || g.region === currentRegion)
+        .filter((g) => category === "all" || g.category === category)
+        .filter((g) => !showFeatured || g.is_featured)
+        .filter((g) => {
+          if (!keyword) return true;
+          return g.title.toLowerCase().includes(keyword)
+            || g.title_original.toLowerCase().includes(keyword)
+            || g.author.toLowerCase().includes(keyword)
+            || g.tags.some((t) => t.toLowerCase().includes(keyword));
+        });
+
+      if (filtered.length === 0) {
+        state.textContent = guides.length === 0 ? "目前沒有任何攻略資料。" : "找不到符合條件的攻略，換個條件試試。";
+        state.className = "state"; countEl.textContent = ""; return;
+      }
+      state.textContent = ""; state.className = "state";
+      countEl.textContent = "共 " + filtered.length + " 篇攻略";
+      const frag = document.createDocumentFragment();
+      filtered.forEach((g) => frag.appendChild(buildCard(g)));
+      list.appendChild(frag);
+    }
+
+    function debounce(fn, ms) { let t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
+
+    async function loadGuides() {
+      const state = document.getElementById("state");
+      try {
+        const res = await fetch("guides.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const rawList = Array.isArray(data) ? data : arr(data.guides);
+        guides = rawList.map(normalize);
+        render();
+      } catch (err) {
+        console.error("載入攻略失敗", err);
+        state.className = "state error";
+        state.textContent = "攻略資料載入失敗，請稍後重新整理頁面。";
+      }
+    }
+
+    document.querySelectorAll("#region-tabs button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentRegion = btn.dataset.region;
+        document.querySelectorAll("#region-tabs button").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        render();
+      });
+    });
+    document.getElementById("search-box").addEventListener("input", debounce(render, 200));
+    document.getElementById("category").addEventListener("change", render);
+    document.getElementById("featured").addEventListener("change", render);
+
+    loadGuides();
+  </script>
+</body>
+</html>

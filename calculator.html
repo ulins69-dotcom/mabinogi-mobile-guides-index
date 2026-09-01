@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 傷害計算機</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.6; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .8rem; text-decoration:none; font-size:.95rem; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:900px; margin:1.5rem auto; padding:0 1rem; }
+    h2 { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; }
+    .disclaimer { background:#fff8e1; border:1px solid #f0d98c; color:#8a6d1a;
+      border-radius:6px; padding:.7rem .9rem; font-size:.85rem; margin-bottom:1.2rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1rem; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1.1rem;
+      box-shadow:0 2px 4px rgba(0,0,0,.06); }
+    .field { margin-bottom:.8rem; }
+    .field label { display:block; font-size:.9rem; margin-bottom:.2rem; color:var(--ink); }
+    .field .hint { color:var(--muted); font-size:.75rem; }
+    .field input { width:100%; padding:.5rem .6rem; font-size:1rem; border:1px solid var(--line); border-radius:6px; }
+    .result { margin-top:1.2rem; }
+    .result .row { display:flex; justify-content:space-between; padding:.6rem .2rem; border-bottom:1px dashed var(--line); }
+    .result .row:last-child { border-bottom:none; }
+    .result .label { color:var(--muted); }
+    .result .val { font-weight:700; font-size:1.15rem; color:var(--brand); }
+    .result .val.big { color:var(--featured); font-size:1.35rem; }
+    .tools { margin-top:2rem; }
+    .tool-warn { background:#fdecea; border:1px solid #f5c6cb; color:var(--warn);
+      border-radius:6px; padding:.8rem 1rem; font-size:.85rem; }
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>瑪奇 Mobile 傷害計算機</h1>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html" class="active">傷害計算機</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="disclaimer">
+      ⚠️ 本計算機依據<strong>韓服社群推算</strong>的傷害公式，官方未公布正式算式，數值<strong>僅供參考、實際以遊戲內為準</strong>。
+      公式含亂數（0.95～1.05），故結果以區間呈現。
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>輸入數值</h2>
+        <div class="field">
+          <label>攻擊力（A）</label>
+          <input id="atk" type="number" value="10000" min="0">
+          <span class="hint">角色+武器+飾品+寵物+時裝+純攻附魔的總攻擊力</span>
+        </div>
+        <div class="field">
+          <label>攻擊力增加 %（B）</label>
+          <input id="atkinc" type="number" value="0" min="0">
+          <span class="hint">裝備/技能/附魔的攻擊力增加，相加後填總%</span>
+        </div>
+        <div class="field">
+          <label>傷害增加倍率（C）</label>
+          <input id="dmgmul" type="number" value="1" min="0" step="0.01">
+          <span class="hint">傷害增加乘區，無則填 1</span>
+        </div>
+        <div class="field">
+          <label>強化加成 %（連擊/強擊/多段等總和）</label>
+          <input id="enh" type="number" value="0" min="0">
+        </div>
+        <div class="field">
+          <label>技能係數 %</label>
+          <input id="skill" type="number" value="100" min="0">
+          <span class="hint">該技能的傷害倍率，例如 100 代表 1.0 倍</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>暴擊與防禦</h2>
+        <div class="field">
+          <label>暴擊率 %</label>
+          <input id="critrate" type="number" value="0" min="0" max="100">
+        </div>
+        <div class="field">
+          <label>暴擊傷害倍率</label>
+          <input id="critmul" type="number" value="1.5" min="1" step="0.05">
+          <span class="hint">暴擊時的傷害倍數，通常 1.5～2.0</span>
+        </div>
+        <div class="field">
+          <label>目標（王）防禦力</label>
+          <input id="def" type="number" value="0" min="0">
+          <span class="hint">無防禦或不確定填 0</span>
+        </div>
+        <div class="field">
+          <label>防禦減免 %（穿透）</label>
+          <input id="defred" type="number" value="0" min="0" max="100">
+        </div>
+
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+
+    <div class="tools">
+      <h2>相關工具</h2>
+      <p style="font-size:.9rem;">想看<strong>實戰即時 DPS</strong>（而非理論值）？社群工具
+        <a href="https://github.com/LeeMoonTW/MM-Scribe" target="_blank" rel="noopener noreferrer">MM-Scribe</a>
+        可即時統計你的實際輸出。</p>
+      <div class="tool-warn">
+        ⚠️ <strong>風險提醒</strong>：MM-Scribe 透過<strong>擷取遊戲網路封包</strong>運作，
+        依其作者說明，此方式<strong>可能違反遊戲服務條款、有帳號被處罰的風險</strong>。
+        本站僅提供資訊參考，是否使用請自行評估、風險自負。本站的網頁計算機則不碰遊戲、無此風險。
+      </div>
+    </div>
+  </div>
+
+  <footer><p>© 2026 瑪奇 Mobile 攻略索引網站</p></footer>
+
+  <script>
+    "use strict";
+    const $ = (id) => document.getElementById(id);
+    const num = (id) => { const v = parseFloat($(id).value); return isFinite(v) ? v : 0; };
+
+    function compute() {
+      const A = Math.max(0, num("atk"));
+      const B = 1 + num("atkinc") / 100;
+      const C = Math.max(0, num("dmgmul"));
+      const D = 1 + num("enh") / 100;
+      const skill = num("skill") / 100;
+      const critRate = Math.min(1, Math.max(0, num("critrate") / 100));
+      const critMul = Math.max(1, num("critmul"));
+      const def = Math.max(0, num("def"));
+      const defred = Math.min(100, Math.max(0, num("defred"))) / 100;
+
+      // I：防禦減免（韓服社群式）
+      const I = 1 / (1 + def * (1 - defred) / 10328);
+      // 基礎（不含暴擊與亂數）：2 × floor(A×B) × C × D × I × 技能係數
+      const base = 2 * Math.floor(A * B) * C * D * I * skill;
+
+      const up = Math.ceil;
+      const normalMin = up(base * 0.95);
+      const normalMax = up(base * 1.05);
+      const critMin = up(base * critMul * 0.95);
+      const critMax = up(base * critMul * 1.05);
+      // 期望值：含暴擊機率、亂數取平均 1.0
+      const expF = 1 + critRate * (critMul - 1);
+      const expected = up(base * expF);
+
+      const fmt = (n) => n.toLocaleString("en-US");
+      $("result").innerHTML = "";
+      const rows = [
+        ["非暴擊傷害", fmt(normalMin) + " ～ " + fmt(normalMax), false],
+        ["暴擊傷害", fmt(critMin) + " ～ " + fmt(critMax), false],
+        ["期望傷害（含暴擊率）", fmt(expected), true],
+      ];
+      rows.forEach(([label, val, big]) => {
+        const row = document.createElement("div");
+        row.className = "row";
+        const l = document.createElement("span"); l.className = "label"; l.textContent = label;
+        const v = document.createElement("span"); v.className = "val" + (big ? " big" : ""); v.textContent = val;
+        row.appendChild(l); row.appendChild(v);
+        $("result").appendChild(row);
+      });
+    }
+
+    document.querySelectorAll("input").forEach((el) => el.addEventListener("input", compute));
+    compute();
+  </script>
+</body>
+</html>
