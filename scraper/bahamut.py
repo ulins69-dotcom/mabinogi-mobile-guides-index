@@ -12,6 +12,14 @@
 【重要】gamer.com.tw 版面 class 名稱可能隨改版變動。
 本檔用「多重選擇器 + 保底」策略；首次正式執行時，
 請先人工抓一頁 HTML 核對選擇器（見 README 的 Phase 2 上線檢查表）。
+
+【內文摘要】原本只抓列表頁標題，summary 永遠是空字串，導致職業分類
+（scraper/classify.py）只能靠標題判斷，很多不把職業寫進標題的深度攻略
+會被漏分類。2026-09 起改為每篇額外進一篇內文頁（C.php），
+用 `.c-article__content`（實測 2026-09-01 確認，server-rendered，
+requests 抓得到不用跑 JS）擷取前 SUMMARY_MAX_CHARS 字當摘要——
+只取片段，不存全文，符合鐵律「僅存標題/連結/摘要」的條款考量。
+代價是請求量翻倍（列表+內文各一次），一樣遵守 REQUEST_DELAY_SEC 禮貌爬取。
 """
 
 from __future__ import annotations
@@ -34,6 +42,7 @@ HEADERS = {
 }
 
 REQUEST_DELAY_SEC = 3  # 每次請求間隔，禮貌爬取
+SUMMARY_MAX_CHARS = 150  # 內文摘要最長字數，只取片段不存全文
 
 
 def _get(url: str) -> str | None:
@@ -129,8 +138,24 @@ def _normalize_date(s: str) -> str:
     return ""
 
 
+def _fetch_summary(url: str) -> str:
+    """進文章內頁抓一小段內文當摘要。抓不到就回傳空字串，不拖垮整批。"""
+    html = _get(url)
+    if not html:
+        return ""
+    soup = BeautifulSoup(html, "html.parser")
+    el = _first(soup, [".c-article__content", ".c-post__body"])
+    if not el:
+        return ""
+    text = el.get_text(separator=" ", strip=True)
+    text = re.sub(r"\s+", " ", text)
+    if len(text) > SUMMARY_MAX_CHARS:
+        text = text[:SUMMARY_MAX_CHARS] + "…"
+    return text
+
+
 def fetch(pages: int = 1) -> list[dict]:
-    """抓取列表前 pages 頁的貼文。回傳未分類的原始 item 清單。"""
+    """抓取列表前 pages 頁的貼文，並各自進內文頁補摘要。回傳未分類的原始 item 清單。"""
     all_items = []
     for p in range(1, pages + 1):
         url = LIST_URL if p == 1 else f"{LIST_URL}&page={p}"
@@ -140,5 +165,12 @@ def fetch(pages: int = 1) -> list[dict]:
             continue
         all_items.extend(_parse_list(html))
         time.sleep(REQUEST_DELAY_SEC)
-    print(f"[巴哈] 共取得 {len(all_items)} 筆")
+
+    print(f"[巴哈] 共取得 {len(all_items)} 筆，開始逐篇補摘要...")
+    for i, item in enumerate(all_items, 1):
+        item["summary"] = _fetch_summary(item["url"])
+        time.sleep(REQUEST_DELAY_SEC)
+        if i % 10 == 0:
+            print(f"[巴哈] 摘要進度 {i}/{len(all_items)}")
+
     return all_items
