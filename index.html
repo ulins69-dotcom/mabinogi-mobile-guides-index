@@ -103,11 +103,9 @@
     let guides = [];
     let currentRegion = "all";
 
-    // 職業標籤白名單，需與 scraper/classify.py 的 TAG_DICT 職業區段同步
-    const CLASS_TAGS = [
-      "法師", "冰霜術士", "電擊術士", "戰士", "大劍戰士", "弓手", "弩手",
-      "刺客", "雙刀客", "牧師", "治癒師", "樂師", "格鬥家",
-    ];
+    // 官方六大職業系列（tw.nexon.com/mabinogimobile/home/info/class），
+    // 須與 scraper/classify.py 的 OFFICIAL_CLASSES 同步。
+    const CLASS_TAGS = ["戰士", "弓手", "魔法師", "治癒師", "吟遊詩人", "盜賊"];
 
     const str = (v, f = "") => (typeof v === "string" && v ? v : f);
     const arr = (v) => (Array.isArray(v) ? v : []);

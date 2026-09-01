@@ -31,9 +31,21 @@ PREFIX_HINT = {
     "討論": None,
 }
 
+# 官方六大職業系列（見 tw.nexon.com/mabinogimobile/home/info/class）。
+# 前端「職業」選單只認這六個官方名稱（見 index.html CLASS_TAGS，須與此同步）。
+OFFICIAL_CLASSES = ["戰士", "弓手", "魔法師", "治癒師", "吟遊詩人", "盜賊"]
+
+# 社群慣用的非官方叫法 → 對應官方系列。只收錄有把握的對應，
+# 不確定屬於哪個官方系列的字眼（如「刺客」「雙刀客」「格鬥家」）
+# 一律不歸類，留在下面 TAG_DICT 當一般標籤就好，不硬塞進職業選單。
+CLASS_ALIASES = {
+    "法師": "魔法師", "冰霜術士": "魔法師", "電擊術士": "魔法師",
+    "樂師": "吟遊詩人",
+    "弩手": "弓手",
+}
+
 # ── 標籤字典：出現在標題就抽出來當標籤 ─────────────────────
-# 職業名稱依實際爬到的資料校對過（見「治癒師」而非「牧師」），
-# 前端職業選單會用這份清單的職業子集動態產生（見 index.html CLASS_TAGS）。
+# 這份是一般描述性標籤（含非官方職業叫法），跟上面的官方職業歸類分開處理。
 TAG_DICT = [
     # 職業
     "法師", "冰霜術士", "電擊術士", "戰士", "大劍戰士", "弓手", "弩手",
@@ -80,6 +92,14 @@ def extract_tags(item: dict) -> list[str]:
     for tag in TAG_DICT:
         if tag.lower() in text and tag not in tags:
             tags.append(tag)
+    # 官方職業歸類：命中官方名稱或其別名，一律補上官方名稱標籤，
+    # 讓前端職業選單能用官方名稱篩到（同一篇可能同時有「法師」跟「魔法師」兩個標籤）。
+    for official in OFFICIAL_CLASSES:
+        if official.lower() in text and official not in tags:
+            tags.append(official)
+    for alias, official in CLASS_ALIASES.items():
+        if alias.lower() in text and official not in tags:
+            tags.append(official)
     return tags
 
 
