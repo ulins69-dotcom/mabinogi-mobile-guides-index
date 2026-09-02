@@ -31,6 +31,9 @@ MODEL = "gemini-3.6-flash"  # 2026-09 實測：2.0 已下架；2.5 對「新用�
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 BATCH_SIZE = 15
 VALID_CATEGORIES = ["新手指南", "職業解析", "副本攻略", "活動情報"]
+BATCH_DELAY_SEC = 4  # 批次間固定延遲，降低撞到每分鐘速率上限的機率
+RATE_LIMIT_RETRIES = 2
+RATE_LIMIT_BACKOFF_SEC = 20  # 429/503 是暫時性的，等一下再試大機率會過
 
 
 def _key() -> str:
@@ -66,31 +69,41 @@ def _call_gemini(prompt: str, key: str) -> list | None:
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
     }
-    try:
-        r = requests.post(f"{ENDPOINT}?key={key}", json=body, timeout=60)
-        if r.status_code in (401, 403):
-            # 2026-09 起 Gemini 開始拒絕「標準 API 金鑰」，要求改用 AI Studio
-            # 產生的「驗證金鑰」（見 ai.google.dev/gemini-api/docs/api-key）。
-            # 401/403 十之八九是這個，不是程式邏輯問題，印清楚一點方便判斷。
-            print(
-                f"[AI] 呼叫失敗（HTTP {r.status_code}），這批降級為規則版。"
-                "常見原因：GEMINI_API_KEY 是舊式「標準金鑰」被拒絕，"
-                "需要去 Google AI Studio 重新產生「驗證金鑰」並更新 GitHub Secret。"
-                f"原始回應：{r.text[:300]}"
-            )
+    for attempt in range(RATE_LIMIT_RETRIES + 1):
+        try:
+            r = requests.post(f"{ENDPOINT}?key={key}", json=body, timeout=60)
+            if r.status_code in (401, 403):
+                # 2026-09 起 Gemini 開始拒絕「標準 API 金鑰」，要求改用 AI Studio
+                # 產生的「驗證金鑰」（見 ai.google.dev/gemini-api/docs/api-key）。
+                # 401/403 十之八九是這個，不是程式邏輯問題，印清楚一點方便判斷。
+                print(
+                    f"[AI] 呼叫失敗（HTTP {r.status_code}），這批降級為規則版。"
+                    "常見原因：GEMINI_API_KEY 是舊式「標準金鑰」被拒絕，"
+                    "需要去 Google AI Studio 重新產生「驗證金鑰」並更新 GitHub Secret。"
+                    f"原始回應：{r.text[:300]}"
+                )
+                return None
+            if r.status_code == 404:
+                # 通常是 MODEL 常數指到的模型名稱下架/打錯，不是金鑰問題。
+                print(f"[AI] 呼叫失敗（HTTP 404，模型 {MODEL} 可能已下架/名稱錯誤），這批降級為規則版：{r.text[:300]}")
+                return None
+            if r.status_code in (429, 503):
+                # 暫時性錯誤（速率限制/伺服器忙），不是設定問題，等一下重試。
+                if attempt < RATE_LIMIT_RETRIES:
+                    print(f"[AI] HTTP {r.status_code}（暫時性，疑似碰到速率限制），{RATE_LIMIT_BACKOFF_SEC}秒後重試（第 {attempt+1}/{RATE_LIMIT_RETRIES} 次）")
+                    time.sleep(RATE_LIMIT_BACKOFF_SEC)
+                    continue
+                print(f"[AI] 呼叫失敗（HTTP {r.status_code}，重試 {RATE_LIMIT_RETRIES} 次仍失敗），這批降級為規則版")
+                return None
+            r.raise_for_status()
+            data = r.json()
+            text = data["candidates"][0]["content"]["parts"][0]["text"]
+            parsed = json.loads(text)
+            return parsed if isinstance(parsed, list) else None
+        except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
+            print(f"[AI] 呼叫失敗，這批降級為規則版：{e}")
             return None
-        if r.status_code == 404:
-            # 通常是 MODEL 常數指到的模型名稱下架/打錯，不是金鑰問題。
-            print(f"[AI] 呼叫失敗（HTTP 404，模型 {MODEL} 可能已下架/名稱錯誤），這批降級為規則版：{r.text[:300]}")
-            return None
-        r.raise_for_status()
-        data = r.json()
-        text = data["candidates"][0]["content"]["parts"][0]["text"]
-        parsed = json.loads(text)
-        return parsed if isinstance(parsed, list) else None
-    except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
-        print(f"[AI] 呼叫失敗，這批降級為規則版：{e}")
-        return None
+    return None
 
 
 def _apply_rule_fallback(item: dict) -> None:
@@ -124,27 +137,29 @@ def enrich(items: list[dict]) -> list[dict]:
             failed_batches += 1
             for it in batch:
                 _apply_rule_fallback(it)
-            continue
-        # 把 AI 回傳依 i 對應回 batch
-        by_i = {}
-        for r in result:
-            if isinstance(r, dict) and "i" in r:
-                try:
-                    by_i[int(r["i"])] = r
-                except (ValueError, TypeError):
-                    pass
-        for idx, it in enumerate(batch):
-            r = by_i.get(idx)
-            if not r:
-                _apply_rule_fallback(it)
-                continue
-            cat = r.get("category")
-            it["category"] = cat if cat in VALID_CATEGORIES else classify.classify_category(it)
-            tags = r.get("tags")
-            it["tags"] = [str(t) for t in tags if t] if isinstance(tags, list) else classify.extract_tags(it)
-            it["title_zh"] = str(r.get("title_zh") or it.get("title", ""))
-            it["summary"] = str(r.get("summary_zh") or it.get("summary", ""))
-        time.sleep(1)  # 禮貌節流，避開每分鐘速率上限
+        else:
+            # 把 AI 回傳依 i 對應回 batch
+            by_i = {}
+            for r in result:
+                if isinstance(r, dict) and "i" in r:
+                    try:
+                        by_i[int(r["i"])] = r
+                    except (ValueError, TypeError):
+                        pass
+            for idx, it in enumerate(batch):
+                r = by_i.get(idx)
+                if not r:
+                    _apply_rule_fallback(it)
+                    continue
+                cat = r.get("category")
+                it["category"] = cat if cat in VALID_CATEGORIES else classify.classify_category(it)
+                tags = r.get("tags")
+                it["tags"] = [str(t) for t in tags if t] if isinstance(tags, list) else classify.extract_tags(it)
+                it["title_zh"] = str(r.get("title_zh") or it.get("title", ""))
+                it["summary"] = str(r.get("summary_zh") or it.get("summary", ""))
+        # 不管這批成功或失敗都要延遲，避免失敗批次雪崩式越打越快、越打越容易被限流
+        # （之前的 bug：失敗時用 continue 跳過了這行，緊接著下一批立刻打過去）。
+        time.sleep(BATCH_DELAY_SEC)
 
     if failed_batches == total_batches and total_batches > 0:
         print(
