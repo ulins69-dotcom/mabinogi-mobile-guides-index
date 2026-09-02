@@ -28,6 +28,9 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # 不緩衝 stdout，讓 log 的時間戳反映真實執行時間，方便之後排查
+          # （今晚除錯時發現緩衝會讓所有 [AI] 訊息擠在同一秒，誤判成「沒延遲」）。
+          PYTHONUNBUFFERED: "1"
         working-directory: scraper
         run: python main.py --pages 5 --out ../guides.json
 
@@ -40,5 +43,11 @@ jobs:
             echo "資料無變動，跳過提交"
           else
             git commit -m "chore: 自動更新攻略資料 $(date +%F)"
-            git push
+            # 這個管線常常跑 20-30 分鐘，跑的期間如果 master 有別的 commit
+            # 進來，直接 push 會被拒絕。用 pull --rebase 重放後再推一次，
+            # 失敗才真的算失敗（不是靜默放棄資料）。
+            if ! git push; then
+              git pull --rebase origin master
+              git push
+            fi
           fi
