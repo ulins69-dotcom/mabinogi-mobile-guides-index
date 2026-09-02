@@ -19,11 +19,13 @@ import requests
 import classify  # 規則版，作為降級備援與 is_featured 計算
 
 MODEL = "gemini-2.5-flash"  # 2.0 已從官方模型清單下架（2026-09 查證）
-# 2026-09 查證：Gemini 換代成新版 Interactions API，舊的
-# /v1beta/models/{MODEL}:generateContent 端點跟 contents/candidates 回應格式
-# 都已經被取代。新端點固定是 /v1beta/interactions，不用把 MODEL 接在路徑裡，
-# 改成放在 request body 的 "model" 欄位。見 ai.google.dev/api/interactions-api。
-ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
+# 2026-09 查證：Google 力推新版 Interactions API（/v1beta/interactions），
+# 但實測這個專案的金鑰打下去是 404（見 GitHub Actions log），這個新端點
+# 標示為「實驗性 API」，很可能還沒對這個帳號/專案開放。
+# 舊版 /v1beta/models/{MODEL}:generateContent 端點實測仍然是活的（用假金鑰
+# 測試回 400 缺金鑰，不是 404 路徑不存在），改回用這個，只換模型名稱，
+# 不要一次連新端點都換，降低風險。
+ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 BATCH_SIZE = 15
 VALID_CATEGORIES = ["新手指南", "職業解析", "副本攻略", "活動情報"]
 
@@ -56,25 +58,10 @@ def _build_prompt(batch: list[dict]) -> str:
 """
 
 
-def _extract_text(data: dict) -> str | None:
-    """從 Interaction 資源的 steps 裡找出模型輸出的文字（見 ModelOutputStep）。"""
-    for step in reversed(data.get("steps", [])):
-        if step.get("type") != "model_output":
-            continue
-        parts = [
-            c.get("text", "") for c in step.get("content", [])
-            if isinstance(c, dict) and c.get("type") == "text"
-        ]
-        if parts:
-            return "".join(parts)
-    return None
-
-
 def _call_gemini(prompt: str, key: str) -> list | None:
     body = {
-        "model": MODEL,
-        "input": prompt,
-        "response_format": {"type": "text", "mime_type": "application/json"},
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
     }
     try:
         r = requests.post(f"{ENDPOINT}?key={key}", json=body, timeout=60)
@@ -89,15 +76,13 @@ def _call_gemini(prompt: str, key: str) -> list | None:
                 f"原始回應：{r.text[:300]}"
             )
             return None
+        if r.status_code == 404:
+            # 通常是 MODEL 常數指到的模型名稱下架/打錯，不是金鑰問題。
+            print(f"[AI] 呼叫失敗（HTTP 404，模型 {MODEL} 可能已下架/名稱錯誤），這批降級為規則版：{r.text[:300]}")
+            return None
         r.raise_for_status()
         data = r.json()
-        if data.get("status") not in (None, "completed"):
-            print(f"[AI] 呼叫失敗，這批降級為規則版：status={data.get('status')} errors={data.get('errors')}")
-            return None
-        text = _extract_text(data)
-        if text is None:
-            print(f"[AI] 呼叫失敗，這批降級為規則版：回應裡找不到 model_output 文字內容")
-            return None
+        text = data["candidates"][0]["content"]["parts"][0]["text"]
         parsed = json.loads(text)
         return parsed if isinstance(parsed, list) else None
     except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
