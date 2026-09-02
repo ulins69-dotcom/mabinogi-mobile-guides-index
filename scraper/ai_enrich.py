@@ -18,7 +18,10 @@ import requests
 
 import classify  # 規則版，作為降級備援與 is_featured 計算
 
-MODEL = "gemini-2.5-flash"  # 2.0 已從官方模型清單下架（2026-09 查證）
+MODEL = "gemini-3.6-flash"  # 2026-09 實測：2.0 已下架；2.5 對「新用戶」金鑰回 404
+# ("This model models/gemini-2.5-flash is no longer available to new
+# users. Please update your code to use models/gemini-3.6-flash" ——
+# Google API 錯誤訊息原文，直接點名這個模型，不是用猜的)
 # 2026-09 查證：Google 力推新版 Interactions API（/v1beta/interactions），
 # 但實測這個專案的金鑰打下去是 404（見 GitHub Actions log），這個新端點
 # 標示為「實驗性 API」，很可能還沒對這個帳號/專案開放。
