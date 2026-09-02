@@ -18,6 +18,13 @@
     header p { margin: 0; opacity: .85; font-size: .9rem; }
     .container { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
     h2 { border-left: 5px solid var(--brand); padding-left: .6rem; color: var(--brand); font-size: 1.3rem; }
+    .resource-links { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1rem; }
+    .resource-card { flex: 1 1 260px; background: #eef6fb; border: 1px solid #cfe3f3; border-radius: 8px;
+      padding: .8rem 1rem; text-decoration: none; color: var(--ink); transition: box-shadow .15s, border-color .15s; }
+    .resource-card:hover { border-color: var(--brand); box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+    .resource-card__title { font-weight: 700; color: var(--brand); font-size: .95rem; }
+    .resource-card__ext { font-size: .8rem; opacity: .7; }
+    .resource-card__desc { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
     .region-tabs { display: flex; gap: .5rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
     .region-tabs button {
       padding: .5rem 1.1rem; font-size: 1rem; border: 1px solid var(--line);
@@ -64,6 +71,17 @@
   </header>
 
   <div class="container">
+    <div class="resource-links">
+      <a class="resource-card" href="https://mabinogimobile.nipponhashi.com/" target="_blank" rel="noopener noreferrer">
+        <div class="resource-card__title">瑪奇 Mobile Wiki DB <span class="resource-card__ext">↗</span></div>
+        <div class="resource-card__desc">攻略資料庫・符文稱號配裝・結界野王即時倒數（178 篇深度攻略＋mp3 轉樂譜）</div>
+      </a>
+      <a class="resource-card" href="https://mabitw.com/" target="_blank" rel="noopener noreferrer">
+        <div class="resource-card__title">瑪奇 Mobile 台服工具箱 <span class="resource-card__ext">↗</span></div>
+        <div class="resource-card__desc">每日任務追蹤・寶石/交易所計算機・職業比較・樂譜合奏工具</div>
+      </a>
+    </div>
+
     <div class="region-tabs" id="region-tabs">
       <button data-region="all" class="active">全部</button>
       <button data-region="tw">🇹🇼 台服</button>
