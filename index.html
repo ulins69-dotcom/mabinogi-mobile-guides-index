@@ -18,6 +18,17 @@
     header p { margin: 0; opacity: .85; font-size: .9rem; }
     .container { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
     h2 { border-left: 5px solid var(--brand); padding-left: .6rem; color: var(--brand); font-size: 1.3rem; }
+    .countdown-panel { background: var(--dark); border-radius: 10px; padding: 1rem 1.2rem; margin-top: 1rem; color: #fff; }
+    .countdown-panel__head { display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: .4rem; font-size: 1.05rem; font-weight: 700; margin-bottom: .8rem; }
+    .countdown-panel__now { font-size: .85rem; font-weight: 400; opacity: .8; }
+    .countdown-panel__now #tw-clock { font-variant-numeric: tabular-nums; }
+    .countdown-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; }
+    .countdown-item { background: rgba(255,255,255,.06); border-radius: 8px; padding: .7rem .8rem; text-align: center; }
+    .countdown-item__label { font-size: .85rem; opacity: .9; }
+    .countdown-item__time { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums;
+      color: var(--featured); margin: .2rem 0; }
+    .countdown-item__note { font-size: .7rem; opacity: .65; }
     .resource-links { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1rem; }
     .resource-card { flex: 1 1 260px; background: #eef6fb; border: 1px solid #cfe3f3; border-radius: 8px;
       padding: .8rem 1rem; text-decoration: none; color: var(--ink); transition: box-shadow .15s, border-color .15s; }
@@ -71,6 +82,35 @@
   </header>
 
   <div class="container">
+    <div class="countdown-panel">
+      <div class="countdown-panel__head">
+        <span>⏰ 現在該打什麼</span>
+        <span class="countdown-panel__now">台灣時間 <span id="tw-clock">--:--:--</span></span>
+      </div>
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <div class="countdown-item__label">🔮 召喚結界</div>
+          <div class="countdown-item__time" id="cd-barrier">--:--:--</div>
+          <div class="countdown-item__note">每小時整點出現</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-item__label">👹 野外首領</div>
+          <div class="countdown-item__time" id="cd-boss">--:--:--</div>
+          <div class="countdown-item__note">12/18/20/22 點・社群整理僅供參考</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-item__label">📅 每日重置</div>
+          <div class="countdown-item__time" id="cd-daily">--:--:--</div>
+          <div class="countdown-item__note">每天 06:00・官方公告確認</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-item__label">🗓️ 每週重置</div>
+          <div class="countdown-item__time" id="cd-weekly">--:--:--</div>
+          <div class="countdown-item__note">每週一 06:00・官方公告確認</div>
+        </div>
+      </div>
+    </div>
+
     <div class="resource-links">
       <a class="resource-card" href="https://mabinogimobile.nipponhashi.com/" target="_blank" rel="noopener noreferrer">
         <div class="resource-card__title">瑪奇 Mobile Wiki DB <span class="resource-card__ext">↗</span></div>
@@ -120,6 +160,70 @@
     "use strict";
     let guides = [];
     let currentRegion = "all";
+
+    // ── 倒數面板（結界/野王/每日/每週重置）───────────────────
+    // 全部用台灣時間（UTC+8）計算，不吃瀏覽器所在時區：先把目前時間
+    // 平移 +8 小時，之後一律用 UTC 系列方法讀寫，等同直接操作台灣的
+    // 時、分、日、星期，不會被瀏覽器本地時區干擾。
+    // 重置時間依據：每日/每週重置與結界整點已交叉核對兩個玩家站
+    // （mabinogimobile.nipponhashi.com、mabitw.com），野王時間目前只有
+    // 單一來源，標記為社群整理僅供參考，比照 calculator.html 的做法。
+    function taiwanNow() {
+      return new Date(Date.now() + 8 * 3600000);
+    }
+    function fmtDuration(ms) {
+      if (ms < 0) ms = 0;
+      const totalSec = Math.floor(ms / 1000);
+      const days = Math.floor(totalSec / 86400);
+      const h = Math.floor((totalSec % 86400) / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
+      const s = totalSec % 60;
+      const pad = (n) => String(n).padStart(2, "0");
+      const hms = pad(h) + ":" + pad(m) + ":" + pad(s);
+      return days > 0 ? days + "天 " + hms : hms;
+    }
+    function nextTopOfHour(tw) {
+      const next = new Date(tw.getTime());
+      next.setUTCMinutes(0, 0, 0);
+      next.setUTCHours(next.getUTCHours() + 1);
+      return next;
+    }
+    function nextBossTime(tw) {
+      for (const h of [12, 18, 20, 22]) {
+        const c = new Date(tw.getTime());
+        c.setUTCHours(h, 0, 0, 0);
+        if (c > tw) return c;
+      }
+      const c = new Date(tw.getTime());
+      c.setUTCDate(c.getUTCDate() + 1);
+      c.setUTCHours(12, 0, 0, 0);
+      return c;
+    }
+    function nextDailyReset(tw) {
+      const next = new Date(tw.getTime());
+      next.setUTCHours(6, 0, 0, 0);
+      if (next <= tw) next.setUTCDate(next.getUTCDate() + 1);
+      return next;
+    }
+    function nextWeeklyReset(tw) {
+      const next = new Date(tw.getTime());
+      next.setUTCHours(6, 0, 0, 0);
+      const day = next.getUTCDay(); // 0=週日, 1=週一, ...
+      let daysUntilMonday = (1 - day + 7) % 7;
+      if (daysUntilMonday === 0 && next <= tw) daysUntilMonday = 7;
+      next.setUTCDate(next.getUTCDate() + daysUntilMonday);
+      return next;
+    }
+    function updateCountdowns() {
+      const tw = taiwanNow();
+      const pad = (n) => String(n).padStart(2, "0");
+      document.getElementById("tw-clock").textContent =
+        pad(tw.getUTCHours()) + ":" + pad(tw.getUTCMinutes()) + ":" + pad(tw.getUTCSeconds());
+      document.getElementById("cd-barrier").textContent = fmtDuration(nextTopOfHour(tw) - tw);
+      document.getElementById("cd-boss").textContent = fmtDuration(nextBossTime(tw) - tw);
+      document.getElementById("cd-daily").textContent = fmtDuration(nextDailyReset(tw) - tw);
+      document.getElementById("cd-weekly").textContent = fmtDuration(nextWeeklyReset(tw) - tw);
+    }
 
     // 官方六大職業系列（tw.nexon.com/mabinogimobile/home/info/class），
     // 須與 scraper/classify.py 的 OFFICIAL_CLASSES 同步。
@@ -292,6 +396,8 @@
     document.getElementById("tag-filter").addEventListener("change", render);
     document.getElementById("featured").addEventListener("change", render);
 
+    updateCountdowns();
+    setInterval(updateCountdowns, 1000);
     loadGuides();
   </script>
 </body>
