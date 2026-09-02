@@ -36,6 +36,20 @@
     .resource-card__title { font-weight: 700; color: var(--brand); font-size: .95rem; }
     .resource-card__ext { font-size: .8rem; opacity: .7; }
     .resource-card__desc { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
+    .class-picker { margin-top: 1.2rem; text-align: center; }
+    .class-picker__head { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: .6rem; }
+    .class-picker__buttons { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
+    .class-picker__buttons button { padding: .6rem 1.2rem; font-size: 1rem; font-weight: 600;
+      border: 2px solid var(--brand); background: #fff; color: var(--brand); border-radius: 24px; cursor: pointer;
+      transition: transform .1s, box-shadow .1s; }
+    .class-picker__buttons button:hover { box-shadow: 0 2px 8px rgba(52,152,219,.3); }
+    .class-picker__buttons button.active { background: var(--brand); color: #fff; transform: scale(1.05); }
+    .focus-banner { display: flex; align-items: center; justify-content: center; gap: .8rem; flex-wrap: wrap;
+      background: #eef6fb; border: 1px solid var(--brand); border-radius: 8px; padding: .6rem 1rem;
+      margin: 1rem 0; font-size: .95rem; }
+    .focus-banner strong { color: var(--brand); font-size: 1.05rem; }
+    .focus-banner button { border: none; background: none; color: var(--muted); text-decoration: underline;
+      cursor: pointer; font-size: .85rem; }
     .region-tabs { display: flex; gap: .5rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
     .region-tabs button {
       padding: .5rem 1.1rem; font-size: 1rem; border: 1px solid var(--line);
@@ -136,6 +150,15 @@
       🔮 韓服搶先：韓服領先台服約 15 個月，以下內容是台服未來可能推出的方向，供提前準備參考。
     </div>
 
+    <div class="class-picker">
+      <div class="class-picker__head">🎯 先選你的職業，內容會聚焦在這裡</div>
+      <div class="class-picker__buttons" id="class-picker-buttons"></div>
+    </div>
+    <div id="focus-banner" class="focus-banner" style="display:none;">
+      正在看：<strong id="focus-banner__name"></strong>
+      <button id="focus-banner__clear" type="button">✕ 清除，看全部</button>
+    </div>
+
     <div class="filter-bar">
       <input id="search-box" type="text" placeholder="搜尋標題／作者／標籤…" autocomplete="off">
       <select id="category">
@@ -144,9 +167,6 @@
         <option value="職業解析">職業解析</option>
         <option value="副本攻略">副本攻略</option>
         <option value="活動情報">活動情報</option>
-      </select>
-      <select id="class-filter">
-        <option value="all">全部職業</option>
       </select>
       <select id="tag-filter">
         <option value="all">全部標籤</option>
@@ -301,7 +321,10 @@
       return card;
     }
 
-    // 依「目前地區」實際存在的資料，動態算出選單選項與出現次數；沒有資料的職業/標籤不會出現。
+    let currentClass = "all";
+
+    // 依「目前地區」實際存在的資料，動態算出職業按鈕/標籤選單與出現次數；
+    // 沒有資料的職業/標籤不會出現（見鐵律：資料都來自實際來源，不硬塞）。
     function populateDynamicFilters() {
       const inRegion = guides.filter((g) => currentRegion === "all" || g.region === currentRegion);
       const freq = new Map();
@@ -312,8 +335,44 @@
       const otherOptions = [...freq.keys()].filter((t) => !CLASS_TAGS.includes(t))
         .sort((a, b) => freq.get(b) - freq.get(a));
 
-      fillSelect("class-filter", "全部職業", classOptions, freq);
+      if (!classOptions.includes(currentClass)) currentClass = "all";
+      fillClassButtons(classOptions, freq);
       fillSelect("tag-filter", "全部標籤", otherOptions, freq);
+      updateFocusBanner();
+    }
+
+    function fillClassButtons(options, freq) {
+      const wrap = document.getElementById("class-picker-buttons");
+      wrap.textContent = "";
+      const allBtn = el("button", currentClass === "all" ? "active" : "", "全部職業");
+      allBtn.type = "button";
+      allBtn.addEventListener("click", () => selectClass("all"));
+      wrap.appendChild(allBtn);
+      options.forEach((t) => {
+        const btn = el("button", currentClass === t ? "active" : "", t + "（" + freq.get(t) + "）");
+        btn.type = "button";
+        btn.addEventListener("click", () => selectClass(t));
+        wrap.appendChild(btn);
+      });
+    }
+
+    function selectClass(cls) {
+      currentClass = cls;
+      populateDynamicFilters();
+      render();
+      if (cls !== "all") {
+        document.getElementById("focus-banner").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function updateFocusBanner() {
+      const banner = document.getElementById("focus-banner");
+      if (currentClass === "all") {
+        banner.style.display = "none";
+        return;
+      }
+      banner.style.display = "flex";
+      document.getElementById("focus-banner__name").textContent = currentClass;
     }
 
     function fillSelect(id, allLabel, options, freq) {
@@ -336,7 +395,7 @@
       const state = document.getElementById("state");
       const countEl = document.getElementById("count");
       const category = document.getElementById("category").value;
-      const classFilter = document.getElementById("class-filter").value;
+      const classFilter = currentClass;
       const tagFilter = document.getElementById("tag-filter").value;
       const keyword = document.getElementById("search-box").value.trim().toLowerCase();
       const showFeatured = document.getElementById("featured").checked;
@@ -399,9 +458,9 @@
     });
     document.getElementById("search-box").addEventListener("input", debounce(render, 200));
     document.getElementById("category").addEventListener("change", render);
-    document.getElementById("class-filter").addEventListener("change", render);
     document.getElementById("tag-filter").addEventListener("change", render);
     document.getElementById("featured").addEventListener("change", render);
+    document.getElementById("focus-banner__clear").addEventListener("click", () => selectClass("all"));
 
     updateCountdowns();
     setInterval(updateCountdowns, 1000);
