@@ -18,10 +18,21 @@ Gemini 專心做「需要理解力」的工作（分類／標籤／抽 key_point
 
 from __future__ import annotations
 import os
+import re
 import requests
 
 ENDPOINT = "https://translation.googleapis.com/language/translate/v2"
 BATCH_SIZE = 50  # 官方單次上限 128，抓保守值避免單次 payload 太大或超時
+
+# 2026-09-03 實測：Cloud Translation 不知道我們站上的統一稱呼「瑪奇 Mobile」，
+# 同一個遊戲名稱在 66 篇裡翻成「瑪奇手遊」「瑪奇手機版」「瑪奇M」甚至沒翻的
+# 「[Mabinogi Mobile]」，63/66 篇都中—— 標題掃過去很不一致。純外觀正規化，
+# 跟翻譯品質本身無關，用簡單替換統一顯示。
+_GAME_NAME_RE = re.compile(r"瑪奇\s?(?:手機版|手遊)|瑪奇M(?![a-zA-Z])|\[?Mabinogi Mobile\]?")
+
+
+def _normalize_game_name(text: str) -> str:
+    return _GAME_NAME_RE.sub("瑪奇 Mobile", text)
 
 
 def _key() -> str:
@@ -54,7 +65,7 @@ def translate_batch(texts: list[str], target: str = "zh-TW") -> list[str] | None
             if len(translations) != len(batch):
                 print("[翻譯] Cloud Translation API 回傳筆數與送出筆數對不上，放棄這批")
                 return None
-            out.extend(t.get("translatedText", "") for t in translations)
+            out.extend(_normalize_game_name(t.get("translatedText", "")) for t in translations)
         return out
     except requests.RequestException as e:
         print(f"[翻譯] Cloud Translation API 呼叫失敗：{e}")
