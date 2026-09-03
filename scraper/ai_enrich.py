@@ -45,7 +45,15 @@ MODEL = "gemini-3.6-flash"  # 2026-09 實測：2.0 已下架；2.5 對「新用�
 # 測試回 400 缺金鑰，不是 404 路徑不存在），改回用這個，只換模型名稱，
 # 不要一次連新端點都換，降低風險。
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
-BATCH_SIZE = 15
+# 2026-09-03 在 GCP Console →「Generative Language API」→ 配額與系統限制
+# 查到真正的數字：這個免費試用專案對 gemini-3.6-flash 的每日上限是
+# "Request limit per model per day for a project in the free tier" = 20，
+# 不是模糊的「配額可能還沒恢復」。393 筆資料原本用 BATCH_SIZE=15 要分
+# 27 批（還沒算失敗重試），每次都必定超過每日 20 次上限，跟時間點無關，
+# 等多久都一樣會 429。調大 BATCH_SIZE 讓批次數壓在上限內才是真正的解法
+# ——30 個一批，393 筆約 14 批，在 20 次上限內留有重試餘裕；沒有一次衝到
+# 40~50 批，是怕單批 JSON 回應太大反而增加被截斷、解析失敗的風險。
+BATCH_SIZE = 30
 VALID_CATEGORIES = ["新手指南", "職業解析", "副本攻略", "活動情報"]
 BATCH_DELAY_SEC = 4  # 批次間固定延遲，降低撞到每分鐘速率上限的機率
 RATE_LIMIT_RETRIES = 2
