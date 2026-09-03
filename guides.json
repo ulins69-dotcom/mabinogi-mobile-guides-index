@@ -18,7 +18,8 @@
       "region": "tw",
       "published_at": "2026-09-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/xSvFiFJ3FHo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/xSvFiFJ3FHo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube--ORJb-xvoVY",
@@ -35,7 +36,8 @@
       "region": "tw",
       "published_at": "2026-09-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/-ORJb-xvoVY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/-ORJb-xvoVY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-5CPE5o2FShs",
@@ -52,7 +54,8 @@
       "region": "tw",
       "published_at": "2026-09-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/5CPE5o2FShs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/5CPE5o2FShs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-OE08WO2Y3wc",
@@ -72,7 +75,8 @@
       "region": "tw",
       "published_at": "2026-09-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/OE08WO2Y3wc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/OE08WO2Y3wc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-gA7bSQAaz-c",
@@ -92,7 +96,8 @@
       "region": "tw",
       "published_at": "2026-09-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/gA7bSQAaz-c/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/gA7bSQAaz-c/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-_e57RxdZXzI",
@@ -109,7 +114,8 @@
       "region": "tw",
       "published_at": "2026-08-31",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/_e57RxdZXzI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/_e57RxdZXzI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-551",
@@ -128,7 +134,8 @@
       "region": "tw",
       "published_at": "2026-08-29",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-550",
@@ -146,7 +153,8 @@
       "region": "tw",
       "published_at": "2026-08-29",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-2Mw02BvQ64I",
@@ -163,7 +171,8 @@
       "region": "tw",
       "published_at": "2026-08-27",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/2Mw02BvQ64I/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/2Mw02BvQ64I/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ysN1_GBw_p4",
@@ -180,7 +189,8 @@
       "region": "tw",
       "published_at": "2026-08-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ysN1_GBw_p4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ysN1_GBw_p4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-VyySFbS1BCQ",
@@ -197,7 +207,8 @@
       "region": "tw",
       "published_at": "2026-08-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/VyySFbS1BCQ/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/VyySFbS1BCQ/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube--9U73JhARCI",
@@ -215,7 +226,8 @@
       "region": "tw",
       "published_at": "2026-08-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/-9U73JhARCI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/-9U73JhARCI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-pYmShdTnn7M",
@@ -230,14 +242,15 @@
       "region": "tw",
       "published_at": "2026-08-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/pYmShdTnn7M/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/pYmShdTnn7M/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-02bJ1B484e0",
       "title": "8월 27일(목) 업데이트 노트 [마비노기 모바일]",
       "title_original": "8월 27일(목) 업데이트 노트 [마비노기 모바일]",
       "author": "빙식이",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=02bJ1B484e0",
       "summary": "비매너 댓글은 통보 없이 삭제 및 차단조치 될 수 있습니다.\n- 씨미 : https://ci.me/@bingsik\n- 채널 멤버쉽 가입 : https://www.youtube.com/channel/UCVRFMSz2E",
@@ -245,22 +258,27 @@
       "region": "kr",
       "published_at": "2026-08-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/02bJ1B484e0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/02bJ1B484e0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-fPNWZwM1LM0",
       "title": "[마비노기 모바일] 악사는 대체 무슨 삶을 살고 있었던 거야? 드디어 밸런스 패치",
       "title_original": "[마비노기 모바일] 악사는 대체 무슨 삶을 살고 있었던 거야? 드디어 밸런스 패치",
       "author": "황산갈매기",
-      "category": "新手指南",
-      "tags": [],
+      "category": "職業解析",
+      "tags": [
+        "吟遊詩人",
+        "盜賊"
+      ],
       "url": "https://www.youtube.com/watch?v=fPNWZwM1LM0",
       "summary": "8월 27일 마비노기 모바일 업데이트 노트를 살펴봤습니다.\n\n이번 핵심은 악사와 도적 밸런스 조정입니다.\n\n악사는 아르페지오 지속시간 증가, 기교 클라이막스 최대 스택 증가, 무드 수급 개선과 별의 소나타 적중률 개",
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-08-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/fPNWZwM1LM0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/fPNWZwM1LM0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-545",
@@ -281,7 +299,8 @@
       "region": "tw",
       "published_at": "2026-08-25",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-2fOM007e31w",
@@ -298,7 +317,8 @@
       "region": "tw",
       "published_at": "2026-08-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/2fOM007e31w/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/2fOM007e31w/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-0gpXlYFyMXI",
@@ -315,7 +335,8 @@
       "region": "tw",
       "published_at": "2026-08-24",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/0gpXlYFyMXI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/0gpXlYFyMXI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Iw3LCqXZYEA",
@@ -332,7 +353,8 @@
       "region": "tw",
       "published_at": "2026-08-24",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Iw3LCqXZYEA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Iw3LCqXZYEA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-TSGy9x8dUCM",
@@ -350,7 +372,8 @@
       "region": "tw",
       "published_at": "2026-08-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/TSGy9x8dUCM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/TSGy9x8dUCM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-0JYvOxQ_ja4",
@@ -370,7 +393,8 @@
       "region": "tw",
       "published_at": "2026-08-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/0JYvOxQ_ja4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/0JYvOxQ_ja4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-144",
@@ -389,7 +413,8 @@
       "region": "tw",
       "published_at": "2026-08-20",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-145",
@@ -404,7 +429,8 @@
       "region": "tw",
       "published_at": "2026-08-20",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-541",
@@ -425,7 +451,8 @@
       "region": "tw",
       "published_at": "2026-08-20",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-Sfyia_nqcBs",
@@ -442,7 +469,8 @@
       "region": "tw",
       "published_at": "2026-08-20",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Sfyia_nqcBs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Sfyia_nqcBs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-g_YC0DE8A1I",
@@ -459,7 +487,8 @@
       "region": "tw",
       "published_at": "2026-08-20",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/g_YC0DE8A1I/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/g_YC0DE8A1I/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-eWvC6dOiKZc",
@@ -474,14 +503,15 @@
       "region": "tw",
       "published_at": "2026-08-19",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/eWvC6dOiKZc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/eWvC6dOiKZc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Zs1pyx_jLJY",
       "title": "[마비노기 모바일] 일부 룬 효과가 두 번 적용됐다. 어비스 랭킹 초기화·정보 유출 형사 고소",
       "title_original": "[마비노기 모바일] 일부 룬 효과가 두 번 적용됐다. 어비스 랭킹 초기화·정보 유출 형사 고소",
       "author": "황산갈매기",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=Zs1pyx_jLJY",
       "summary": "마비노기 모바일에 일부 오류 수정 및 어비스 랭킹 초기화 안내가 올라왔습니다.\n\n일부 룬과 스킬의 지속 효과가 한 번 더 중복 적용되는 오류가 확인됐으며, 신규 레이드 룬의 초월 각인 과정에서 전투력이 비정상적으로 ",
@@ -489,22 +519,27 @@
       "region": "kr",
       "published_at": "2026-08-19",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Zs1pyx_jLJY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Zs1pyx_jLJY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-theTMF7-d5w",
       "title": "[마비노기 모바일] 댄서 제대로 바뀐다, 나오 옷 나옴 ㄷㄷ 8월 20일 업데이트 핵심 총정리",
       "title_original": "[마비노기 모바일] 댄서 제대로 바뀐다, 나오 옷 나옴 ㄷㄷ 8월 20일 업데이트 핵심 총정리",
       "author": "황산갈매기",
-      "category": "新手指南",
-      "tags": [],
+      "category": "副本攻略",
+      "tags": [
+        "弓手",
+        "吟遊詩人"
+      ],
       "url": "https://www.youtube.com/watch?v=theTMF7-d5w",
       "summary": "8월 20일 마비노기 모바일 업데이트 핵심 내용을 정리했습니다.\n\n이번 업데이트에서는 카브락 레이드 룬 전투력 오류와 일부 룬·스킬 효과가 중복 적용되던 현상이 수정되며, 궁수·음유시인의 밀쳐내기 조정과 함께 댄서의",
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-08-19",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/theTMF7-d5w/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/theTMF7-d5w/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-143",
@@ -519,7 +554,8 @@
       "region": "tw",
       "published_at": "2026-08-18",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-141",
@@ -540,7 +576,8 @@
       "region": "tw",
       "published_at": "2026-08-18",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-142",
@@ -559,7 +596,8 @@
       "region": "tw",
       "published_at": "2026-08-18",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-139",
@@ -576,7 +614,8 @@
       "region": "tw",
       "published_at": "2026-08-18",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-140",
@@ -594,7 +633,8 @@
       "region": "tw",
       "published_at": "2026-08-18",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-bjVPhSagcNM",
@@ -612,7 +652,8 @@
       "region": "tw",
       "published_at": "2026-08-18",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/bjVPhSagcNM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/bjVPhSagcNM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-137",
@@ -629,7 +670,8 @@
       "region": "tw",
       "published_at": "2026-08-17",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-yiE3bT9Jp4g",
@@ -647,7 +689,8 @@
       "region": "tw",
       "published_at": "2026-08-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/yiE3bT9Jp4g/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/yiE3bT9Jp4g/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-nXW4RN4wmYY",
@@ -665,14 +708,15 @@
       "region": "tw",
       "published_at": "2026-08-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/nXW4RN4wmYY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/nXW4RN4wmYY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-5084lye590k",
       "title": "레이드 카브락 어려움🛡️ 석화&즉사 피하는 '핵심 패턴' 쉽게 정리【마비노기 모바일 】",
       "title_original": "레이드 카브락 어려움🛡️ 석화&즉사 피하는 '핵심 패턴' 쉽게 정리【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=5084lye590k",
       "summary": "드디어 카브락 어려움 패턴 공략 들고 왔어! \n 15000줄 피통 실화냐...😨\n\n침식의 모래 스택 쌓여서 돌멩이 되기 전에 피해야 하고, \n\"혼자서는 정신이 버틸 수 없을 것 같다\" 문구 뜨면 \n무조건 파티원들이랑",
@@ -680,14 +724,15 @@
       "region": "kr",
       "published_at": "2026-08-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/5084lye590k/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/5084lye590k/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-6Rs5Wq71f9E",
       "title": "카브락 어려움 공략&신규패턴 요약 [마비노기 모바일]",
       "title_original": "카브락 어려움 공략&신규패턴 요약 [마비노기 모바일]",
       "author": "삼보시",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=6Rs5Wq71f9E",
       "summary": "오픈런 뛰고 왔습니다!\n\n도움이 되셨다면 \n구독&좋아요 부탁 드립니다!\n🥰\n\n\n#마비노기모바일 #mabinogimobile #모비노기 #마비노기모바일 #카브락어려움 #카브락어려움공략",
@@ -695,7 +740,8 @@
       "region": "kr",
       "published_at": "2026-08-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/6Rs5Wq71f9E/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/6Rs5Wq71f9E/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-MGtOW04km38",
@@ -712,7 +758,8 @@
       "region": "tw",
       "published_at": "2026-08-15",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/MGtOW04km38/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/MGtOW04km38/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-LTKWDw7IRjI",
@@ -727,7 +774,8 @@
       "region": "kr",
       "published_at": "2026-08-15",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/LTKWDw7IRjI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/LTKWDw7IRjI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-UimCZfph1dQ",
@@ -745,7 +793,8 @@
       "region": "tw",
       "published_at": "2026-08-14",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/UimCZfph1dQ/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/UimCZfph1dQ/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ctMDjc7q95U",
@@ -764,7 +813,8 @@
       "region": "tw",
       "published_at": "2026-08-13",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ctMDjc7q95U/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ctMDjc7q95U/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-MWuOClrgDmM",
@@ -783,7 +833,8 @@
       "region": "tw",
       "published_at": "2026-08-13",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/MWuOClrgDmM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/MWuOClrgDmM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-HK3gLrFfYP0",
@@ -798,7 +849,8 @@
       "region": "tw",
       "published_at": "2026-08-13",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/HK3gLrFfYP0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/HK3gLrFfYP0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Hsk4yWHgLU8",
@@ -815,14 +867,15 @@
       "region": "tw",
       "published_at": "2026-08-12",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Hsk4yWHgLU8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Hsk4yWHgLU8/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-hoj4xZ1uKmg",
       "title": "신규 지옥 난이도 & 룬, 헤어까지 싹 다 정리✨ 업데이트 핵심 요약!【마비노기 모바일 】",
       "title_original": "신규 지옥 난이도 & 룬, 헤어까지 싹 다 정리✨ 업데이트 핵심 요약!【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=hoj4xZ1uKmg",
       "summary": "이번주 업데이트 소식 들고 왔어!\n드디어 카브락 레이드 어려움이랑 룬다 어비스 지옥2가 열린다구! \n전투력/마도저항 빵빵하게 챙겨둬야 할 거야!\n\n새로운 레이드 룬부터 간지나는 패션, 헤어, 눈까지! \n나만의 캐릭터",
@@ -830,7 +883,8 @@
       "region": "kr",
       "published_at": "2026-08-12",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/hoj4xZ1uKmg/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/hoj4xZ1uKmg/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Zf2Gu45z79s",
@@ -845,7 +899,8 @@
       "region": "kr",
       "published_at": "2026-08-12",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Zf2Gu45z79s/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Zf2Gu45z79s/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-hV1r7U3zRIM",
@@ -860,7 +915,8 @@
       "region": "kr",
       "published_at": "2026-08-11",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/hV1r7U3zRIM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/hV1r7U3zRIM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-bkXdmEVNlwE",
@@ -877,7 +933,8 @@
       "region": "tw",
       "published_at": "2026-08-09",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/bkXdmEVNlwE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/bkXdmEVNlwE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-HMbltPtCfSE",
@@ -894,7 +951,8 @@
       "region": "tw",
       "published_at": "2026-08-08",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/HMbltPtCfSE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/HMbltPtCfSE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-IBtB0_23D2Q",
@@ -911,7 +969,8 @@
       "region": "tw",
       "published_at": "2026-08-08",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/IBtB0_23D2Q/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/IBtB0_23D2Q/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-118",
@@ -926,7 +985,8 @@
       "region": "tw",
       "published_at": "2026-08-07",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-Jo1TI_YJeR8",
@@ -943,7 +1003,8 @@
       "region": "tw",
       "published_at": "2026-08-06",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Jo1TI_YJeR8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Jo1TI_YJeR8/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-M2251Egf1Yc",
@@ -958,7 +1019,8 @@
       "region": "tw",
       "published_at": "2026-08-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/M2251Egf1Yc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/M2251Egf1Yc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-0jJ9TidMHKw",
@@ -973,7 +1035,8 @@
       "region": "tw",
       "published_at": "2026-08-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/0jJ9TidMHKw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/0jJ9TidMHKw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-I8XZERej4RE",
@@ -992,7 +1055,8 @@
       "region": "tw",
       "published_at": "2026-08-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/I8XZERej4RE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/I8XZERej4RE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-3UAv3NRV3iM",
@@ -1009,7 +1073,8 @@
       "region": "tw",
       "published_at": "2026-08-04",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/3UAv3NRV3iM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/3UAv3NRV3iM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-q-xNT_r2Uc8",
@@ -1024,7 +1089,8 @@
       "region": "tw",
       "published_at": "2026-08-04",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/q-xNT_r2Uc8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/q-xNT_r2Uc8/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-103",
@@ -1041,7 +1107,8 @@
       "region": "tw",
       "published_at": "2026-08-03",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-109",
@@ -1062,7 +1129,8 @@
       "region": "tw",
       "published_at": "2026-08-03",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-96",
@@ -1080,7 +1148,8 @@
       "region": "tw",
       "published_at": "2026-08-02",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-100",
@@ -1098,7 +1167,8 @@
       "region": "tw",
       "published_at": "2026-08-02",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-101",
@@ -1116,7 +1186,8 @@
       "region": "tw",
       "published_at": "2026-08-02",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-102",
@@ -1134,7 +1205,8 @@
       "region": "tw",
       "published_at": "2026-08-02",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-8lUU-rYZJ3Q",
@@ -1151,7 +1223,8 @@
       "region": "tw",
       "published_at": "2026-08-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/8lUU-rYZJ3Q/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/8lUU-rYZJ3Q/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-5-PITqhHeQ4",
@@ -1168,7 +1241,8 @@
       "region": "tw",
       "published_at": "2026-08-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/5-PITqhHeQ4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/5-PITqhHeQ4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-SvpV3hFpvLQ",
@@ -1186,7 +1260,8 @@
       "region": "tw",
       "published_at": "2026-08-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/SvpV3hFpvLQ/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/SvpV3hFpvLQ/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-4O5VgPWk830",
@@ -1204,7 +1279,8 @@
       "region": "tw",
       "published_at": "2026-08-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/4O5VgPWk830/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/4O5VgPWk830/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-o3zpe7tjujA",
@@ -1221,7 +1297,8 @@
       "region": "tw",
       "published_at": "2026-08-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/o3zpe7tjujA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/o3zpe7tjujA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-LsBsXaZdxuo",
@@ -1242,7 +1319,8 @@
       "region": "tw",
       "published_at": "2026-08-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/LsBsXaZdxuo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/LsBsXaZdxuo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-84",
@@ -1260,7 +1338,8 @@
       "region": "tw",
       "published_at": "2026-07-31",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-88",
@@ -1284,7 +1363,8 @@
       "region": "tw",
       "published_at": "2026-07-31",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-4CAQIjgiFow",
@@ -1304,7 +1384,8 @@
       "region": "tw",
       "published_at": "2026-07-31",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/4CAQIjgiFow/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/4CAQIjgiFow/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-JXt8TktVW_Y",
@@ -1321,7 +1402,8 @@
       "region": "tw",
       "published_at": "2026-07-31",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/JXt8TktVW_Y/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/JXt8TktVW_Y/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-8aD9Iwu6tEM",
@@ -1338,7 +1420,8 @@
       "region": "tw",
       "published_at": "2026-07-31",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/8aD9Iwu6tEM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/8aD9Iwu6tEM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube--dfCODldq38",
@@ -1355,7 +1438,8 @@
       "region": "tw",
       "published_at": "2026-07-30",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/-dfCODldq38/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/-dfCODldq38/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-76",
@@ -1375,7 +1459,8 @@
       "region": "tw",
       "published_at": "2026-07-30",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-cpMc4SShaP8",
@@ -1394,7 +1479,8 @@
       "region": "tw",
       "published_at": "2026-07-30",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/cpMc4SShaP8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/cpMc4SShaP8/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-48",
@@ -1414,7 +1500,8 @@
       "region": "tw",
       "published_at": "2026-07-29",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-72",
@@ -1429,7 +1516,8 @@
       "region": "tw",
       "published_at": "2026-07-29",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-vaQjtf7mflM",
@@ -1448,7 +1536,8 @@
       "region": "tw",
       "published_at": "2026-07-29",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/vaQjtf7mflM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/vaQjtf7mflM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ia1krb-MumQ",
@@ -1466,7 +1555,8 @@
       "region": "tw",
       "published_at": "2026-07-29",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ia1krb-MumQ/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ia1krb-MumQ/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-D1PFmyjmPto",
@@ -1483,7 +1573,8 @@
       "region": "tw",
       "published_at": "2026-07-29",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/D1PFmyjmPto/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/D1PFmyjmPto/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-12",
@@ -1498,7 +1589,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-3",
@@ -1513,7 +1605,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-29",
@@ -1530,7 +1623,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-44",
@@ -1545,7 +1639,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-47",
@@ -1563,7 +1658,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "youtube-a9p72ELLlIs",
@@ -1581,7 +1677,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/a9p72ELLlIs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/a9p72ELLlIs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-voWb0aBxwhQ",
@@ -1598,7 +1695,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/voWb0aBxwhQ/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/voWb0aBxwhQ/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-g3_9hS8lxsw",
@@ -1617,7 +1715,8 @@
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/g3_9hS8lxsw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/g3_9hS8lxsw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Qo2VaCZ_DcY",
@@ -1634,7 +1733,8 @@
       "region": "tw",
       "published_at": "2026-07-27",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Qo2VaCZ_DcY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Qo2VaCZ_DcY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-rzYPOXnlImo",
@@ -1652,7 +1752,8 @@
       "region": "tw",
       "published_at": "2026-07-27",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/rzYPOXnlImo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/rzYPOXnlImo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Bnb7GvhVyM4",
@@ -1675,7 +1776,8 @@
       "region": "tw",
       "published_at": "2026-07-27",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Bnb7GvhVyM4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Bnb7GvhVyM4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Ek_PlM6M8h4",
@@ -1692,7 +1794,8 @@
       "region": "tw",
       "published_at": "2026-07-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Ek_PlM6M8h4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Ek_PlM6M8h4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-X7nt4CfaxDE",
@@ -1712,7 +1815,8 @@
       "region": "tw",
       "published_at": "2026-07-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/X7nt4CfaxDE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/X7nt4CfaxDE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Ni56f5lhngc",
@@ -1727,7 +1831,8 @@
       "region": "tw",
       "published_at": "2026-07-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Ni56f5lhngc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Ni56f5lhngc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-mqgoADQlS5Y",
@@ -1748,7 +1853,8 @@
       "region": "tw",
       "published_at": "2026-07-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/mqgoADQlS5Y/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/mqgoADQlS5Y/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-sDMOJ1bnlQI",
@@ -1765,7 +1871,8 @@
       "region": "tw",
       "published_at": "2026-07-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/sDMOJ1bnlQI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/sDMOJ1bnlQI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-BwcWeUMg-Z0",
@@ -1783,7 +1890,8 @@
       "region": "tw",
       "published_at": "2026-07-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/BwcWeUMg-Z0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/BwcWeUMg-Z0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Jjs4vnWrnFY",
@@ -1804,7 +1912,8 @@
       "region": "tw",
       "published_at": "2026-07-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Jjs4vnWrnFY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Jjs4vnWrnFY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-3gcq172MQRA",
@@ -1821,7 +1930,8 @@
       "region": "tw",
       "published_at": "2026-07-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/3gcq172MQRA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/3gcq172MQRA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-vKCS3anbraA",
@@ -1839,7 +1949,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/vKCS3anbraA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/vKCS3anbraA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-1Wd4wjVlLrU",
@@ -1857,7 +1968,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/1Wd4wjVlLrU/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/1Wd4wjVlLrU/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-gQQbpHHkdSo",
@@ -1874,7 +1986,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/gQQbpHHkdSo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/gQQbpHHkdSo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-VR_xmU9_RAs",
@@ -1894,7 +2007,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/VR_xmU9_RAs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/VR_xmU9_RAs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Iy8XyxPwHTY",
@@ -1911,7 +2025,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Iy8XyxPwHTY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Iy8XyxPwHTY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-vD34NSLglQ4",
@@ -1931,7 +2046,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/vD34NSLglQ4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/vD34NSLglQ4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-1BPgyy9J_iA",
@@ -1949,7 +2065,8 @@
       "region": "tw",
       "published_at": "2026-07-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/1BPgyy9J_iA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/1BPgyy9J_iA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-kqbU4bYkCC0",
@@ -1970,7 +2087,8 @@
       "region": "tw",
       "published_at": "2026-07-21",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/kqbU4bYkCC0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/kqbU4bYkCC0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-EosQwbDpoys",
@@ -1987,7 +2105,8 @@
       "region": "tw",
       "published_at": "2026-07-21",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/EosQwbDpoys/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/EosQwbDpoys/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-dPEuBgLX4lA",
@@ -2002,7 +2121,8 @@
       "region": "tw",
       "published_at": "2026-07-21",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/dPEuBgLX4lA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/dPEuBgLX4lA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-n7T9ZvkOBkA",
@@ -2019,7 +2139,8 @@
       "region": "tw",
       "published_at": "2026-07-20",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/n7T9ZvkOBkA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/n7T9ZvkOBkA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-MJo-XTuIjq8",
@@ -2034,7 +2155,8 @@
       "region": "tw",
       "published_at": "2026-07-18",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/MJo-XTuIjq8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/MJo-XTuIjq8/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Ft9ZHG92u1k",
@@ -2056,7 +2178,8 @@
       "region": "tw",
       "published_at": "2026-07-18",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Ft9ZHG92u1k/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Ft9ZHG92u1k/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Rxn_QHkXfhw",
@@ -2071,7 +2194,8 @@
       "region": "tw",
       "published_at": "2026-07-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Rxn_QHkXfhw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Rxn_QHkXfhw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-KxRqTG0fCl4",
@@ -2088,14 +2212,15 @@
       "region": "tw",
       "published_at": "2026-07-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/KxRqTG0fCl4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/KxRqTG0fCl4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-lFIHZBxRVvs",
       "title": "알고 있으면 좋은 편의성 업데이트 내용 [마비노기 모바일 시즌2]",
       "title_original": "알고 있으면 좋은 편의성 업데이트 내용 [마비노기 모바일 시즌2]",
       "author": "엽이",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=lFIHZBxRVvs",
       "summary": "",
@@ -2103,7 +2228,8 @@
       "region": "kr",
       "published_at": "2026-07-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/lFIHZBxRVvs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/lFIHZBxRVvs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-aSGLgtYjPXw",
@@ -2118,7 +2244,8 @@
       "region": "tw",
       "published_at": "2026-07-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/aSGLgtYjPXw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/aSGLgtYjPXw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-LEDMCAcYA_A",
@@ -2133,7 +2260,8 @@
       "region": "kr",
       "published_at": "2026-07-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/LEDMCAcYA_A/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/LEDMCAcYA_A/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-fSxka-pnMGI",
@@ -2148,7 +2276,8 @@
       "region": "tw",
       "published_at": "2026-07-13",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/fSxka-pnMGI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/fSxka-pnMGI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-sENbPp0Lfl0",
@@ -2163,7 +2292,8 @@
       "region": "kr",
       "published_at": "2026-07-08",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/sENbPp0Lfl0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/sENbPp0Lfl0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Yi3ZLT81UJA",
@@ -2181,14 +2311,15 @@
       "region": "tw",
       "published_at": "2026-07-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Yi3ZLT81UJA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Yi3ZLT81UJA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ZOfU8Mt6FQo",
       "title": "두려우신가요? 룬다 어비스 기본기 영상😺마비노기 모바일",
       "title_original": "두려우신가요? 룬다 어비스 기본기 영상😺마비노기 모바일",
       "author": "임왕덕",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=ZOfU8Mt6FQo",
       "summary": "이번 어비스 만족!\n\n임왕덕 모든 라이브 다시보기~~!\n임덕왕 [1레벨] 멤버쉽 가입 어서옵쇼!\nhttps://www.youtube.com/channel/UCJFqWekQ5gdHlyA_e0KV_Kg/join",
@@ -2196,7 +2327,8 @@
       "region": "kr",
       "published_at": "2026-07-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ZOfU8Mt6FQo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ZOfU8Mt6FQo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-pDwO4I4HtWA",
@@ -2211,7 +2343,8 @@
       "region": "kr",
       "published_at": "2026-06-27",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/pDwO4I4HtWA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/pDwO4I4HtWA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-2YbbNVivFOY",
@@ -2226,14 +2359,15 @@
       "region": "kr",
       "published_at": "2026-06-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/2YbbNVivFOY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/2YbbNVivFOY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-99CbyGJCd7w",
       "title": "[마비노기 모바일] 시즌2 신규 레이드부터 룬 개편까지 한방 정리",
       "title_original": "[마비노기 모바일] 시즌2 신규 레이드부터 룬 개편까지 한방 정리",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=99CbyGJCd7w",
       "summary": "'확률형 아이템 포함'\n\n드디어 25일! 달달한 보상과 갓패치로 무장한 마비노기 모바일 시즌 2!\n\n8성 전설 무기 12강화권 지급은 기본, \n지금까지 돌린 전설 뽑기 100% 소급 적용까지?!\n\n시즌 2 핵심 내용",
@@ -2241,7 +2375,8 @@
       "region": "kr",
       "published_at": "2026-06-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/99CbyGJCd7w/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/99CbyGJCd7w/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-r8zvHFmCrQE",
@@ -2256,14 +2391,15 @@
       "region": "kr",
       "published_at": "2026-06-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/r8zvHFmCrQE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/r8zvHFmCrQE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-IiRBiQUnJ28",
       "title": "이벤트 레이드 붉은눈 글기🔥 패턴 가물가물한 사람들을 위한 핵심 요약!  【마비노기 모바일】",
       "title_original": "이벤트 레이드 붉은눈 글기🔥 패턴 가물가물한 사람들을 위한 핵심 요약!  【마비노기 모바일】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=IiRBiQUnJ28",
       "summary": "괴물급 피통 7만으로 돌아온 이벤트 보스,\n'붉은눈 글라스 기브넨' 공략 영상! 🔥\n\n오랜만에 잡으려니 패턴이 가물가물하신 친구들, \n핵심 생존 패턴과 딜 타임 잡는 법을 꾹꾹 눌러 담았어!\n\n특히 다 잡아놓고 마지",
@@ -2271,14 +2407,15 @@
       "region": "kr",
       "published_at": "2026-06-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/IiRBiQUnJ28/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/IiRBiQUnJ28/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-eQLJwwbalM8",
       "title": "친구랑 같이 산다? 하우징 시스템과 캐릭터 꾸미기 총정리✨ 신규 업데이트 【마비노기 모바일 】",
       "title_original": "친구랑 같이 산다? 하우징 시스템과 캐릭터 꾸미기 총정리✨ 신규 업데이트 【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=eQLJwwbalM8",
       "summary": "이번에 업데이트 소식 가져왔어!\n마이홈 공동소유, 특대형 집! 친구랑 같이 꾸미고 살 수 있대!\n\n새로운 헤어, 눈, 입, 꾸밈 파츠까지! 캐릭터 완전 변신 각이야! ✨\n괴도와 파수꾼 같은 미니게임이랑 숨겨진 던전까",
@@ -2286,74 +2423,91 @@
       "region": "kr",
       "published_at": "2026-05-21",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/eQLJwwbalM8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/eQLJwwbalM8/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-S5CvsmAgbXc",
       "title": "신직업 '기사' 제대로 알아보기🔍 세팅부터 꿀팁까지 알려줄게【마비노기 모바일 】",
       "title_original": "신직업 '기사' 제대로 알아보기🔍 세팅부터 꿀팁까지 알려줄게【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
-      "tags": [],
+      "category": "職業解析",
+      "tags": [
+        "戰士",
+        "尚未開放"
+      ],
       "url": "https://www.youtube.com/watch?v=S5CvsmAgbXc",
       "summary": "다들 마비노기 모바일 신규 직업 '기사' 플레이해 봤어?\n딜, 힐, 브레이크 익스텐드까지 \n다 가진 완전체 밸런스 직업이라니... 이건 못 참지! 😆\n\n화려한 모션에 찰진 손맛까지 장난 아니더라고!\n기사를 처음 시작",
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/S5CvsmAgbXc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/S5CvsmAgbXc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-jAhKZcHQTws",
       "title": "장비 변환권부터 귀요미 의상까지🐥 5월 업데이트 이벤트 정리【마비노기 모바일 】",
       "title_original": "장비 변환권부터 귀요미 의상까지🐥 5월 업데이트 이벤트 정리【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
-      "tags": [],
+      "category": "職業解析",
+      "tags": [
+        "戰士",
+        "尚未開放"
+      ],
       "url": "https://www.youtube.com/watch?v=jAhKZcHQTws",
       "summary": "무료 의상 세트에 클래스 변경 스크롤까지 뿌린대! 😲\n\n5월 6일 딱 한 번 접속해서 스크롤 받아가고, \n기사 클래스 키우면 룬이랑 골드까지 쏟아진다고!\n(스크롤은 5/21까지 꼭 쓰기!)\n\n귀여운 병아리 인형 모아",
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/jAhKZcHQTws/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/jAhKZcHQTws/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Z-1WKJoBAdA",
       "title": "[마비노기 모바일] 기사 업데이트, SSP 장비변환 스킬태그 핵심만 총정리, 만족도 35% 나온 이유 정리",
       "title_original": "[마비노기 모바일] 기사 업데이트, SSP 장비변환 스킬태그 핵심만 총정리, 만족도 35% 나온 이유 정리",
       "author": "황산갈매기",
-      "category": "新手指南",
-      "tags": [],
+      "category": "職業解析",
+      "tags": [
+        "戰士",
+        "尚未開放"
+      ],
       "url": "https://www.youtube.com/watch?v=Z-1WKJoBAdA",
       "summary": "4월 22일 마비노기 모바일 업데이트 패치노트 정리 영상입니다.\n기사 클래스 출시와 신규 시스템과 주의해야 할 포인트를 짚어드립니다.\n\n▼ 핵심 포인트\n- 기사 클래스 추가, 단 슬롯 확장은 없음 (부캐 억제 기조)",
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Z-1WKJoBAdA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Z-1WKJoBAdA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-EARnGqR3lKA",
       "title": "직업 변경, 장비 100% 이전?! 신규 기사 드디어 나옴⚔️ 업데이트 미리보기【마비노기 모바일 】",
       "title_original": "직업 변경, 장비 100% 이전?! 신규 기사 드디어 나옴⚔️ 업데이트 미리보기【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
-      "tags": [],
+      "category": "職業解析",
+      "tags": [
+        "戰士",
+        "尚未開放"
+      ],
       "url": "https://www.youtube.com/watch?v=EARnGqR3lKA",
       "summary": "기다리던 4월 23일 업데이트 미리보기 소식 드디어 떴다! 😲\n\n직업 변경 소식부터 장비 변환 스크롤로 \n장비 걱정 없이 갈아탈 수 있고, \n보석 스킬 태그도 싹 바꿔서 세팅 완전 편해졌어. ✨\n\n신규 클래스 '기사",
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-15",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/EARnGqR3lKA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/EARnGqR3lKA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-c0IonpojVOc",
       "title": "[마비노기 모바일] 3주연속 업데이트를 한다!? 내일은 없데이트일까? 패치노트 대기방",
       "title_original": "[마비노기 모바일] 3주연속 업데이트를 한다!? 내일은 없데이트일까? 패치노트 대기방",
       "author": "황산갈매기",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=c0IonpojVOc",
       "summary": "후원 투네이션은 아래 주소입니다! 감사합니다 \nhttps://toon.at/donate/638021901881759839",
@@ -2361,14 +2515,15 @@
       "region": "kr",
       "published_at": "2026-04-08",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/c0IonpojVOc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/c0IonpojVOc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ZBMAk1xGZig",
       "title": "'무과금 4일 만에 랭킹 6위?!' 맨땅부터 무작정 따라 하는 모비노기",
       "title_original": "'무과금 4일 만에 랭킹 6위?!' 맨땅부터 무작정 따라 하는 모비노기",
       "author": "손해보는 용사 [손용]",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=ZBMAk1xGZig",
       "summary": "개인 의견에 따라 제작한 가이드 콘텐츠 입니다😀\n\n📌 이번 영상 핵심 요약\n- 마비노기 모바일 1주년 보상 100% 활용! 무과금 전투력 43,500(보스 컨텐츠 여유 진입 컷) 프리패스 로드맵\n- 투력 뻥튀기 핵심",
@@ -2376,7 +2531,8 @@
       "region": "kr",
       "published_at": "2026-04-03",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ZBMAk1xGZig/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ZBMAk1xGZig/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-p2QVdE5NRTc",
@@ -2391,14 +2547,15 @@
       "region": "kr",
       "published_at": "2026-04-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/p2QVdE5NRTc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/p2QVdE5NRTc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-kp2iEicMpBo",
       "title": "4월2일(목) 업데이트 노트 [마비노기 모바일]",
       "title_original": "4월2일(목) 업데이트 노트 [마비노기 모바일]",
       "author": "빙식이",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=kp2iEicMpBo",
       "summary": "- 치지직 : https://chzzk.naver.com/01ae5c70791663c2b9d522c61cc6724a\n- 채널 멤버쉽 가입 : https://www.youtube.com/channel/UCVRFMSz2",
@@ -2406,14 +2563,15 @@
       "region": "kr",
       "published_at": "2026-04-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/kp2iEicMpBo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/kp2iEicMpBo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-W0JT3bSZLj4",
       "title": "4월 2일 업데이트 노트 요약정리 영상_ 마비노기 모바일  #마비  #게임  #마비노기  #모바일게임  #팔라딘 #마비노기모바일 #바람의나라",
       "title_original": "4월 2일 업데이트 노트 요약정리 영상_ 마비노기 모바일  #마비  #게임  #마비노기  #모바일게임  #팔라딘 #마비노기모바일 #바람의나라",
       "author": "파카탈_pakamask",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=W0JT3bSZLj4",
       "summary": "안녕하세요 파카탈 입니다\n이번 영상은  4월 2일 업데이트 노트 요약정리 영상입니다\n바람의 나라 콜라보 업데이트\n\nBGM : 30. 깨어나는 빛\n숙련 연계 관련은 따로 올라갑니다\n감사합니다",
@@ -2421,14 +2579,15 @@
       "region": "kr",
       "published_at": "2026-04-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/W0JT3bSZLj4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/W0JT3bSZLj4/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-GIMEC7PflLI",
       "title": "[마비노기 모바일] 바람의나라 콜라보 총정리, 프라이빗 시어터, 엘니드섬 자동 동전 줍기",
       "title_original": "[마비노기 모바일] 바람의나라 콜라보 총정리, 프라이빗 시어터, 엘니드섬 자동 동전 줍기",
       "author": "황산갈매기",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=GIMEC7PflLI",
       "summary": "마비노기 모바일 4월 2일 바람의나라 30주년 콜라보 업데이트 패치노트를 분석했습니다. 콜라보 패키지 구성과 가격, 무료로 얻을 수 있는 데코 목록, 프라이빗 시어터 신규 콘텐츠, 엘니드 섬 편의성 개선까지 한 영상",
@@ -2436,7 +2595,8 @@
       "region": "kr",
       "published_at": "2026-04-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/GIMEC7PflLI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/GIMEC7PflLI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Pck5BYiNTEY",
@@ -2451,7 +2611,8 @@
       "region": "kr",
       "published_at": "2026-03-29",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Pck5BYiNTEY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Pck5BYiNTEY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-UI8cvn0XNZk",
@@ -2466,7 +2627,8 @@
       "region": "kr",
       "published_at": "2026-03-29",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/UI8cvn0XNZk/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/UI8cvn0XNZk/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-uIQT_iQCIVU",
@@ -2481,14 +2643,15 @@
       "region": "kr",
       "published_at": "2026-03-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/uIQT_iQCIVU/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/uIQT_iQCIVU/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-4LvxcOcfSZo",
       "title": "[마비노기 모바일] 업데이트 읽어주는 남자",
       "title_original": "[마비노기 모바일] 업데이트 읽어주는 남자",
       "author": "광휘",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=4LvxcOcfSZo",
       "summary": "#마비노기 #마비노기모바일\n\n\"확률형 아이템 포함\"\n────────────────────────\n광고 문의▶ 카톡: GGHwi\n투네이션 후원▶ https://toon.at/donate/gghwitv\n계좌 후원▶ 11",
@@ -2496,7 +2659,8 @@
       "region": "kr",
       "published_at": "2026-03-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/4LvxcOcfSZo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/4LvxcOcfSZo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-oZr0azkVDxw",
@@ -2511,14 +2675,15 @@
       "region": "kr",
       "published_at": "2026-03-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/oZr0azkVDxw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/oZr0azkVDxw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-0ZjOtWkvgLU",
       "title": "업데이트 분량이 '22'분? 마비노기 모바일 빅캠파 1주년 라이브 후기",
       "title_original": "업데이트 분량이 '22'분? 마비노기 모바일 빅캠파 1주년 라이브 후기",
       "author": "로젠젠 에린채널",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=0ZjOtWkvgLU",
       "summary": "1시간 20분을 기다렸습니다.\n그리고 돌아온 건… 22분짜리 업데이트였습니다.\n\n이게 정말\n우리가 기다린 마비노기 모바일 1주년 맞습니까?\n\n공연, 이벤트, 그리고 “나중에 하겠습니다”\n유저들이 원하는 건 그게 아니",
@@ -2526,7 +2691,8 @@
       "region": "kr",
       "published_at": "2026-03-24",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/0ZjOtWkvgLU/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/0ZjOtWkvgLU/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Ar_I2byGOuw",
@@ -2541,7 +2707,8 @@
       "region": "kr",
       "published_at": "2026-03-20",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Ar_I2byGOuw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Ar_I2byGOuw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-If-nHjhrVFo",
@@ -2556,7 +2723,8 @@
       "region": "kr",
       "published_at": "2026-03-19",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/If-nHjhrVFo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/If-nHjhrVFo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-kH0EmS26fGg",
@@ -2571,14 +2739,15 @@
       "region": "kr",
       "published_at": "2026-03-18",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/kH0EmS26fGg/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/kH0EmS26fGg/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ZHbqCXLkeoA",
       "title": "메이플 콜라보 & 2인 던전 신규 업데이트 총정리!【마비노기 모바일 】",
       "title_original": "메이플 콜라보 & 2인 던전 신규 업데이트 총정리!【마비노기 모바일 】",
       "author": "모닝이 게임영상",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=ZHbqCXLkeoA",
       "summary": "댓글로 자유롭게 의견을 나누자😊\n'구독'과 '좋아요', '알림설정' 부탁해 !\n\n12. 요정의 비행\n04. 나무꾼의 하늘\n19. 자, 뽑아보라냥!\n34. 엄습하는 혼돈\n49. 별들의 연회\n37. 잠 못 이루는 밤\n5",
@@ -2586,14 +2755,15 @@
       "region": "kr",
       "published_at": "2026-03-12",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ZHbqCXLkeoA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ZHbqCXLkeoA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-xF72TOoUXGE",
       "title": "[마비노기 모바일] 3월 12일 업데이트, 신규 패스 의상,메이플 콜라보 패키지,멘토 랭킹,이벤트 총정리, 염색으로 살릴 수 있을까?",
       "title_original": "[마비노기 모바일] 3월 12일 업데이트, 신규 패스 의상,메이플 콜라보 패키지,멘토 랭킹,이벤트 총정리, 염색으로 살릴 수 있을까?",
       "author": "황산갈매기",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=xF72TOoUXGE",
       "summary": "이번 업데이트에서 유저분들이 가장 기대했던 신규 모험가 패스 의상부터 살펴봤습니다. 방송 투표에서 51%가 옷만 보면 된다고 할 정도로 관심이 높았는데, 국방색 계열 컬러가 호불호가 갈릴 것 같습니다. 조끼 분리 활",
@@ -2601,7 +2771,8 @@
       "region": "kr",
       "published_at": "2026-03-11",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/xF72TOoUXGE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/xF72TOoUXGE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-xGKlkSUz3ek",
@@ -2616,7 +2787,8 @@
       "region": "kr",
       "published_at": "2026-02-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/xGKlkSUz3ek/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/xGKlkSUz3ek/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-rDnLv2YOKD0",
@@ -2631,14 +2803,15 @@
       "region": "kr",
       "published_at": "2026-02-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/rDnLv2YOKD0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/rDnLv2YOKD0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-BU_eUISK9kA",
       "title": "에이렐 레이드 솔플 도전기?! + 짤 패턴 공략 팁ㅋ [마비노기 모바일]",
       "title_original": "에이렐 레이드 솔플 도전기?! + 짤 패턴 공략 팁ㅋ [마비노기 모바일]",
       "author": "레니카렌 : 게임채널",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=BU_eUISK9kA",
       "summary": "간만에 공략하는 재미가 쏠쏠하네요!\n\n이메일 : renica4@naver.com\n치지직 : https://chzzk.naver.com/cef0d0c582aa2d72e8d08fe5390b433c\n\n#마비노기모바일 #공",
@@ -2646,14 +2819,15 @@
       "region": "kr",
       "published_at": "2026-01-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/BU_eUISK9kA/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/BU_eUISK9kA/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-wyoK7nye7uo",
       "title": "춤만 추다가 끝난 사람들 모여라! 에이렐 완벽 공략 [마비노기 모바일]",
       "title_original": "춤만 추다가 끝난 사람들 모여라! 에이렐 완벽 공략 [마비노기 모바일]",
       "author": "볼란트",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=wyoK7nye7uo",
       "summary": "춤은 그만 추고 싶어요🕺💃\n\n에이렐 노래만 들으면서\n고상하게 클리어하고 싶으신 분들!\n\n에이렐 패턴 공략과 클리어 소감을 담아 봤습니다.\n재밌게 나온 레이드 함께 즐겨 봅시다!\n\n#에이렐 #레이드 #공략 #춤 #노래",
@@ -2661,14 +2835,15 @@
       "region": "kr",
       "published_at": "2026-01-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/wyoK7nye7uo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/wyoK7nye7uo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-awYvVfqS2g0",
       "title": "에이렐 패턴 공략  [마비노기 모바일]",
       "title_original": "에이렐 패턴 공략  [마비노기 모바일]",
       "author": "플레이어01",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=awYvVfqS2g0",
       "summary": "모비노기 신규 레이드 에이렐 기믹 패턴 공략입니다\n춤추다 죽는경우가 많아요\n\n1분대 길이니까 1분공략",
@@ -2676,14 +2851,15 @@
       "region": "kr",
       "published_at": "2026-01-15",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/awYvVfqS2g0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/awYvVfqS2g0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-nzm8S6wvbiE",
       "title": "신규 스펙업 요소 '아티펙트 드랍' 신규 레이드 \"에이렐\" 핵심만 5분컷 공략!  | #마비노기모바일  #모비노기 #에이렐",
       "title_original": "신규 스펙업 요소 '아티펙트 드랍' 신규 레이드 \"에이렐\" 핵심만 5분컷 공략!  | #마비노기모바일  #모비노기 #에이렐",
       "author": "손해보는 용사 [손용]",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=nzm8S6wvbiE",
       "summary": "[📌 이번 영상 핵심 내용]\n- 출시 첫날, 신규 레이드 보스 ‘에이렐’ 완벽 공략\n- 기믹 하나하나가 핵심인 ‘퍼즐식 패턴’ 파훼법\n\n[📎관련 영상 링크]\n-  레이드 타바르타스 공략👉 https://youtu.b",
@@ -2691,7 +2867,8 @@
       "region": "kr",
       "published_at": "2026-01-15",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/nzm8S6wvbiE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/nzm8S6wvbiE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-oxNKGyXC5cc",
@@ -2706,14 +2883,15 @@
       "region": "kr",
       "published_at": "2026-01-15",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/oxNKGyXC5cc/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/oxNKGyXC5cc/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-8DcuwX0YXXs",
       "title": "신규 어비스 '오염된 폐기장' 핵심만 7분컷 공략(매우어려움 기준)  | #마비노기모바일  #모비노기 #타바르타스",
       "title_original": "신규 어비스 '오염된 폐기장' 핵심만 7분컷 공략(매우어려움 기준)  | #마비노기모바일  #모비노기 #타바르타스",
       "author": "손해보는 용사 [손용]",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=8DcuwX0YXXs",
       "summary": "[📌 이번 영상 핵심 내용]\n- 출시 첫날, 신규 어비스 보스 ‘오염된 폐기장’ 완벽 공략\n- 개발자의 악의가 느껴지는 ‘불쾌한 패턴’ 생존법\n- 핵심 기믹 ‘정화조 운용’ & ‘중앙 똥 빼기’ 집중 분석\n- 공략 ",
@@ -2721,14 +2899,15 @@
       "region": "kr",
       "published_at": "2025-12-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/8DcuwX0YXXs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/8DcuwX0YXXs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-g0yBJzbawso",
       "title": "새로운 바리 어비스 ! 오염된 폐기장 간단 공략 !!   [마비노기 모바일]",
       "title_original": "새로운 바리 어비스 ! 오염된 폐기장 간단 공략 !!   [마비노기 모바일]",
       "author": "플레이어01",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=g0yBJzbawso",
       "summary": "정화조 냅다 켜버리면 망해버려요\n어려움 클리어했습니다\n듀블은 또 장판밟다가 죽겠네요\n\n신규 바리 어비스",
@@ -2736,14 +2915,15 @@
       "region": "kr",
       "published_at": "2025-12-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/g0yBJzbawso/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/g0yBJzbawso/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-49Q1hq7qtSs",
       "title": "타바르타스 어려움 공략 | 일정 시간후 모든 패턴이 즉사기가 된다고? [마비노기 모바일]",
       "title_original": "타바르타스 어려움 공략 | 일정 시간후 모든 패턴이 즉사기가 된다고? [마비노기 모바일]",
       "author": "꽝라멩",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=49Q1hq7qtSs",
       "summary": "🕔타임라인\n00:00 인트로\n00:34 짓뭉개기 [계속 신경써야 하는 패턴 Start]\n02:15 불사로 짓뭉개기 캐리하는 법\n02:42 보라 장판\n03:04 전기 장판\n03:23 구슬 [알고 있으면 되는 패턴 St",
@@ -2751,7 +2931,8 @@
       "region": "kr",
       "published_at": "2025-12-07",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/49Q1hq7qtSs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/49Q1hq7qtSs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-i1KarIelVBk",
@@ -2766,7 +2947,8 @@
       "region": "kr",
       "published_at": "2025-11-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/i1KarIelVBk/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/i1KarIelVBk/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-oys26TlDrOU",
@@ -2781,7 +2963,8 @@
       "region": "kr",
       "published_at": "2025-11-20",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/oys26TlDrOU/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/oys26TlDrOU/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-IJlKmKHO_5Y",
@@ -2796,7 +2979,8 @@
       "region": "kr",
       "published_at": "2025-11-16",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/IJlKmKHO_5Y/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/IJlKmKHO_5Y/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-tambo9x1EVg",
@@ -2811,7 +2995,8 @@
       "region": "kr",
       "published_at": "2025-11-13",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/tambo9x1EVg/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/tambo9x1EVg/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Ov8zvFX8Fe0",
@@ -2826,7 +3011,8 @@
       "region": "kr",
       "published_at": "2025-10-21",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Ov8zvFX8Fe0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Ov8zvFX8Fe0/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-RC9egI9hmzs",
@@ -2841,14 +3027,15 @@
       "region": "kr",
       "published_at": "2025-10-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/RC9egI9hmzs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/RC9egI9hmzs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-a4NJkNrFnOs",
       "title": "쉽게 알려주는 바리 어비스 핵심 공략 [마비노기 모바일 시즌1]",
       "title_original": "쉽게 알려주는 바리 어비스 핵심 공략 [마비노기 모바일 시즌1]",
       "author": "1타법사",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=a4NJkNrFnOs",
       "summary": "메일 : jhoh1080@naver.com\n \n#마비노기모바일",
@@ -2856,7 +3043,8 @@
       "region": "kr",
       "published_at": "2025-10-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/a4NJkNrFnOs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/a4NJkNrFnOs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-SVUJlsUVUVE",
@@ -2871,7 +3059,8 @@
       "region": "kr",
       "published_at": "2025-10-02",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/SVUJlsUVUVE/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/SVUJlsUVUVE/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-J72oY27i_uw",
@@ -2886,14 +3075,15 @@
       "region": "kr",
       "published_at": "2025-09-30",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/J72oY27i_uw/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/J72oY27i_uw/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-8SJ64zYs3go",
       "title": "[마비노기 모바일] 업데이트로 추가된 고양이 상인 꿀팁  #마비노기모바일 #모비노기 #업데이트 #고양이상인",
       "title_original": "[마비노기 모바일] 업데이트로 추가된 고양이 상인 꿀팁  #마비노기모바일 #모비노기 #업데이트 #고양이상인",
       "author": "고멧",
-      "category": "新手指南",
+      "category": "活動情報",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=8SJ64zYs3go",
       "summary": "",
@@ -2901,14 +3091,15 @@
       "region": "kr",
       "published_at": "2025-09-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/8SJ64zYs3go/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/8SJ64zYs3go/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-fGGxCORpp7s",
       "title": "[마비노기 모바일] 서큐버스 레이드 최신공략 , 4인 동시 입장으로 이렇게 쉽게 깹니다",
       "title_original": "[마비노기 모바일] 서큐버스 레이드 최신공략 , 4인 동시 입장으로 이렇게 쉽게 깹니다",
       "author": "노동자_게임방송",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=fGGxCORpp7s",
       "summary": "간만에 마비노기 모바일 영상을 만들었습니다!\n\n마비노기 모바일 오픈 첫날부터 유튜브 채널을 시작했는데,\n초기에 게임에 편법이 많았어요! 그런 부분들을 집중해서 공략하다보니\n악플도 많았고, 시간이 지날수록 컨텐츠도 고",
@@ -2916,14 +3107,15 @@
       "region": "kr",
       "published_at": "2025-09-13",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/fGGxCORpp7s/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/fGGxCORpp7s/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-ADF69PlhKfI",
       "title": "글기 매어 공략 [마비노기 모바일]",
       "title_original": "글기 매어 공략 [마비노기 모바일]",
       "author": "김바탕",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=ADF69PlhKfI",
       "summary": "#예술 #낭만 #마비노기모바일 #모비노기 #글라스기브넨매우어려움공략 #레이드공략",
@@ -2931,7 +3123,8 @@
       "region": "kr",
       "published_at": "2025-07-28",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ADF69PlhKfI/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/ADF69PlhKfI/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-zcrL07EnTPg",
@@ -2949,29 +3142,33 @@
       "region": "tw",
       "published_at": "2025-07-06",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/zcrL07EnTPg/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/zcrL07EnTPg/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-mFvIZw54hgg",
       "title": "서큐 레이드 사제도 브레이크 쉽게 하는 법!! #마비노기모바일 #공략 #shorts (화법이 한거 같기도...?)",
       "title_original": "서큐 레이드 사제도 브레이크 쉽게 하는 법!! #마비노기모바일 #공략 #shorts (화법이 한거 같기도...?)",
       "author": "최 F - 감성 INFP의 게임일기",
-      "category": "新手指南",
-      "tags": [],
+      "category": "副本攻略",
+      "tags": [
+        "治癒師"
+      ],
       "url": "https://www.youtube.com/watch?v=mFvIZw54hgg",
       "summary": "",
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-07-01",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/mFvIZw54hgg/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/mFvIZw54hgg/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-kXfzn4lzxQs",
       "title": "[ 마비노기 모바일 ] 화이트 서큐버스 레이드 패턴 공략 (핵심만 빠르게 3분컷 공략)",
       "title_original": "[ 마비노기 모바일 ] 화이트 서큐버스 레이드 패턴 공략 (핵심만 빠르게 3분컷 공략)",
       "author": "탕튜브",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=kXfzn4lzxQs",
       "summary": "#마비노기 #마비노기M #마비노기모바일 #넥슨 #넥슨게임 #모비노기 #화이트서큐버스 #서큐버스레이드 #마비노기모바일화이트서큐버스 #마비노기서큐버스 #마비노기모바일레이드 #모비노기레이드 #화이트서큐버스패턴 #화이트서큐",
@@ -2979,14 +3176,15 @@
       "region": "kr",
       "published_at": "2025-06-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/kXfzn4lzxQs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/kXfzn4lzxQs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-oJjYIjBS6zY",
       "title": "레이드 어려움 서열2  #마비노기모바일 #모바일마비노기 #서열",
       "title_original": "레이드 어려움 서열2  #마비노기모바일 #모바일마비노기 #서열",
       "author": "강우",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=oJjYIjBS6zY",
       "summary": "카카오톡:  rkddn362 \n이메일:rkddn3621@naver.com\n\n계좌후원: 카카오뱅크 3333-07-5623419 \n투네이션 후원주소:  https://toon.at/donate/rkddn\n아프리카TV: ",
@@ -2994,14 +3192,15 @@
       "region": "kr",
       "published_at": "2025-05-25",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/oJjYIjBS6zY/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/oJjYIjBS6zY/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-Devq-H_itns",
       "title": "[ 마비노기 모바일 ] 글라스기브넨 레이드 \"어려움\" 공략 (핵심만 빠르게 3분컷 공략)",
       "title_original": "[ 마비노기 모바일 ] 글라스기브넨 레이드 \"어려움\" 공략 (핵심만 빠르게 3분컷 공략)",
       "author": "탕튜브",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=Devq-H_itns",
       "summary": "#마비노기 #마비노기M #마비노기모바일 #넥슨 #넥슨게임 #모비노기 #마비노기모바일레이드 #모비노기레이드 #글라스기브넨어려움 #글라스기브넨패턴 #글라스기브넨공략 #글라스기브넨어려움공략 #글기패턴 #글기기믹 #글기공략",
@@ -3009,7 +3208,8 @@
       "region": "kr",
       "published_at": "2025-05-19",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Devq-H_itns/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/Devq-H_itns/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-uLZBabajXMk",
@@ -3024,7 +3224,8 @@
       "region": "kr",
       "published_at": "2025-05-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/uLZBabajXMk/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/uLZBabajXMk/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-f6KUzIry8oM",
@@ -3032,14 +3233,17 @@
       "title_original": "마비노기 모바일 검술사 가이드 [입문부터 실전까지]",
       "author": "김진솔",
       "category": "新手指南",
-      "tags": [],
+      "tags": [
+        "戰士"
+      ],
       "url": "https://www.youtube.com/watch?v=f6KUzIry8oM",
       "summary": "00:00 시작\n00:51 검술사란?\n01:38 레벨업 보너스 카드\n02:35 필요 스텟\n03:47 장신구 룬\n05:05 스킬\n14:09 딜 사이클\n16:52 실전 레이드\n\nBGM\n🎵Music provided by ",
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-05-14",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/f6KUzIry8oM/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/f6KUzIry8oM/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-L1jG4YZcnbU",
@@ -3054,14 +3258,15 @@
       "region": "kr",
       "published_at": "2025-04-25",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/L1jG4YZcnbU/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/L1jG4YZcnbU/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-lFfEaOJTApo",
       "title": "마비노기 모바일 라비 2-3 심층 서큐버스 광역 패턴 전체 공략",
       "title_original": "마비노기 모바일 라비 2-3 심층 서큐버스 광역 패턴 전체 공략",
       "author": "옹아 어드벤처 타임",
-      "category": "新手指南",
+      "category": "副本攻略",
       "tags": [],
       "url": "https://www.youtube.com/watch?v=lFfEaOJTApo",
       "summary": "",
@@ -3069,7 +3274,8 @@
       "region": "kr",
       "published_at": "2025-04-18",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/lFfEaOJTApo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/lFfEaOJTApo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-7S62J3ihaQs",
@@ -3084,7 +3290,8 @@
       "region": "kr",
       "published_at": "2025-04-09",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/7S62J3ihaQs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/7S62J3ihaQs/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-rq-taq8NQ8U",
@@ -3099,7 +3306,8 @@
       "region": "kr",
       "published_at": "2025-04-08",
       "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/rq-taq8NQ8U/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/rq-taq8NQ8U/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-MO2m2w_Lz5Q",
@@ -3107,14 +3315,17 @@
       "title_original": "마비노기 모바일 음유시인 입문 초보자 가이드 (랭킹 1등 직강)",
       "author": "점검중",
       "category": "新手指南",
-      "tags": [],
+      "tags": [
+        "吟遊詩人"
+      ],
       "url": "https://www.youtube.com/watch?v=MO2m2w_Lz5Q",
       "summary": "#유료광고 #확률형아이템포함\n우리 음유시인 정말 매력적인 직업입니다. 많이 사랑해주세요!\n궁금하신 점은 댓글 달아주시면 답변 드리겠습니다.\n*장신구 룬 추천 화음, 조롱 +  재치 or 기만 으로 수정하겠습니다*\n*",
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-04-07",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/MO2m2w_Lz5Q/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/MO2m2w_Lz5Q/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-UMxTwcaa-fo",
@@ -3129,7 +3340,8 @@
       "region": "kr",
       "published_at": "2025-04-05",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/UMxTwcaa-fo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/UMxTwcaa-fo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "youtube-3YD7UEsLeXo",
@@ -3144,7 +3356,8 @@
       "region": "tw",
       "published_at": "2025-02-06",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/3YD7UEsLeXo/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/3YD7UEsLeXo/hqdefault.jpg",
+      "key_points": []
     },
     {
       "id": "bahamut-2541",
@@ -3163,7 +3376,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2498",
@@ -3180,7 +3394,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2159",
@@ -3195,7 +3410,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1925",
@@ -3210,7 +3426,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2489",
@@ -3225,7 +3442,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2455",
@@ -3240,7 +3458,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1283",
@@ -3257,7 +3476,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-515",
@@ -3272,7 +3492,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-744",
@@ -3287,7 +3508,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1968",
@@ -3302,7 +3524,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1334",
@@ -3317,7 +3540,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-810",
@@ -3332,7 +3556,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2559",
@@ -3349,7 +3574,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2438",
@@ -3372,7 +3598,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2568",
@@ -3387,7 +3614,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1567",
@@ -3404,7 +3632,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2536",
@@ -3421,7 +3650,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2566",
@@ -3439,7 +3669,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1496",
@@ -3454,7 +3685,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2432",
@@ -3469,7 +3701,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-973",
@@ -3484,7 +3717,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2564",
@@ -3499,7 +3733,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2396",
@@ -3516,7 +3751,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2552",
@@ -3531,7 +3767,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-369",
@@ -3548,7 +3785,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2546",
@@ -3566,7 +3804,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2563",
@@ -3581,7 +3820,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2562",
@@ -3600,7 +3840,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2561",
@@ -3615,7 +3856,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2560",
@@ -3630,7 +3872,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1453",
@@ -3651,7 +3894,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2398",
@@ -3666,7 +3910,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2555",
@@ -3681,7 +3926,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2358",
@@ -3696,7 +3942,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2103",
@@ -3711,7 +3958,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2553",
@@ -3728,7 +3976,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2545",
@@ -3745,7 +3994,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1761",
@@ -3760,7 +4010,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2551",
@@ -3778,7 +4029,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2223",
@@ -3797,7 +4049,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2539",
@@ -3815,7 +4068,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2550",
@@ -3833,7 +4087,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2549",
@@ -3850,7 +4105,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2275",
@@ -3865,7 +4121,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2548",
@@ -3886,7 +4143,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2547",
@@ -3905,7 +4163,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2143",
@@ -3923,7 +4182,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2544",
@@ -3940,7 +4200,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2381",
@@ -3957,7 +4218,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-779",
@@ -3972,7 +4234,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2543",
@@ -3992,7 +4255,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2509",
@@ -4012,7 +4276,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2540",
@@ -4032,7 +4297,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2538",
@@ -4052,7 +4318,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2502",
@@ -4072,7 +4339,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2526",
@@ -4092,7 +4360,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2516",
@@ -4111,7 +4380,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2522",
@@ -4130,7 +4400,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2535",
@@ -4150,7 +4421,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1857",
@@ -4170,7 +4442,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2531",
@@ -4190,7 +4463,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2532",
@@ -4209,7 +4483,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2534",
@@ -4229,7 +4504,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2530",
@@ -4249,7 +4525,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2500",
@@ -4264,7 +4541,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2528",
@@ -4279,7 +4557,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1732",
@@ -4294,7 +4573,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2082",
@@ -4309,7 +4589,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2527",
@@ -4324,7 +4605,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1669",
@@ -4339,7 +4621,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2525",
@@ -4358,7 +4641,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-600",
@@ -4375,7 +4659,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2524",
@@ -4390,7 +4675,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2521",
@@ -4405,7 +4691,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2408",
@@ -4422,7 +4709,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2517",
@@ -4439,7 +4727,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2513",
@@ -4456,7 +4745,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2514",
@@ -4476,7 +4766,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1775",
@@ -4491,7 +4782,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2512",
@@ -4508,7 +4800,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2511",
@@ -4527,7 +4820,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1341",
@@ -4544,7 +4838,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2510",
@@ -4559,7 +4854,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2508",
@@ -4574,7 +4870,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2122",
@@ -4589,7 +4886,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2507",
@@ -4604,7 +4902,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2503",
@@ -4621,7 +4920,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2491",
@@ -4636,7 +4936,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1780",
@@ -4654,7 +4955,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2470",
@@ -4669,7 +4971,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2504",
@@ -4684,7 +4987,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1751",
@@ -4701,7 +5005,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1170",
@@ -4716,7 +5021,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2496",
@@ -4733,7 +5039,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2497",
@@ -4748,7 +5055,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2485",
@@ -4765,7 +5073,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2177",
@@ -4780,7 +5089,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2495",
@@ -4795,7 +5105,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2494",
@@ -4813,7 +5124,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2493",
@@ -4828,7 +5140,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2492",
@@ -4845,7 +5158,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1353",
@@ -4863,7 +5177,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2483",
@@ -4881,7 +5196,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2258",
@@ -4896,7 +5212,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2276",
@@ -4913,7 +5230,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2490",
@@ -4931,7 +5249,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2487",
@@ -4948,7 +5267,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2488",
@@ -4963,7 +5283,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2461",
@@ -4980,7 +5301,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2480",
@@ -4995,7 +5317,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2486",
@@ -5012,7 +5335,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2484",
@@ -5029,7 +5353,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1862",
@@ -5049,7 +5374,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2478",
@@ -5066,7 +5392,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2463",
@@ -5083,7 +5410,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-495",
@@ -5105,7 +5433,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2193",
@@ -5125,7 +5454,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1929",
@@ -5140,7 +5470,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2481",
@@ -5159,7 +5490,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2317",
@@ -5174,7 +5506,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-1649",
@@ -5191,7 +5524,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2479",
@@ -5208,7 +5542,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2338",
@@ -5226,7 +5561,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2477",
@@ -5243,7 +5579,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2476",
@@ -5258,7 +5595,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2475",
@@ -5273,7 +5611,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-900",
@@ -5288,7 +5627,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2465",
@@ -5303,7 +5643,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2354",
@@ -5322,7 +5663,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2471",
@@ -5337,7 +5679,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2403",
@@ -5354,7 +5697,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2469",
@@ -5371,7 +5715,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2468",
@@ -5386,7 +5731,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2421",
@@ -5401,7 +5747,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2467",
@@ -5420,7 +5767,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2466",
@@ -5437,7 +5785,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2462",
@@ -5452,7 +5801,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2460",
@@ -5470,7 +5820,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2459",
@@ -5485,7 +5836,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2184",
@@ -5500,7 +5852,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2458",
@@ -5519,7 +5872,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2425",
@@ -5537,7 +5891,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2457",
@@ -5552,7 +5907,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-2456",
@@ -5569,7 +5925,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": false,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     },
     {
       "id": "bahamut-essence-553",
@@ -5588,7 +5945,8 @@
       "region": "tw",
       "published_at": "",
       "is_featured": true,
-      "thumbnail": ""
+      "thumbnail": "",
+      "key_points": []
     }
   ]
 }
