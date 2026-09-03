@@ -50,6 +50,17 @@
     .focus-banner strong { color: var(--brand); font-size: 1.05rem; }
     .focus-banner button { border: none; background: none; color: var(--muted); text-decoration: underline;
       cursor: pointer; font-size: .85rem; }
+    .class-digest { background: #fff; border: 2px solid var(--brand); border-radius: 10px;
+      padding: 1.1rem 1.3rem; margin: 1rem 0; }
+    .class-digest__head { font-size: 1.05rem; font-weight: 700; color: var(--brand); margin-bottom: .3rem; }
+    .class-digest__empty { color: var(--muted); font-size: .9rem; }
+    .class-digest__section { margin-top: .8rem; }
+    .class-digest__section h4 { margin: 0 0 .4rem; font-size: .9rem; color: var(--dark); }
+    .class-digest__section ul { margin: 0; padding-left: 1.2rem; }
+    .class-digest__section li { font-size: .9rem; margin: .3rem 0; line-height: 1.5; }
+    .class-digest__sources { font-size: .75rem; color: var(--muted); }
+    .class-digest__sources a { color: var(--muted); }
+    .class-digest__count { font-size: .78rem; color: var(--muted); margin-top: .6rem; }
     .region-tabs { display: flex; gap: .5rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
     .region-tabs button {
       padding: .5rem 1.1rem; font-size: 1rem; border: 1px solid var(--line);
@@ -96,6 +107,7 @@
     <nav style="margin-top:.6rem;">
       <a href="index.html" style="color:#fff;margin:0 .8rem;text-decoration:underline;">攻略索引</a>
       <a href="calculator.html" style="color:#cfe3f3;margin:0 .8rem;text-decoration:none;">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html" style="color:#cfe3f3;margin:0 .8rem;text-decoration:none;">⚒️ 強化／符文計算機</a>
     </nav>
   </header>
 
@@ -162,6 +174,7 @@
       正在看：<strong id="focus-banner__name"></strong>
       <button id="focus-banner__clear" type="button">✕ 清除，看全部</button>
     </div>
+    <div id="class-digest" class="class-digest" style="display:none;"></div>
 
     <div class="filter-bar">
       <input id="search-box" type="text" placeholder="搜尋標題／作者／標籤…" autocomplete="off">
@@ -191,6 +204,7 @@
     "use strict";
     let guides = [];
     let currentRegion = "all";
+    let classDigests = {};  // 職業速答卡資料，見 class_digests.json（可能尚未產出，抓不到就維持空物件）
 
     // ── 倒數面板（結界/野王/每日/每週重置）───────────────────
     // 全部用台灣時間（UTC+8）計算，不吃瀏覽器所在時區：先把目前時間
@@ -373,8 +387,84 @@
       currentClass = cls;
       populateDynamicFilters();
       render();
+      renderClassDigest(cls);
       if (cls !== "all") {
         document.getElementById("focus-banner").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // 「職業速答卡」：選職業後直接給答案（符文/技能加點/常見問題），不用逼玩家
+    // 自己點開好幾篇文章拼湊。資料來自 class_digests.json（AI 跨篇合成，見
+    // scraper/class_digest.py），還沒產出前顯示「準備中」，不是空白一片。
+    const DIGEST_SECTIONS = [
+      ["runes", "🔮 符文推薦"],
+      ["skill_order", "⚔️ 技能加點／升級順序"],
+      ["faq", "❓ 常見問題"],
+    ];
+
+    function renderClassDigest(cls) {
+      const box = document.getElementById("class-digest");
+      if (cls === "all") { box.style.display = "none"; box.textContent = ""; return; }
+
+      box.style.display = "block";
+      box.textContent = "";
+      const digest = classDigests[cls];
+
+      box.appendChild(el("div", "class-digest__head", "🎯 " + cls + "速答"));
+
+      if (!digest) {
+        box.appendChild(el("div", "class-digest__empty",
+          "這個職業的重點整理還在準備中，可以先看下面的完整攻略。"));
+        return;
+      }
+
+      const guideById = new Map(guides.map((g) => [g.id, g]));
+      let hasAnySection = false;
+      DIGEST_SECTIONS.forEach(([key, label]) => {
+        const items = arr(digest[key]);
+        if (!items.length) return;
+        hasAnySection = true;
+        const section = el("div", "class-digest__section");
+        section.appendChild(el("h4", null, label));
+        const ul = el("ul");
+        items.forEach((item) => {
+          const li = el("li", null, str(item && item.text));
+          const sourceIds = arr(item && item.source_ids).filter((id) => guideById.has(id));
+          if (sourceIds.length) {
+            const src = el("span", "class-digest__sources", "　資料來自：");
+            sourceIds.forEach((id, i) => {
+              const g = guideById.get(id);
+              const a = el("a", null, g.title);
+              a.href = g.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+              src.appendChild(a);
+              if (i < sourceIds.length - 1) src.appendChild(document.createTextNode("、"));
+            });
+            li.appendChild(src);
+          }
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+        box.appendChild(section);
+      });
+
+      if (!hasAnySection) {
+        box.appendChild(el("div", "class-digest__empty",
+          "這個職業目前收集的攻略還不夠多，重點整理還在累積，可以先看下面的完整攻略。"));
+      }
+      const count = Number(digest.guide_count) || 0;
+      if (count) {
+        box.appendChild(el("div", "class-digest__count", "整理依據：" + count + " 篇攻略"));
+      }
+    }
+
+    async function loadClassDigests() {
+      try {
+        const res = await fetch("class_digests.json", { cache: "no-cache" });
+        if (!res.ok) return;  // 還沒產出時是正常狀態，不是錯誤
+        const data = await res.json();
+        classDigests = (data && typeof data.digests === "object" && data.digests) || {};
+      } catch (e) {
+        classDigests = {};  // 抓不到就維持空物件，前端自動退回「準備中」文案
       }
     }
 
@@ -478,6 +568,7 @@
     updateCountdowns();
     setInterval(updateCountdowns, 1000);
     loadGuides();
+    loadClassDigests();  // 跟 guides.json 各自獨立抓，任一邊失敗不影響另一邊
   </script>
 </body>
 </html>

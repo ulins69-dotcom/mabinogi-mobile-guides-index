@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 強化／符文計算機</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.6; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .8rem; text-decoration:none; font-size:.95rem; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:900px; margin:1.5rem auto; padding:0 1rem; }
+    h2 { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; }
+    .source-note { background:#eef6fb; border:1px solid #cfe3f3; color:var(--ink);
+      border-radius:6px; padding:.7rem .9rem; font-size:.85rem; margin-bottom:1.2rem; }
+    .source-note a { color:var(--brand); }
+    .disclaimer { background:#fff8e1; border:1px solid #f0d98c; color:#8a6d1a;
+      border-radius:6px; padding:.7rem .9rem; font-size:.85rem; margin-bottom:1.2rem; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1.1rem;
+      box-shadow:0 2px 4px rgba(0,0,0,.06); margin-bottom:1.5rem; }
+    .field-row { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:.9rem; }
+    .field { flex:1 1 180px; }
+    .field label { display:block; font-size:.9rem; margin-bottom:.25rem; color:var(--ink); }
+    .field select { width:100%; padding:.5rem .6rem; font-size:1rem; border:1px solid var(--line); border-radius:6px; }
+    .result { margin-top:1rem; }
+    .result .row { display:flex; justify-content:space-between; padding:.6rem .2rem; border-bottom:1px dashed var(--line); }
+    .result .row:last-child { border-bottom:none; }
+    .result .label { color:var(--muted); }
+    .result .val { font-weight:700; font-size:1.1rem; color:var(--brand); }
+    .result .val.big { color:var(--featured); font-size:1.3rem; }
+    .err { color:var(--warn); font-size:.85rem; margin-top:.5rem; }
+    .scope-note { font-size:.78rem; color:var(--muted); margin-top:.8rem; }
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>瑪奇 Mobile 強化／符文計算機</h1>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">傷害計算機</a>
+      <a href="enhance-calculator.html" class="active">強化／符文計算機</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="source-note">
+      📌 數字來源：<strong>NEXON NOW 台服官方機率公示頁</strong>
+      （<a href="https://now.nexon.com/service/mabimobile-tw" target="_blank" rel="noopener noreferrer">now.nexon.com/service/mabimobile-tw</a>，
+      2026-09-03 直接查證取得），不是引用其他攻略站的轉錄數字。計算邏輯是本站自己寫的，只有機率表用官方數字。
+    </div>
+    <div class="disclaimer">
+      ⚠️ 官方頁面只公開<strong>成功率與保底點數機制</strong>，<strong>沒有公開每次嘗試消耗的材料／金幣數量</strong>，
+      所以本計算機只算「預期嘗試次數」，不算材料花費——網路上看到的材料/金幣估算表都不是官方數據，本站不採用未經查證的數字。
+    </div>
+
+    <div class="card">
+      <h2>符文晉階期望計算器</h2>
+      <p style="font-size:.85rem;color:var(--muted);">例如「橘色系符文全滿」這類目標，本質是把符文一路晉階到 ★6 傳說。</p>
+      <div class="field-row">
+        <div class="field">
+          <label>目前星等</label>
+          <select id="rune-from">
+            <option value="0">★0 高級</option>
+            <option value="1">★1 高級</option>
+            <option value="2">★2 稀有</option>
+            <option value="3">★3 稀有</option>
+            <option value="4">★4 菁英</option>
+            <option value="5">★5 史詩</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>目標星等</label>
+          <select id="rune-to">
+            <option value="1">★1 高級</option>
+            <option value="2">★2 稀有</option>
+            <option value="3">★3 稀有</option>
+            <option value="4">★4 菁英</option>
+            <option value="5">★5 史詩</option>
+            <option value="6" selected>★6 傳說</option>
+          </select>
+        </div>
+      </div>
+      <div class="result" id="rune-result"></div>
+      <div class="scope-note">
+        計算含官方公示的「連續晉階」（一次跳過中間星等）機率。晉階失敗時是否損耗材料、每次嘗試消耗幾個符文，
+        官方頁面未列出（頁面註明「詳細內容請參考遊戲內提示」），故本計算機只算「預期嘗試次數」，不換算成符文消耗數量。
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>刻印強化期望計算器（未使用催化劑）</h2>
+      <div class="field-row">
+        <div class="field">
+          <label>目前強化階段</label>
+          <select id="enh-from"></select>
+        </div>
+        <div class="field">
+          <label>目標強化階段</label>
+          <select id="enh-to"></select>
+        </div>
+      </div>
+      <div class="result" id="enh-result"></div>
+      <div class="err" id="enh-err"></div>
+      <div class="scope-note">
+        +1～+10 官方僅遊戲內顯示精確數值（推估接近 100%），故本計算機只涵蓋有公開機率的 <strong>+4 以後</strong>。
+        「預期嘗試次數」用保底點數機制精算，「最多幾次保底必成」取官方表中同一階段各符文星等機率的<strong>最小值</strong>換算，
+        兩者都跟官方公示的機率一致，但兩者本身各自帶四捨五入誤差，僅供概算。使用「強化再燃燒催化劑」（一次做兩次判定）
+        官方頁面也有公布數字，這個計算機目前還沒涵蓋，之後可以再擴充。
+      </div>
+    </div>
+  </div>
+
+  <footer><p>© 2026 瑪奇 Mobile 攻略索引網站</p></footer>
+
+  <script>
+    "use strict";
+
+    // ── 符文晉階：官方機率表（2026-09-03 取自 NEXON NOW 台服頁面，逐字記錄） ──
+    // 每個起始星等對應：失敗留在原地、成功晉一階、或「連續晉階」直接跳過中間星等。
+    const RUNE_TRANSITIONS = {
+      0: [{ to: 0, p: 0.10 }, { to: 1, p: 0.882 }, { to: 2, p: 0.012996 }, { to: 3, p: 0.0036 }, { to: 4, p: 0.0009 }, { to: 5, p: 0.00045 }, { to: 6, p: 0.000054 }],
+      1: [{ to: 1, p: 0.15 }, { to: 2, p: 0.833 }, { to: 3, p: 0.014331 }, { to: 4, p: 0.0017 }, { to: 5, p: 0.00085 }, { to: 6, p: 0.000119 }],
+      2: [{ to: 2, p: 0.20 }, { to: 3, p: 0.788 }, { to: 4, p: 0.01062 }, { to: 5, p: 0.0012 }, { to: 6, p: 0.00018 }],
+      3: [{ to: 3, p: 0.50 }, { to: 4, p: 0.495 }, { to: 5, p: 0.00475 }, { to: 6, p: 0.00025 }],
+      4: [{ to: 4, p: 0.60 }, { to: 5, p: 0.396 }, { to: 6, p: 0.004 }],
+      5: [{ to: 5, p: 0.90 }, { to: 6, p: 0.10 }],
+    };
+
+    function expectedRuneAttempts(start, target) {
+      if (start >= target) return 0;
+      const E = {};
+      E[target] = 0;
+      for (let s = target - 1; s >= start; s--) {
+        const trans = RUNE_TRANSITIONS[s];
+        let pFail = 0, forward = 0;
+        trans.forEach((t) => {
+          if (t.to === s) { pFail = t.p; return; }
+          const contrib = t.to >= target ? 0 : E[t.to];
+          forward += t.p * contrib;
+        });
+        E[s] = (1 + forward) / (1 - pFail);
+      }
+      return E[start];
+    }
+
+    // ── 刻印強化：官方機率表（同上來源）。key 為「目前階段」，代表「目前階段→目前階段+1」這次嘗試。
+    // baseP：該次嘗試的成功率。failPtsAvg／failPtsMin：失敗一次獲得的強化點數(%)，
+    // 官方表依符文星等(★0~★6)略有差異，這裡取平均值(用於「預期次數」)與最小值(用於「最多保底次數」，
+    // 最小值才能保證「無論哪個星等的符文都不會超過這個次數」)。
+    const ENCHANT_STAGES = {
+      4: { baseP: 0.80, failPtsAvg: 39.87, failPtsMin: 39.2 },
+      5: { baseP: 0.70, failPtsAvg: 34.99, failPtsMin: 34.9 },
+      6: { baseP: 0.60, failPtsAvg: 29.99, failPtsMin: 29.7 },
+      7: { baseP: 0.50, failPtsAvg: 25.00, failPtsMin: 25.0 },
+      8: { baseP: 0.40, failPtsAvg: 20.00, failPtsMin: 20.0 },
+      9: { baseP: 0.30, failPtsAvg: 15.00, failPtsMin: 15.0 },
+      10: { baseP: 0.15, failPtsAvg: 7.47, failPtsMin: 7.4 },
+      11: { baseP: 0.10, failPtsAvg: 5.00, failPtsMin: 5.0 },
+      12: { baseP: 0.07, failPtsAvg: 3.47, failPtsMin: 3.4 },
+      13: { baseP: 0.05, failPtsAvg: 2.50, failPtsMin: 2.5 },
+      14: { baseP: 0.03, failPtsAvg: 1.46, failPtsMin: 1.4 },
+      15: { baseP: 0.01, failPtsAvg: 0.50, failPtsMin: 0.5 },
+      16: { baseP: 0.01, failPtsAvg: 0.50, failPtsMin: 0.5 },
+      17: { baseP: 0.01, failPtsAvg: 0.50, failPtsMin: 0.5 },
+      18: { baseP: 0.01, failPtsAvg: 0.50, failPtsMin: 0.5 },
+      19: { baseP: 0.01, failPtsAvg: 0.50, failPtsMin: 0.5 },
+    };
+
+    // 保底點數制：每次失敗累積 failPts%，累滿 100% 後下一次必定成功。
+    // 期望嘗試次數 = 前 N-1 次「正常機率成功」的加權平均 + 撐到保底當次的貢獻。
+    function expectedEnchantAttemptsOneStage(baseP, failPtsAvg) {
+      const nMax = Math.ceil(100 / failPtsAvg);
+      let e = 0;
+      let survive = 1; // 撐到第 k 次都還沒成功的機率
+      for (let k = 0; k < nMax; k++) {
+        e += (k + 1) * survive * baseP;
+        survive *= (1 - baseP);
+      }
+      e += (nMax + 1) * survive; // 撐滿 nMax 次失敗，下一次保底必成
+      return e;
+    }
+
+    function maxGuaranteedAttempts(failPtsMin) {
+      return Math.ceil(100 / failPtsMin) + 1; // +1 是保底觸發後那次必成的嘗試
+    }
+
+    function computeEnchant(start, target) {
+      let expected = 0, maxAttempts = 0;
+      for (let s = Math.max(start, 4); s < target; s++) {
+        const st = ENCHANT_STAGES[s];
+        if (!st) continue;
+        expected += expectedEnchantAttemptsOneStage(st.baseP, st.failPtsAvg);
+        maxAttempts += maxGuaranteedAttempts(st.failPtsMin);
+      }
+      // +0~+4 之前官方僅遊戲內顯示、推估接近 100%，這裡不計入次數（避免用未公開數字）
+      return { expected, maxAttempts };
+    }
+
+    // ── UI ──
+    const fmt1 = (n) => n.toFixed(1);
+
+    function renderRune() {
+      const from = Number(document.getElementById("rune-from").value);
+      const to = Number(document.getElementById("rune-to").value);
+      const box = document.getElementById("rune-result");
+      box.innerHTML = "";
+      if (from >= to) {
+        box.innerHTML = '<div class="err">目標星等要比目前星等高。</div>';
+        return;
+      }
+      const attempts = expectedRuneAttempts(from, to);
+      const rows = [["預期晉階嘗試次數", fmt1(attempts) + " 次", true]];
+      rows.forEach(([label, val, big]) => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = '<span class="label"></span><span class="val' + (big ? " big" : "") + '"></span>';
+        row.querySelector(".label").textContent = label;
+        row.querySelector(".val").textContent = val;
+        box.appendChild(row);
+      });
+    }
+
+    function renderEnchant() {
+      const from = Number(document.getElementById("enh-from").value);
+      const to = Number(document.getElementById("enh-to").value);
+      const box = document.getElementById("enh-result");
+      const errBox = document.getElementById("enh-err");
+      box.innerHTML = ""; errBox.textContent = "";
+      if (from >= to) {
+        errBox.textContent = "目標階段要比目前階段高。";
+        return;
+      }
+      const { expected, maxAttempts } = computeEnchant(from, to);
+      const rows = [
+        ["預期強化嘗試次數", fmt1(expected) + " 次", true],
+        ["最多幾次保底必成（最壞情況）", maxAttempts + " 次", false],
+      ];
+      rows.forEach(([label, val, big]) => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = '<span class="label"></span><span class="val' + (big ? " big" : "") + '"></span>';
+        row.querySelector(".label").textContent = label;
+        row.querySelector(".val").textContent = val;
+        box.appendChild(row);
+      });
+    }
+
+    function fillEnhanceSelects() {
+      const fromSel = document.getElementById("enh-from");
+      const toSel = document.getElementById("enh-to");
+      for (let n = 4; n <= 19; n++) {
+        const optFrom = document.createElement("option");
+        optFrom.value = n; optFrom.textContent = "+" + n;
+        fromSel.appendChild(optFrom);
+        const optTo = document.createElement("option");
+        optTo.value = n + 1; optTo.textContent = "+" + (n + 1);
+        toSel.appendChild(optTo);
+      }
+      fromSel.value = "10";
+      toSel.value = "15";
+    }
+
+    document.getElementById("rune-from").addEventListener("change", renderRune);
+    document.getElementById("rune-to").addEventListener("change", renderRune);
+    document.getElementById("enh-from").addEventListener("change", renderEnchant);
+    document.getElementById("enh-to").addEventListener("change", renderEnchant);
+
+    fillEnhanceSelects();
+    renderRune();
+    renderEnchant();
+  </script>
+</body>
+</html>
