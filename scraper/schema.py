@@ -7,6 +7,10 @@ v2 新增：
 - region："tw"（台服）/ "kr"（韓服）
 - title：顯示用標題（一律中文；韓服為 AI 翻譯後）
 - title_original：原始標題（韓服為韓文原文，台服同 title）
+
+2026-09 新增：
+- key_points：AI 從內文摘要抽出的 0~3 條具體重點（string[]）。沒有 AI
+  或抽不出東西一律為 []，前端卡片沒有重點時退回顯示 summary，不開天窗。
 """
 
 from __future__ import annotations
@@ -39,6 +43,9 @@ def to_record(item: dict) -> dict:
     tags = item.get("tags") or []
     tags = [t for t in tags if isinstance(t, str) and t]
 
+    key_points = item.get("key_points") or []
+    key_points = [str(k) for k in key_points if isinstance(k, str) and k][:3]
+
     return {
         "id": _s(item.get("id")),
         "title": display,
@@ -48,6 +55,7 @@ def to_record(item: dict) -> dict:
         "tags": tags,
         "url": _s(item.get("url")),
         "summary": _s(item.get("summary")),
+        "key_points": key_points,
         "source": source,
         "region": region,
         "published_at": _s(item.get("published_at")),
@@ -70,6 +78,8 @@ def validate(record: dict) -> list[str]:
         problems.append(f"region 非法：{record.get('region')}")
     if not isinstance(record.get("tags"), list):
         problems.append("tags 非陣列")
+    if not isinstance(record.get("key_points"), list):
+        problems.append("key_points 非陣列")
     return problems
 
 

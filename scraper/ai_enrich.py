@@ -7,6 +7,11 @@ AI 增強模組（翻譯 + 分類 + 打標）—— 用 Google Gemini。
 - 沒有金鑰或 AI 呼叫失敗 → 自動降級回 classify.py 的規則版，整條管線不會壞。
 - 批次處理（一次送多筆）以節省 API 呼叫數，穩穩待在免費額度內。
 
+2026-09 新增 key_points（重點條列）：prompt 現在會把 bahamut.py 抓到的
+內文摘要一併送給 AI，讓它從實際內容抽 0~3 條具體重點，而不是只看標題
+腦補一句話。沒有內文片段（或 AI 抽不出東西）就給空陣列，前端卡片會
+自動退回顯示原始摘要，不會開天窗。
+
 金鑰放環境變數 GEMINI_API_KEY（GitHub Actions 用 Secrets）。
 """
 
@@ -44,18 +49,30 @@ def has_ai() -> bool:
     return bool(_key())
 
 
+EXCERPT_MAX_CHARS = 200  # 送給 AI 的內文片段長度上限，避免單批 token 太多
+
+
 def _build_prompt(batch: list[dict]) -> str:
     lines = []
     for i, it in enumerate(batch):
-        lines.append(f'{i}. [{it.get("region","tw")}] {it.get("title","")}')
+        title = it.get("title", "")
+        excerpt = (it.get("summary") or "").strip()[:EXCERPT_MAX_CHARS]
+        line = f'{i}. [{it.get("region","tw")}] 標題：{title}'
+        if excerpt:
+            line += f"\n   內文片段：{excerpt}"
+        lines.append(line)
     items_text = "\n".join(lines)
-    return f"""你是《瑪奇 Mobile》繁體中文攻略網站的內容編輯。以下是攻略標題清單，有些是韓文（韓服搶先資訊）。
-請針對每一筆，輸出一個 JSON 物件，欄位如下：
+    return f"""你是《瑪奇 Mobile》繁體中文攻略網站的編輯。以下每筆攻略給你標題，部分附「內文片段」
+（韓文的請看內文片段抓重點，不要只靠標題腦補）。請針對每一筆，輸出一個 JSON 物件，欄位如下：
 - "i": 該筆的編號（整數）
 - "title_zh": 繁體中文標題。若原文是韓文，翻成自然的繁體中文；若已是中文，做適度潤飾即可。
 - "category": 只能是這四種之一：新手指南、職業解析、副本攻略、活動情報
 - "tags": 2~4 個繁體中文關鍵標籤的字串陣列（如職業名、副本名、活動名）
-- "summary_zh": 一句話繁體中文重點摘要（20字內；資訊不足就給空字串）
+- "key_points": 陣列，從「內文片段」抽出 0~3 條具體、有用的重點，每條 12~18 字繁體中文。
+  只抽讀者會想知道的具體資訊（數值、符文/裝備名、步驟、結論），不要重複標題文字，
+  不要「內容豐富」「值得參考」這種沒有實際資訊量的空話。
+  沒有內文片段、或片段裡真的抽不出實質內容，就給空陣列 []，不要硬湊。
+- "summary_zh": 一句話繁體中文摘要（20字內，是內文片段的翻譯／整理；沒有片段就給空字串）
 
 只輸出一個 JSON 陣列，不要加任何說明文字。
 
@@ -107,10 +124,12 @@ def _call_gemini(prompt: str, key: str) -> list | None:
 
 
 def _apply_rule_fallback(item: dict) -> None:
-    """單筆用規則版補上欄位（AI 失敗時）。"""
+    """單筆用規則版補上欄位（AI 失敗時）。key_points 是 AI 專屬能力，
+    規則版抽不出重點，給空陣列——前端會自動退回顯示原始摘要，不會空白。"""
     item["category"] = classify.classify_category(item)
     item["tags"] = classify.extract_tags(item)
     item.setdefault("title_zh", item.get("title", ""))
+    item.setdefault("key_points", [])
 
 
 def enrich(items: list[dict]) -> list[dict]:
@@ -157,6 +176,11 @@ def enrich(items: list[dict]) -> list[dict]:
                 it["tags"] = [str(t) for t in tags if t] if isinstance(tags, list) else classify.extract_tags(it)
                 it["title_zh"] = str(r.get("title_zh") or it.get("title", ""))
                 it["summary"] = str(r.get("summary_zh") or it.get("summary", ""))
+                kp = r.get("key_points")
+                it["key_points"] = (
+                    [str(k).strip() for k in kp if isinstance(k, str) and k.strip()][:3]
+                    if isinstance(kp, list) else []
+                )
         # 不管這批成功或失敗都要延遲，避免失敗批次雪崩式越打越快、越打越容易被限流
         # （之前的 bug：失敗時用 continue 跳過了這行，緊接著下一批立刻打過去）。
         time.sleep(BATCH_DELAY_SEC)

@@ -71,6 +71,10 @@
     .guide-card h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
     .guide-card .orig { font-size: .78rem; color: #999; margin: 0 0 .4rem; }
     .guide-card .meta { font-size: .85rem; color: var(--muted); margin: .15rem 0; }
+    .key-points { margin: .4rem 0; padding: 0; list-style: none; }
+    .key-points li { font-size: .85rem; color: var(--text, #333); margin: .25rem 0;
+      padding-left: 1.1rem; position: relative; line-height: 1.4; }
+    .key-points li::before { content: "▸"; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
     .badge { display: inline-block; font-size: .75rem; padding: .1rem .5rem; border-radius: 10px;
       background: #eef4fb; color: var(--brand); margin-right: .3rem; }
     .badge.star { background: #fdf3e3; color: var(--featured); }
@@ -277,6 +281,7 @@
         category: str(g.category, "未分類"),
         tags: arr(g.tags).map((t) => str(t)).filter(Boolean),
         url: safeUrl(g.url), summary: str(g.summary),
+        key_points: arr(g.key_points).map((t) => str(t)).filter(Boolean),
         source: str(g.source, "未知來源"),
         region: str(g.region, "tw"),
         published_at: str(g.published_at),
@@ -306,7 +311,15 @@
 
       card.appendChild(el("div", "meta", "作者：" + g.author + "｜來源：" + g.source));
       if (g.published_at) card.appendChild(el("div", "meta", "發布：" + g.published_at));
-      if (g.summary) card.appendChild(el("div", "meta", g.summary));
+      // key_points 是 AI 從內文抽出的具體重點，比一句話摘要更好掃視；
+      // 沒有 key_points（規則版降級、或 AI 抽不出東西）就退回原本的 summary，不開天窗。
+      if (g.key_points.length) {
+        const kp = el("ul", "key-points");
+        g.key_points.forEach((k) => kp.appendChild(el("li", null, k)));
+        card.appendChild(kp);
+      } else if (g.summary) {
+        card.appendChild(el("div", "meta", g.summary));
+      }
 
       if (g.tags.length) {
         const tw = el("div", "tags");
