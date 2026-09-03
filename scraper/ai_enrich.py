@@ -12,7 +12,17 @@ AI 增強模組（翻譯 + 分類 + 打標）—— 用 Google Gemini。
 腦補一句話。沒有內文片段（或 AI 抽不出東西）就給空陣列，前端卡片會
 自動退回顯示原始摘要，不會開天窗。
 
+2026-09-03 新增翻譯安全網：韓服標題翻譯改交給 translate.py（Cloud
+Translation API，獨立配額），在 Gemini 開始跑之前先幫每篇韓服標題打底
+翻譯（寫入 item["title_zh_mt"]）。原因：Gemini 配額燒光時，原本韓服
+標題會整批維持韓文原文——翻譯其實不需要 Gemini 等級的理解力，拆給
+一個穩定、免費額度更寬裕的獨立服務，Gemini 專心做分類/標籤/key_points
+這些真正需要理解力的事。Gemini 若成功，仍以 Gemini 的翻譯結果為準
+（品質通常更好）；Gemini 失敗或沒有金鑰時，才退回這裡打底的翻譯，
+兩者都沒有時才維持原文——三層降級，缺一層都還能動。
+
 金鑰放環境變數 GEMINI_API_KEY（GitHub Actions 用 Secrets）。
+翻譯安全網另外需要 GOOGLE_TRANSLATE_API_KEY，見 translate.py 說明。
 """
 
 from __future__ import annotations
@@ -22,6 +32,7 @@ import time
 import requests
 
 import classify  # 規則版，作為降級備援與 is_featured 計算
+import translate  # 翻譯安全網（Cloud Translation API，獨立於 Gemini 配額）
 
 MODEL = "gemini-3.6-flash"  # 2026-09 實測：2.0 已下架；2.5 對「新用戶」金鑰回 404
 # ("This model models/gemini-2.5-flash is no longer available to new
@@ -123,12 +134,32 @@ def _call_gemini(prompt: str, key: str) -> list | None:
     return None
 
 
+def _pretranslate_kr_titles(items: list[dict]) -> None:
+    """韓服標題先用 Cloud Translation 打底翻譯，寫入 item["title_zh_mt"]。
+    跑在 Gemini 之前、獨立配額——Gemini 失敗時的翻譯安全網（見本檔開頭說明）。
+    沒有 GOOGLE_TRANSLATE_API_KEY 或呼叫失敗就整批跳過，不影響後續流程。"""
+    kr_items = [it for it in items if it.get("region") == "kr" and it.get("title")]
+    if not kr_items or not translate.has_translate():
+        return
+    translated = translate.translate_batch([it["title"] for it in kr_items])
+    if translated is None:
+        print("[翻譯] Cloud Translation 這次沒有結果，韓服標題翻譯安全網先跳過（Gemini 若成功仍不受影響）")
+        return
+    done = 0
+    for it, t in zip(kr_items, translated):
+        if t:
+            it["title_zh_mt"] = t
+            done += 1
+    print(f"[翻譯] Cloud Translation 已為 {done}/{len(kr_items)} 篇韓服標題打底翻譯")
+
+
 def _apply_rule_fallback(item: dict) -> None:
     """單筆用規則版補上欄位（AI 失敗時）。key_points 是 AI 專屬能力，
-    規則版抽不出重點，給空陣列——前端會自動退回顯示原始摘要，不會空白。"""
+    規則版抽不出重點，給空陣列——前端會自動退回顯示原始摘要，不會空白。
+    title_zh 優先用翻譯安全網打底的版本，兩者都沒有才維持原文。"""
     item["category"] = classify.classify_category(item)
     item["tags"] = classify.extract_tags(item)
-    item.setdefault("title_zh", item.get("title", ""))
+    item.setdefault("title_zh", item.get("title_zh_mt") or item.get("title", ""))
     item.setdefault("key_points", [])
 
 
@@ -137,9 +168,11 @@ def enrich(items: list[dict]) -> list[dict]:
     對每筆補上 category / tags / title_zh / summary(中文)，再整批評精華。
     有金鑰用 AI，否則整批走規則版。回傳同一批（就地修改）。
     """
+    _pretranslate_kr_titles(items)  # 翻譯安全網，跑在 Gemini 之前、獨立配額
+
     key = _key()
     if not key:
-        print("[AI] 未設定 GEMINI_API_KEY，全部使用規則版分類（韓文不翻譯）")
+        print("[AI] 未設定 GEMINI_API_KEY，全部使用規則版分類（韓文翻譯交給翻譯安全網，沒設定就維持原文）")
         for it in items:
             _apply_rule_fallback(it)
         classify.mark_featured(items)
@@ -174,7 +207,7 @@ def enrich(items: list[dict]) -> list[dict]:
                 it["category"] = cat if cat in VALID_CATEGORIES else classify.classify_category(it)
                 tags = r.get("tags")
                 it["tags"] = [str(t) for t in tags if t] if isinstance(tags, list) else classify.extract_tags(it)
-                it["title_zh"] = str(r.get("title_zh") or it.get("title", ""))
+                it["title_zh"] = str(r.get("title_zh") or it.get("title_zh_mt") or it.get("title", ""))
                 it["summary"] = str(r.get("summary_zh") or it.get("summary", ""))
                 kp = r.get("key_points")
                 it["key_points"] = (

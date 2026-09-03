@@ -28,6 +28,9 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # 翻譯安全網（Cloud Translation API），跟 GEMINI_API_KEY 是不同服務、
+          # 不同金鑰，缺這個 Secret 只會讓翻譯安全網跳過，不影響其他步驟。
+          GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
           # 不緩衝 stdout，讓 log 的時間戳反映真實執行時間，方便之後排查
           # （今晚除錯時發現緩衝會讓所有 [AI] 訊息擠在同一秒，誤判成「沒延遲」）。
           PYTHONUNBUFFERED: "1"

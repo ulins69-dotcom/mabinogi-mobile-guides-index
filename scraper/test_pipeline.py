@@ -2,8 +2,9 @@
 """管線邏輯測試（v2 台韓雙軌 + AI 降級）。不呼叫真實網路/AI。"""
 import os
 os.environ.pop("GEMINI_API_KEY", None)  # 確保走規則版降級路徑
+os.environ.pop("GOOGLE_TRANSLATE_API_KEY", None)
 
-import ai_enrich, schema
+import ai_enrich, schema, translate
 
 raw = [
   {"id": "bahamut-1", "title": "新手前七天該做什麼", "raw_tag": "攻略", "author": "A",
@@ -51,3 +52,19 @@ assert kr_item["title_original"] == "신규 던전 공략 심층분석"
 assert kr_item["title"] == kr_item["title_original"], "降級時 title 應等於原文"
 print()
 print("=== v2 管線邏輯全部通過（AI 降級路徑）===")
+
+# ── 翻譯安全網測試：沒有 Gemini，但有 GOOGLE_TRANSLATE_API_KEY 時，
+# 韓服標題應該被 Cloud Translation 打底翻譯，不維持原文（monkeypatch，不打真實網路）──
+translate.has_translate = lambda: True
+translate.translate_batch = lambda texts, target="zh-TW": [t + "（翻譯測試）" for t in texts]
+
+raw2 = [
+  {"id": "inven-999", "title": "신규 던전 공략", "author": "인벤",
+   "url": "https://mabimo.inven.co.kr/webzine/news/?idx=999", "source": "inven",
+   "region": "kr", "published_at": "2026-08-16", "views": 10, "replies": 1},
+]
+ai_enrich.enrich(raw2)  # 仍無 GEMINI_API_KEY → 規則版，但翻譯安全網應該生效
+rec2 = schema.to_record(raw2[0])
+assert rec2["title"] == "신규 던전 공략（翻譯測試）", f"翻譯安全網未生效：{rec2['title']!r}"
+assert rec2["title_original"] == "신규 던전 공략"
+print("=== 翻譯安全網（Cloud Translation 降級路徑）測試通過 ===")
