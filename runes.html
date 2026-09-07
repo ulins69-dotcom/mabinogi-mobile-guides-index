@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 符文配置表</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b;
+      --raise:#f1f5f9; --gold:#b8860b; --goldbg:#fdf3e3; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.6; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    header p { margin:0; opacity:.85; font-size:.9rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .8rem; text-decoration:none; font-size:.95rem; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:1100px; margin:1.5rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; }
+
+    .disclaimer { background:#fff8e1; border:1px solid #f0d98c; color:#8a6d1a;
+      border-radius:6px; padding:.7rem .9rem; font-size:.85rem; margin-bottom:1rem; }
+
+    .rules { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:.6rem; margin-bottom:1rem; }
+    .rule { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.7rem .9rem; }
+    .rule dt { font-size:.72rem; letter-spacing:.05em; color:var(--muted); font-weight:700; margin:0 0 .25rem; }
+    .rule dd { margin:0; font-size:.92rem; }
+    .rule .num { font-variant-numeric:tabular-nums; font-weight:700; color:var(--brand); }
+
+    details.notice { background:var(--card); border:1px solid var(--line); border-radius:8px; margin-bottom:.8rem; }
+    details.notice summary { cursor:pointer; padding:.7rem .9rem; font-weight:700; font-size:.95rem; color:var(--dark);
+      list-style:none; display:flex; justify-content:space-between; align-items:center; gap:.6rem; }
+    details.notice summary::-webkit-details-marker { display:none; }
+    details.notice summary::after { content:"＋"; color:var(--brand); font-weight:700; }
+    details.notice[open] summary::after { content:"－"; }
+    .notice-body { padding:0 .9rem .9rem; border-top:1px solid var(--line); }
+    .notice-body ul { margin:.7rem 0 0; padding-left:1.2rem; }
+    .notice-body li { margin:.4rem 0; font-size:.9rem; color:var(--ink); }
+    .notice-body li b { color:var(--dark); }
+
+    .bar { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-bottom:1rem; }
+    .modes { display:inline-flex; border:1px solid var(--brand); border-radius:20px; overflow:hidden; }
+    .modes button { font-family:inherit; font-size:.9rem; font-weight:700; padding:.5rem 1.1rem;
+      background:#fff; color:var(--brand); border:0; cursor:pointer; }
+    .modes button+button { border-left:1px solid var(--brand); }
+    .modes button[aria-pressed="true"] { background:var(--brand); color:#fff; }
+    .search { flex:1 1 240px; min-width:180px; }
+    .search input { width:100%; font-family:inherit; font-size:1rem; padding:.55rem .7rem;
+      border:1px solid var(--line); border-radius:6px; background:#fff; }
+
+    .picker { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.2rem; align-items:center; }
+    .pick-h { width:100%; font-size:.8rem; color:var(--muted); font-weight:700; margin:.5rem 0 .1rem;
+      display:flex; justify-content:space-between; }
+    .pick-h span { font-weight:400; }
+    .picker button { font-family:inherit; font-size:.95rem; font-weight:600; padding:.45rem 1rem;
+      border:2px solid var(--brand); background:#fff; color:var(--brand); border-radius:22px; cursor:pointer;
+      display:inline-flex; align-items:baseline; gap:.35rem; }
+    .picker button:hover { box-shadow:0 2px 8px rgba(52,152,219,.25); }
+    .picker button[aria-pressed="true"] { background:var(--brand); color:#fff; }
+    .picker button em { font-style:normal; font-size:.75rem; color:var(--featured); }
+    .picker button[aria-pressed="true"] em { color:#fff; }
+
+    .classhead { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.3rem; }
+    .classhead h2 { font-size:1.6rem; margin:0; color:var(--dark); }
+    .tag { font-size:.72rem; padding:.15rem .55rem; border:1px solid var(--line); border-radius:12px; color:var(--muted); }
+    .attr { font-size:.9rem; color:var(--muted); margin:0 0 1.2rem; }
+    .attr b { color:var(--brand); }
+
+    section.slot { margin-bottom:1.4rem; }
+    .slot-h { display:flex; align-items:baseline; gap:.6rem; border-left:5px solid var(--brand);
+      padding-left:.6rem; margin-bottom:.5rem; }
+    .slot-h h3 { font-size:1.1rem; margin:0; color:var(--brand); }
+    .slot-h .cap { font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+
+    .tbl { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:8px; }
+    table { border-collapse:collapse; width:100%; min-width:520px; }
+    th { text-align:left; font-size:.75rem; letter-spacing:.03em; color:var(--muted); font-weight:700;
+      padding:.6rem .8rem; border-bottom:2px solid var(--line); background:var(--raise); }
+    th:last-child, td:last-child { text-align:right; }
+    td { padding:.6rem .8rem; border-bottom:1px solid var(--line); vertical-align:top; font-size:.9rem; }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:var(--raise); }
+    td.rn { font-weight:700; color:var(--dark); white-space:nowrap; }
+    td.rn small { display:block; font-weight:400; font-size:.72rem; color:var(--muted); white-space:normal; }
+    .stars { color:var(--gold); letter-spacing:1px; white-space:nowrap; font-size:.85rem; }
+    .kw { color:var(--brand); font-weight:600; }
+
+    .acc-grid { display:flex; flex-wrap:wrap; gap:.5rem; }
+    .chip { display:inline-flex; align-items:center; gap:.5rem; background:var(--card);
+      border:1px solid var(--line); border-radius:6px; padding:.4rem .8rem; font-size:.9rem; font-weight:600; }
+    .chip .stars { font-size:.78rem; }
+    .srcnote { font-size:.85rem; color:var(--ink); background:var(--raise); border-left:3px solid var(--brand);
+      border-radius:0 6px 6px 0; padding:.6rem .9rem; margin-top:.7rem; }
+
+    .tank { border:2px solid var(--featured); background:var(--goldbg); border-radius:8px; padding:1rem 1.1rem; margin-top:1rem; }
+    .tank h4 { margin:0 0 .2rem; font-size:.85rem; letter-spacing:.05em; color:#a06a00; }
+    .tank .who { font-size:.75rem; color:var(--muted); margin:0 0 .7rem; }
+    .tank ol { margin:0; padding-left:1.3rem; }
+    .tank li { margin:.4rem 0; font-size:.9rem; }
+    .tank li b { color:var(--dark); }
+    .none { font-size:.85rem; color:var(--muted); border:1px dashed var(--line); border-radius:8px; padding:.8rem 1rem; margin-top:1rem; }
+
+    .rev { display:flex; flex-direction:column; gap:.5rem; }
+    .rev-row { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.7rem .9rem;
+      display:grid; grid-template-columns:minmax(120px,180px) 1fr; gap:.4rem 1rem; align-items:baseline; }
+    .rev-name { font-weight:700; color:var(--dark); }
+    .rev-name em { display:block; font-style:normal; font-size:.72rem; color:var(--muted); font-weight:400; }
+    .rev-uses { display:flex; flex-wrap:wrap; gap:.35rem; }
+    .use { font-size:.75rem; padding:.1rem .5rem; border:1px solid var(--line); border-radius:4px; color:var(--ink);
+      display:inline-flex; gap:.3rem; white-space:nowrap; }
+    .use i { font-style:normal; color:var(--gold); font-variant-numeric:tabular-nums; }
+    .use.s5 { border-color:var(--featured); background:var(--goldbg); }
+    .empty { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:2rem 1rem;
+      text-align:center; color:var(--muted); }
+
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+    footer .src { opacity:.8; font-size:.78rem; margin-top:.4rem; }
+    footer a { color:#cfe3f3; }
+    @media (max-width:600px){ .rev-row { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>瑪奇 Mobile 符文配置表</h1>
+    <p>賽季 0・全 18 職業武器／防具／飾品符文｜巴哈翻譯版原文逐字保留</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html" class="active">🔮 符文配置表</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="disclaimer">
+      ⚠️ 職業表格為<strong>巴哈姆特翻譯版原文逐字轉錄</strong>，未經改動。原文譯自韓版 2025 初期攻略，<strong>台版數值可能已被調整，實際以遊戲內為準</strong>。標「實戰修正」的方框是分析建議，非原文，目前僅盜賊、治癒師兩職有。
+      　來源：<a href="https://forum.gamer.com.tw/C.php?bsn=32564&amp;snA=1506" target="_blank" rel="noopener" style="color:#8a6d1a;">巴哈 8/6 新增開放符文版</a>
+    </div>
+
+    <dl class="rules">
+      <div class="rule"><dt>全身刻印格</dt><dd>武器 <span class="num">1</span>・防具 <span class="num">5</span>・飾品 <span class="num">3</span>・徽章 <span class="num">1</span></dd></div>
+      <div class="rule"><dt>徽章符文</dt><dd>絢爛</dd></div>
+      <div class="rule"><dt>飾品符文構成</dt><dd>每職 6 種＝菁英 4 ＋史詩 2 ＋傳說 6</dd></div>
+      <div class="rule"><dt>刻印成功率</dt><dd>高級 <span class="num">100%</span>・稀有 <span class="num">60%</span>・菁英 <span class="num">40%</span>・史詩／傳說 <span class="num">25%</span></dd></div>
+    </dl>
+
+    <details class="notice">
+      <summary>看表之前：四件會讓你白燒資源的事</summary>
+      <div class="notice-body">
+        <ul>
+          <li><b>菁英與史詩的符文池不重疊。</b>某些技能符文只出現在菁英、某些只出現在史詩（例：吟遊詩人的「博愛」只有菁英與傳說，史詩沒有）。<b>拿到菁英就盲目升級賭史詩是錯的</b>——先用菁英，之後走深淵獎勵或史詩晉階直接補傳說。</li>
+          <li><b>要換掉的符文別過度強化。</b>升級到新等級符文時，強化階段會掉一階，先前砸的資源蒸發。</li>
+          <li><b>防具符文的第一選項是 3 選 1</b>（傷害減少／要害迴避／恢復力），<b>史詩★5 以上才有第二選項</b>（攻擊系）。菁英以下的防具符文對輸出幾乎沒貢獻。<span class="kw">此項與刻印成功率為二手攻略站資料，非巴哈原文，以遊戲內為準。</span></li>
+          <li><b>35 級成就獎勵符文每帳號限領一次</b>，領到就別丟。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="notice">
+      <summary>跨職業觀察：四個表格自己沒說出口的結論</summary>
+      <div class="notice-body">
+        <ul>
+          <li><b>千把劍是全表最大的陷阱。</b>它給多數職業掛 ★★★★★，但條件是「<b>戰士、大劍戰士、劍術士、冰霜術士、盜賊、雙刀客</b> 六個劍職各練到 Lv40」，練幾個算幾層。<b>只算刻著符文的那個角色自己練的，分身不算；新帳號 = 0%。</b>加成不進戰力、直接加表攻。</li>
+          <li><b>原表最大盲點：決鬥+。</b>「攻擊力增加 18%，多重打擊傷害減少 6%」，<b>無條件、裝上就有</b>，卻只列在劍術士／弩手／格鬥家三張表。攻擊力增加全職通吃。換算成「劍」（1 劍=4% 攻擊）：<b>決鬥+ = 4.5 劍</b>、千錘百鍊 +10 = 3 劍／+15 = 5 劍、千把劍滿 = 6 劍。<b>湊不滿 5 劍職、武器又沒到 +15 前，決鬥+ 是最強過渡。</b></li>
+          <li><b>「紅色盟約」在戰士表 ★1、治癒師表 ★4——同一顆差三星。</b>因為它要求你<b>站在符文上</b>才有 +18%。任何「站樁才生效」的符文，星等只在特定打法下成立。</li>
+          <li><b>遺忘時代（+25% 傷害／CD +6%）與驚異（CD −8%）方向相反</b>；吃技能迴轉的職業選了驚異就別再靠遺忘時代。<b>荊棘藤蔓「受到＋造成傷害都 +25%」</b>，生存不足時是純負收益。</li>
+        </ul>
+      </div>
+    </details>
+
+    <div class="bar">
+      <div class="modes" role="group" aria-label="檢視模式">
+        <button id="m-class" aria-pressed="true">依職業</button>
+        <button id="m-rune" aria-pressed="false">符文反查</button>
+      </div>
+      <div class="search"><input id="q" type="search" placeholder="搜尋符文名稱或效果關鍵字（如：中毒、強擊、冷卻）" autocomplete="off"></div>
+    </div>
+
+    <div id="view-class">
+      <div class="picker" id="picker"></div>
+      <div id="panel"></div>
+    </div>
+
+    <div id="view-rune" hidden>
+      <div class="rev" id="rev"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p><b>誠實聲明</b>：職業表格為巴哈原文逐字轉錄；「實戰修正」方框是分析建議、非原文，僅盜賊與治癒師兩職有——其餘 16 職無足夠依據，留白不編。</p>
+    <p class="src">原文譯自韓版 2025 初期攻略，台版另有調整（例：大劍「旋轉」CD 已被拉長而移除）。閃電術士台版尚未開放，未收錄。</p>
+  </footer>
+
+<script>
+const S = (n) => "★".repeat(n) + "☆".repeat(5-n);
+const DATA = [
+{s:"戰士系",armor:"重甲",list:[
+ {n:"戰士",attr:"原文未列",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。（所有職業皆可使用，依角色達成的職業等級適用）使用劍的職業：戰士、大劍戰士、劍術士、冰霜術士、盜賊、雙刀客",5],
+     ["連續","史詩級。強擊命中時4秒期間對敵人造成的傷害增加10%，連擊命中時3秒期間增加8%。",4]],
+  a:[["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力增加3%，最多疊加3次；達3層時消耗所有層數，5秒期間內攻擊力增加20%。",5],
+     ["平原流浪者","使用移動技能時，10秒期間對敵人造成的傷害增加12%，移動速度增加30%。",5],
+     ["傭兵王","自身周圍5m內敵人越多，對敵人造成的傷害最多增加12%，受到傷害最多減少6%。",5],
+     ["猛烈驟雨","使用絕招時，15秒期間對敵人造成的傷害增加30%。",4],
+     ["刀刃堡壘","強擊命中時，造成該技能威力20%的持續傷害：創傷。（戰士系職業專用）",4],
+     ["碎冰","攻擊持有持續傷害：冰凍的敵人時，5秒期間追加攻擊機率增加10%。（CD 3秒）",4],
+     ["冰凍火焰","刻印於上衣時基本攻擊30%機率造成持續傷害：灼傷；刻印於下著時技能攻擊30%機率造成持續傷害：冰凍。（CD 10秒）",4],
+     ["兇暴意志","受到敵人傷害時，35%機率獲得絕招量條。（CD 3秒）",4],
+     ["超自然+","使用技能或基本攻擊時，55%機率5秒期間施法及蓄力速度增加25%。",3],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒期間內攻擊力增加15%。（CD 12秒）",3],
+     ["黑色火焰","交叉反擊命中時對3m內敵人造成持續傷害：灼傷；迎擊攻擊時對目標造成持續傷害：恐懼。（各CD 3秒）",3],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",3],
+     ["亂鬥+","自身周圍5m內敵人越多，受到敵人的傷害最多減少15%。",3],
+     ["流浪騎士","嘲諷敵人時製造可吸收5%體力傷害的護盾，並對被嘲諷的敵人造成持續傷害：恐懼與創傷。",3],
+     ["紅色盟約","攻擊命中時在自身位置製造持續10秒的魔力符文，站在符文上時攻擊力增加18%。（CD 15秒）",1]],
+  c:[["斬擊+",5],["猛攻+",5],["突擊+",5]],
+  note:"原文：戰士防具必備符文是魔力激流，岩石巨人必須採用，其他則可依設定與喜好選擇。"},
+
+ {n:"大劍戰士",attr:"強擊強化、連擊強化、技能威力",
+  w:[["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",5],
+     ["靈魂收割者","攻擊持有持續傷害：恐懼的敵人時，賦予弱化效果：護甲破壞，10秒期間受到傷害增加10%；此外10秒期間內攻擊力增加10%，最多疊加2次。護甲破壞不重複適用。",5],
+     ["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5]],
+  a:[["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["共鳴水晶","戰鬥中每1秒獲得強化效果：共鳴，對敵人造成的傷害增加2%，最多疊加12次；疊至12次後逐漸遞減。若存在持有毀滅烙印的敵人，每層額外增加0.6%。",5],
+     ["乾涸之地","持有資源低於50%時，對敵人造成的傷害增加9%，追加攻擊機率增加6%。",5],
+     ["毀滅烙印","攻擊命中時賦予目標弱化效果：毀滅烙印，每1秒造成闇影傷害持續8秒（僅單一目標）。每當毀滅烙印結束，下一個傷害量增加10%，最多疊加10次；持有共鳴水晶刻印時獲得初始5層。",5],
+     ["碎冰","攻擊持有持續傷害：冰凍的敵人時，5秒期間追加攻擊機率增加10%。（CD 3秒）",4],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",4]],
+  c:[["反擊+",5],["彈力+",4],["會心+",4]],
+  note:"原文補充：「旋轉」在技能翻新／版本調整後冷卻時間拉長（例 4 秒→20 秒），連招循環被破壞，已從推薦中拿掉；35 級獎勵改選能維持高頻輸出或機制保值的技能。"},
+
+ {n:"劍術士",attr:"暴擊、強擊強化、技能威力",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，強化至+15時額外增加8%。",5],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",5],
+     ["決鬥+","攻擊力增加18%，多重打擊傷害減少6%。",5],
+     ["連續","史詩級。強擊命中時4秒期間傷害增加10%，連擊命中時3秒期間增加8%。",5]],
+  a:[["岩石巨人","強擊命中時攻擊力增加3%，最多疊加3次；達3層消耗所有層數，5秒期間攻擊力增加20%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",5],
+     ["碎冰","攻擊持有持續傷害：冰凍的敵人時，5秒期間追加攻擊機率增加10%。（CD 3秒）",5],
+     ["毀滅烙印","（突襲）攻擊命中時賦予毀滅烙印，每1秒闇影傷害持續8秒，結束時下一個傷害+10%最多10層。",5],
+     ["共鳴水晶","（突襲）戰鬥中每1秒疊加共鳴，傷害+2%最多12層；有毀滅烙印時每層額外+0.6%。",5],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["領悟","職業等級40以上時攻擊力增加6%，65以上額外增加4%。",4],
+     ["刀刃堡壘","強擊命中時造成該技能威力20%的持續傷害：創傷。（戰士系專用）",4],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒期間內攻擊力增加15%。（CD 12秒）",4]],
+  c:[["貫通+（必備）",5],["舞者+（必備）",5],["落花+",4],["猛烈+",4]],
+  note:"原文：落花流著重技能循環，可選舞者（補足加速手感）或猛烈（強化爆發）；非落花流則舞者與猛烈同時裝備，最大化攻擊頻率與傷害面。另可考慮深淵獨特級戒指「墮落生命之環」。"}
+]},
+
+{s:"弓手系",armor:"輕甲",list:[
+ {n:"弓手",attr:"暴擊、技能威力、連擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",5],
+     ["盲目憤怒","連擊命中時造成的傷害增加2%，最多疊加12次；非連擊攻擊命中時效果立即解除。",5],
+     ["靈魂收割者","攻擊持有持續傷害：恐懼的敵人時賦予護甲破壞（受到傷害+10%，10秒），並10秒內攻擊力+10%最多2層。",4],
+     ["連續","史詩級。強擊命中時4秒傷害+10%，連擊命中時3秒+8%。",4]],
+  a:[["平原流浪者","使用移動技能時，10秒期間對敵人造成的傷害增加12%，移動速度增加30%。",5],
+     ["岩石巨人","強擊命中時攻擊力增加3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",4],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4],
+     ["風暴+","命中無防備狀態的敵人時，5秒期間技能施放速度和攻擊速度增加40%。",4],
+     ["寂靜之風","周圍3m範圍內沒有敵人時，對敵人造成的傷害增加13%。（弓手系職業專用）",4],
+     ["碎冰","攻擊持有持續傷害：冰凍的敵人時，5秒期間追加攻擊機率增加10%。（CD 3秒）",4]],
+  c:[["致命性+",5],["隼+",5],["矯捷+",4],["靈巧+",4]]},
+
+ {n:"弩手",attr:"暴擊、連擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，+15時額外增加8%。",4],
+     ["決鬥+","攻擊力增加18%，多重打擊傷害減少6%。",4],
+     ["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",4],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",4],
+     ["爆裂","暴擊命中時對目標造成持續傷害：創傷，並賦予護甲破壞（受到傷害+10%，10秒）。（CD 3秒）",4],
+     ["靈魂收割者","攻擊持有恐懼的敵人時賦予護甲破壞，並10秒內攻擊力+10%最多2層。",4],
+     ["連續","史詩級。強擊命中時4秒傷害+10%，連擊命中時3秒+8%。",4],
+     ["激戰+","自身周圍5m內敵人越多，對敵人造成的傷害最多增加18%。",3]],
+  a:[["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",5],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",4],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒內攻擊力+15%。（CD 12秒）",4],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",4]],
+  c:[["連鎖+",5],["反轉+",5],["觸電+",5]]},
+
+ {n:"長弓手",attr:"暴擊、強擊強化、技能威力、連擊強化",
+  w:[["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",5],
+     ["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",4],
+     ["遺忘時代","對敵人造成的傷害增加25%，所有技能的冷卻時間增加6%。",4]],
+  a:[["超自然+","使用技能或基本攻擊時，55%機率5秒期間施法及蓄力速度增加25%。",5],
+     ["猛烈驟雨","使用絕招時，15秒期間對敵人造成的傷害增加30%。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["狙擊+","3秒期間若未移動，攻擊力增加15%。",5],
+     ["陰影逼近","連擊命中時對目標造成持續傷害：絕望，10秒期間對敵人造成的傷害增加3%，最多疊加3次。（CD 0.5秒）",4],
+     ["共鳴水晶","戰鬥中每1秒疊加共鳴，傷害+2%最多12層；有毀滅烙印時每層額外+0.6%。",4],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒內攻擊力+15%。（CD 12秒）",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",4]],
+  c:[["超音波+",5],["集中+",5],["頑強+",5],["內傷+",4],["破碎+",4]]}
+]},
+
+{s:"吟遊詩人系",armor:"—",list:[
+ {n:"吟遊詩人",attr:"連擊強化、強擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["靈魂收割者","攻擊持有恐懼的敵人時賦予護甲破壞（受到傷害+10%，10秒），並10秒內攻擊力+10%最多2層。",5],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，+15時額外增加8%。",4]],
+  a:[["戰慄樂想","組隊遊戲時攻擊力增加12%。（吟遊詩人系職業專用）",5],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["黑色誓約","攻擊命中時在自身位置製造持續10秒的保護符文，站在符文上時受到傷害減少18%。（CD 15秒）",4],
+     ["要塞+","體力在75%以上時，受到敵人的傷害減少10%。",4]],
+  c:[["即興+",5],["嘲弄+",5],["和弦+",4],["機智+",4]]},
+
+ {n:"舞者",attr:"暴擊、連擊強化、技能威力",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",5],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，+15時額外增加8%。",4],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",4],
+     ["爆裂","暴擊命中時對目標造成創傷並賦予護甲破壞（受到傷害+10%，10秒）。（CD 3秒）",4],
+     ["靈魂收割者","攻擊持有恐懼的敵人時賦予護甲破壞，並10秒內攻擊力+10%最多2層。",4]],
+  a:[["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["戰慄樂想","組隊遊戲時攻擊力增加12%。（吟遊詩人系職業專用）",5],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",4]],
+  c:[["蝴蝶+",5],["清爽+",5],["喝采+",4],["來臨+",4]]},
+
+ {n:"樂師",attr:"暴擊、強擊強化、連擊強化、快速技能",
+  w:[["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",5],
+     ["遺忘時代","對敵人造成的傷害增加25%，所有技能的冷卻時間增加6%。",5],
+     ["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",4],
+     ["魔法探究者","使用輔助、生存技能時，7秒期間對敵人造成的傷害增加7%，最多疊加3次；此外輔助、生存技能的傷害量增加5%。",4],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",4],
+     ["爆裂","暴擊命中時對目標造成創傷並賦予護甲破壞。（CD 3秒）",4],
+     ["靈魂收割者","攻擊持有恐懼的敵人時賦予護甲破壞，並10秒內攻擊力+10%最多2層。",4]],
+  a:[["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["陰影逼近","連擊命中時對目標造成持續傷害：絕望，10秒期間傷害+3%最多3層。（CD 0.5秒）",5],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4],
+     ["戰慄樂想","組隊遊戲時攻擊力增加12%。（吟遊詩人系職業專用）",4],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",4]],
+  c:[["終章+",5],["博愛+",5],["速奏+",4],["二重奏+",4]]}
+]},
+
+{s:"盜賊系",armor:"—",list:[
+ {n:"盜賊",attr:"暴擊、強擊強化 or 五大基礎屬性平均發展（或特定主屬最高、其餘均衡支撐）",
+  w:[["驚異+","基本攻擊命中時，所有技能的冷卻時間減少8%。原文特註：強烈建議盜賊裝備「驚異」符文以循環使用技能。",5]],
+  a:[["潛伏者之殼","獨特級・台版尚未開放。受到的中毒持續傷害減少75%，造成的中毒持續傷害增加30%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["冷酷勝負師","對持有持續傷害：中毒、傷口的敵人造成的傷害增加12%，對無防備的敵人造成的傷害增加5%。（盜賊系職業專用）",5],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒期間內攻擊力增加15%。（CD 12秒）",4],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4]],
+  c:[["暮色+",5],["縝密+",5],["毒性+",4],["毒霧+",4]],
+  tank:["<b>防具 5 格現階段沒有取捨</b>——扣掉尚未開放的潛伏者之殼，剩 5 顆剛好填滿，湊到什麼刻什麼。",
+        "<b>冷酷勝負師無條件第一</b>：盜賊系專用，中毒／傷口 +12% 是你天生吃滿的條件。",
+        "<b>魔力激流與武器的驚異形成正循環</b>：冷卻 −8% → 技能更密 → 4 層 +14% 不掉。這兩顆要一起看。",
+        "<b>吸血+ 的條件是「創傷」，不是中毒。</b>冷酷勝負師吃中毒／傷口，兩者是不同標記——先確認你的循環掛得上創傷，掛不上這格就是死的。",
+        "<b>陰險一擊排最後、且別過度強化。</b>+24% 最漂亮但要迎擊命中，不穩定；潛伏者之殼開放後大機率就是它被擠掉。",
+        "<b>屬性配置那行是二選一，不是全做。</b>「暴擊、強擊強化」與「五大屬性平均發展」是兩條互斥路線；選了平均發展，岩石巨人的效益會掉。"]},
+
+ {n:"格鬥家",attr:"強擊強化、技能威力、暴擊、連擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，+15時額外增加8%。",4],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",4],
+     ["決鬥+","攻擊力增加18%，多重打擊傷害減少6%。",4]],
+  a:[["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["平原流浪者","使用移動技能時，10秒期間對敵人造成的傷害增加12%，移動速度增加30%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["傭兵王","自身周圍5m內敵人越多，對敵人造成的傷害最多增加12%，受到傷害最多減少6%。",4],
+     ["猛烈驟雨","使用絕招時，15秒期間對敵人造成的傷害增加30%。",4]],
+  c:[["擊破+",5],["熱血+",5],["前進+",5],["跳躍+",4]]},
+
+ {n:"雙刀客",attr:"暴擊、連擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["遺忘時代","對敵人造成的傷害增加25%，所有技能的冷卻時間增加6%。",4],
+     ["爆裂","暴擊命中時對目標造成創傷並賦予護甲破壞（受到傷害+10%，10秒）。（CD 3秒）",4],
+     ["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",4],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，+15時額外增加8%。",4]],
+  a:[["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["平原流浪者","使用移動技能時，10秒期間對敵人造成的傷害增加12%，移動速度增加30%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒期間內攻擊力增加15%。（CD 12秒）",5],
+     ["陰影逼近","連擊命中時對目標造成持續傷害：絕望，10秒期間傷害+3%最多3層。（CD 0.5秒）",4],
+     ["傭兵王","自身周圍5m內敵人越多，傷害最多+12%，受到傷害最多−6%。",4],
+     ["冷酷勝負師","對持有中毒、傷口的敵人傷害+12%，對無防備的敵人傷害+5%。（盜賊系專用）",4],
+     ["陰險一擊","迎擊攻擊命中時，4秒期間內攻擊力增加24%。",4],
+     ["亂鬥+","自身周圍5m內敵人越多，受到敵人的傷害最多減少15%。",4]],
+  c:[["速行+",5],["疾馳+",5],["裂傷+",4],["旋風+",4]]}
+]},
+
+{s:"魔法師系",armor:"布衣",list:[
+ {n:"魔法師",attr:"暴擊、連擊強化 or 強擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5]],
+  a:[["超自然+","使用技能或基本攻擊時，55%機率5秒期間施法及蓄力速度增加25%。",5],
+     ["毀滅烙印","攻擊命中時賦予毀滅烙印，每1秒闇影傷害持續8秒（單一目標）；每次結束後下一個傷害+10%最多10層，持有共鳴水晶刻印時初始5層。",5],
+     ["共鳴水晶","戰鬥中每1秒疊加共鳴，傷害+2%最多12層；有毀滅烙印時每層額外+0.6%。",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",4],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",4]],
+  c:[["隕石+（必備）",5],["增幅+",5],["山崩+",4],["閃爍+",4]],
+  note:"原文：防具在岩石巨人或火炬之間擇一。飾品組合建議：隕石＋增幅或閃爍＋墮落生命之環（獨特級戒指），或隕石＋山崩＋增幅或閃爍。"},
+
+ {n:"火焰術士",attr:"暴擊、連擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5]],
+  a:[["毀滅烙印","攻擊命中時賦予毀滅烙印，每1秒闇影傷害持續8秒；結束後下一個傷害+10%最多10層。",5],
+     ["共鳴水晶","戰鬥中每1秒疊加共鳴，傷害+2%最多12層；有毀滅烙印時每層額外+0.6%。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",5],
+     ["乾涸之地","持有資源低於50%時，對敵人造成的傷害增加9%，追加攻擊機率增加6%。",4],
+     ["碎冰","攻擊持有持續傷害：冰凍的敵人時，5秒期間追加攻擊機率增加10%。（CD 3秒）",4]],
+  c:[["灰燼+（必備）",5],["噴發+（必備）",5],["火柱+ or 火力+（擇一）",4]]},
+
+ {n:"冰霜術士",attr:"技能威力、連擊強化、強擊強化",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",4]],
+  a:[["乾涸之地","持有資源低於50%時，對敵人造成的傷害增加9%，追加攻擊機率增加6%。",5],
+     ["濃縮魔力","持有資源低於50%時，攻擊力增加15%。（魔法師系職業專用）",5],
+     ["碎冰","攻擊持有持續傷害：冰凍的敵人時，5秒期間追加攻擊機率增加10%。（CD 3秒）",5],
+     ["陰影逼近","連擊命中時對目標造成持續傷害：絕望，10秒期間傷害+3%最多3層。（CD 0.5秒）",5],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4]],
+  c:[["極光+",5],["冰劍+",5],["北風+",4]]}
+]},
+
+{s:"治癒師系",armor:"—",list:[
+ {n:"治癒師",attr:"原文未列",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。（所有職業皆可使用，依角色達成的職業等級適用）",5],
+     ["靈魂收割者","攻擊持有持續傷害：恐懼的敵人時賦予護甲破壞（受到傷害+10%，10秒），並10秒內攻擊力+10%最多2層。護甲破壞不重複適用。",4],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，強化至+15時額外增加8%。",4]],
+  a:[["神聖修養","使用輔助技能時，10秒期間攻擊力和隊友的治療各增加4%，最多疊加3次。（治癒師系職業專用）",5],
+     ["紅色盟約","攻擊命中時在自身位置製造持續10秒的魔力符文，站在符文上時攻擊力增加18%。（CD 15秒）",4],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",4],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",4],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",3],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒期間內攻擊力增加15%。（CD 12秒）",3]],
+  c:[["波浪+",5],["壓抑+",4],["光暈+",4],["包覆+",4],["誓約+",4]],
+  note:"原文：波浪+ 通常是必須採用的，其餘從壓抑+／光暈+／包覆+／誓約+ 中依個人喜好選兩個即可。",
+  tank:["<b>武器格先算千把劍的層數。</b>你有幾個劍職到 Lv40 就有幾層；不足 3 層（12%）時直接改千錘百鍊，+10 就有 12% 且無條件。靈魂收割者要敵人身上有恐懼，治癒師自己掛不上就是靠隊友施捨。",
+        "<b>防具 7 選 5，順序：神聖修養 → 魔力激流 → 穩定+ → 領悟 → 第五格看走位。</b>",
+        "<b>神聖修養無條件第一</b>：全表唯一會加治療量的符文，滿層 +12% 攻擊且 +12% 隊友治療。",
+        "<b>穩定+ 被低估。</b>條件只是體力 75% 以上——你是補師，自己補自己，這等同永久 +11%。",
+        "<b>紅色盟約被高估。</b>+18% 要站在符文上；補師整場在跑位補人與閃機制，實際覆蓋率可能不到一半。<b>同一顆符文在戰士表只給 ★1</b>，就是這個原因。只有站樁型 boss 才值 ★4。",
+        "<b>領悟雖然只有 ★3，但 100% 覆蓋、零操作</b>，實戰不輸前面幾顆浮動 buff。",
+        "<b>設計訊號：防具 7 顆裡只有神聖修養加治療，其餘 6 顆全是純攻擊。</b>符文系統不打算讓「純奶」成立——這是職業定位問題，要先想清楚再配裝。",
+        "<b>不確定處：</b>我沒有治癒師技能循環與強擊觸發頻率的實測。岩石巨人排在後段是從「補師普攻頻率低」推的；若你的循環常出強擊，它可以往前提。"]},
+
+ {n:"祭司",attr:"暴擊、恢復力",
+  w:[["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["千錘百鍊","裝備強化至+10攻擊力增加12%，+15時額外增加8%。",4],
+     ["驚異+","基本攻擊命中時，所有技能的冷卻時間減少8%。",4],
+     ["荊棘藤蔓","受到傷害和造成的傷害都增加25%。",4]],
+  a:[["神聖修養","使用輔助技能時，10秒期間攻擊力和隊友的治療各增加4%，最多疊加3次。（治癒師系專用）",5],
+     ["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",5],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",4],
+     ["領悟","職業等級40以上攻擊力+6%，65以上額外+4%。",4],
+     ["吸血+","攻擊持有持續傷害：創傷的敵人時，8秒內攻擊力+15%。（CD 12秒）",4],
+     ["火炬","攻擊持有持續傷害：灼傷的敵人時，5秒期間暴擊機率增加10%。（CD 3秒）",3],
+     ["狙擊+","3秒期間若未移動，攻擊力增加15%。",3]],
+  c:[["光束+",5],["羽翼+",5],["車輪+",4],["犧牲+",4],["連結+",4]]},
+
+ {n:"修道士",attr:"暴擊、快速技能",
+  w:[["驚異+","基本攻擊命中時，所有技能的冷卻時間減少8%。",5],
+     ["千把劍","使用劍類職業達成職業等級40等時，攻擊力每次增加4%，最多疊加6次。",5],
+     ["盲目憤怒","連擊命中時傷害增加2%最多12層；非連擊命中即解除。",4],
+     ["魔法探究者","使用輔助、生存技能時，7秒期間傷害增加7%最多3層；此外輔助、生存技能傷害量增加5%。",4]],
+  a:[["魔力激流","每次使用技能時，5秒期間內攻擊力增加3.5%，最多疊加4次。",5],
+     ["神聖修養","使用輔助技能時，10秒期間攻擊力和隊友的治療各增加4%，最多疊加3次。（治癒師系專用）",5],
+     ["銀色尖塔","恢復隊友體力時，15秒期間對敵人造成的傷害增加5%，最多疊加3次。（CD 5秒）",5],
+     ["穩定+","體力在75%以上時，攻擊力增加11%。",5],
+     ["岩石巨人","強擊命中時攻擊力+3%最多3層；達3層消耗層數，5秒攻擊力+20%。",4],
+     ["猛烈驟雨","使用絕招時，15秒期間對敵人造成的傷害增加30%。",4],
+     ["風暴+","命中無防備狀態的敵人時，5秒期間技能施放速度和攻擊速度增加40%。",4],
+     ["平原流浪者","使用移動技能時，10秒期間對敵人造成的傷害增加12%，移動速度增加30%。",4]],
+  c:[["業火+",5],["報應+",5],["光輝+",4],["淨化+",4]],
+  note:"原文補充（作者個人看法）：「因果」與「驚異」刻在不同部位可同時生效——驚異縮短技能斷檔，因果靠高頻攻擊提供傷害，兩者相輔相成，適合高攻速連擊流的修道士。飾品業火／報應同樣與高頻打擊高度契合。"}
+]}
+];
+
+const FLAT = [];
+DATA.forEach(g => g.list.forEach(c => FLAT.push(Object.assign({series:g.s, armorType:g.armor}, c))));
+
+const esc = s => s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+const KEYS = ["中毒","傷口","創傷","灼傷","冰凍","恐懼","絕望","護甲破壞","毀滅烙印","無防備","強擊","連擊","迎擊","暴擊","冷卻","絕招","組隊","移動技能","輔助技能"];
+function hl(t){ let o = esc(t); KEYS.forEach(k => { o = o.split(k).join('<span class="kw">'+k+'</span>'); }); return o; }
+
+let cur = 0, mode = 'class', q = '';
+const picker = document.getElementById('picker');
+const panel  = document.getElementById('panel');
+
+function drawPicker(){
+  let h = '';
+  DATA.forEach(g => {
+    h += '<div class="pick-h">'+g.s+'<span>'+(g.armor==='—'?'':g.armor)+'</span></div>';
+    g.list.forEach(c => {
+      const i = FLAT.findIndex(x => x.n === c.n);
+      h += '<button data-i="'+i+'" aria-pressed="'+(i===cur)+'">'+c.n+(c.tank?' <em>◆</em>':'')+'</button>';
+    });
+  });
+  picker.innerHTML = h;
+  picker.querySelectorAll('button').forEach(b => b.onclick = () => { cur = +b.dataset.i; drawPicker(); drawPanel(); });
+}
+
+function rows(list){
+  return '<div class="tbl"><table><thead><tr><th>符文</th><th>效果</th><th>推薦</th></tr></thead><tbody>'
+    + list.map(r => '<tr><td class="rn">'+esc(r[0])+'</td><td>'+hl(r[1])+'</td><td><span class="stars">'+S(r[2])+'</span></td></tr>').join('')
+    + '</tbody></table></div>';
+}
+
+function drawPanel(){
+  const c = FLAT[cur];
+  let h = '<div class="classhead"><h2>'+c.n+'</h2><span class="tag">'+c.series+'</span>'
+        + (c.armorType!=='—' ? '<span class="tag">'+c.armorType+'</span>' : '') + '</div>';
+  h += '<p class="attr">推薦屬性配置：<b>'+esc(c.attr)+'</b></p>';
+
+  h += '<section class="slot"><div class="slot-h"><h3>武器符文</h3><span class="cap">1 格 ・ '+c.w.length+' 個候選</span></div>'+rows(c.w)+'</section>';
+  h += '<section class="slot"><div class="slot-h"><h3>防具符文</h3><span class="cap">5 格 ・ '+c.a.length+' 個候選</span></div>'+rows(c.a)+'</section>';
+  h += '<section class="slot"><div class="slot-h"><h3>飾品符文</h3><span class="cap">3 格 ・ '+c.c.length+' 個候選</span></div><div class="acc-grid">'
+     + c.c.map(x => '<span class="chip">'+esc(x[0])+'<span class="stars">'+S(x[1])+'</span></span>').join('') + '</div>';
+  if(c.note) h += '<p class="srcnote">'+esc(c.note)+'</p>';
+  h += '</section>';
+
+  if(c.tank){
+    h += '<div class="tank"><h4>實戰修正</h4><p class="who">以下不是原文，是依表格條件推導的取捨建議。</p><ol>'
+       + c.tank.map(x => '<li>'+x+'</li>').join('') + '</ol></div>';
+  } else {
+    h += '<div class="none">此職業目前只有原文資料，尚無實戰修正註記——我沒有足夠依據下判斷，所以留白而不是編。</div>';
+  }
+  panel.innerHTML = h;
+}
+
+function drawRev(){
+  const map = new Map();
+  FLAT.forEach(c => {
+    [['武器',c.w],['防具',c.a]].forEach(([slot,list]) => {
+      list.forEach(r => {
+        if(!map.has(r[0])) map.set(r[0], {slot, eff:r[1], uses:[]});
+        map.get(r[0]).uses.push({cls:c.n, s:r[2]});
+      });
+    });
+    c.c.forEach(r => {
+      const nm = r[0];
+      if(!map.has(nm)) map.set(nm, {slot:'飾品', eff:'職業專屬技能符文', uses:[]});
+      map.get(nm).uses.push({cls:c.n, s:r[1]});
+    });
+  });
+  let arr = [...map.entries()].sort((a,b) => b[1].uses.length - a[1].uses.length || a[0].localeCompare(b[0],'zh-Hant'));
+  if(q) arr = arr.filter(([n,v]) => (n+v.eff).toLowerCase().includes(q));
+  const el = document.getElementById('rev');
+  if(!arr.length){ el.innerHTML = '<div class="empty">沒有符合「'+esc(q)+'」的符文。</div>'; return; }
+  el.innerHTML = arr.map(([n,v]) =>
+    '<div class="rev-row"><div class="rev-name">'+esc(n)+'<em>'+v.slot+'符文 ・ '+v.uses.length+' 職採用</em></div>'
+    + '<div class="rev-uses">'+v.uses.sort((a,b)=>b.s-a.s).map(u =>
+        '<span class="use'+(u.s===5?' s5':'')+'"><b>'+u.cls+'</b><i>'+u.s+'★</i></span>').join('')+'</div></div>'
+  ).join('');
+}
+
+function applySearch(){
+  if(mode === 'rune'){ drawRev(); return; }
+  if(!q){ drawPicker(); return; }
+  const hits = FLAT.map((c,i) => {
+    const hay = (c.n + ' ' + c.attr + ' ' + [...c.w,...c.a].map(r=>r[0]+r[1]).join(' ') + ' ' + c.c.map(r=>r[0]).join(' ')).toLowerCase();
+    return hay.includes(q) ? i : -1;
+  }).filter(i => i >= 0);
+  let h = '<div class="pick-h">符合「'+esc(q)+'」的職業<span>'+hits.length+' / 18</span></div>';
+  h += hits.length ? hits.map(i => '<button data-i="'+i+'" aria-pressed="'+(i===cur)+'">'+FLAT[i].n+'</button>').join('')
+                   : '<div class="empty" style="grid-column:1/-1">沒有符合的職業，換個關鍵字試試。</div>';
+  picker.innerHTML = h;
+  picker.querySelectorAll('button').forEach(b => b.onclick = () => { cur = +b.dataset.i; applySearch(); drawPanel(); });
+}
+
+document.getElementById('q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); applySearch(); });
+const bc = document.getElementById('m-class'), br = document.getElementById('m-rune');
+const vc = document.getElementById('view-class'), vr = document.getElementById('view-rune');
+function setMode(m){
+  mode = m;
+  bc.setAttribute('aria-pressed', m==='class'); br.setAttribute('aria-pressed', m==='rune');
+  vc.hidden = m!=='class'; vr.hidden = m!=='rune';
+  document.getElementById('q').placeholder = m==='class'
+    ? '搜尋符文名稱或效果關鍵字（如：中毒、強擊、冷卻）'
+    : '篩選符文（如：岩石巨人、創傷）';
+  applySearch();
+}
+bc.onclick = () => setMode('class'); br.onclick = () => setMode('rune');
+
+cur = FLAT.findIndex(c => c.n === '盜賊');
+drawPicker(); drawPanel(); drawRev();
+</script>
+</body>
+</html>
