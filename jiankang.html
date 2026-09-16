@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 角色健檢</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b;
+      --ok:#27ae60; --warnbg:#fef6e7; --critbg:#fdecea; --okbg:#eafaf1; --raise:#f1f5f9; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.6; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    header p { margin:0; opacity:.85; font-size:.85rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .7rem; text-decoration:none; font-size:.92rem; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:1000px; margin:1.3rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.2rem; margin:1.4rem 0 .8rem; }
+    .disclaimer { background:#fff8e1; border:1px solid #f0d98c; color:#8a6d1a;
+      border-radius:6px; padding:.7rem .9rem; font-size:.83rem; margin-bottom:1rem; }
+
+    /* character tabs */
+    .char-tabs { display:flex; gap:.4rem; margin-bottom:1rem; }
+    .char-tabs button { flex:1; padding:.6rem; font-size:.95rem; font-weight:700; font-family:inherit;
+      border:1px solid var(--line); background:#fff; color:var(--muted); border-radius:8px 8px 0 0; cursor:pointer; }
+    .char-tabs button.active { background:var(--brand); color:#fff; border-color:var(--brand); }
+
+    .panel { background:var(--card); border:1px solid var(--line); border-radius:0 8px 8px 8px; padding:1.1rem; }
+    fieldset { border:1px solid var(--line); border-radius:8px; margin:0 0 1rem; padding:.8rem 1rem 1rem; }
+    legend { font-weight:700; color:var(--dark); font-size:.95rem; padding:0 .4rem; }
+    legend .hint { font-weight:400; color:var(--muted); font-size:.75rem; }
+    .row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.7rem; }
+    .field { display:flex; flex-direction:column; gap:.2rem; }
+    .field label { font-size:.85rem; color:var(--ink); font-weight:500; }
+    .field label .tag { font-size:.72rem; color:var(--muted); font-weight:400; }
+    .field input, .field select { padding:.5rem .55rem; font-size:.95rem; border:1px solid var(--line);
+      border-radius:6px; background:#fff; font-family:inherit; }
+    .field input:focus, .field select:focus { outline:2px solid var(--brand); outline-offset:-1px; }
+    .slot-grid { display:flex; flex-direction:column; gap:.5rem; }
+    .slot-line { display:grid; grid-template-columns:80px 1fr 1fr; gap:.5rem; align-items:center; }
+    .slot-line .pos { font-size:.85rem; color:var(--muted); font-weight:600; }
+    @media (max-width:560px){ .slot-line { grid-template-columns:64px 1fr; } .slot-line select:last-child{grid-column:2;} }
+
+    .actions { display:flex; gap:.7rem; flex-wrap:wrap; margin:1.2rem 0; }
+    .btn { padding:.7rem 1.4rem; font-size:1rem; font-weight:700; font-family:inherit; border:none;
+      border-radius:8px; cursor:pointer; }
+    .btn-primary { background:var(--brand); color:#fff; }
+    .btn-primary:hover { background:#2c81ba; }
+    .btn-ghost { background:#fff; color:var(--muted); border:1px solid var(--line); }
+    .btn-ghost:hover { border-color:var(--brand); color:var(--brand); }
+
+    /* report */
+    .report { margin-top:.5rem; }
+    .score { display:flex; align-items:center; gap:1rem; background:var(--dark); color:#fff;
+      border-radius:10px; padding:1rem 1.3rem; margin-bottom:1rem; flex-wrap:wrap; }
+    .score__num { font-size:2.4rem; font-weight:800; font-variant-numeric:tabular-nums; line-height:1; }
+    .score__num.grade-A { color:#2ecc71; } .score__num.grade-B { color:#f1c40f; } .score__num.grade-C { color:#e67e22; } .score__num.grade-D { color:#e74c3c; }
+    .score__meta { flex:1; min-width:180px; }
+    .score__meta .verdict { font-size:1.05rem; font-weight:700; }
+    .score__meta .tally { font-size:.82rem; opacity:.85; margin-top:.2rem; }
+    .findings { display:flex; flex-direction:column; gap:.6rem; }
+    .finding { border-radius:8px; padding:.75rem .9rem; border:1px solid var(--line); border-left-width:5px; }
+    .finding.crit { background:var(--critbg); border-left-color:var(--warn); }
+    .finding.warn { background:var(--warnbg); border-left-color:var(--featured); }
+    .finding.ok { background:var(--okbg); border-left-color:var(--ok); }
+    .finding__head { display:flex; align-items:baseline; gap:.5rem; flex-wrap:wrap; }
+    .finding__badge { font-size:.7rem; font-weight:800; letter-spacing:.05em; padding:.1rem .5rem; border-radius:10px; color:#fff; white-space:nowrap; }
+    .finding.crit .finding__badge { background:var(--warn); }
+    .finding.warn .finding__badge { background:var(--featured); }
+    .finding.ok .finding__badge { background:var(--ok); }
+    .finding__pos { font-size:.78rem; color:var(--muted); font-weight:600; }
+    .finding__title { font-weight:700; font-size:.95rem; color:var(--dark); }
+    .finding__fix { font-size:.87rem; margin-top:.3rem; color:var(--ink); }
+    .finding__fix b { color:var(--warn); }
+    .empty-report { text-align:center; color:var(--muted); padding:2rem 1rem; border:1px dashed var(--line); border-radius:8px; }
+    .rule-src { font-size:.75rem; color:var(--muted); margin-top:1rem; }
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.82rem; }
+    footer a { color:#cfe3f3; }
+    .job-locked { background:var(--raise); border:1px dashed var(--line); border-radius:8px; padding:1rem;
+      color:var(--muted); font-size:.9rem; text-align:center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🩺 瑪奇 Mobile 角色健檢</h1>
+    <p>輸入角色現況 → 對照攻略規則 → 標出不足與修改位置，改到符合為止</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html">🔮 符文配置表</a>
+      <a href="jiankang.html" class="active">🩺 角色健檢</a>
+      <a href="sidequests.html">🗺️ 特殊支線</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="disclaimer">
+      ⚠️ 健檢規則整理自巴哈姆特翻譯版攻略與社群實測，<strong>台版數值可能已調整，僅供參考</strong>。目前<strong>盜賊為完整規則</strong>，其餘職業規則陸續補上。資料只存在你自己的瀏覽器（localStorage），不會上傳。
+    </div>
+
+    <div class="char-tabs">
+      <button id="tab-main" class="active" onclick="switchChar('main')">主角色</button>
+      <button id="tab-alt" onclick="switchChar('alt')">分身（第二隻）</button>
+    </div>
+
+    <div class="panel">
+      <form id="hc-form" onsubmit="return false;">
+
+        <fieldset>
+          <legend>基本資料</legend>
+          <div class="row">
+            <div class="field"><label>角色名稱</label><input type="text" name="name" placeholder="例：游離份子"></div>
+            <div class="field">
+              <label>職業</label>
+              <select name="job" onchange="onJobChange()">
+                <option value="盜賊">盜賊（完整規則）</option>
+                <option value="格鬥家">格鬥家（規則待補）</option>
+                <option value="雙刀客">雙刀客（規則待補）</option>
+                <option value="戰士">戰士（規則待補）</option>
+                <option value="大劍戰士">大劍戰士（規則待補）</option>
+                <option value="劍術士">劍術士（規則待補）</option>
+                <option value="弓手">弓手（規則待補）</option>
+                <option value="弩手">弩手（規則待補）</option>
+                <option value="長弓手">長弓手（規則待補）</option>
+                <option value="吟遊詩人">吟遊詩人（規則待補）</option>
+                <option value="舞者">舞者（規則待補）</option>
+                <option value="樂師">樂師（規則待補）</option>
+                <option value="魔法師">魔法師（規則待補）</option>
+                <option value="火焰術士">火焰術士（規則待補）</option>
+                <option value="冰霜術士">冰霜術士（規則待補）</option>
+                <option value="治癒師">治癒師（規則待補）</option>
+                <option value="祭司">祭司（規則待補）</option>
+                <option value="修道士">修道士（規則待補）</option>
+              </select>
+            </div>
+            <div class="field"><label>職業等級 <span class="tag">(最高 65)</span></label><input type="number" name="jobLv" min="1" max="65" placeholder="56"></div>
+            <div class="field"><label>戰鬥力</label><input type="number" name="power" placeholder="25774"></div>
+          </div>
+        </fieldset>
+
+        <div id="job-rules"><!-- 職業專屬區塊 by JS --></div>
+
+        <div class="actions">
+          <button class="btn btn-primary" onclick="runCheck()">執行健檢</button>
+          <button class="btn btn-ghost" onclick="saveChar()">💾 儲存這隻</button>
+          <button class="btn btn-ghost" onclick="clearChar()">清空</button>
+        </div>
+      </form>
+
+      <div class="report" id="report">
+        <div class="empty-report">填好上面欄位，按「執行健檢」，這裡會列出你的不足與該改的位置。</div>
+      </div>
+    </div>
+
+    <p class="rule-src">規則來源：<a href="runes.html">本站符文配置表</a>、<a href="https://forum.gamer.com.tw/C.php?bsn=32564&amp;snA=1992" target="_blank" rel="noopener">巴哈 符文白話文（乘區解析）</a>。健檢邏輯：冷酷勝負師必備、千把劍層數、寶石標籤對齊主力技能、飾品毒符、屬性方向、職業等級。</p>
+  </div>
+
+  <footer>
+    <p>🩺 角色健檢 · 瑪奇 Mobile 攻略查詢網　|　規則持續增補中，回報建議請找站長</p>
+  </footer>
+
+<script>
+/* ============ 職業規則資料（盜賊完整，其餘待補） ============ */
+const RUNE_ARMOR = ["（未裝／其他）","冷酷勝負師","魔力激流","岩石巨人","共鳴水晶","穩定+","陰險一擊","吸血+","風暴+/超自然+(手感)","開場攻擊+(30秒)","巨人之臂(破甲)","潛伏者之殼(未開放)"];
+const RUNE_WEAPON = ["（未裝／其他）","千把劍","決鬥+","千錘百鍊","驚異+","靈魂收割者","荊棘藤蔓"];
+const ACC_RUNE = ["（未裝／其他）","暮色+","縝密+","毒性+","毒霧+"];
+const TAGS = ["","強擊","連擊","干擾","召喚","元素","輔助","移動","生存"];
+
+// 盜賊毒流主力技能標籤（用於寶石對齊檢查）
+const ROGUE = {
+  mainSkillTags: { "投擲炸彈":["強擊","干擾"], "毒陷阱":["連擊","干擾","召喚"] },
+  sharedTag: "干擾",
+  goodDamageTags: ["干擾","強擊","連擊"],     // 有打到主力技能
+  wastedDamageTags: ["輔助","移動","生存","元素"], // 對毒流兩技能無效
+  swordJobsNeeded: 6
+};
+
+const HAS_RULES = { "盜賊": true };
+
+/* ============ 職業專屬表單 ============ */
+function jobRulesHTML(job){
+  if(job !== "盜賊"){
+    return '<div class="job-locked">「'+job+'」的完整健檢規則尚未建置。<br>目前可先做基本資料紀錄；符文/寶石規則陸續補上。<br><br>（分身若只想追千把劍進度，填基本資料＋下方「劍職達 40 數」即可。）</div>'
+      + swordCountBlock();
+  }
+  return `
+  <fieldset>
+    <legend>武器符文 <span class="hint">1 格</span></legend>
+    <div class="slot-line">
+      <span class="pos">武器</span>
+      <select name="w_rune">${opts(RUNE_WEAPON)}</select>
+      <input type="number" name="w_plus" placeholder="強化值 如 +12" min="0" max="20">
+    </div>
+    ${swordCountBlock()}
+  </fieldset>
+
+  <fieldset>
+    <legend>防具符文 <span class="hint">5 格 · 選你每格刻的符文</span></legend>
+    <div class="slot-grid">
+      ${['頭盔','上衣','下著','手套','鞋子'].map((p,i)=>`
+      <div class="slot-line">
+        <span class="pos">${p}</span>
+        <select name="a_rune_${i}">${opts(RUNE_ARMOR)}</select>
+        <select name="a_gem_${i}"><option value="">寶石傷害標籤…</option>${opts(TAGS.slice(1),true)}</select>
+      </div>`).join('')}
+    </div>
+    <div class="field" style="margin-top:.5rem"><label style="font-size:.78rem;color:var(--muted)">↑ 右欄選「你這格寶石『傷害強化』詞條加的是哪個標籤」；純冷卻(CD)詞條就留空</label></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>飾品符文 <span class="hint">3 格</span></legend>
+    <div class="slot-grid">
+      ${['項鍊','戒指1','戒指2'].map((p,i)=>`
+      <div class="slot-line">
+        <span class="pos">${p}</span>
+        <select name="c_rune_${i}">${opts(ACC_RUNE)}</select>
+        <select name="c_gem_${i}"><option value="">寶石傷害標籤…</option>${opts(TAGS.slice(1),true)}</select>
+      </div>`).join('')}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>屬性重點 <span class="hint">面板數值</span></legend>
+    <div class="row">
+      <div class="field"><label>暴擊</label><input type="number" name="s_crit" placeholder="1002"></div>
+      <div class="field"><label>強擊強化</label><input type="number" name="s_pierce" placeholder="708"></div>
+      <div class="field"><label>連擊強化</label><input type="number" name="s_combo" placeholder="1536"></div>
+      <div class="field"><label>攻擊力</label><input type="number" name="s_atk" placeholder="11901"></div>
+    </div>
+  </fieldset>`;
+}
+function swordCountBlock(){
+  return `<div class="field" style="margin-top:.6rem;max-width:320px">
+    <label>已練到職業等級 40 的「劍職」數 <span class="tag">(戰/大劍/劍術/冰法/盜賊/雙刀，最多6)</span></label>
+    <input type="number" name="swordJobs" min="0" max="6" placeholder="3">
+  </div>`;
+}
+function opts(arr, valIsText){
+  return arr.map(v=>`<option value="${v}">${v}</option>`).join('');
+}
+
+/* ============ 健檢引擎 ============ */
+function runCheck(){
+  const d = readForm();
+  const F = []; // findings: {level:'crit'|'warn'|'ok', pos, title, fix}
+
+  // 職業等級（通用）
+  const jl = +d.jobLv||0;
+  if(jl>0 && jl<65) F.push({level:'warn',pos:'職業等級',title:`職業等級 ${jl}／65，尚未滿級`,fix:'職業等級影響技能特化上限與「領悟」符文 +4%。往 65 衝是結構性提升（卡精靈痕跡，慢慢補）。'});
+  else if(jl>=65) F.push({level:'ok',pos:'職業等級',title:'職業等級已達 65',fix:'特化上限與領悟符文已解鎖。'});
+
+  if(!HAS_RULES[d.job]){
+    // 只做劍職/千把劍通用檢查
+    checkSword(d, F);
+    render(d, F, true);
+    return;
+  }
+
+  /* ---- 盜賊完整規則 ---- */
+  // 武器
+  if(d.w_rune==='千把劍'){
+    const n=+d.swordJobs||0;
+    if(n>=6) F.push({level:'ok',pos:'武器',title:'千把劍已滿 6 劍職（+24%）',fix:'武器攻擊%乘區拉滿，毒傷全額受益。'});
+    else F.push({level:n<=3?'crit':'warn',pos:'武器',title:`千把劍只開 ${n} 劍／6（約 +${n*4}%，上限 +24%）`,fix:`你的武器符文只發揮 ${Math.round(n/6*100)}%。毒傷吃攻擊力，這裡漏一半。<b>補劍職到 6</b>，或層數不足時<b>改決鬥+（18% 無條件）</b>頂著。`});
+  } else if(d.w_rune==='決鬥+'){
+    F.push({level:'ok',pos:'武器',title:'決鬥+（+18% 無條件）',fix:'過渡期最佳武器符文，攻擊%全額。'});
+  } else checkSword(d,F,true);
+
+  // 防具 5 格
+  const armor = [0,1,2,3,4].map(i=>d['a_rune_'+i]).filter(x=>x&&x!=='（未裝／其他）');
+  const parts = ['頭盔','上衣','下著','手套','鞋子'];
+  if(!armor.includes('冷酷勝負師'))
+    F.push({level:'crit',pos:'防具（任一格）',title:'毒流核心「冷酷勝負師」沒有裝',fix:'盜賊系專用，對中毒/傷口敵人 +12% 傷害——你是毒流卻沒裝，這是最大的漏。<b>找一格手感符文（風暴+/超自然+）換成冷酷勝負師。</b>'});
+  else F.push({level:'ok',pos:'防具',title:'冷酷勝負師已裝（毒流核心 +12%）',fix:'方向正確。'});
+
+  if(!armor.includes('魔力激流')) F.push({level:'warn',pos:'防具',title:'缺魔力激流',fix:'每次用技能 +3.5% 最多 4 層（+14%），與武器循環正相關，建議補一格。'});
+  if(!armor.includes('共鳴水晶')) F.push({level:'warn',pos:'防具（帽子建議）',title:'缺共鳴水晶',fix:'長王戰無條件疊到 +24% 傷害，深淵地獄/團本神物。格里斯貝恩選擇箱可拿。'});
+  // 手感符文佔格
+  [0,1,2,3,4].forEach(i=>{ if(d['a_rune_'+i]==='風暴+/超自然+(手感)')
+    F.push({level:'warn',pos:parts[i],title:'裝了手感符文（風暴+/超自然+）',fix:'只加施放/攻速，<b>零傷害</b>。毒流優先換冷酷勝負師或共鳴水晶。'});
+    if(d['a_rune_'+i]==='巨人之臂(破甲)')
+    F.push({level:'warn',pos:parts[i],title:'巨人之臂（破甲）',fix:'投擲炸彈自帶 +10% 易傷，破甲不疊加；單刷浪費一格，僅固定團無破甲手時才值。'});
+  });
+
+  // 飾品
+  const acc = [0,1,2].map(i=>d['c_rune_'+i]);
+  if(!acc.includes('毒性+') && !acc.includes('毒霧+'))
+    F.push({level:'warn',pos:'飾品',title:'缺毒性+／毒霧+',fix:'毒流增傷核心飾品符文，至少上一個。'});
+  else F.push({level:'ok',pos:'飾品',title:'毒符已上（毒性/毒霧）',fix:'毒流方向正確。'});
+
+  // 寶石標籤對齊（最關鍵）
+  const gemTags = [0,1,2,3,4].map(i=>d['a_gem_'+i]).concat([0,1,2].map(i=>d['c_gem_'+i])).filter(Boolean);
+  if(gemTags.length){
+    const hitShared = gemTags.filter(t=>t==='干擾').length;
+    const wasted = gemTags.filter(t=>ROGUE.wastedDamageTags.includes(t));
+    const good = gemTags.filter(t=>ROGUE.goodDamageTags.includes(t));
+    if(hitShared>0) F.push({level:'ok',pos:'寶石',title:`有 ${hitShared} 顆寶石加「干擾」傷害（投擲炸彈＋毒陷阱共有標籤）`,fix:'打中兩個主力毒技，乘區 E 有效。可再集中。'});
+    else F.push({level:'crit',pos:'寶石',title:'沒有一顆寶石加「干擾」傷害',fix:'投擲炸彈=強擊/干擾、毒陷阱=連擊/干擾/召喚，<b>共有標籤是「干擾」</b>。把寶石詞條洗成「干擾技能傷害強化」，一顆同時放大兩個主力技。'});
+    if(wasted.length) F.push({level:'warn',pos:'寶石',title:`${wasted.length} 顆寶石傷害詞條打在無效標籤（${[...new Set(wasted)].join('、')}）`,fix:'這些標籤投擲炸彈/毒陷阱都沒有＝白鑲。重洗成干擾（或強擊/連擊）。'});
+    if(good.length && hitShared===0) F.push({level:'ok',pos:'寶石',title:`有 ${good.length} 顆打到強擊/連擊（部分有效）`,fix:'強擊→投擲炸彈、連擊→毒陷阱。但首選仍是「干擾」（兩者共有）。'});
+  } else {
+    F.push({level:'warn',pos:'寶石',title:'未填寶石傷害標籤',fix:'請在防具/飾品右欄選你寶石「傷害強化」詞條的標籤，才能檢查對齊。'});
+  }
+
+  // 屬性方向
+  const pierce=+d.s_pierce||0, combo=+d.s_combo||0;
+  if(pierce>0&&combo>0 && pierce < combo*0.6)
+    F.push({level:'warn',pos:'屬性',title:`強擊強化(${pierce}) 明顯低於連擊強化(${combo})`,fix:'若防具留著岩石巨人（吃強擊觸發），效益會打折。毒/連擊流可考慮把岩石巨人換掉，或補強擊。'});
+
+  render(d, F, false);
+}
+
+function checkSword(d, F, silentOk){
+  const n=+d.swordJobs||0;
+  if(n>=6){ if(!silentOk) F.push({level:'ok',pos:'千把劍',title:'6 劍職已滿',fix:'任何角色都能刻千把劍吃滿 24%。'}); }
+  else F.push({level:'warn',pos:'千把劍',title:`劍職達 40：${n}／6`,fix:'千把劍看「本角色」的劍職等級，分身不算。每滿 1 職 +4% 攻擊力。'});
+}
+
+function render(d, F, partial){
+  const crit=F.filter(f=>f.level==='crit').length;
+  const warn=F.filter(f=>f.level==='warn').length;
+  const ok=F.filter(f=>f.level==='ok').length;
+  // 分數：100 - 嚴重*22 - 警告*8，下限 0
+  let score=Math.max(0, 100 - crit*22 - warn*8);
+  let grade = score>=85?'A':score>=70?'B':score>=50?'C':'D';
+  let verdict = crit>0 ? '有嚴重漏洞，先補紅色項' : (warn>0 ? '大方向對，還有可優化處' : '配置健康，已符合攻略');
+  if(partial) verdict = '（'+d.job+'）僅通用檢查，完整規則待補';
+
+  const order={crit:0,warn:1,ok:2};
+  F.sort((a,b)=>order[a.level]-order[b.level]);
+
+  let html = `<h2 class="sec">健檢報告 — ${d.name||'未命名'}（${d.job}）</h2>
+  <div class="score">
+    <div class="score__num grade-${grade}">${partial?'—':score}</div>
+    <div class="score__meta">
+      <div class="verdict">${verdict}</div>
+      <div class="tally">🔴 嚴重 ${crit}　🟠 警告 ${warn}　🟢 通過 ${ok}</div>
+    </div>
+  </div>
+  <div class="findings">`;
+  if(!F.length) html += `<div class="empty-report">沒有可檢查的項目，請多填一些欄位。</div>`;
+  F.forEach(f=>{
+    const label={crit:'嚴重',warn:'警告',ok:'通過'}[f.level];
+    html += `<div class="finding ${f.level}">
+      <div class="finding__head">
+        <span class="finding__badge">${label}</span>
+        <span class="finding__pos">📍 ${f.pos}</span>
+        <span class="finding__title">${f.title}</span>
+      </div>
+      <div class="finding__fix">${f.fix}</div>
+    </div>`;
+  });
+  html += `</div>`;
+  if(crit>0||warn>0) html += `<p class="rule-src">改完後，回上面調整欄位再按一次「執行健檢」，直到只剩綠色為止。</p>`;
+  document.getElementById('report').innerHTML = html;
+  document.getElementById('report').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ============ 表單讀寫 / 存檔 ============ */
+let curChar='main';
+const store={main:{},alt:{}};
+
+function readForm(){
+  const f=document.getElementById('hc-form'); const o={};
+  new FormData(f).forEach((v,k)=>o[k]=v);
+  // selects with same name pattern captured; also grab non-FormData selects
+  f.querySelectorAll('select,input').forEach(el=>{ if(el.name) o[el.name]=el.value; });
+  return o;
+}
+function writeForm(o){
+  onJobChange(o.job); // rebuild job block first
+  const f=document.getElementById('hc-form');
+  Object.entries(o).forEach(([k,v])=>{ const el=f.elements[k]; if(el) el.value=v; });
+}
+function onJobChange(forceJob){
+  const job = forceJob || document.querySelector('[name=job]').value;
+  if(forceJob){ document.querySelector('[name=job]').value=job; }
+  document.getElementById('job-rules').innerHTML = jobRulesHTML(job);
+}
+function switchChar(which){
+  // save current into store
+  store[curChar]=readForm();
+  curChar=which;
+  document.getElementById('tab-main').classList.toggle('active',which==='main');
+  document.getElementById('tab-alt').classList.toggle('active',which==='alt');
+  const data=store[which]||{};
+  writeForm(Object.keys(data).length?data:{job:'盜賊'});
+  document.getElementById('report').innerHTML='<div class="empty-report">填好欄位，按「執行健檢」。</div>';
+}
+function saveChar(){
+  store[curChar]=readForm();
+  try{ localStorage.setItem('mabi_hc', JSON.stringify(store)); alert('已儲存「'+(store[curChar].name||curChar)+'」到本機。'); }
+  catch(e){ alert('此環境無法存檔（隱私模式？），但資料仍在本頁面有效。'); }
+}
+function clearChar(){
+  store[curChar]={job:document.querySelector('[name=job]').value};
+  writeForm(store[curChar]);
+  document.getElementById('report').innerHTML='<div class="empty-report">已清空。</div>';
+}
+function loadStore(){
+  try{ const s=localStorage.getItem('mabi_hc'); if(s){ const o=JSON.parse(s); if(o.main)store.main=o.main; if(o.alt)store.alt=o.alt; } }catch(e){}
+}
+
+/* init */
+loadStore();
+onJobChange('盜賊');
+if(Object.keys(store.main).length) writeForm(store.main);
+</script>
+</body>
+</html>

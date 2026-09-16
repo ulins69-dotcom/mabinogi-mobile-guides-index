@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 特殊支線整理</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.6; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .8rem; text-decoration:none; font-size:.95rem; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:960px; margin:1.5rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.3rem; margin-top:2.4rem; }
+    .disclaimer { background:#fff8e1; border:1px solid #f0d98c; color:#8a6d1a;
+      border-radius:6px; padding:.8rem 1rem; font-size:.85rem; margin-bottom:1.2rem; }
+    .disclaimer b { color:#6b5000; }
+    .toc { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; margin-bottom:1.5rem; }
+    .toc h3 { margin:0 0 .5rem; font-size:.95rem; color:var(--dark); }
+    .toc ul { margin:0; padding-left:1.2rem; }
+    .toc li { font-size:.9rem; margin:.2rem 0; }
+    .toc a { color:var(--brand); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+
+    .quest { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1.2rem 1.3rem; margin-bottom:1.2rem; }
+    .quest .meta { font-size:.8rem; color:var(--muted); margin-bottom:.7rem; }
+    .quest .meta a { color:var(--brand); }
+    .quest .naming-note { background:#eef6fb; border-left:3px solid var(--brand); border-radius:0 6px 6px 0;
+      padding:.6rem .8rem; font-size:.85rem; margin-bottom:.9rem; }
+    .quest .steps { margin:0 0 1rem; padding-left:1.3rem; }
+    .quest .steps li { margin:.5rem 0; }
+    .quest .warn-box { background:#fdecea; border:1px solid #f5c6cb; color:var(--warn);
+      border-radius:6px; padding:.6rem .9rem; font-size:.85rem; margin:.8rem 0; }
+
+    .shot-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem; margin:1rem 0; }
+    .shot { background:var(--bg); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+    .shot img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; background:#e8e8e8; }
+    .shot .cap { font-size:.78rem; color:var(--muted); padding:.4rem .6rem; }
+    .shot .broken { display:none; padding:1.5rem .6rem; text-align:center; font-size:.8rem; color:var(--muted); }
+    .shot.is-broken img { display:none; }
+    .shot.is-broken .broken { display:block; }
+
+    .subhead { font-size:1.02rem; font-weight:700; color:var(--dark); margin:1.1rem 0 .3rem; }
+    .region-group { margin-bottom:.8rem; }
+    .region-group .rname { font-size:.9rem; font-weight:700; color:var(--brand); margin-bottom:.4rem; }
+
+    table.masterlist { border-collapse:collapse; width:100%; margin-top:.6rem; }
+    table.masterlist th { text-align:left; font-size:.75rem; color:var(--muted); padding:.5rem .6rem; border-bottom:2px solid var(--line); background:#f4f7f9; }
+    table.masterlist td { padding:.5rem .6rem; border-bottom:1px solid var(--line); font-size:.87rem; vertical-align:top; }
+    table.masterlist tr:last-child td { border-bottom:none; }
+
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2.4rem; font-size:.85rem; }
+    footer p { margin:.3rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>瑪奇 Mobile 特殊支線整理</h1>
+    <p style="margin:0;opacity:.85;font-size:.9rem;">搗蛋鬼、隱藏任務、支線時裝——巴哈玩家實測整理，圖片與連結都附原文出處</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html">🔮 符文配置表</a>
+      <a href="jiankang.html">🩺 角色健檢</a>
+      <a href="sidequests.html" class="active">🗺️ 特殊支線</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="disclaimer">
+      ⚠️ <b>誠實聲明</b>：以下內容整理自巴哈姆特玩家實戰心得，文字盡量保留原作者的描述方式，圖片直接引用原文章的圖床網址（來源見各張圖說明），圖片如果哪天讀不到了會自動顯示「查看原圖」的文字連結，不會留破圖。<b>找不到使用者指定的「偉大的任務」這個確切標題</b>——查證後認為最接近的是「偉大的冒險」（4人隱藏地城，拿老鼠裝），已在該段落註記這個推測，不是原文直接寫的名稱。「搗蛋鬼」在巴哈上其實對應<b>兩種不同東西</b>：一個是撿珠子的任務鏈NPC、另一個是副本裡會隨機出現的稀有小怪，兩者不要搞混，段落裡會分開講清楚。
+    </div>
+
+    <div class="toc">
+      <h3>本頁目錄</h3>
+      <ul>
+        <li><a href="#trickster">① 搗蛋鬼的珠子（任務鏈，多段）</a></li>
+        <li><a href="#adventure">② 偉大的冒險（推測即使用者所指「偉大的任務」，4人隱藏地城）</a></li>
+        <li><a href="#nests">③ 尋找鳥巢（收集型支線，跨多張地圖）</a></li>
+        <li><a href="#costumes">④ 支線時裝任務總表（11 條支線速查）</a></li>
+        <li><a href="#top5">⑤ 5 大隱藏任務跟副本</a></li>
+        <li><a href="#fishing">⑥ 隱藏的漁場（小技巧，非任務）</a></li>
+      </ul>
+    </div>
+
+    <h2 class="sec" id="trickster">① 搗蛋鬼的珠子（任務鏈，多段）</h2>
+    <div class="quest">
+      <div class="meta">整理自 4 篇巴哈文章，來源見各段</div>
+      <div class="naming-note">「搗蛋鬼」在巴哈上其實有兩種意思：這裡講的是<b>撿珠子任務鏈</b>裡登場的 NPC；另外還有玩家發文問過，副本裡偶爾會隨機刷出一隻叫「搗蛋鬼」的稀有小怪（會掉寶石/金幣），是完全不同的東西，兩者不要混在一起找。</div>
+
+      <p class="subhead">第一段：提爾克那（Tir Chonaill）撿珠子</p>
+      <p>在提爾克那旅館前撿到一顆發光珠子後觸發，之後要在地圖上找星星標記的珠子位置，共 25 顆。背包裝不下時，多的珠子會自動折算成約 8 金幣。完成後可以拿到<b>搗蛋鬼面具</b>。</p>
+      <ul class="steps">
+        <li>來源：【心得】任務：尋找搗蛋鬼的珠子，米苔目，2026-07-28 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=702" target="_blank" rel="noopener noreferrer">查看原文</a>（回覆樓層裡還有人補充唐巴頓也有 30 顆的位置修正）</li>
+      </ul>
+      <div class="shot-grid">
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/88984bfab2d7a2af13d630cf27c08eda.JPG" alt="提爾克那觸發點" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《任務：尋找搗蛋鬼的珠子》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=702" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">觸發點：旅館前星星標記</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/eb106f060708e56c3fb3a03139aa19b0.PNG" alt="25顆珠子位置地圖" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《任務：尋找搗蛋鬼的珠子》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=702" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">25 顆珠子位置圖（一）</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/58f15d9af68b9aab35acc06773f5e657.PNG" alt="25顆珠子位置地圖續" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《任務：尋找搗蛋鬼的珠子》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=702" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">25 顆珠子位置圖（二）</div></div>
+      </div>
+
+      <p class="subhead">第二段：庫漢／希德斯特雪原</p>
+      <p>在庫漢砍柴時會遇到搗蛋鬼 NPC，觸發後續任務，庫漢 25 顆＋雪原 10 顆珠子。</p>
+      <ul class="steps">
+        <li>來源：【情報】搗蛋鬼的珠子任務二，Marc，2026-08-02 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=1583" target="_blank" rel="noopener noreferrer">查看原文</a></li>
+        <li>另一篇僅文字提示、無圖：【情報】搗蛋鬼的珠子任務，水母飄飄，2026-07-24 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=895" target="_blank" rel="noopener noreferrer">查看原文</a>（作者說精確點位請看 YouTube，原文沒附圖）</li>
+      </ul>
+      <div class="shot-grid">
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202608/731d35effea5179012cc6325e7844cf1.JPG" alt="庫漢砍柴遇到搗蛋鬼" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《搗蛋鬼的珠子任務二》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=1583" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">砍柴時遇到搗蛋鬼 NPC</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202608/0f851378fcba4a7078c6a98a9b0ff653.JPG" alt="第二段後續獎勵畫面" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《搗蛋鬼的珠子任務二》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=1583" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">後續劇情/獎勵畫面</div></div>
+      </div>
+
+      <p class="subhead">第三段：50 級・傭兵事務所西牆</p>
+      <p>依支線時裝總表（見第④節）補充：完成後可拿<b>搗蛋鬼鞋</b>，兩件搗蛋鬼裝備湊齊成套。</p>
+
+      <div class="warn-box">「遇到搗蛋鬼的情況」一文（小矮子，2026-08-04，<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=1715" target="_blank" rel="noopener noreferrer">原文</a>）特別澄清：副本裡偶爾隨機出現、會掉寶石/金幣的「搗蛋鬼」是另一種東西（類似隨機稀有小怪），跟這裡的撿珠子任務鏈是兩回事，別搞混。</div>
+    </div>
+
+    <h2 class="sec" id="adventure">② 偉大的冒險（推測即「偉大的任務」，4人隱藏地城）</h2>
+    <div class="quest">
+      <div class="naming-note"><b>命名提醒</b>：巴哈上查不到叫「偉大的任務」的文章，最接近、多篇文章互相引用當作同一個任務指的是「<b>偉大的冒險</b>」——這是我們的推測比對，不是原文標題就叫這個名字，先講清楚以免誤導。</div>
+      <div class="meta">來源：【心得】隱藏任務:偉大的冒險。可以拿老鼠裝，棪糖，2026-07-23 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">查看原文</a></div>
+      <p>完全手動任務（<b>不能掛自動戰鬥</b>），需要湊滿 <b>4 個人</b>才能觸發。完成後對話獎勵是一整套<b>老鼠裝</b>。支線時裝總表額外補充：觸發點在提爾克那農地南側的橋附近，前置條件大約是艾菲地城全清、角色等級約 20 級。</p>
+      <p class="subhead">解謎步驟</p>
+      <ol class="steps">
+        <li>在柱子旁撿起一本書。</li>
+        <li>到瞭望台找線索。</li>
+        <li>到工坊右下角打水，再回到農地翻找草叢。</li>
+        <li>回到一開始觸發的地點，用手上道具的提示找出隱藏的門。</li>
+        <li>開啟隱藏地城（共 2 層，幾乎全是解謎，需要 4 人真的溝通合作，不是站著automa打就過）。</li>
+      </ol>
+      <div class="shot-grid">
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/8e343f2947d63d7c9e224a671b72037a.JPG" alt="偉大的冒險總覽" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">總覽：4人、不能自動戰鬥</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/d15e8e4b9b8e3833744049ccacd6cb21.JPG" alt="步驟1柱子撿書" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟1：柱子旁撿書</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/191b1ee6b2ced43fcc470e9f21173b51.JPG" alt="步驟2瞭望台" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟2：前往瞭望台</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/3fc943d939a59e8a45b54c0517c2ab06.JPG" alt="步驟2線索" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟2：瞭望台找到的線索</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/37a0213abd495aa8d03491047a0737f2.JPG" alt="步驟3打水" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟3：工坊右下角打水</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/e05e06d6c6df49fafe66543bf74a79fb.JPG" alt="步驟3返回農地" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟3：返回農地</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/3226963e3784516ef2c5cdbe6fb00557.JPG" alt="步驟3翻找草叢" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟3：翻找草叢</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/7ef41c35951e2717a1639ded5aa17c48.JPG" alt="步驟4回到起點" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟4：回到觸發地點</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/eb5bb4736b18f732dda3d92bb0aa9a84.JPG" alt="步驟4找隱藏門" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">步驟4：用道具提示找隱藏門</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/b205df352a055abed207696e7093eda5.JPG" alt="隱藏地城入口" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏任務:偉大的冒險》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=712" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">開啟的隱藏地城入口（共2層）</div></div>
+      </div>
+    </div>
+
+    <h2 class="sec" id="nests">③ 尋找鳥巢（收集型支線，跨多張地圖）</h2>
+    <div class="quest">
+      <div class="meta">整理自 3 篇巴哈文章，持續更新到 2026-09-10，來源見各區段</div>
+      <p>跟搗蛋鬼珠子任務並行的另一條收集支線——在多張地圖裡找隱藏的鳥巢。依支線時裝總表，全部地區收集完成可拿<b>鴞熊羽飾</b>。</p>
+
+      <div class="region-group">
+        <div class="rname">提爾克那（第一顆在任務 NPC 旁邊，不用找）</div>
+        <div class="shot-grid">
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/20f49794e2b27dc1aca01b1b24b20c83.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《【支線攻略】尋找鳥巢任務》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=626" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">總覽</div></div>
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/95738850afb0a14a8c97846e687b7536.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=626" target="_blank" rel="noopener noreferrer">查看原圖</a>）</div><div class="cap">提爾克那鳥巢位置</div></div>
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/4956bf09ec86d356b94a1ae02df0ef88.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=626" target="_blank" rel="noopener noreferrer">查看原圖</a>）</div><div class="cap">提爾克那鳥巢位置</div></div>
+        </div>
+      </div>
+
+      <div class="region-group">
+        <div class="rname">杜加德走廊</div>
+        <div class="shot-grid">
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/7a06c78469b9bc74fbef5537a2ece0ed.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《【支線攻略】尋找鳥巢任務》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=626" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">杜加德走廊鳥巢位置</div></div>
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/8e42ce2426e312099acbf53e681012ee.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上</div><div class="cap">杜加德走廊鳥巢位置</div></div>
+        </div>
+      </div>
+
+      <div class="region-group">
+        <div class="rname">唐巴頓</div>
+        <div class="shot-grid">
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/fb1f79893644efefa25974abff5eb96e.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《【支線攻略】尋找鳥巢任務》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=626" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">唐巴頓鳥巢位置</div></div>
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/d2b96c29cda90cf6b18541d2aa687205.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上</div><div class="cap">唐巴頓鳥巢位置</div></div>
+        </div>
+        <p style="font-size:.85rem;color:var(--muted);">完整索引與更多位置圖：<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=626" target="_blank" rel="noopener noreferrer">【支線攻略】尋找鳥巢任務（2026-09-10 更新）</a>，白烏鴉</p>
+      </div>
+
+      <div class="region-group">
+        <div class="rname">希德斯特雪原・庫漢</div>
+        <div class="shot-grid">
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/2e99bea20b2f44fdfefb1a64eb264dca.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《希德斯特雪原、庫漢【尋找鳥巢！！】位置》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=698" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">雪原鳥巢位置</div></div>
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202607/forum/32564/58f780113324d9b6a0a6c2711619a57e.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上</div><div class="cap">庫漢鳥巢位置</div></div>
+        </div>
+        <p style="font-size:.85rem;color:var(--muted);">來源：<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=698" target="_blank" rel="noopener noreferrer">希德斯特雪原、庫漢【尋找鳥巢！！】位置</a>，給魚魚魚乾，2026-07-23</p>
+      </div>
+
+      <div class="region-group">
+        <div class="rname">班克爾／萊爾特丘陵</div>
+        <div class="shot-grid">
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202609/forum/32564/a4ba01539cc85c45a33bbf4087a40cba.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《班克爾/萊爾特丘陵小珠子及鳥巢(鳥蛋)位置》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2714" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">紅圈=鳥蛋、實心圈=珠子</div></div>
+          <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202609/forum/32564/1161a8d4552012647dc0405dfba3b558.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上</div><div class="cap">位置圖續</div></div>
+        </div>
+        <p style="font-size:.85rem;color:var(--muted);">來源：<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2714" target="_blank" rel="noopener noreferrer">班克爾/萊爾特丘陵小珠子及鳥巢(鳥蛋)位置</a>，Albert，2026-09-09 更新（同一篇也一併整理了這兩區的珠子位置）</p>
+      </div>
+    </div>
+
+    <h2 class="sec" id="costumes">④ 支線時裝任務總表（11 條支線速查）</h2>
+    <div class="quest">
+      <div class="meta">來源：【心得】支線時裝任務，影滅，2026-08-23 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2351" target="_blank" rel="noopener noreferrer">查看原文</a>（純文字整理，原文沒有附圖）</div>
+      <p>原作者觀察：這些支線大多會在「離開一個地區的主線劇情之前」或「貓咪商人準備離開」時出現，容易錯過，先列表備查。</p>
+      <table class="masterlist">
+        <thead><tr><th>支線</th><th>觸發／備註</th><th>獎勵</th></tr></thead>
+        <tbody>
+          <tr><td>偉大的冒險開始</td><td>詳見本頁第②節</td><td>老鼠裝（面具＋正裝）</td></tr>
+          <tr><td>尋找搗蛋鬼的珠子</td><td>提爾克那旅館前，角色等級約23級起</td><td>搗蛋鬼面具</td></tr>
+          <tr><td>尋找搗蛋鬼的珠子（後段）</td><td>角色等級約50級</td><td>搗蛋鬼鞋</td></tr>
+          <tr><td>鐵匠鋪的熾熱純情</td><td>—</td><td>弗格斯紀念套裝</td></tr>
+          <tr><td>配送果然還是白馬快遞（第3段）</td><td>—</td><td>快遞員制服</td></tr>
+          <tr><td>斧頭的主人（第2段）</td><td>—</td><td>薩哈金面具</td></tr>
+          <tr><td>尋找鳥巢</td><td>詳見本頁第③節，跨多張地圖</td><td>鴞熊羽飾</td></tr>
+          <tr><td>苦惱的藝術家（第3段）</td><td>—</td><td>初心者服裝配色組</td></tr>
+          <tr><td>用花編織的心意</td><td>—</td><td>野花髮飾</td></tr>
+          <tr><td>與納克二次相遇</td><td>—</td><td>行商華麗帽</td></tr>
+          <tr><td>魚賊</td><td>—</td><td>魚型髮帶</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="sec" id="top5">⑤ 5 大隱藏任務跟副本</h2>
+    <div class="quest">
+      <div class="meta">來源：【心得】5大隱藏任務跟副本，薄荷貓，2026-07-28 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=671" target="_blank" rel="noopener noreferrer">查看原文</a>（純文字整理，原文沒有附圖）</div>
+
+      <p class="subhead">1. 向貓咪獻上愛</p>
+      <p>找 3 間貓屋（提爾克那墓地附近、唐巴頓東側、庫漢西邊岔路），跟蹤每隻貓拿獎勵。庫漢還有個 NPC「貓咪愛好者」可以幫貓咪取名字，純劇情彩蛋、沒有實際獎勵。</p>
+
+      <p class="subhead">2. 樹果減肥法</p>
+      <p>由提爾克那哈維爾地城附近的 NPC「搗蛋鬼」觸發——<b>這就是「搗蛋鬼」這個名字的由來</b>：模仿搗蛋鬼的動作去打樹，收集 10 顆掉落的果實，之後有對話/過場動畫給獎勵。</p>
+
+      <p class="subhead">3. 等待著你的某人（納克任務）</p>
+      <p>神秘 NPC 三段式任務鏈，卡角色等級門檻：55 級（需開通深層地城）跟 65 級（需開通深淵地城）才能繼續推進。</p>
+
+      <p class="subhead">4. 旅館前的珠子</p>
+      <p>就是本頁第①節的搗蛋鬼珠子任務——這篇確認了旅館的任務發布 NPC 叫「皮爾斯」。</p>
+
+      <p class="subhead">5. 雪橇夫之歌</p>
+      <p>三段式敘事任務。第一段可以從一般支線任務列表接到（跟 NPC「卡林」學會演奏「呼喚故友之歌」）；<b>第二、三段完全不會出現在任務列表裡</b>，要自己跑到冰霜峽谷 4～8 區找一個鬼火，再到第 8 區找一隻叫「比坎」的狗才能觸發完結篇——這條是最容易被忽略的一條，因為系統完全不會提示你。</p>
+    </div>
+
+    <h2 class="sec" id="fishing">⑥ 隱藏的漁場（小技巧，非任務）</h2>
+    <div class="quest">
+      <div class="meta">來源：【心得】隱藏的漁場，水澈，2026-08-09 —— <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=1949" target="_blank" rel="noopener noreferrer">查看原文</a></div>
+      <p>不是任務，是個實用技巧：把既有的釣魚地城「開新分流」，可以獨佔一整片開闊甲板釣魚，不用跟其他玩家搶位置；等級/魚種規則跟庫漢海釣點一樣。</p>
+      <div class="shot-grid">
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202608/forum/32564/072edda62d2f0b1ab9de55cb699f9e29.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源：《隱藏的漁場》（<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=1949" target="_blank" rel="noopener noreferrer">點此查看原圖</a>）</div><div class="cap">開新分流後的開闊甲板</div></div>
+        <div class="shot"><img src="https://truth.bahamut.com.tw/s01/202608/forum/32564/9d467baa4ccad3b4c2d285edd796299d.JPG" loading="lazy" onerror="this.parentElement.classList.add('is-broken')"><div class="broken">圖片來源同上</div><div class="cap">分流選擇畫面</div></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 瑪奇 Mobile 攻略索引網站</p>
+    <p style="opacity:.8;font-size:.78rem;">內容整理自巴哈姆特玩家實戰心得，圖片來源見各張圖說明；本站不主張圖片版權，如有疑慮請告知移除。</p>
+  </footer>
+</body>
+</html>
