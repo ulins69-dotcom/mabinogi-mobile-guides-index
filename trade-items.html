@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 以物易物整理</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b; --kr:#c0392b; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.6; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .8rem; text-decoration:none; font-size:.95rem; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:1000px; margin:1.5rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; margin-top:2rem; }
+    .source-note { background:#eef6fb; border:1px solid #cfe3f3; color:var(--ink);
+      border-radius:6px; padding:.8rem 1rem; font-size:.85rem; margin-bottom:1rem; }
+    .source-note a { color:var(--brand); font-weight:600; }
+    .disclaimer { background:#fff8e1; border:1px solid #f0d98c; color:#8a6d1a;
+      border-radius:6px; padding:.7rem .9rem; font-size:.85rem; margin-bottom:1.2rem; }
+    .search-bar { margin-bottom:1.2rem; }
+    .search-bar input { width:100%; padding:.65rem .8rem; font-size:1rem; border:1px solid var(--line);
+      border-radius:8px; background:#fff; }
+
+    .npc-block { background:var(--card); border:1px solid var(--line); border-radius:8px;
+      padding:1rem 1.2rem; margin-bottom:1rem; }
+    .npc-block h3 { margin:0 0 .6rem; font-size:1.02rem; color:var(--dark); }
+    .npc-block h3 .loc { font-size:.78rem; color:var(--muted); font-weight:400; }
+    table.trade { border-collapse:collapse; width:100%; }
+    table.trade th { text-align:left; font-size:.72rem; letter-spacing:.03em; color:var(--muted);
+      padding:.45rem .6rem; border-bottom:2px solid var(--line); background:#f4f7f9; }
+    table.trade td { padding:.45rem .6rem; border-bottom:1px solid var(--line); font-size:.86rem; vertical-align:top; }
+    table.trade tr:last-child td { border-bottom:none; }
+    table.trade tr.not-worth td { color:var(--muted); }
+    .cap { font-size:.7rem; padding:.05rem .4rem; border-radius:4px; background:#eef4fb; color:var(--brand); white-space:nowrap; }
+    .tag-skip { font-size:.7rem; color:var(--warn); }
+
+    details.section-group { background:var(--card); border:1px solid var(--line); border-radius:8px; margin-bottom:1rem; }
+    details.section-group summary { cursor:pointer; padding:.8rem 1rem; font-weight:700; color:var(--dark); list-style:none; }
+    details.section-group summary::-webkit-details-marker { display:none; }
+    details.section-group summary::before { content:"▸ "; color:var(--brand); }
+    details.section-group[open] summary::before { content:"▾ "; }
+    .group-body { padding:0 1rem 1rem; }
+
+    .pending-note, .kr-note { font-size:.85rem; border-radius:6px; padding:.6rem .9rem; margin-bottom:.8rem; }
+    .pending-note { background:#f4f7f9; border-left:3px solid var(--muted); color:var(--ink); }
+    .kr-note { background:#fdecea; border-left:3px solid var(--kr); color:#8a2c22; }
+    ul.plain-list { margin:.4rem 0; padding-left:1.3rem; }
+    ul.plain-list li { font-size:.87rem; margin:.35rem 0; }
+
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+    footer a { color:#cfe3f3; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>瑪奇 Mobile 以物易物整理</h1>
+    <p style="margin:0;opacity:.85;font-size:.9rem;">各城鎮 NPC 交換清單，依城鎮分類，附出處</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html">🔮 符文配置表</a>
+      <a href="jiankang.html">🩺 角色健檢</a>
+      <a href="sidequests.html">🗺️ 特殊支線</a>
+      <a href="trade-items.html" class="active">🔄 以物易物</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="source-note">
+      📌 <b>資料來源</b>：官網 tw.nexon.com 從未公開任何以物易物對照表（本站查過全部 98 篇官方指南確認過這件事）。以下資料整理自
+      <a href="https://mabinogimobile.nipponhashi.com/barter/" target="_blank" rel="noopener noreferrer">瑪奇 Mobile Wiki DB（nipponhashi）</a>
+      的以物換物查詢頁，交叉核對
+      <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2863" target="_blank" rel="noopener noreferrer">MabiRoutine 日課週課追蹤器</a>（Kai，巴哈）。
+      這是別人已經做好的整理工作，本頁是分類轉錄＋附出處，不是本站自己重新驗證的結果，完整/最新版本請以來源網站為準。
+    </div>
+    <div class="disclaimer">
+      ⚠️ 部分交換系統來源本身就標記「台服待驗證」（公會幣商店、魔物討伐證明商店、貓商人的喵幣商店、深淵的化石系列等）——這不是我們保守，是原始來源自己這樣註記，已經另外分區列出，不要當成跟下面已確認的清單一樣可靠。韓服才有的「艾明馬夏」以物易物資料也是同樣道理，另外標明「台服尚未開放」。
+    </div>
+
+    <div class="search-bar">
+      <input id="q" type="text" placeholder="搜尋材料或換得物品名稱…" autocomplete="off">
+    </div>
+
+    <h2 class="sec">堤爾克那（Tir Chonaill）</h2>
+    <div class="npc-block" data-npc="佛格斯">
+      <h3>佛格斯</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>鋼錠 ×2</td><td>合金鋼錠 ×1</td><td>4/日</td></tr>
+        <tr><td>分解的裝備零件 ×1</td><td>煤炭 ×3</td><td>10/日</td></tr>
+        <tr><td>分解的裝備零件 ×1</td><td>鐵礦石 ×1</td><td>10/日</td></tr>
+        <tr><td>礦石 ×100</td><td>分解的裝備零件 ×10</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="麗莎">
+      <h3>麗莎</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>蘋果汁 ×1</td><td>高級鍊金術再燃燒催化劑 ×1</td><td>1/日</td></tr>
+        <tr><td>鍊金術碎屑 ×3</td><td>高級鍊金術再燃燒催化劑 ×1</td><td>1/日</td></tr>
+        <tr><td>高級鍊金術再燃燒催化劑 ×15</td><td>稀有鍊金術再燃燒催化劑 ×1</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="愛麗沙">
+      <h3>愛麗沙</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>薰衣草花 ×1</td><td>鍊金術碎屑 ×1</td><td>1/日</td></tr>
+        <tr><td>雞蛋 ×10</td><td>鍊金術碎屑 ×1</td><td>1/日</td></tr>
+        <tr><td>薰衣草花 ×1</td><td>麵粉 ×1</td><td>1/日</td></tr>
+        <tr><td>雞蛋 ×3</td><td>麵粉 ×1</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="凱琳">
+      <h3>凱琳</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>牛奶 ×10</td><td>凱琳特製全麥麵包 ×3</td><td>1/日</td></tr>
+        <tr><td>麵粉 ×10</td><td>食材加工設備設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="安黛莉／梅文">
+      <h3>安黛莉／梅文</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>凱琳特製全麥麵包 ×10（安黛莉）</td><td>聖水 ×10</td><td>1/日</td></tr>
+        <tr><td>凱琳特製全麥麵包 ×1（梅文）</td><td>聖水 ×1</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="雷納德／迪莉絲">
+      <h3>雷納德／迪莉絲</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>美乃滋炒肉 ×2（雷納德）</td><td>暴擊秘藥 ×1</td><td>1/日</td></tr>
+        <tr><td>咻咻蘑菇 ×3（迪莉絲）</td><td>四葉草 ×1</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="麥爾坎">
+      <h3>麥爾坎</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr class="not-worth"><td>蜘蛛網 ×5</td><td>麥爾坎的鬆軟羊毛枕頭 ×1</td><td>1/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+        <tr><td>羊毛 ×50</td><td>空白樂譜 ×1</td><td>1/日</td></tr>
+        <tr><td>專業營火套組 ×1</td><td>多用途製作台設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="迪恩">
+      <h3>迪恩</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>寵物飼料 ×1</td><td>高級羊毛 ×4</td><td>10/日</td></tr>
+      </tbody></table>
+    </div>
+
+    <h2 class="sec">杜加德走廊（Dugald Aisle）</h2>
+    <div class="npc-block" data-npc="特蕾西">
+      <h3>特蕾西</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>原木 ×1</td><td>生皮 ×1</td><td>10/日</td></tr>
+        <tr><td>原木 ×10</td><td>高級生皮 ×1</td><td>10/日</td></tr>
+        <tr><td>高級原木 ×1</td><td>樹液 ×4</td><td>5/日</td></tr>
+        <tr class="not-worth"><td>蒸蛤蜊 ×2</td><td>特蕾西的原木音樂盒 ×1</td><td>1/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+        <tr><td>幼蟲 ×5</td><td>木材加工設備設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="艾爾文">
+      <h3>艾爾文</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>炒蔬菜 ×1</td><td>高級木材 ×4</td><td>2/日</td></tr>
+        <tr><td>高級皮革 ×1</td><td>高級原木 ×1</td><td>10/日</td></tr>
+        <tr class="not-worth"><td>生皮 ×5</td><td>單寧粉末 ×5</td><td>10/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+        <tr><td>布料+ ×5</td><td>皮革加工設備設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+
+    <h2 class="sec">杜巴頓（Dunbarton）</h2>
+    <div class="npc-block" data-npc="奈麗絲">
+      <h3>奈麗絲</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>合金鋼錠 ×2</td><td>特殊鋼錠 ×1</td><td>4/日</td></tr>
+        <tr><td>銅礦石 ×1</td><td>高級生皮 ×1</td><td>10/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="史帝華">
+      <h3>史帝華</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>鍊金術碎屑 ×1</td><td>火苗／冰霜／電氣／光輝／封印的結晶 ×1（各自）</td><td>各5/日</td></tr>
+        <tr class="not-worth"><td>強化再燃燒催化劑 ×5</td><td>未加工黃金原石 ×7</td><td>1/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+        <tr class="not-worth"><td>稀有鍊金術再燃燒催化劑 ×50</td><td>未加工黃金原石 ×7</td><td>1/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="卡利克斯">
+      <h3>卡利克斯</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>格莉娜的蘋果奶茶 ×2</td><td>皮革+ ×10</td><td>2/日</td></tr>
+        <tr><td>不死粉末 ×5</td><td>檸檬 ×3</td><td>1/日</td></tr>
+        <tr><td>不死粉末 ×5</td><td>胡椒 ×2</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="阿蘭雯">
+      <h3>阿蘭雯</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>職業大師勳章 ×1</td><td>精靈的痕跡 ×20</td><td>未見上限</td></tr>
+        <tr><td>馬鈴薯沙拉 ×2</td><td>絕招秘藥 ×1</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="傑羅姆／潔米">
+      <h3>傑羅姆／潔米</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>瑞可塔起司沙拉 ×1（傑羅姆）</td><td>絲綢 ×4</td><td>2/日</td></tr>
+        <tr><td>奶油醬牛排 ×1（傑羅姆）</td><td>高級絲綢 ×4</td><td>1/日</td></tr>
+        <tr><td>蘋果舒芙蕾 ×1（潔米）</td><td>高級布料 ×4</td><td>2/日</td></tr>
+        <tr><td>蘋果鮮奶油蛋糕 ×1（潔米）</td><td>高級布料+ ×4</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="瓦爾特">
+      <h3>瓦爾特</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>特蕾西的原木音樂盒 ×1</td><td>皮革 ×6</td><td>2/日</td></tr>
+        <tr><td>真愛魚 ×5</td><td>愛心幣 ×1</td><td>2/日</td></tr>
+        <tr><td>暗影幽靈魚 ×5</td><td>火焰／閃電／風／酸蝕魔法榴彈 ×1（各自）</td><td>各3/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="西蒙">
+      <h3>西蒙</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>完美繃帶 ×100</td><td>布料+ ×10</td><td>10/日</td></tr>
+        <tr><td>高級絲綢 ×10</td><td>染色劑基底 ×1</td><td>1/日</td></tr>
+        <tr><td>幽靈螢火蟲 ×2</td><td>布料加工設備設計圖(3級)</td><td>一次性</td></tr>
+        <tr><td>雕琢橄欖石S ×1</td><td>防具製作台設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="格莉娜／芙蘿拉／蕾拉">
+      <h3>格莉娜／芙蘿拉／蕾拉</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>牛奶燉豬肉 ×1（格莉娜）</td><td>格莉娜手工蛋糕 ×1</td><td>1/日</td></tr>
+        <tr><td>鮮奶油 ×4（格莉娜）</td><td>格莉娜的蘋果奶茶 ×1</td><td>1/日</td></tr>
+        <tr><td>蘋果舒芙蕾 ×1（格莉娜）</td><td>食物製作台設計圖(3級)</td><td>一次性</td></tr>
+        <tr class="not-worth"><td>格莉娜手工蛋糕 ×2（芙蘿拉）</td><td>無主的小說書 ×1</td><td>1/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+        <tr><td>無主的小說書 ×1（蕾拉）</td><td>紙 ×10</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="馬努斯／克莉絲">
+      <h3>馬努斯／克莉絲</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>寵物飼料 ×10（馬努斯）</td><td>生命的魔力石 ×1</td><td>2/日</td></tr>
+        <tr><td>金幣 ×1,500（克莉絲）</td><td>聖水 ×1</td><td>5/週</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="伊文（官廳）／貓船長">
+      <h3>伊文（官廳）／貓船長</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>遠征的證明 ×10</td><td>史詩鍊金術再燃燒催化劑 ×1</td><td>1/週</td></tr>
+        <tr><td>遠征的證明 ×5</td><td>強化再燃燒催化劑 ×1</td><td>3/週</td></tr>
+        <tr><td>遠征的證明 ×2</td><td>符文碎片 ×60</td><td>5/週</td></tr>
+        <tr><td>遠征的證明 ×1</td><td>黃金錠捆 ×5</td><td>10/週</td></tr>
+        <tr><td>遠征的證明 ×70</td><td>格里斯貝恩防具符文選擇箱 ×1</td><td>未見上限</td></tr>
+        <tr><td>遠征的證明 ×50</td><td>格里斯貝恩徽章符文隨機箱 ×1</td><td>未見上限</td></tr>
+        <tr><td>遠征的證明 ×40</td><td>咆哮之魂系列時裝零件</td><td>未見上限</td></tr>
+      </tbody></table>
+    </div>
+
+    <h2 class="sec">庫漢（Coill Cuan）</h2>
+    <div class="npc-block" data-npc="阿爾米斯">
+      <h3>阿爾米斯</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>白銅礦石 ×1</td><td>銅礦石 ×10</td><td>1/日</td></tr>
+        <tr><td>特殊鋼錠 ×2</td><td>銀合金錠 ×1</td><td>1/日</td></tr>
+        <tr><td>解除詛咒藥水 ×100</td><td>聖水 ×10</td><td>1/日</td></tr>
+        <tr><td>煤炭 ×20</td><td>金屬加工設備設計圖(3級)</td><td>一次性</td></tr>
+        <tr><td>耐熱繃帶 ×5</td><td>武器製作台設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="基利安">
+      <h3>基利安</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>淨淨蘑菇孢子 ×5</td><td>健康飲料 ×1</td><td>5/日</td></tr>
+        <tr><td>蒜香橄欖油義大利麵 ×1</td><td>四葉草 ×8</td><td>1/日</td></tr>
+        <tr><td>毒囊 ×3</td><td>藥品加工設備設計圖(3級)</td><td>一次性</td></tr>
+        <tr><td>夕陽蝴蝶 ×2</td><td>藥品製作台設計圖(3級)</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="康納">
+      <h3>康納</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>健康飲料 ×1</td><td>四葉草 ×3</td><td>3/日</td></tr>
+        <tr><td>生命的魔力石 ×1</td><td>廢墟的魔力石 ×1</td><td>5/日</td></tr>
+        <tr><td>生命的魔力石 ×1</td><td>峽谷的魔力石 ×1</td><td>10/日</td></tr>
+        <tr><td>燈籠鮟鱇 ×1（台服；韓服為×5）</td><td>愛心幣 ×1</td><td>—</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="凱雅拉">
+      <h3>凱雅拉</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>冰草莓飲 ×2</td><td>高級暴擊秘藥 ×1</td><td>1/日</td></tr>
+        <tr><td>高級木材+ ×10</td><td>凝聚的風 ×3</td><td>3/日</td></tr>
+        <tr><td>高級木材+ ×10</td><td>毒囊 ×3</td><td>3/日</td></tr>
+        <tr class="not-worth"><td>聖水 ×10</td><td>裝水的瓶子 ×50</td><td>1/日 <span class="tag-skip">來源標註「別換」</span></td></tr>
+      </tbody></table>
+    </div>
+
+    <h2 class="sec">其他地點</h2>
+    <div class="npc-block" data-npc="卡琳">
+      <h3>卡琳（冰霜峽谷・雪山救助隊）</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>馬鈴薯湯 ×3</td><td>寵物飼料 ×10</td><td>1/日</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="貓商人">
+      <h3>貓商人（地下城3區／野外首領營地）</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>血紅藥草 ×1</td><td>新芽蘑菇 ×1</td><td>3/日</td></tr>
+        <tr><td>擠著吃的點心 ×1</td><td>愛心幣 ×1</td><td>3/日</td></tr>
+        <tr><td>繃帶 ×100</td><td>糖 ×2</td><td>—</td></tr>
+        <tr><td>旅行者點心 ×100</td><td>鹽 ×2</td><td>—</td></tr>
+        <tr><td>恢復藥水 ×100</td><td>高麗菜 ×1（台服；韓服×2）</td><td>—</td></tr>
+      </tbody></table>
+    </div>
+    <div class="npc-block" data-npc="商城">
+      <h3>商城（角色選單內兌換）</h3>
+      <table class="trade"><thead><tr><th>給予</th><th>換得</th><th>限制</th></tr></thead><tbody>
+        <tr><td>金幣 ×40,000</td><td>寶石箱 ×1</td><td>10/日</td></tr>
+        <tr><td>德卡 ×2,000</td><td>團隊副本刻印強化支援套組 ×1（含符文碎片150+符文重設稜鏡3+未加工黃金原石30+強化再燃燒催化劑1）</td><td>5/週</td></tr>
+        <tr><td>德卡 ×100</td><td>角色名稱變更券 ×1</td><td>一次性</td></tr>
+      </tbody></table>
+    </div>
+
+    <details class="section-group">
+      <summary>台服待驗證系統（來源自己標註尚未確認，先別當定論）</summary>
+      <div class="group-body">
+        <div class="pending-note">以下系統來源本身就標記「台服待驗證」或「各方資料有出入」，代表連 nipponhashi 自己都還沒 100% 確認台服現況——列出來是讓你知道這些系統存在，不是給你可以直接照做的確定數字。</div>
+        <ul class="plain-list">
+          <li><b>公會幣商店</b>：公會幣 → 菁英鍊金術再燃燒催化劑等</li>
+          <li><b>魔物討伐證明商店</b>：→ 星辰印章／強化再燃燒催化劑／符文碎片／解除詛咒藥水／不死粉末</li>
+          <li><b>愛心幣</b>（旅館NPC：皮爾阿斯／芙蘿拉／蒂伊）：→ 聖水／秘術骰／背包／苔蘚之翼服裝／曼陀林／靈魂之翼</li>
+          <li><b>喵幣（喵代幣）商店</b>（貓商人）：→ 高級／稀有鍊金術再燃燒催化劑／寶石箱／魔力石／染色劑基底／裝飾製作零件／解除詛咒藥水</li>
+          <li><b>深淵的化石</b>（茉莉／史帝華）：→ 星辰印章選擇箱／瑪斯許願壺系列</li>
+          <li><b>夜市攤位</b>：限時活動兌換，來源標註已於 2026-09-02 過期</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="section-group">
+      <summary>韓服預覽（台服尚未開放）：艾明馬夏以物易物</summary>
+      <div class="group-body">
+        <div class="kr-note">來源：<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2864" target="_blank" rel="noopener noreferrer">(補充狂風棉花糖)艾明馬夏以物易物、料理材料</a>，MPLS——文章開頭原文自己就寫明「韓服，僅用於學術交流參考用途，自行驗證資訊」，艾明馬夏這個區域本身台服可能都還沒開放，以下數字全部視為韓服預覽，不保證台服會照搬。</div>
+        <ul class="plain-list">
+          <li>蓋維：分解的裝備零件 ×1,000 → 結實的繩子 ×1（1/週）</li>
+          <li>黛兒：藍色繡球花 ×10 → 箭花／躲躲花／傷痕花／靜靜草 ×10（各自，3/日）；黏土 ×100 → 贈禮用花束 ×1（1/日）</li>
+          <li>黛蓮：南瓜湯 ×2 → 最高級皮革+／最高級木材+ ×1（各自，2/週）；生命魔力石 ×7 → 變形魔力石 ×7（5/週）</li>
+          <li>多娜：燕麥營養粥 ×2 → 特級皮革 ×1；田園沙拉 ×2 → 特級木材 ×1；南瓜派 ×3 → 聖水禮盒 ×1；贈禮用花束 ×1 → 聖水 ×1</li>
+          <li>艾莉娜：布料 ×4 → 高級羊毛 ×50；布料+ ×4 → 高級羊毛+ ×50；高級布料 ×4 → 最高級羊毛 ×50；綠茶千層蛋糕 ×2 → 最高級布料+ ×1</li>
+          <li>歐絲拉：咖哩飯 ×1 → 鐵錠 ×5；咖哩飯 ×2 → 隕鐵錠 ×1；香辣甜椒燉菜 ×2 → 白金鋼錠 ×1</li>
+          <li>柯倫：金銀辣魚湯 ×1 → 最高級耐熱／防寒／絕緣／祝福／封印繃帶 ×3（各自，1/日）</li>
+          <li>佛瑞哲：宴會材料：不滅之火 ×3 → 宴會材料：席捲狂風 ×1（需生活力 15,000，2/週）</li>
+        </ul>
+      </div>
+    </details>
+
+    <p style="font-size:.8rem;color:var(--muted);margin-top:.5rem;">查無資料的部分（誠實列出，不硬湊）：官網從未公布未加工德卡原石換德卡的實際比例；貓商人「喵幣商店」完整品項沒有任何來源 100% 確認台服現況。</p>
+  </div>
+
+  <footer>
+    <p>© 2026 瑪奇 Mobile 攻略索引網站</p>
+    <p style="opacity:.8;font-size:.78rem;">資料整理自 <a href="https://mabinogimobile.nipponhashi.com/barter/" target="_blank" rel="noopener noreferrer">瑪奇 Mobile Wiki DB</a> 與 <a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2863" target="_blank" rel="noopener noreferrer">MabiRoutine</a>，完整/最新版本請以來源網站為準。</p>
+  </footer>
+
+  <script>
+    document.getElementById('q').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('.npc-block').forEach((block) => {
+        const text = block.textContent.toLowerCase();
+        block.style.display = (!q || text.includes(q)) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
