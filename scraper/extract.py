@@ -57,15 +57,18 @@ _QUESTION_TITLE = re.compile(r"請問|請教|求教|求解|想問|求助|問題|
 # YouTube 章節：0:00 / 00:00 / 1:02:03，前後可有括號或符號
 _CHAPTER = re.compile(r"^\s*[\(\[（【]?\s*((?:\d{1,2}:)?\d{1,2}:\d{2})\s*[\)\]）】]?\s*[-–—:：|｜]?\s*(.+?)\s*$")
 _CHAPTER_GENERIC = re.compile(
-    r"^(?:開場|開頭|片頭|前言|序|序章|介紹|結尾|結語|片尾|感謝|總結|"
+    r"^(?:開場|開頭|開始|章節|目錄|片頭|前言|序|序章|介紹|結尾|結語|片尾|感謝|總結|chapters?|start|"
     r"intro|introduction|opening|ending|outro|end|thanks|"
     r"오프닝|인트로|프롤로그|엔딩|마무리|아웃트로|시작|끝)[\s!！。.]*$",
     re.IGNORECASE,
 )
 
 
+_INVISIBLE = re.compile(r"[​-‏⁠﻿]")  # YouTube 說明欄常夾零寬字元
+
+
 def _clean(s: str) -> str:
-    s = _URL.sub("", s)
+    s = _INVISIBLE.sub("", _URL.sub("", s))
     s = _BULLET.sub("", s)
     return re.sub(r"\s+", " ", s).strip(" 　,，:：、-")
 

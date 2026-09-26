@@ -126,6 +126,13 @@ assert _kr2["key_points"] == [], "沒有翻譯金鑰時不該把韓文章節放�
 assert "_body" not in schema.to_record(_item) and "_rule_fallback" not in schema.to_record(_a)
 print("=== 規則式抽取重點測試通過 ===")
 
+# 章節標題含零寬字元、或只是「開始／章節」這類通用標籤時要略過（2026-09-26 正式管線實測出現）
+_yt2 = {"source": "youtube", "region": "tw",
+        "_body": "00:00 ​​ 章節\n00:19 開始\n00:59 商城套組\n01:39 迎接月光活動\n02:30 符文交換\n"}
+assert extract.extract_key_points(_yt2) == ["00:59 商城套組", "01:39 迎接月光活動", "02:30 符文交換"], extract.extract_key_points(_yt2)
+print("=== 章節通用標籤過濾測試通過 ===")
+
+
 # ── class_digests.json（職業速答卡，人工整理版）合約檢查：鐵律「沒有依據的內容不寫」——
 # 每一條都要有來源連結與證據等級，頂層 key 只能是六大職業。純離線。──
 import json, re
