@@ -152,3 +152,36 @@ for _cls, _d in _cd["digests"].items():
             for _l in _i["links"]:
                 assert _l["label"] and re.match(r"^(https://[^\s]+|[a-z-]+\.html(#[\w-]+)?)$", _l["url"]), f"連結格式不合法：{_l}"
 print("=== class_digests.json 合約檢查通過 ===")
+
+# ── 口訣匯出／匯入（export_for_chat.py、import_mnemonics.py）。純離線。──
+import export_for_chat, import_mnemonics
+_today = _dt.date(2026, 9, 26)
+assert export_for_chat.tab_of({"published_at": "2026-09-05", "region": "tw"}, _today) == "tw"      # 剛好 21 天
+assert export_for_chat.tab_of({"published_at": "2026-09-04", "region": "tw"}, _today) is None      # 22 天、非精華 → 不列
+assert export_for_chat.tab_of({"published_at": "2026-09-04", "is_featured": True}, _today) == "featured"
+assert export_for_chat.tab_of({"published_at": "", "is_featured": True}, _today) == "featured"      # 沒日期的精華 → 精選
+assert export_for_chat.tab_of({"published_at": "2026-09-20", "region": "kr"}, _today) == "kr"
+_reply = """好的，以下是口訣：
+```
+bahamut-3026｜落花慢熱別亂出，DPS 四萬才過關
+- [youtube-AbCdEfGhIjK] | 「章節看完再配符文」
+3. bahamut-essence-101：略
+bahamut-999999｜編號不存在的要擋掉
+bahamut-2979｜這一條實在寫得太長了已經不像口訣而是在寫一整段說明文字了這樣不行喔真的太長
+```"""
+_pairs = import_mnemonics.parse_reply(_reply)
+assert ("bahamut-3026", "落花慢熱別亂出，DPS 四萬才過關") in _pairs, _pairs
+assert ("youtube-AbCdEfGhIjK", "章節看完再配符文") in _pairs, "清單符號、方括號、引號要能容忍"
+assert all(g != "bahamut-essence-101" for g, _ in _pairs), "「略」不匯入"
+_data = {"items": {}}
+_st = import_mnemonics.merge(_data, _pairs, {"bahamut-3026", "youtube-AbCdEfGhIjK", "bahamut-2979"}, "2026-09-26")
+assert set(_data["items"]) == {"bahamut-3026", "youtube-AbCdEfGhIjK"}, _data["items"]
+assert _st["unknown_id"] == ["bahamut-999999"] and len(_st["bad_length"]) == 1
+# mnemonics.json（若已存在）合約：每條都是 {text, added}、長度合規
+_mp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "mnemonics.json")
+if os.path.exists(_mp):
+    with open(_mp, encoding="utf-8") as _f:
+        for _gid, _v in json.load(_f)["items"].items():
+            assert re.match(r"^(bahamut(-essence)?-\d+|youtube-[A-Za-z0-9_-]{11})$", _gid), _gid
+            assert import_mnemonics.MIN_LEN <= len(_v["text"]) <= import_mnemonics.MAX_LEN, _gid
+print("=== 口訣匯出／匯入測試通過 ===")

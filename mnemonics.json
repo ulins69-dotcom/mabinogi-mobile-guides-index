@@ -1,0 +1,5 @@
+{
+  "updated_at": "",
+  "note": "攻略口訣：站長把攻略匯出給聊天 AI 生成後匯入（見 scraper/export_for_chat.py、scraper/import_mnemonics.py）。",
+  "items": {}
+}

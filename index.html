@@ -77,6 +77,11 @@
       background: #fff; border-radius: 20px; cursor: pointer; color: var(--ink); }
     .region-tabs button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
     .region-tabs button.kr.active { background: var(--kr); border-color: var(--kr); }
+    .region-tabs button.star.active { background: var(--featured); border-color: var(--featured); }
+    .feed-note { text-align: center; color: var(--muted); font-size: .85rem; margin: -.4rem 0 1rem; }
+    .mnemonic { background: #fff8e1; border-left: 3px solid var(--featured); border-radius: 0 6px 6px 0;
+      padding: .35rem .6rem; margin: .45rem 0; font-weight: 700; color: #6b4a00; font-size: .93rem; }
+    .mnemonic small { font-weight: 400; color: var(--muted); font-size: .72rem; margin-left: .3rem; }
     .filter-bar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; justify-content: center; margin-bottom: 1rem; }
     .filter-bar input[type=text], .filter-bar select {
       padding: .55rem .7rem; font-size: 1rem; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
@@ -188,14 +193,12 @@
     </div>
 
     <div class="region-tabs" id="region-tabs">
-      <button data-region="all" class="active">全部</button>
-      <button data-region="tw">🇹🇼 台服</button>
-      <button data-region="kr" class="kr">🇰🇷 韓服搶先</button>
+      <button data-region="tw" class="active">🇹🇼 台版</button>
+      <button data-region="kr" class="kr">🇰🇷 韓版</button>
+      <button data-region="featured" class="star">⭐ 精選</button>
     </div>
+    <div id="feed-note" class="feed-note"></div>
 
-    <div id="kr-note" class="kr-note" style="display:none;">
-      🔮 韓服搶先：韓服領先台服約 15 個月，以下內容是台服未來可能推出的方向，供提前準備參考。
-    </div>
 
     <div class="class-picker">
       <div class="class-picker__head">🎯 先選你的職業，內容會聚焦在這裡</div>
@@ -234,7 +237,16 @@
   <script>
     "use strict";
     let guides = [];
-    let currentRegion = "all";
+    let currentRegion = "tw";  // 分頁：tw＝台版最新、kr＝韓版最新、featured＝精選（較舊的精華）
+    let mnemonics = {};        // 攻略口訣，見 mnemonics.json（人工丟給聊天 AI 生成後匯入，抓不到就不顯示）
+    // 首頁攻略卡只列「最近 FRESH_DAYS 天」的新文章（台版／韓版各一頁）；更早的只保留精華，放在「精選」。
+    // 這個天數跟 scraper/export_for_chat.py 的 FRESH_DAYS 必須一致（匯出給聊天 AI 的範圍＝網站實際顯示的範圍）。
+    const FRESH_DAYS = 21;
+    const TAB_NOTES = {
+      tw: "只列最近 " + FRESH_DAYS + " 天（台灣時間）發布的台版攻略；更早的精華文章在「⭐ 精選」。",
+      kr: "🔮 韓服領先台服約 15 個月，以下是最近 " + FRESH_DAYS + " 天的韓版情報，供提前準備參考。",
+      featured: "超過 " + FRESH_DAYS + " 天、評為精華的攻略（巴哈精華區＋互動數前 20%）；其餘舊文不再列出。",
+    };
     let digestMeta = {};    // class_digests.json 的整理日期與說明（顯示在速答卡底部）
     let classDigests = {};  // 職業速答卡資料，見 class_digests.json（可能尚未產出，抓不到就維持空物件）
 
@@ -349,6 +361,30 @@
       } catch (e) { return ""; }
     }
 
+    // 台灣今天 0 點到 dateStr（YYYY-MM-DD）隔了幾天；日期格式不對回傳 null。
+    function ageDays(dateStr) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return null;
+      const d = Date.parse(dateStr + "T00:00:00Z");
+      const today = Date.parse(taiwanNow().toISOString().slice(0, 10) + "T00:00:00Z");
+      return isNaN(d) ? null : Math.round((today - d) / 86400000);
+    }
+    // 每篇只會出現在一個分頁：新文章依地區進台版／韓版；舊文章（或沒日期）是精華才進精選，否則不列。
+    function tabOf(g) {
+      const age = ageDays(g.published_at);
+      if (age !== null && age <= FRESH_DAYS) return g.region === "kr" ? "kr" : "tw";
+      return g.is_featured ? "featured" : null;
+    }
+    // 保險用去重：同網址或同標題（去掉標點空白後）只留第一篇（資料已依日期新到舊排序）。
+    function dedupe(list) {
+      const seen = new Set();
+      return list.filter((g) => {
+        const keys = [g.url, "t:" + g.title.normalize("NFKC").toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, "")];
+        if (keys.some((k) => k && k !== "t:" && seen.has(k))) return false;
+        keys.forEach((k) => { if (k && k !== "t:") seen.add(k); });
+        return true;
+      });
+    }
+
     function normalize(raw) {
       const g = raw && typeof raw === "object" ? raw : {};
       const title = str(g.title, "（無標題）");
@@ -380,6 +416,12 @@
       // 韓服顯示韓文原文
       if (g.region === "kr" && g.title_original && g.title_original !== g.title) {
         card.appendChild(el("div", "orig", "🇰🇷 原文：" + g.title_original));
+      }
+      const mn = mnemonics[g.id];
+      if (mn) {
+        const m = el("div", "mnemonic", "💡 口訣：" + mn);
+        m.appendChild(el("small", null, "AI 協助整理，細節以原文為準"));
+        card.appendChild(m);
       }
       const badges = el("div");
       if (g.region === "kr") badges.appendChild(el("span", "badge kr", "🇰🇷 韓服"));
@@ -417,7 +459,7 @@
     // 依「目前地區」實際存在的資料，動態算出職業按鈕/標籤選單與出現次數；
     // 沒有資料的職業/標籤不會出現（見鐵律：資料都來自實際來源，不硬塞）。
     function populateDynamicFilters() {
-      const inRegion = guides.filter((g) => currentRegion === "all" || g.region === currentRegion);
+      const inRegion = guides.filter((g) => g.tab === currentRegion);
       const freq = new Map();
       inRegion.forEach((g) => g.tags.forEach((t) => freq.set(t, (freq.get(t) || 0) + 1)));
 
@@ -585,11 +627,11 @@
       const keyword = document.getElementById("search-box").value.trim().toLowerCase();
       const showFeatured = document.getElementById("featured").checked;
 
-      document.getElementById("kr-note").style.display = currentRegion === "kr" ? "block" : "none";
+      document.getElementById("feed-note").textContent = TAB_NOTES[currentRegion] || "";
       list.textContent = "";
 
       const filtered = guides
-        .filter((g) => currentRegion === "all" || g.region === currentRegion)
+        .filter((g) => g.tab === currentRegion)
         .filter((g) => category === "all" || g.category === category)
         .filter((g) => classFilter === "all" || g.tags.includes(classFilter))
         .filter((g) => tagFilter === "all" || g.tags.includes(tagFilter))
@@ -613,6 +655,32 @@
       list.appendChild(frag);
     }
 
+    function updateTabCounts() {
+      const n = { tw: 0, kr: 0, featured: 0 };
+      guides.forEach((g) => { if (g.tab in n) n[g.tab] += 1; });
+      document.querySelectorAll("#region-tabs button").forEach((b) => {
+        if (!b.dataset.label) b.dataset.label = b.textContent;
+        b.textContent = b.dataset.label + "（" + n[b.dataset.region] + "）";
+      });
+    }
+
+    async function loadMnemonics() {
+      try {
+        const res = await fetch("mnemonics.json", { cache: "no-cache" });
+        if (!res.ok) return;  // 還沒有口訣檔是正常狀態
+        const data = await res.json();
+        const items = (data && typeof data.items === "object" && data.items) || {};
+        mnemonics = {};
+        Object.keys(items).forEach((id) => {
+          const v = items[id];
+          const text = typeof v === "string" ? v : str(v && v.text);
+          if (text) mnemonics[id] = text;
+        });
+      } catch (e) {
+        mnemonics = {};
+      }
+    }
+
     function debounce(fn, ms) { let t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
 
     async function loadGuides() {
@@ -622,7 +690,9 @@
         if (!res.ok) throw new Error("HTTP " + res.status);
         const data = await res.json();
         const rawList = Array.isArray(data) ? data : arr(data.guides);
-        guides = rawList.map(normalize);
+        guides = dedupe(rawList.map(normalize));
+        guides.forEach((g) => { g.tab = tabOf(g); });
+        updateTabCounts();
         populateDynamicFilters();
         render();
       } catch (err) {
@@ -649,7 +719,8 @@
 
     updateCountdowns();
     setInterval(updateCountdowns, 1000);
-    loadGuides();
+    // 口訣檔先抓（很小），再載攻略，卡片一次就畫出口訣；抓不到口訣也照常載攻略。
+    loadMnemonics().finally(loadGuides);
     loadClassDigests();  // 跟 guides.json 各自獨立抓，任一邊失敗不影響另一邊
   </script>
 </body>
