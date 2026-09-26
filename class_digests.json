@@ -1,0 +1,1013 @@
+{
+  "updated_at": "2026-09-26",
+  "curated_by": "manual",
+  "note": "人工整理：官方台服官網、瑪奇 Mobile Wiki DB、mabitw／巴哈玩家心得；每條標示證據等級，與官方不同時以官方網站為主。",
+  "digests": {
+    "戰士": {
+      "runes": [
+        {
+          "text": "戰士：飾品突擊＋・猛攻＋・斬擊＋、武器千把劍、徽章絢爛（基礎表與兩篇玩家心得一致）。Wiki 第三顆寫崩壞＋，這個名稱不在官方晉階表。",
+          "tiers": [
+            "player",
+            "wiki",
+            "official"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：戰士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/warrior-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "大劍戰士：彈力＋是兩個來源共同的核心，搭反擊＋；Wiki 另把旋轉＋列必帶，基礎表則註記旋轉冷卻被拉長而移除。防具魔力激流、毀滅烙印＋共鳴水晶。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：大劍戰士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/greatsword-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "劍術士：飾品貫通＋・舞者＋必備，第三顆猛烈＋（Wiki）或落花＋（基礎表、絕招流）；武器千把劍，徽章絢爛。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：劍術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/swordmaster-s0-build/"
+            }
+          ]
+        }
+      ],
+      "skill_order": [
+        {
+          "text": "這遊戲沒有技能點：技能等級是各件裝備「符文技能強化」的加總，上限 Lv.30；到鐵匠做「技能特化」可指定最多 3 個目標技能（Wiki 稱重擲／改造）。下面寫的「特化 1・3・5」就是要鎖定的技能格。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            },
+            {
+              "label": "Wiki：技能強化",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/skill-enhance-track/"
+            }
+          ]
+        },
+        {
+          "text": "戰士：技能 30 強順序查無（Wiki 自承任何來源都找不到）；鞋子首選利爪（破防傷害 +24%）。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：戰士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/warrior-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "大劍戰士：特化 1・4・5，拿到睿智徽章才改 2・4・5；循環引擎是「彈力軸」。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：大劍戰士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/greatsword-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "劍術士：特化 3・4・5 是預設，打絕招流改 4・5・6；30 級強化順序 4→5→1（4 技秘劍一格等於四種派生全被強化）。不用背手順，看腳下光條讀狀態。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：劍術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/swordmaster-s0-build/"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "text": "戰士值不值得練？個人輸出在韓服天梯幾乎墊底（日常 D／深淵 D／團本 B），但台服只有戰士與冰霜術士有「破防延長」；要小心戰士會洗掉隊友的破防類型。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：戰士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/warrior-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "大劍戰士能掛機嗎？被動迴路自帶扣血換攻擊與命中回血，配霸體是全職業掛機續航的天花板；板上有人用 1.9 萬戰鬥力的倉庫角全自動打過困難小型格里斯貝恩。",
+          "tiers": [
+            "wiki",
+            "player"
+          ],
+          "links": [
+            {
+              "label": "Wiki：大劍戰士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/greatsword-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "劍術士打白魅魔：玩家實測落花是主力輸出，流程「循環技能 134 → 24 → 14 迅速弄出落花，找她不會跑走的時間落花」，DPS 要穩定 4 萬以上才過得了。",
+          "tiers": [
+            "player"
+          ],
+          "links": [
+            {
+              "label": "巴哈：劍術士跟白魅魔相性",
+              "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=3026"
+            }
+          ]
+        },
+        {
+          "text": "換職業要持有目標職業的武器或徽章；原職業的等級與經驗會保留。徽章用職業大師勳章向阿蘭雯換，職業等級 25／35／45／55／65 各給 1 枚。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        }
+      ],
+      "guide_count": 7
+    },
+    "弓手": {
+      "runes": [
+        {
+          "text": "弓手：飾品致命性＋・隼＋為主（基礎表 5★，官方晉階表也是這兩個名稱）、第三顆矯捷＋。Wiki 寫的鷹＋／暴擊＋不在官方晉階表，請以遊戲內名稱對照。",
+          "tiers": [
+            "player",
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：弓手",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/archer-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "弩手：觸電＋・反轉＋・連鎖＋三顆全帶，各來源從開服到現在一致；徽章在絢爛（暴擊流）與冷酷（追擊流）二選一，稜鏡詞條要跟著同方向。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：弩手",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/crossbow-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "長弓兵：飾品超音波＋・集中＋・內傷＋（基礎表另有頑強＋）；武器千把劍，替代決鬥＋或激怒＋；防具魔力激流、岩石巨人、猛烈驟雨。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：長弓兵",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/longbow-s0-build/"
+            }
+          ]
+        }
+      ],
+      "skill_order": [
+        {
+          "text": "這遊戲沒有技能點：技能等級是各件裝備「符文技能強化」的加總，上限 Lv.30；到鐵匠做「技能特化」可指定最多 3 個目標技能（Wiki 稱重擲／改造）。下面寫的「特化 1・3・5」就是要鎖定的技能格。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            },
+            {
+              "label": "Wiki：技能強化",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/skill-enhance-track/"
+            }
+          ]
+        },
+        {
+          "text": "弓手：特化走 1・3・4 或 1・3・6——分岔看寶石第三條標籤刻的是強擊還是連擊，不是看你喜歡哪個技能。30 級卡要選移動速度那張。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：弓手",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/archer-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "弩手：特化 2・3・4，是全職業最穩定的共識（開服初期到半年後的整理文一字沒改）。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：弩手",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/crossbow-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "長弓兵：特化主流 1・3・6，追高點取 3・5・6；30 級強化 3→6 起手，2 技明文禁止投資。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：長弓兵",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/longbow-s0-build/"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "text": "長弓兵不適合自動戰鬥：傷害綁在蓄力階段，絕招吃掉約一半輸出，AI 不會蓄力、也不會把絕招留給輸出窗口。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：長弓兵",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/longbow-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "弩手能掛機嗎？Wiki 個別頁說可以、而且有紀錄；但「純掛機榜」把弩手列在韓服日常 D。兩頁說法不一，以自己實測為準。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：弩手",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/crossbow-s0-build/"
+            },
+            {
+              "label": "Wiki：掛機適性",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/auto-battle-classes/"
+            }
+          ]
+        },
+        {
+          "text": "長弓兵細項屬性（韓服 S2 參考，玩家整理）：爆擊 4000 → 強擊 5000 → 再考慮其他；快速技能只補到約 1000～1200，超過 1600 反而可能損失 DPS。",
+          "tiers": [
+            "player"
+          ],
+          "links": [
+            {
+              "label": "巴哈：長弓兵細項屬性與符文",
+              "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2979"
+            }
+          ]
+        },
+        {
+          "text": "換職業要持有目標職業的武器或徽章；原職業的等級與經驗會保留。徽章用職業大師勳章向阿蘭雯換，職業等級 25／35／45／55／65 各給 1 枚。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        }
+      ],
+      "guide_count": 8
+    },
+    "魔法師": {
+      "runes": [
+        {
+          "text": "魔法師：飾品山崩＋・隕石＋・增幅＋，徽章絢爛；防具魔力激流、岩石巨人、超自然＋，再加毀滅烙印＋共鳴水晶（要成對戴）。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：魔法師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/mage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "火焰術士：飾品噴發＋・灰燼＋固定，第三顆火柱＋或火力＋；火炬已從選配變必帶。上限是第一線，但要暴擊堆到門檻（約 3000）且灰燼＋到手。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：火焰術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/firemage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "冰霜術士：飾品冰劍＋・極光＋必帶，第三顆北風＋；防具岩石巨人、碎冰、濃縮魔力、毀滅烙印＋共鳴水晶。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：冰霜術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/frostmage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "電擊術士：官方符文池＝菁英雷霆／力場／帷幕／霹靂、史詩導管／放電；韓服兩套主流配法：雷導力（霹靂＋導管＋力場，偏單體）、天導放（雷霆＋導管＋放電，偏廣域）。星等三個來源都查無。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文研究清單：電擊術士",
+              "url": "rune-research.html#lightning"
+            },
+            {
+              "label": "Wiki：電擊術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/lightningmage-rotation/"
+            }
+          ]
+        }
+      ],
+      "skill_order": [
+        {
+          "text": "這遊戲沒有技能點：技能等級是各件裝備「符文技能強化」的加總，上限 Lv.30；到鐵匠做「技能特化」可指定最多 3 個目標技能（Wiki 稱重擲／改造）。下面寫的「特化 1・3・5」就是要鎖定的技能格。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            },
+            {
+              "label": "Wiki：技能強化",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/skill-enhance-track/"
+            }
+          ]
+        },
+        {
+          "text": "魔法師：特化 1・2・4（平穩）或 1・2・6（把隕石塞進絕招視窗）；手順只記一句：1 技織進所有技能之間。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：魔法師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/mage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "火焰術士：特化不跟飾品變，兩條路線都是 1・3・5（韓服配置表原文）；飾品 245 流低點穩、345 流高點高。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：火焰術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/firemage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "冰霜術士：特化是單選題 1・5・6，沒有第二派。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：冰霜術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/frostmage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "電擊術士：六格技能只看「魔力進出」；預熱型，站著打愈久愈強、走位一多就垮。Wiki 在台服數值穩定前不給百分比（韓服數值改過兩次）。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：電擊術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/lightningmage-rotation/"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "text": "魔法師打深淵：台服跑的是瑪斯深淵，範圍輸出等於通關時間，魔法師在那張榜上是唯一的 S（韓服社群評級）。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：魔法師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/mage-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "最穩的自動戰鬥職業是冰霜術士（條件符文全部自給自足）；掛機時冰霜術士進狩獵場要關 4 技、魔法師要拔 5 技，一個開關就能換一個檔次。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：冰霜術士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/frostmage-s0-build/"
+            },
+            {
+              "label": "Wiki：掛機適性",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/auto-battle-classes/"
+            }
+          ]
+        },
+        {
+          "text": "電擊術士怎麼開始：武器「圓盤線圈」3,000 金幣、25 級以上，佛格斯／奈麗絲／阿爾米斯的鐵匠鋪都有；「閃光之主」活動電擊術士職業等級 30 領飾品符文三選一（雷霆／力場／帷幕），至 10/21 05:59。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "符文研究清單",
+              "url": "rune-research.html"
+            }
+          ]
+        },
+        {
+          "text": "換職業要持有目標職業的武器或徽章；原職業的等級與經驗會保留。徽章用職業大師勳章向阿蘭雯換，職業等級 25／35／45／55／65 各給 1 枚。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        }
+      ],
+      "guide_count": 10
+    },
+    "治癒師": {
+      "runes": [
+        {
+          "text": "治癒師：治療量跟著攻擊力走，所以配置和輸出裝很像。飾品波浪＋・壓抑＋・包覆＋（過量治療三件組）；徽章是睿智，因為冷卻就是奶量（幾乎只有治癒師第一徽章不是絢爛）。",
+          "tiers": [
+            "wiki",
+            "player"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：治癒師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/healer-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "祭司：飾品光束＋・羽翼＋必帶，第三顆車輪＋或連結＋；輸出祭司走毀滅烙印＋共鳴水晶＋絢爛，治療祭司鞋換銀色尖塔、徽章換睿智。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：祭司",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/priest-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "修道士：飾品業火＋・報應＋必帶，第三顆因果＋或光輝＋；武器驚異＋。判斷式：有驚異＋就走因果流（光輝＋失業）；驚異＋與睿智都沒有，才輪到光輝＋。",
+          "tiers": [
+            "wiki",
+            "player"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：修道士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/monk-s0-build/"
+            }
+          ]
+        }
+      ],
+      "skill_order": [
+        {
+          "text": "這遊戲沒有技能點：技能等級是各件裝備「符文技能強化」的加總，上限 Lv.30；到鐵匠做「技能特化」可指定最多 3 個目標技能（Wiki 稱重擲／改造）。下面寫的「特化 1・3・5」就是要鎖定的技能格。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            },
+            {
+              "label": "Wiki：技能強化",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/skill-enhance-track/"
+            }
+          ]
+        },
+        {
+          "text": "治癒師：30 級強化 3 技優先（韓服表原文「必須 30 強」）；雕琢詞條是全職業唯一「冷卻減少」排第一。沒有傷害成分的技能，強化改成冷卻縮短或持續時間增加（官方）。",
+          "tiers": [
+            "wiki",
+            "official"
+          ],
+          "links": [
+            {
+              "label": "Wiki：治癒師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/healer-s0-build/"
+            },
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        },
+        {
+          "text": "祭司：特化 1・3・5 或 2・3・5 兩派並存；30 級強化 2 技優先，輸出、治療兩種玩法都吃得到。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：祭司",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/priest-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "修道士：有驚異＋或睿智，特化 1・2・4；都沒有改 1・2・5。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：修道士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/monk-s0-build/"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "text": "純掛機首選修道士與冰霜術士（兩座 S：修道士自癒又不用走位）；板上有人用修道士六分鐘全自動打完困難小格。",
+          "tiers": [
+            "wiki",
+            "player"
+          ],
+          "links": [
+            {
+              "label": "Wiki：掛機適性",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/auto-battle-classes/"
+            },
+            {
+              "label": "Wiki：修道士",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/monk-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "祭司現在是它最好的時代；Wiki 提醒 2026 年 8 月韓服對祭司動過刀，讀韓服攻略要看日期。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：祭司",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/priest-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "換職業要持有目標職業的武器或徽章；原職業的等級與經驗會保留。徽章用職業大師勳章向阿蘭雯換，職業等級 25／35／45／55／65 各給 1 枚。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        }
+      ],
+      "guide_count": 7
+    },
+    "吟遊詩人": {
+      "runes": [
+        {
+          "text": "吟遊詩人：飾品和弦＋・嘲弄＋必帶（Wiki 把和弦寫成和音，官方晉階表是和弦），第三顆增益型取機智＋、輸出型取即興＋或急襲＋；防具戰慄樂想＋岩石巨人。",
+          "tiers": [
+            "player",
+            "wiki",
+            "official"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：吟遊詩人",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/bard-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "舞者：飾品蝴蝶＋・喝采＋必帶（基礎表只給喝采 4★，Wiki 列為核心），第三顆清爽＋。Wiki 另寫的逼近＋不在官方晉階表（官方有來臨＋），請以遊戲內名稱對照。",
+          "tiers": [
+            "wiki",
+            "player",
+            "official"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：舞者",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/dancer-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "樂師：飾品終章＋・速奏＋必帶，第三顆通用取博愛＋、團隊副本取共鳴＋；防具戰慄樂想＋魔力激流、岩石巨人。",
+          "tiers": [
+            "wiki",
+            "player"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：樂師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/musician-s0-build/"
+            }
+          ]
+        }
+      ],
+      "skill_order": [
+        {
+          "text": "這遊戲沒有技能點：技能等級是各件裝備「符文技能強化」的加總，上限 Lv.30；到鐵匠做「技能特化」可指定最多 3 個目標技能（Wiki 稱重擲／改造）。下面寫的「特化 1・3・5」就是要鎖定的技能格。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            },
+            {
+              "label": "Wiki：技能強化",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/skill-enhance-track/"
+            }
+          ]
+        },
+        {
+          "text": "吟遊詩人：兩種玩法（增益型、輸出型）特化都是 2・3・4。核心價值在絕招：自己無敵、我方無視 Break、全隊攻擊力 +30%、依跳數返還隊伍冷卻。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：吟遊詩人",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/bard-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "舞者：特化跟第三顆飾品走，清爽＋配 1・4・5（Wiki 的逼近＋配 1・3・5）；循環是「三串」，跟著舞態切換。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：舞者",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/dancer-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "樂師：特化跟第三顆走，博愛配 2・3・5、共鳴配 1・3・5；輸出掛在一條要手動跨過門檻的「情緒值」上。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：樂師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/musician-s0-build/"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "text": "吟遊詩人是「便宜的八人團門票」：Wiki 的結論是便宜的是增益、不是輸出（無課吟遊詩人的對照章節）。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：吟遊詩人",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/bard-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "舞者是台服唯一「輸出要看隊伍人數」的輸出職：8 人團隊副本傷害暴增，單人時則是全職業最慢的磨王機器。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：舞者",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/dancer-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "樂師在韓服分類是輸出、不是輔助：S0 團隊副本的一線傷害兼弱化手，卻是全職業最不適合掛機的一隻（AI 不會管情緒值）。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：樂師",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/musician-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "換職業要持有目標職業的武器或徽章；原職業的等級與經驗會保留。徽章用職業大師勳章向阿蘭雯換，職業等級 25／35／45／55／65 各給 1 枚。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        }
+      ],
+      "guide_count": 6
+    },
+    "盜賊": {
+      "runes": [
+        {
+          "text": "盜賊：武器一定要驚異＋（配置表原話「千把劍＋睿智遠遠不如驚異＋睿智」）；飾品縝密＋・暮色＋，第三顆毒性＋需要一件重甲唯一上衣（中毒傷害 +30%），沒有就改毒霧＋。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：盜賊",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/rogue-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "格鬥家：飾品熱血＋・前進＋・擊破＋三顆全帶；武器千把劍（替代決鬥＋）；防具魔力激流、岩石巨人、平原流浪者、毀滅烙印＋共鳴水晶。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：格鬥家",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/fighter-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "雙刀客：飾品裂傷＋・疾馳＋必帶，第三顆速行＋或強化＋（打王）、旋風＋（清怪）；武器千把劍；防具平原流浪者、魔力激流、岩石巨人。",
+          "tiers": [
+            "player",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "符文配置表",
+              "url": "runes.html"
+            },
+            {
+              "label": "Wiki：雙刀客",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/dualblade-s0-build/"
+            }
+          ]
+        }
+      ],
+      "skill_order": [
+        {
+          "text": "這遊戲沒有技能點：技能等級是各件裝備「符文技能強化」的加總，上限 Lv.30；到鐵匠做「技能特化」可指定最多 3 個目標技能（Wiki 稱重擲／改造）。下面寫的「特化 1・3・5」就是要鎖定的技能格。",
+          "tiers": [
+            "official",
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            },
+            {
+              "label": "Wiki：技能強化",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/skill-enhance-track/"
+            }
+          ]
+        },
+        {
+          "text": "盜賊：5 技隱身只點到 10 級——攻擊係數跟技能等級無關，多點都是浪費；開服流行的「135」特化就是被這條事實廢掉的。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：盜賊",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/rogue-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "格鬥家：5 技一招吃掉七到八成輸出，其他技能可以不管、5 技優先推到 30 級；特化 4・5 固定、第三格 145 最多人用；30 級強化順序 5→4→6。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：格鬥家",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/fighter-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "雙刀客：沒有固定循環——烈風資源是隨機的，要背的是優先序、不是手順；雕琢詞條強擊、移動優先。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：雙刀客",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/dualblade-s0-build/"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "text": "盜賊值不值得練？先確認三個前提：武器有驚異＋、毒性＋那條路有重甲唯一上衣、5 技只點 10 級。Wiki 的結論是不該當第一隻角色。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：盜賊",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/rogue-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "格鬥家是「看操作」職業：連段是手排；千把劍不是劍系職業的專利，格鬥家吃得更「純」。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：格鬥家",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/fighter-s0-build/"
+            }
+          ]
+        },
+        {
+          "text": "純掛機排名：修道士與冰霜術士第一檔；大劍戰士、弓手、魔法師、雙刀客、治癒師次之；戰士、弩手、長弓兵、吟遊詩人、樂師是韓服日常 D。",
+          "tiers": [
+            "wiki"
+          ],
+          "links": [
+            {
+              "label": "Wiki：掛機適性",
+              "url": "https://mabinogimobile.nipponhashi.com/guides/auto-battle-classes/"
+            }
+          ]
+        },
+        {
+          "text": "換職業要持有目標職業的武器或徽章；原職業的等級與經驗會保留。徽章用職業大師勳章向阿蘭雯換，職業等級 25／35／45／55／65 各給 1 枚。",
+          "tiers": [
+            "official"
+          ],
+          "links": [
+            {
+              "label": "官方遊戲指南",
+              "url": "https://tw.nexon.com/mabinogimobile/home/news/guide/"
+            }
+          ]
+        }
+      ],
+      "guide_count": 7
+    }
+  }
+}

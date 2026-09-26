@@ -23,6 +23,7 @@ import youtube
 import inven
 import nexon_kr
 import ai_enrich
+import extract
 import schema
 
 # 韓服搶先報的「活動情報」類是時效性內容（版本/活動預告），超過這個天數
@@ -78,6 +79,8 @@ def build(no_youtube=False, no_kr=False, pages=2) -> dict:
 
     # AI 翻譯 + 分類 + 打標 + 評精華（無金鑰自動降級規則版）
     ai_enrich.enrich(raw)
+    # AI 沒處理到的項目（金鑰失效／額度用完／批次失敗）用規則式抽取補 key_points
+    extract.apply(raw)
 
     # 轉合約 → 去重 → 驗證
     records = schema.dedupe([schema.to_record(it) for it in raw])

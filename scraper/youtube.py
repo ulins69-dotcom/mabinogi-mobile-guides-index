@@ -56,6 +56,7 @@ def _video_details(video_ids: list[str], region: str, key: str) -> list[dict]:
                 "author": sn.get("channelTitle", ""),
                 "url": f"https://www.youtube.com/watch?v={vid}",
                 "summary": (sn.get("description", "") or "")[:120],
+                "_body": (sn.get("description", "") or "")[:3000],  # 只在記憶體：extract.py 抽時間章節用
                 "source": "youtube", "region": region,
                 "published_at": (sn.get("publishedAt", "") or "")[:10],
                 "views": int(st.get("viewCount", 0) or 0),

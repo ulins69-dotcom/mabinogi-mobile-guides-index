@@ -192,13 +192,15 @@ def _pretranslate_kr_titles(items: list[dict]) -> None:
 
 
 def _apply_rule_fallback(item: dict) -> None:
-    """單筆用規則版補上欄位（AI 失敗時）。key_points 是 AI 專屬能力，
-    規則版抽不出重點，給空陣列——前端會自動退回顯示原始摘要，不會空白。
+    """單筆用規則版補上欄位（AI 失敗時）。key_points 先給空陣列，之後由
+    extract.apply() 用規則式抽取補上（原句節錄，不是 AI 改寫）；抽不出來就維持空陣列，
+    前端會自動退回顯示原始摘要，不會空白。
     title_zh 優先用翻譯安全網打底的版本，兩者都沒有才維持原文。"""
     item["category"] = classify.classify_category(item)
     item["tags"] = classify.extract_tags(item)
     item.setdefault("title_zh", item.get("title_zh_mt") or item.get("title", ""))
     item.setdefault("key_points", [])
+    item["_rule_fallback"] = True  # extract.apply() 只補這些「AI 沒處理到」的項目
 
 
 def enrich(items: list[dict]) -> list[dict]:

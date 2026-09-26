@@ -44,6 +44,7 @@ HEADERS = {
 
 REQUEST_DELAY_SEC = 3  # 每次請求間隔，禮貌爬取
 SUMMARY_MAX_CHARS = 150  # 內文摘要最長字數，只取片段不存全文
+BODY_MAX_CHARS = 2500  # 給 extract.py 抽重點用的內文長度上限；只存在記憶體（item["_body"]），不會寫進 guides.json
 
 
 def _get(url: str) -> str | None:
@@ -168,11 +169,12 @@ def _normalize_date(s: str, today: datetime.date | None = None) -> str:
     return ""
 
 
-def _fetch_detail(url: str) -> tuple[str, str]:
-    """進文章內頁抓 (摘要, 樓主發文日期)。抓不到的欄位回傳空字串，不拖垮整批。"""
+def _fetch_detail(url: str) -> tuple[str, str, str]:
+    """進文章內頁抓 (摘要, 樓主發文日期, 內文前段)。抓不到的欄位回傳空字串，不拖垮整批。
+    內文前段保留換行（extract.py 靠換行切句），只留在記憶體、不落地。"""
     html = _get(url)
     if not html:
-        return "", ""
+        return "", "", ""
     soup = BeautifulSoup(html, "html.parser")
 
     posted = ""
@@ -180,12 +182,13 @@ def _fetch_detail(url: str) -> tuple[str, str]:
     if stamp:  # 第一個就是 1 樓（樓主）的發文時間
         posted = _normalize_date(stamp.get("data-mtime") or stamp.get_text(strip=True))
 
-    summary = ""
+    summary, body = "", ""
     el = _first(soup, [".c-article__content", ".c-post__body"])
     if el:
+        body = el.get_text(separator="\n", strip=True)[:BODY_MAX_CHARS]
         text = re.sub(r"\s+", " ", el.get_text(separator=" ", strip=True))
         summary = text[:SUMMARY_MAX_CHARS] + "…" if len(text) > SUMMARY_MAX_CHARS else text
-    return summary, posted
+    return summary, posted, body
 
 
 def _fetch_summary(url: str) -> str:
@@ -206,8 +209,9 @@ def fetch(pages: int = 1) -> list[dict]:
 
     print(f"[巴哈] 共取得 {len(all_items)} 筆，開始逐篇補摘要...")
     for i, item in enumerate(all_items, 1):
-        summary, posted = _fetch_detail(item["url"])
+        summary, posted, body = _fetch_detail(item["url"])
         item["summary"] = summary
+        item["_body"] = body  # 底線開頭＝只在管線記憶體內使用，schema.to_record 不會輸出
         if posted:  # 內文頁的樓主發文日期比列表頁的「最新回覆」時間準
             item["published_at"] = posted
         time.sleep(REQUEST_DELAY_SEC)

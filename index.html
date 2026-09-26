@@ -66,6 +66,11 @@
     .class-digest__sources { font-size: .75rem; color: var(--muted); }
     .class-digest__sources a { color: var(--muted); }
     .class-digest__count { font-size: .78rem; color: var(--muted); margin-top: .6rem; }
+    .digest-tier { display: inline-block; font-size: .68rem; font-weight: 700; color: #fff; border-radius: 9px;
+      padding: 0 .4rem; margin-right: .25rem; vertical-align: 1px; }
+    .digest-tier--official { background: #27ae60; } .digest-tier--wiki { background: #8e44ad; }
+    .digest-tier--player { background: #2980b9; }
+    .class-digest__note { font-size: .75rem; color: var(--muted); margin-top: .3rem; }
     .region-tabs { display: flex; gap: .5rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
     .region-tabs button {
       padding: .5rem 1.1rem; font-size: 1rem; border: 1px solid var(--line);
@@ -108,6 +113,7 @@
 <body>
   <header>
     <h1>瑪奇 Mobile 攻略索引</h1>
+    <p class="site-scope" style="margin:.15rem 0 .4rem;font-size:.82rem;color:#f7d774;letter-spacing:.02em;">限游離份子及所屬公會運用，如內容差異以官方網站為主</p>
     <p>整合台服（巴哈姆特、YouTube）與 🇰🇷 韓服搶先情報</p>
     <nav style="margin-top:.6rem;">
       <a href="index.html" style="color:#fff;margin:0 .8rem;text-decoration:underline;">攻略索引</a>
@@ -229,6 +235,7 @@
     "use strict";
     let guides = [];
     let currentRegion = "all";
+    let digestMeta = {};    // class_digests.json 的整理日期與說明（顯示在速答卡底部）
     let classDigests = {};  // 職業速答卡資料，見 class_digests.json（可能尚未產出，抓不到就維持空物件）
 
     // ── 倒數面板（結界/野王/每日/每週重置）───────────────────
@@ -453,6 +460,7 @@
     // 「職業速答卡」：選職業後直接給答案（符文/技能加點/常見問題），不用逼玩家
     // 自己點開好幾篇文章拼湊。資料來自 class_digests.json（AI 跨篇合成，見
     // scraper/class_digest.py），還沒產出前顯示「準備中」，不是空白一片。
+    const DIGEST_TIERS = { official: "官方", wiki: "Wiki", player: "玩家" };
     const DIGEST_SECTIONS = [
       ["runes", "🔮 符文推薦"],
       ["skill_order", "⚔️ 技能加點／升級順序"],
@@ -485,16 +493,30 @@
         section.appendChild(el("h4", null, label));
         const ul = el("ul");
         items.forEach((item) => {
-          const li = el("li", null, str(item && item.text));
-          const sourceIds = arr(item && item.source_ids).filter((id) => guideById.has(id));
-          if (sourceIds.length) {
+          const li = el("li");
+          // 證據等級徽章（人工整理版才有 tiers；AI 版沒有就不顯示）
+          arr(item && item.tiers).forEach((t) => {
+            if (typeof t === "string" && Object.prototype.hasOwnProperty.call(DIGEST_TIERS, t)) li.appendChild(el("span", "digest-tier digest-tier--" + t, DIGEST_TIERS[t]));
+          });
+          li.appendChild(document.createTextNode(str(item && item.text)));
+          // 來源：guides.json 裡的文章（source_ids）＋任意連結（links：站內頁面、官方、Wiki、巴哈）
+          const refs = [];
+          arr(item && item.source_ids).filter((id) => guideById.has(id)).forEach((id) => {
+            const g = guideById.get(id);
+            refs.push({ label: g.title, url: g.url });
+          });
+          arr(item && item.links).forEach((l) => {
+            const url = safeUrl(l && l.url);
+            if (url) refs.push({ label: str(l.label, url), url });
+          });
+          if (refs.length) {
             const src = el("span", "class-digest__sources", "　資料來自：");
-            sourceIds.forEach((id, i) => {
-              const g = guideById.get(id);
-              const a = el("a", null, g.title);
-              a.href = g.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+            refs.forEach((r, i) => {
+              const a = el("a", null, r.label);
+              a.href = r.url;
+              if (new URL(r.url).origin !== window.location.origin) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
               src.appendChild(a);
-              if (i < sourceIds.length - 1) src.appendChild(document.createTextNode("、"));
+              if (i < refs.length - 1) src.appendChild(document.createTextNode("、"));
             });
             li.appendChild(src);
           }
@@ -510,8 +532,10 @@
       }
       const count = Number(digest.guide_count) || 0;
       if (count) {
-        box.appendChild(el("div", "class-digest__count", "整理依據：" + count + " 篇攻略"));
+        box.appendChild(el("div", "class-digest__count", "整理依據：" + count + " 個來源頁面" +
+          (digestMeta.updated_at ? "｜整理日期：" + digestMeta.updated_at : "")));
       }
+      if (digestMeta.note) box.appendChild(el("div", "class-digest__note", digestMeta.note));
     }
 
     async function loadClassDigests() {
@@ -520,6 +544,7 @@
         if (!res.ok) return;  // 還沒產出時是正常狀態，不是錯誤
         const data = await res.json();
         classDigests = (data && typeof data.digests === "object" && data.digests) || {};
+        digestMeta = { updated_at: str(data && data.updated_at), note: str(data && data.note) };
       } catch (e) {
         classDigests = {};  // 抓不到就維持空物件，前端自動退回「準備中」文案
       }
