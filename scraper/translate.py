@@ -28,11 +28,11 @@ BATCH_SIZE = 50  # 官方單次上限 128，抓保守值避免單次 payload 太
 # 同一個遊戲名稱在 66 篇裡翻成「瑪奇手遊」「瑪奇手機版」「瑪奇M」甚至沒翻的
 # 「[Mabinogi Mobile]」，63/66 篇都中—— 標題掃過去很不一致。純外觀正規化，
 # 跟翻譯品質本身無關，用簡單替換統一顯示。
-_GAME_NAME_RE = re.compile(r"瑪奇\s?(?:手機版|手遊)|瑪奇M(?![a-zA-Z])|\[?Mabinogi Mobile\]?")
+_GAME_NAME_RE = re.compile(r"瑪奇\s?(?:手機版|手遊|移動版|行動版)|瑪奇》\s?手遊|瑪奇M(?![a-zA-Z])|\[?Mabinogi Mobile\]?")
 
 
 def _normalize_game_name(text: str) -> str:
-    return _GAME_NAME_RE.sub("瑪奇 Mobile", text)
+    return _GAME_NAME_RE.sub(lambda m: "瑪奇 Mobile》" if m.group(0).startswith("瑪奇》") else "瑪奇 Mobile", text)
 
 
 def _key() -> str:

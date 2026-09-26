@@ -230,7 +230,7 @@ _tips_html = """<table><tbody>
 _t = inven._parse_tips(_tips_html)
 assert [x["id"] for x in _t] == ["inven-tip-622", "inven-tip-605"], "要依文章編號新到舊"
 assert _t[1]["title"] == "타바르타스 레이드 간단 공략 및 후기" and _t[1]["views"] == 14367 and _t[1]["replies"] == 2
-assert all(x["published_at"] == "" for x in _t), "列表沒有年份，不能猜，要進內頁補"
+assert [x["published_at"][:4] for x in _t] == ["2026", "2025"], "622=06-28、605=11-13：編號變小日期變晚＝跨到前一年"
 _d = inven._parse_detail('<div class="articleDate">2026-06-28 07:24</div><div id="powerbbsContent">오랜만에 공략 올립니다.</div>')
 assert _d[0] == "2026-06-28" and _d[1] == "오랜만에 공략 올립니다."
 assert import_mnemonics.parse_reply("inven-tip-622｜소울스트림 한눈에") == [("inven-tip-622", "소울스트림 한눈에")]
@@ -255,3 +255,37 @@ _big = [{"region": "kr", "source": "inven", "published_at": "", "summary": "가"
 ai_enrich._pretranslate_kr_summaries(_big, today=_dt.date(2026, 9, 27))
 assert sum(len(t) for t in _sent) <= ai_enrich.SUMMARY_CHAR_BUDGET, "超過每次字數上限"
 print("=== 韓服摘要翻譯（範圍與字數上限）測試通過 ===")
+
+# ── Inven 年份推算與內頁熔斷（2026-09-27：GitHub Actions 進內頁第 4 篇起被擋）。純離線。──
+_yrs = [{"_mmdd": d} for d in ("06-28", "06-15", "03-19", "12-24", "12-02", "07-11", "04-17")]
+inven._infer_years(_yrs, _dt.date(2026, 9, 27))
+assert [x["published_at"] for x in _yrs] == ["2026-06-28", "2026-06-15", "2026-03-19", "2025-12-24",
+                                             "2025-12-02", "2025-07-11", "2025-04-17"], _yrs
+_fut = [{"_mmdd": "12-30"}]
+inven._infer_years(_fut, _dt.date(2026, 1, 3))
+assert _fut[0]["published_at"] == "2025-12-30", "最新一篇落在今天之後＝去年"
+_calls = []
+def _fake_get(url):
+    _calls.append(url)
+    if "webzine" in url: return _news_html
+    if "category=" in url: return _tips_html
+    return None  # 內頁全被擋
+inven._get, inven.REQUEST_DELAY_SEC = _fake_get, 0
+_inv = inven.fetch()
+assert len([u for u in _calls if "/6366/" in u]) == inven.DETAIL_MAX_FAILURES, "連續失敗要停手，不能每篇都敲"
+assert {x["id"] for x in _inv} == {"inven-news-320623", "inven-tip-622", "inven-tip-605"}, "內頁被擋時仍要保留列表資料"
+assert all(x["published_at"] for x in _inv)
+print("=== Inven 年份推算與內頁熔斷測試通過 ===")
+assert translate._normalize_game_name("《瑪奇移動版》與《瑪奇》手遊") == "《瑪奇 Mobile》與《瑪奇 Mobile》"
+print("=== 遊戲名稱正規化測試通過 ===")
+
+# ── 口訣增量匯出：沒有紀錄檔時從既有分段檔回推已匯出編號。純離線（暫存資料夾）。──
+import tempfile
+with tempfile.TemporaryDirectory() as _tmp:
+    with open(os.path.join(_tmp, "口訣_第1段（共1段）.txt"), "w", encoding="utf-8") as _f:
+        _f.write("指示文字 [不是編號]\n\n[bahamut-3026] 標題\n分類：…\n\n[youtube-AbCdEfGhIjK] 標題\n")
+    assert export_for_chat.load_exported(_tmp) == {"bahamut-3026", "youtube-AbCdEfGhIjK"}
+    with open(os.path.join(_tmp, export_for_chat.MANIFEST_NAME), "w", encoding="utf-8") as _f:
+        _f.write("inven-tip-622\n")
+    assert export_for_chat.load_exported(_tmp) == {"inven-tip-622"}, "有紀錄檔就以紀錄檔為準"
+print("=== 口訣增量匯出測試通過 ===")

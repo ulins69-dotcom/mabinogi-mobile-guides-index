@@ -174,7 +174,7 @@ def _call_gemini(prompt: str, key: str) -> list | None:
 
 
 SUMMARY_FRESH_DAYS = 21          # 只翻首頁會顯示的新文章摘要（跟 index.html FRESH_DAYS 一致）
-SUMMARY_CHAR_BUDGET = 8000       # 每次管線最多翻這麼多字的摘要（成本原則：Cloud Translation 綁帳單，
+SUMMARY_CHAR_BUDGET = 12000      # 每次管線最多翻這麼多字的摘要（成本原則：Cloud Translation 綁帳單，
                                  # 免費額度以月計，這個上限讓每週跑一次再加幾次手動也遠低於免費額度）
 
 
@@ -191,17 +191,17 @@ def _pretranslate_kr_summaries(items: list[dict], today: datetime.date | None = 
     if not translate.has_translate():
         return
     today = today or datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
+    # 先翻「最近 21 天」（台版／韓版分頁一定會顯示），再翻 Inven（精選候選）；額度用完就停
+    fresh = [it for it in items if it.get("region") == "kr" and (it.get("summary") or "").strip() and _is_fresh(it, today)]
+    inven = [it for it in items if it.get("region") == "kr" and (it.get("summary") or "").strip()
+             and it.get("source") == "inven" and not _is_fresh(it, today)]
     todo, used = [], 0
-    for it in items:
-        text = (it.get("summary") or "").strip()
-        if it.get("region") != "kr" or not text:
-            continue
-        if not (_is_fresh(it, today) or it.get("source") == "inven"):
-            continue
-        if used + len(text) > SUMMARY_CHAR_BUDGET:
+    for it in fresh + inven:
+        n = len(it["summary"].strip())
+        if used + n > SUMMARY_CHAR_BUDGET:
             break
         todo.append(it)
-        used += len(text)
+        used += n
     if not todo:
         return
     translated = translate.translate_batch([it["summary"] for it in todo])

@@ -9,14 +9,18 @@
    記者寫的改版／活動新聞，列表本身就有標題、摘要、完整日期，不用進內頁。量少（約每月 1～3 篇）。
 2) 팁과 노하우 게시판的「공략」分類：https://www.inven.co.kr/board/mabimo/6366?category=공략
    韓服玩家的深度攻略（例：서큐버스／어비스／타바르타스），多數是台服即將拿到的內容，
-   適合放進「精選」。列表日期沒有年份（「06-28」），而且文章編號跟日期不同步，
-   不能用推的——所以逐篇進內頁拿完整日期與內文片段，只取最新 DETAIL_LIMIT 篇。
-   2026-09-27 觀察：這個板活躍度很低（最新一篇 06-28），所以它對「最近 21 天」分頁幫助不大。
+   適合放進「精選」。列表日期沒有年份（「06-28」），用 _infer_years() 推年份：文章編號越大
+   越新，依編號由新到舊走訪，日期「變晚」就代表跨到前一年（例：622=06-28、608=12-02 → 608 是去年）。
+   內文摘要要進內頁拿，但 2026-09-27 正式管線實測：GitHub Actions（美國機房 IP）連續進內頁
+   第 4 篇起就被 Inven 擋（connect timeout），本機（台灣）25 篇都正常。所以日期一律靠列表推，
+   內頁只是「有拿到就補摘要」，連續失敗 DETAIL_MAX_FAILURES 次就停，不對擋人的站硬敲。
+   這個板活躍度很低（最新一篇 06-28），對「最近 21 天」分頁幫助不大，主要貢獻給「精選」。
 
 抓到的是韓文，標題與摘要交給 translate.py（Cloud Translation）翻成中文。
 """
 
 from __future__ import annotations
+import datetime
 import re
 import time
 import requests
@@ -24,7 +28,8 @@ from bs4 import BeautifulSoup
 
 NEWS_URL = "https://www.inven.co.kr/webzine/news/?site=mabimo"
 TIPS_URL = "https://www.inven.co.kr/board/mabimo/6366?category=%EA%B3%B5%EB%9E%B5"  # category=공략
-DETAIL_LIMIT = 25  # 攻略板每次最多進幾篇內頁（禮貌爬取）
+DETAIL_LIMIT = 25  # 攻略板每次最多收幾篇
+DETAIL_MAX_FAILURES = 2  # 內頁連續失敗幾次就不再進內頁（對方在擋，繼續敲只會浪費時間）
 SUMMARY_MAX_CHARS = 150
 BODY_MAX_CHARS = 2500  # 只在記憶體（item["_body"]），不寫進 guides.json
 
@@ -55,6 +60,26 @@ def _to_int(s: str) -> int:
 def _full_date(s: str) -> str:
     m = re.search(r"(20\d{2})[-.](\d{1,2})[-.](\d{1,2})", s or "")
     return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}" if m else ""
+
+
+def _infer_years(items: list[dict], today: datetime.date) -> None:
+    """items 已依文章編號由新到舊排好、各自帶 "_mmdd"（"06-28"），就地填入 published_at。"""
+    year, prev = today.year, None
+    for it in items:
+        m = re.match(r"^(\d{1,2})-(\d{1,2})$", it.pop("_mmdd", "") or "")
+        if not m:
+            continue
+        md = (int(m.group(1)), int(m.group(2)))
+        if prev is None:
+            if md > (today.month, today.day):  # 最新一篇落在「今天之後」→ 其實是去年
+                year -= 1
+        elif md > prev:  # 編號變小（更舊）日期卻變晚 → 跨到前一年
+            year -= 1
+        prev = md
+        try:
+            it["published_at"] = datetime.date(year, md[0], md[1]).isoformat()
+        except ValueError:
+            pass
 
 
 def _clip(text: str) -> str:
@@ -124,13 +149,15 @@ def _parse_tips(html: str) -> list[dict]:
             "summary": "",
             "source": "inven",
             "region": "kr",
-            "published_at": "",  # 列表沒有年份，進內頁補
+            "published_at": "",  # 列表沒有年份，由 _infer_years() 推
+            "_mmdd": (row.select_one("td.date").get_text(strip=True) if row.select_one("td.date") else ""),
             "views": _to_int(row.select_one("td.view").get_text() if row.select_one("td.view") else "0"),
             "replies": _to_int(comment.get_text() if comment else "0"),
             "thumbnail": "",
         })
     # 列表依文章編號排，編號越大越新
     items.sort(key=lambda it: int(it["id"].rsplit("-", 1)[1]), reverse=True)
+    _infer_years(items, datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date())  # 韓國時間
     return items
 
 
@@ -157,16 +184,21 @@ def fetch() -> list[dict]:
 
     print(f"[Inven] 讀取攻略板：{TIPS_URL}")
     html = _get(TIPS_URL)
-    tips = _parse_tips(html)[:DETAIL_LIMIT] if html else []
-    kept = 0
+    tips = [it for it in (_parse_tips(html) if html else []) if it["published_at"]][:DETAIL_LIMIT]
+    got, fails = 0, 0
     for it in tips:
+        if fails >= DETAIL_MAX_FAILURES:
+            break  # 對方在擋，剩下的只用列表資料（有日期、沒摘要）
         time.sleep(REQUEST_DELAY_SEC)
         page = _get(it["url"])
         if not page:
+            fails += 1
             continue
-        it["published_at"], it["summary"], it["_body"] = _parse_detail(page)
-        if it["published_at"]:  # 拿不到日期就不放，避免沒日期的舊文被當成新文
-            items.append(it)
-            kept += 1
-    print(f"[Inven] 攻略 {kept}/{len(tips)} 筆（有完整日期才收）｜共取得 {len(items)} 筆")
+        fails = 0
+        date, it["summary"], it["_body"] = _parse_detail(page)
+        if date:
+            it["published_at"] = date  # 內頁的完整日期最準，覆蓋推算值
+        got += 1
+    items.extend(tips)
+    print(f"[Inven] 攻略 {len(tips)} 筆（其中 {got} 篇有進內頁補摘要）｜共取得 {len(items)} 筆")
     return items
