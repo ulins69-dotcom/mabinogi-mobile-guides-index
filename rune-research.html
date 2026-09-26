@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 符文研究清單</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --warn:#c0392b; --amber:#b9770e;
+      --official:#27ae60; --wiki:#8e44ad; --player:#2980b9; --calc:#7f8c8d; --raise:#f1f5f9; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0; background:var(--bg); color:var(--ink); line-height:1.65; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    header p { margin:0; opacity:.85; font-size:.9rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .6rem; text-decoration:none; font-size:.92rem; white-space:nowrap; display:inline-block; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:960px; margin:1.5rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; margin-top:2.2rem; scroll-margin-top:.5rem; }
+    .legend { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.6rem; margin-bottom:1.2rem; }
+    .lg { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.6rem .8rem; font-size:.82rem; border-left-width:5px; }
+    .lg b { display:block; margin-bottom:.15rem; }
+    .lg.o { border-left-color:var(--official); } .lg.w { border-left-color:var(--wiki); } .lg.p { border-left-color:var(--player); } .lg.c { border-left-color:var(--calc); }
+    .tier { font-size:.7rem; font-weight:700; padding:.05rem .45rem; border-radius:10px; color:#fff; white-space:nowrap; vertical-align:middle; }
+    .tier.o { background:var(--official); } .tier.w { background:var(--wiki); } .tier.p { background:var(--player); } .tier.c { background:var(--calc); }
+    .key { background:#eef6fb; border:1px solid #cfe3f3; border-radius:8px; padding:.9rem 1.1rem; margin-bottom:1.2rem; font-size:.9rem; }
+    .key ol { margin:.4rem 0 0; padding-left:1.3rem; } .key li { margin:.4rem 0; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; margin-bottom:1rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:.4rem; margin:.4rem 0 1rem; }
+    .chip { border:1px solid var(--line); background:var(--card); border-radius:16px; padding:.25rem .8rem; font-size:.84rem; cursor:pointer; font-family:inherit; }
+    .chip[aria-pressed="true"] { background:var(--dark); color:#fff; border-color:var(--dark); }
+    .items { display:grid; grid-template-columns:1fr; gap:.8rem; }
+    .it { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.8rem 1rem; border-left-width:5px; }
+    .it.must { border-left-color:#1f618d; } .it.high { border-left-color:var(--brand); } .it.depends { border-left-color:var(--amber); } .it.trap { border-left-color:var(--warn); }
+    .it h3 { margin:0 0 .3rem; font-size:1rem; color:var(--dark); display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; }
+    .imp { font-size:.72rem; font-weight:700; padding:.05rem .5rem; border-radius:10px; color:#fff; }
+    .imp.must { background:#1f618d; } .imp.high { background:var(--brand); } .imp.depends { background:var(--amber); } .imp.trap { background:var(--warn); }
+    .cat { font-size:.72rem; color:var(--muted); font-weight:400; }
+    .row { display:grid; grid-template-columns:4.2rem 1fr; gap:.5rem; font-size:.87rem; margin:.3rem 0; }
+    .row .lab { font-weight:700; color:var(--muted); font-size:.78rem; padding-top:.1rem; }
+    .why { font-size:.84rem; color:var(--muted); margin:.1rem 0 .4rem; }
+    table { border-collapse:collapse; width:100%; }
+    th { text-align:left; font-size:.75rem; color:var(--muted); padding:.45rem .6rem; border-bottom:2px solid var(--line); background:var(--raise); }
+    td { padding:.45rem .6rem; border-bottom:1px solid var(--line); font-size:.86rem; vertical-align:top; }
+    tr:last-child td { border-bottom:none; }
+    .tbl { overflow-x:auto; }
+    td.bar { min-width:7rem; } .bar i { display:block; height:.55rem; background:var(--brand); border-radius:3px; }
+    .bar span { font-size:.72rem; color:var(--muted); }
+    tr.past td { opacity:.5; }
+    tr.past td:first-child::after { content:" 已過"; font-size:.7rem; color:var(--muted); }
+    .warn { background:#fdecea; border-left:4px solid var(--warn); border-radius:0 6px 6px 0; padding:.6rem .9rem; font-size:.86rem; margin:.7rem 0; }
+    .note { background:#fff8e6; border-left:4px solid #f39c12; border-radius:0 6px 6px 0; padding:.6rem .9rem; font-size:.86rem; margin:.7rem 0; }
+    details.fold { background:var(--card); border:1px solid var(--line); border-radius:8px; margin-bottom:.8rem; }
+    details.fold summary { cursor:pointer; padding:.75rem 1rem; font-weight:700; color:var(--dark); list-style:none; }
+    details.fold summary::-webkit-details-marker { display:none; }
+    details.fold summary::before { content:"▸ "; color:var(--brand); } details.fold[open] summary::before { content:"▾ "; }
+    .fold-body { padding:0 1rem 1rem; } .fold-body ul { margin:.3rem 0; padding-left:1.2rem; } .fold-body li { margin:.4rem 0; font-size:.9rem; }
+    .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:.8rem; }
+    .src { font-size:.78rem; color:var(--muted); }
+    a { color:var(--brand); }
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+    footer p { margin:.3rem 0; }
+    @media (max-width:520px) { .row { grid-template-columns:1fr; gap:.1rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔬 符文研究清單</h1>
+    <p>把「重要性、適用性、時機性」拆開看——哪些符文值得追、給誰用、什麼時候做</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html">🔮 符文配置表</a>
+      <a href="rune-research.html" class="active">🔬 符文研究</a>
+      <a href="jiankang.html">🩺 角色健檢</a>
+      <a href="sidequests.html">🗺️ 特殊支線</a>
+      <a href="trade-items.html">🔄 以物易物</a>
+      <a href="succubus.html">🌹 魅魔攻略</a>
+      <a href="lifeskills.html">🌾 生活技能</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="legend">
+      <div class="lg o"><b><span class="tier o">官方</span> 台服官網／機率頁</b>更新日誌、活動說明、遊戲指南、NEXON NOW 機率頁。本頁標官方的數字與日期，已於 2026-09-26 回原頁逐項核對。</div>
+      <div class="lg w"><b><span class="tier w">Wiki</span> 瑪奇 Mobile Wiki DB</b>nipponhashi。實測與試算多、更新快，但不少內容以韓服為底，台服部分標「待驗證」。</div>
+      <div class="lg p"><b><span class="tier p">mabitw</span> 台服工具箱</b>台服玩家回報與整理，個案性質，適合當方向、不當定論。</div>
+      <div class="lg c"><b><span class="tier c">推算</span> 本站計算</b>用上面來源的數字算出來的，不是來源原文，算法都寫在旁邊。</div>
+    </div>
+
+    <div class="key">
+      <b>先看這 6 點</b>
+      <ol>
+        <li><b>基礎表（<a href="runes.html">符文配置表</a>）與新來源有落差，先知道再用。</b>基礎表譯自 2025 韓服初期攻略、8/6 版；Wiki 數過畢業防具，<b>16/18 職都有「共鳴水晶＋毀滅烙印」</b>，基礎表卻只有 5／4 職列入（見②）。可能原因是格里斯貝恩（8/12 商店）之後才有的取得途徑，這是本站推測。</li>
+        <li><b>65 級前，填滿格子比升級重要，顏色不限；</b>65 級後金幣第一名是刻印強化，優先序武器 &gt; 飾品 &gt; 防具／徽章（<span class="tier w">Wiki</span>，優先序為該站實測建議）。</li>
+        <li><b>徽章符文刻印成功率 100%，最先刻；</b>高星飾品（★5、★6）刻印只有 25%，等 65 級後再說（<span class="tier o">官方</span>刻印機率、<span class="tier w">Wiki</span>建議）。</li>
+        <li><b>現階段別急著把史詩合成傳說：</b>★5→★6 成功率只有 10%，且傳說池不含共鳴水晶、毀滅烙印等關鍵符文（<span class="tier o">官方</span>晉階頁）——那些要靠格里斯貝恩等內容取得。</li>
+        <li><b>覆蓋刻印新符文，強化「點數」會保留</b>（階段可能因符文階數不同而變動）；分解才會重置階段（<span class="tier o">官方</span>刻印強化指南）。換符文不用怕白燒，但<b>不要分解已附魔的裝備</b>，卷軸拿不回來。</li>
+        <li><b>近期節點：</b>9/28 白魅魔首次重置＋深淵地獄 4；9/30 更新後瑪斯深淵通關獨特裝備獎勵池調整；10/5 起附魔卷軸選擇箱開賣；10/21 05:59 閃光之主結束（詳見③的日期節點）。</li>
+      </ol>
+    </div>
+
+    <h2 class="sec" id="list">① 研究清單：重要性 × 適用性 × 時機性</h2>
+    <p class="src" style="margin-top:0;">重要性分四級：<b>必備</b>＝多個來源共識且對多數職業成立；<b>高</b>＝有明確來源、但有前提；<b>依情況</b>＝看職業、流派或內容；<b>陷阱／別急</b>＝常被高估或容易白花資源。這個分級是本站彙整判斷，每張卡片寫了理由與依據，可自行檢驗。</p>
+    <div class="chips" id="chips" role="group" aria-label="依重要性篩選"></div>
+    <div class="items" id="items"></div>
+
+    <h2 class="sec" id="fit">② 適用性統計：基礎表 19 職的實際分布</h2>
+    <div class="card">
+      <p class="src" style="margin-top:0;">統計自本站 <a href="runes.html">符文配置表</a> 的巴哈基礎表（2026-09-26 統計，「推薦」為表內 1–5 星；電擊術士無防具資料）。數字代表「幾個職業把它列進推薦」，<b>不是</b>強度排名——基礎表比新來源舊（見上方第 1 點）。</p>
+      <div class="grid2">
+        <div class="tbl"><table><thead><tr><th>武器符文</th><th>幾職列入（/19）</th><th>5★</th></tr></thead><tbody id="stat-w"></tbody></table></div>
+        <div class="tbl"><table><thead><tr><th>防具符文</th><th>幾職列入（/19）</th><th>5★</th></tr></thead><tbody id="stat-a"></tbody></table></div>
+      </div>
+      <div class="note"><b>怎麼讀這張表：</b>岩石巨人、魔力激流、千把劍是「幾乎全職業通用」的一級目標；共鳴水晶、毀滅烙印、平原流浪者、神聖修養雖只有少數職業列入，但列入的職業幾乎都給 5★（都是「有的職業必拿」的專用款）。飾品符文每職各自一組，沒有跨職業排名意義，請到 <a href="runes.html">符文配置表</a> 看各職業。</div>
+    </div>
+
+    <h2 class="sec" id="timing">③ 時機性：現在該做什麼、什麼別做</h2>
+    <h3 style="font-size:1rem;margin:1rem 0 .4rem;">依進度的優先序</h3>
+    <div class="grid2">
+      <div class="card"><b>65 級前</b><ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.88rem;"><li>把格子填滿，勝過升級任何一格；顏色（星等）不限。</li><li>徽章符文刻印任何星等都 100% 成功，先刻。</li><li>別為了合成拆掉唯一可用的符文。</li><li>高星刻印（★5 以上 25%）等 65 級後。</li></ul><div class="src"><span class="tier w">Wiki</span> rune-basics、roadmap；<span class="tier o">官方</span>刻印機率</div></div>
+      <div class="card"><b>65 級後</b><ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.88rem;"><li>金幣去刻印強化：武器 &gt; 飾品 &gt; 防具／徽章。</li><li>全身先推到 +10，只有武器繼續衝到 +13，之後有催化劑再掛。</li><li>開始打格里斯貝恩／白魅魔／深淵補關鍵符文。</li></ul><div class="src"><span class="tier w">Wiki</span> rune-enhance-order（+10／+13 是該站實測停損建議，非官方）；各階機率見 <a href="enhance-calculator.html">強化計算機</a></div></div>
+      <div class="card"><b>中後期</b><ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.88rem;"><li>千把劍：順路疊、不專程。</li><li>防具符文選擇箱先換共鳴水晶、再換毀滅烙印（治癒師改換巨人之臂）。</li><li>符文重設、催化劑等消耗品留給真正的畢業槽。</li></ul><div class="src"><span class="tier w">Wiki</span> thousand-swords、glas-rune-box</div></div>
+      <div class="card"><b>賽季前</b><ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.88rem;"><li>現役槽位合到傳說就停手。</li><li>多餘史詩／傳說「抱著別拆」，留給之後。</li></ul><div class="src"><span class="tier w">Wiki</span> rune-fusion-hold（該站標明結論有期限，隨版本會變）</div></div>
+    </div>
+
+    <h3 style="font-size:1rem;margin:1.4rem 0 .4rem;">日期節點（官方）</h3>
+    <div class="card tbl">
+      <table>
+        <thead><tr><th>日期</th><th>事項</th><th>與符文的關係</th></tr></thead>
+        <tbody id="timeline">
+          <tr data-end="2026-09-14"><td>9/14 起</td><td>「附魔卷軸：狐狸（★6）」於茉莉的遺物交換所販售，400 個赤紅深淵的化石；野外首領新增困難難度</td><td>飾品附魔卷軸的取得管道；首領特別戰利品含星辰印章、獨特裝備</td></tr>
+          <tr data-end="2026-09-21"><td>9/21 06:00</td><td>白魅魔開放（65 級＋「朝向那片大海」）；活動「幻影的低語」開始</td><td>每週 1 次通關戰利品含 3 個★3～★6 符文＋白薔薇附魔卷軸，見 <a href="succubus.html">魅魔攻略</a></td></tr>
+          <tr data-end="2026-09-28"><td>9/28 06:00</td><td>白魅魔首次重置；深淵新增地獄 4</td><td>新的一輪每週戰利品</td></tr>
+          <tr data-end="2026-09-30"><td>9/30 更新後</td><td>調整瑪斯深淵全難度的通關「獨特裝備」獎勵；9/28 重置到 9/30 更新前通關仍用舊獎勵池</td><td>獨特裝備不能刻印強化，只算過渡（見 ① 卡片）；<span class="tier w">Wiki</span> 建議這兩天先不清瑪斯深淵</td></tr>
+          <tr data-end="2026-10-05"><td>10/5 起</td><td>貓船長的商店販售「附魔卷軸選擇箱：格里斯貝恩」，120 個遠征的證明</td><td>要為此預留證明（格里斯貝恩防具符文選擇箱是 70）</td></tr>
+          <tr data-end="2026-10-14"><td>10/14 05:59</td><td>「幻影的低語」結束</td><td>白魅魔通關活動獎勵含符文重設稜鏡、符文碎片、催化劑</td></tr>
+          <tr data-end="2026-10-21"><td>10/21 05:59</td><td>「閃光之主」結束</td><td>電擊術士職業等級 30 的菁英飾品符文選擇箱（見④）</td></tr>
+          <tr data-end="2026-11-25"><td>11/25 05:59</td><td>套組點數商店（含史詩飾品符文系列選擇箱、史詩徽章符文選擇箱）結束</td><td>付費點數的符文取得管道</td></tr>
+        </tbody>
+      </table>
+      <p class="src" style="margin:.5rem 0 0;">來源：<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3541097" target="_blank" rel="noopener noreferrer">9/9 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3545629" target="_blank" rel="noopener noreferrer">9/16 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3545409" target="_blank" rel="noopener noreferrer">幻影的低語</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3541087" target="_blank" rel="noopener noreferrer">閃光之主</a>。日期以官方頁面為準；灰色列為已過。</p>
+    </div>
+
+    <h2 class="sec" id="lightning">④ 電擊術士符文（9/9 上線）</h2>
+    <div class="card">
+      <b>官方符文池（<span class="tier o">官方</span> NEXON NOW 符文晉階頁，電擊術士分組）</b>
+      <div class="tbl"><table>
+        <thead><tr><th>階級</th><th>符文</th><th>在「本職晉階結果」中的占比</th></tr></thead>
+        <tr><td>菁英 ★4</td><td>雷霆、力場、帷幕、霹靂</td><td>各 6.25%（4 顆合計 25%）</td></tr>
+        <tr><td>史詩 ★5</td><td>導管、放電</td><td>各 12.5%（2 顆合計 25%）</td></tr>
+        <tr><td>傳說 ★6</td><td>雷霆＋、力場＋、導管＋、帷幕＋、放電＋、霹靂＋</td><td>各 4.17%（6 顆合計 25%）</td></tr>
+      </table></div>
+      <p class="src" style="margin:.4rem 0 0;">其餘 75% 是各階的其他職業符文；官方沒寫判定依據，本站推定是「執行晉階的角色當下的職業」（推算，待驗證）。飾品符文晉階結果按職業分組，是本站符文配置表原本沒有的資訊。</p>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <b>各符文改哪一個技能</b> <span class="tier w">Wiki</span> <span class="src">韓服機制描述，台服待驗證</span>
+        <ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.86rem;">
+          <li><b>雷霆</b>：技 1 改成廣域落雷。</li>
+          <li><b>霹靂</b>：技 1 蓄更久、單體集中、威力大幅提高（與雷霆同格互斥）。</li>
+          <li><b>力場</b>：技 2 電磁風暴，留下拉怪力場。</li>
+          <li><b>導管</b>：技 3，單體、削弱、回魔。</li>
+          <li><b>帷幕</b>：技 4，生存、迴避放雷波。</li>
+          <li><b>放電</b>：技 5 過充電，週期傷害加風暴爆閃。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <b>韓服兩套主流配法</b> <span class="tier w">Wiki</span>
+        <ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.86rem;">
+          <li><b>「雷導力」</b>＝霹靂＋導管＋力場，偏首領單體。</li>
+          <li><b>「天導放」</b>＝雷霆＋導管＋放電，偏廣域。</li>
+          <li>兩套都用<b>導管（史詩）</b>；帷幕不被推薦（理由是單人硬撐價值）。</li>
+          <li>Wiki 的分級只有核心／替代／不建議，<b>沒有星等</b>——三個來源都查無星等。</li>
+        </ul>
+        <div class="note" style="margin-bottom:0;"><span class="tier c">推算</span> 閃光之主的活動箱只能選雷霆／力場／帷幕，所以兩套配法各只能從箱子拿到其中 1 顆（雷導力→力場、天導放→雷霆），導管與放電／霹靂要另外晉階或取得。</div>
+      </div>
+    </div>
+    <div class="card">
+      <b>武器與防具</b> <span class="tier w">Wiki</span> <span class="src">/meta/lightningmage 的「台服 S0/S1」區；同站其他區塊混入韓服 S2，別直接用</span>
+      <ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.87rem;">
+        <li>武器：千把劍（畢業）→ 決鬥（史詩）→ 對決（菁英，無課）。</li>
+        <li>防具：岩石巨人、碎冰（需要冰凍寵物，否則改狙擊／領悟）、紅色盟約、毀滅烙印＋共鳴水晶；徽章絢爛。魔力激流<b>不建議</b>（韓服玩家說「比想像中還吃不到」）。</li>
+      </ul>
+      <b style="display:block;margin-top:.8rem;">取得與時機</b>
+      <ul style="margin:.4rem 0 0;padding-left:1.2rem;font-size:.87rem;">
+        <li><span class="tier o">官方</span> 「閃光之主」活動（至 10/21 05:59，<b>以電擊術士的職業等級為基準</b>，未持有徽章也能達成）：職業等級 10 小銀幣箱 ×10；20 時裝票券 ×20＋染色劑 ×10；<b>30「菁英飾品符文選擇箱：電擊術士」</b>（雷霆／力場／帷幕三選一，每伺服器 1 次）；40 史詩鍊金術再燃燒催化劑 ×2；50 粗糙的星光稜晶 ×3。</li>
+        <li><span class="tier o">官方</span> 武器「圓盤線圈」3,000 金幣，25 級以上，佛格斯／奈麗絲／阿爾米斯的鐵匠鋪。</li>
+        <li><span class="tier w">Wiki</span> 徽章需 5 枚職業大師勳章；職業 30 級約要 150 個精靈的痕跡（韓服玩家實測）。</li>
+        <li><span class="tier o">官方</span> 官方符文池沒有「雷鳴」「落雷」，本站符文配置表已把這兩個舊直譯更正（見 <a href="runes.html">電擊術士條目</a>）。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec" id="official">⑤ 官方機率頁：基礎表沒有的兩件事</h2>
+    <div class="card">
+      <b>1. 飾品晉階依職業分組。</b>以電擊術士為例，本職符文在每個星等的結果都合計占 25%（見④）。<span class="tier c">推算</span> ★4→★5 成功約 39.6%，命中「指定的本職史詩」約 4.95%／次（39.6% × 12.5%）；★5→★6 成功 10%，指定一顆本職傳說約 0.42%／次（10% × 4.17%）。
+      <p style="margin:.7rem 0 .3rem;"><b>2. 晉階獎勵是獨立擲骰。</b>每次嘗試晉階，另有一次「符文晉階獎勵」判定，機率跟成功／失敗／催化劑都無關，命中時隨機給 1 顆傳說符文（<span class="tier o">官方</span>）：</p>
+      <div class="tbl"><table>
+        <thead><tr><th>材料符文等級</th><th>武器</th><th>防具</th><th>徽章</th><th>飾品</th><th>合計</th></tr></thead>
+        <tr><td>菁英 ★4</td><td>0.12%</td><td>0.6%</td><td>0.12%</td><td>0.36%</td><td>1.2%</td></tr>
+        <tr><td>史詩 ★5</td><td>0.4%</td><td>2.0%</td><td>0.4%</td><td>1.2%</td><td>4.0%</td></tr>
+        <tr><td>稀有 ★3</td><td>0.04%</td><td>0.2%</td><td>0.04%</td><td>0.12%</td><td>0.4%</td></tr>
+      </table></div>
+      <p class="src" style="margin:.5rem 0 0;">所以「合成失敗卻跳出傳說」不是玄學——官方頁現在有明列這個獨立獎勵；mabitw 的舊 Q&amp;A 仍寫「觸發條件官方無說明」，是舊說法。★2 以下更低，請看<a href="https://now.nexon.com/service/mabimobile-tw?page=6b73cdd3-d706-4326-8a18-9fedde7e3024" target="_blank" rel="noopener noreferrer">官方符文晉階頁</a>。</p>
+    </div>
+
+    <h2 class="sec" id="changes">⑥ 9/9 大改版的符文調整（官方）</h2>
+    <div class="card">
+      <p class="src" style="margin-top:0;">共 8 顆飾品符文的效果改動；防具與徽章符文沒動，沒有任何一顆變得不能用（<span class="tier o">官方</span> 9/9 更新日誌）：</p>
+      <ul style="margin:.2rem 0;padding-left:1.2rem;font-size:.88rem;">
+        <li><b>戰士「突擊」</b>：蓄力途中被打或目標進入無防備時，立即以最大蓄力階段發動並強化。</li>
+        <li><b>大劍戰士「斷絕」</b>：不再賦予傷口，改成最大使用次數 +1（變 2 次），冷卻與傷害增加；「反擊」受擊時獲得戰鬥節奏 1；「報復」最多 100 層，戰鬥結束消失。</li>
+        <li><b>弓手「矯捷」「席捲」</b>：對「強力射擊」的效果改寫。</li>
+        <li><b>弩手「干擾」</b>（與滑步）：滑步不會退出基本攻擊距離。</li>
+        <li><b>魔法師「隕石」</b>：破防怪原地上浮、不再四散。</li>
+        <li><b>祭司「翅膀」</b>：對「神聖之翼」技能傷害 +15%。</li>
+        <li><b>舞者</b>：「閉式舞姿」改為最終傷害，並新增最終傷害 +10%。<b>盜賊「奇襲」</b>：新增[干擾]標籤。</li>
+        <li><b>全職共用「茉麗安的加護」</b>：擋不住超過最大體力 200% 的傷害。</li>
+      </ul>
+      <p class="src" style="margin:.4rem 0 0;">符文名稱有落差時（例如官方晉階表寫「截斷」、日誌寫「斷絕」，「羽翼」與「翅膀」）推定是同一顆，官方沒有說明，請以遊戲內名稱為準。</p>
+    </div>
+
+    <h2 class="sec" id="disputes">⑦ 來源分歧與還沒驗證的地方</h2>
+    <div class="card">
+      <ul style="margin:.2rem 0;padding-left:1.2rem;font-size:.87rem;">
+        <li><b>深淵通關獎勵每週幾次：</b>官方兩處寫法不同——7/29 更新日誌寫「一週可獲得 3 次」，官方深淵遊戲指南寫「每週最多可獲得 4 次」。Wiki 與 mabitw 都取 3。以遊戲內「剩餘可獲得通關戰利品次數」為準。</li>
+        <li><b>覆蓋刻印會不會保留強化：</b>官方刻印強化指南明寫「累積的強化點數原封不動轉移」（階段可能因符文階數差異變動）；mabitw 引玩家回報相同；<span class="tier w">Wiki</span> 自家兩頁互相矛盾（一頁寫跟著點數、另一頁寫點數消失）。本頁採官方。</li>
+        <li><b>「格里斯貝恩防具符文選擇箱」箱內有什麼：</b>官方 8/12 日誌只列名稱與價格 70 證明、沒列內容物；「箱內有共鳴水晶與毀滅烙印」是 Wiki／mabitw（韓服推定）的說法。</li>
+        <li><b>千把劍是哪六個劍職：</b>mabitw 與本站基礎表列戰士、大劍戰士、劍術士、冰霜術士、盜賊、雙刀客；Wiki 明說官方符文說明沒有名單、社群版本互相矛盾。</li>
+        <li><b>深淵茉莉「職業飾品符文自選」兌換價：</b>mabitw（單一玩家）武器 900／防具 600／飾品 300；Wiki 表列 900／600／600；兩邊都標台服待驗證，本頁不採用任何一組。</li>
+        <li><b>「戈羅的呼喚」流程：</b>mabitw 兩處寫法不同（同部位史詩 ×3→傳說；或史詩徽章符文 ×3→傳說→接任務得職業飾品自選箱）。官方只確認任務存在、教學是 ★5→★6 的 100% 成功，未列部位。教學階段別放催化劑——官方已知問題公告曾記錄過催化劑被消耗，已於 9/9 補發。</li>
+        <li><b>刻印格數：</b>Wiki 一頁寫「六格」；同站其他頁、mabitw、本站基礎表都是 10 格（武器 1＋防具 5＋飾品 3＋徽章 1）。本頁採 10 格。</li>
+        <li><b>「35 級成就獎勵符文」：</b>基礎表把電擊術士的 천둥（雷霆）標為 35 級成就獎勵；官方活動、更新日誌、機率頁查無此項，Wiki 的 Lv.35 表是韓服舊社群配置、標台服待驗證。</li>
+        <li><b>Wiki 混入韓服專屬內容：</b>神話與 8→10 星（S2）、符文詞、記憶刻印、超越刻印、S1 合成表改寫、飾品超越，台服尚未見。「原型」★6：Wiki 兩頁互相矛盾（一頁稱官方文本有、一頁稱台服尚未實裝），mabitw 與官方均查無。</li>
+        <li><b>來源範圍：</b>本頁只用官方、Wiki、mabitw 三個來源；mabitw 引用的巴哈貼文只採其轉述，未直接重讀。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">來源</h2>
+    <div class="card src" style="font-size:.8rem;">
+      <b>官方</b>：<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3541097" target="_blank" rel="noopener noreferrer">9/9 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3545629" target="_blank" rel="noopener noreferrer">9/16 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3521038" target="_blank" rel="noopener noreferrer">8/12 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3510984" target="_blank" rel="noopener noreferrer">7/29 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3541087" target="_blank" rel="noopener noreferrer">閃光之主</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3545409" target="_blank" rel="noopener noreferrer">幻影的低語</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/notice/3505986" target="_blank" rel="noopener noreferrer">已知問題公告</a>；遊戲指南（刻印強化、附魔、深淵）；<a href="https://now.nexon.com/service/mabimobile-tw?page=6b73cdd3-d706-4326-8a18-9fedde7e3024" target="_blank" rel="noopener noreferrer">NEXON NOW 符文晉階機率</a>。<br>
+      <b>瑪奇 Mobile Wiki DB</b>（nipponhashi，非官方）：<a href="https://mabinogimobile.nipponhashi.com/guides/rune-basics/" target="_blank" rel="noopener noreferrer">rune-basics</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/rune-enhance-order/" target="_blank" rel="noopener noreferrer">rune-enhance-order</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/rune-fusion-hold/" target="_blank" rel="noopener noreferrer">rune-fusion-hold</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/glas-rune-box/" target="_blank" rel="noopener noreferrer">glas-rune-box</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/thousand-swords/" target="_blank" rel="noopener noreferrer">thousand-swords</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/lightningmage-rotation/" target="_blank" rel="noopener noreferrer">lightningmage-rotation</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/raid-prep-0921/" target="_blank" rel="noopener noreferrer">raid-prep-0921</a>、<a href="https://mabinogimobile.nipponhashi.com/meta/lightningmage/" target="_blank" rel="noopener noreferrer">/meta/lightningmage</a>。<br>
+      <b>mabitw 台服工具箱</b>（非官方）：<a href="https://mabitw.com/runes" target="_blank" rel="noopener noreferrer">符文</a>、<a href="https://mabitw.com/jobs" target="_blank" rel="noopener noreferrer">職業與徽章</a>、<a href="https://mabitw.com/abyss" target="_blank" rel="noopener noreferrer">深淵</a>、<a href="https://mabitw.com/daily" target="_blank" rel="noopener noreferrer">每日</a>。<br>
+      整理日期：2026-09-26。官方數字與日期已於當日回官網逐項核對；Wiki 與 mabitw 的內容為研究整理，未逐條重驗。請以遊戲內顯示為準。
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 瑪奇 Mobile 攻略索引網站</p>
+    <p style="opacity:.8;font-size:.78rem;">重要性分級為本站彙整判斷，非官方或來源站的評分。</p>
+  </footer>
+
+<script>
+const T = { o:'<span class="tier o">官方</span>', w:'<span class="tier w">Wiki</span>', p:'<span class="tier p">mabitw</span>', c:'<span class="tier c">推算</span>' };
+const IMP = { must:'必備', high:'高', depends:'依情況', trap:'陷阱／別急' };
+
+const ITEMS = [
+ { imp:'must', cat:'飾品', name:'職業飾品符文（總覽）',
+   why:'mabitw 稱最重要；韓服共識的投資順位：武器 > 職業飾品 > 徽章 > 防具。',
+   fit:'19 職各有一組專屬飾品符文：菁英 4＋史詩 2＋傳說 6 顆（官方晉階池與基礎表一致）；每職的推薦見 <a href="runes.html">符文配置表</a>。',
+   timing:'65 級前先填滿格子、顏色不限。取得：晉階（本職占 25%，見⑤）、電擊術士限定的閃光之主活動箱（見④）、套組點數商店的史詩飾品符文系列選擇箱（付費，至 11/25）；深淵茉莉、戈羅的呼喚也有自選途徑，但細節兩來源不一致，台服待驗證（見⑦）。',
+   src:T.p+' /runes、/jobs　'+T.w+' rune-basics　'+T.o+' 9/9 更新日誌' },
+ { imp:'must', cat:'防具', name:'岩石巨人・魔力激流',
+   why:'基礎表最廣的兩顆防具符文：岩石巨人 16／19 職、魔力激流 15／19 職列入，各有 13 職給 5★。',
+   fit:'幾乎全職通用。魔力激流台服實測（mabitw 玩家）：5 秒內再用任一技能就刷新，不需打中、也沒有獨立冷卻。電擊術士例外——Wiki（韓服）不建議魔力激流。',
+   timing:'官方傳說池含這兩顆（可晉階取得）。中期起靠晉階、深淵、格里斯貝恩補齊；有多餘的就先補這兩顆再考慮其他。',
+   src:T.c+' 統計自 <a href="runes.html">基礎表</a>　'+T.o+' 晉階頁傳說防具池　'+T.p+' /runes' },
+ { imp:'must', cat:'防具', name:'共鳴水晶＋毀滅烙印',
+   why:'Wiki 數過 18 職畢業防具：16 職都有這一對。共鳴水晶是常駐 +2%／秒（上限 12 層 +24%），毀滅烙印的初始 5 層綁在共鳴水晶上，所以共鳴先換。',
+   fit:'例外：治癒師（換巨人之臂）、祭司（輔助流不用）。基礎表只有 5 職列共鳴水晶、4 職列毀滅烙印（大劍戰士、劍術士、魔法師、火焰術士）——落差見上方第 1 點。',
+   timing:'官方傳說池<b>不含</b>這兩顆，只能靠格里斯貝恩等內容：格里斯貝恩防具符文選擇箱 70 證明（官方）。'+T.c+' 每次通關約得 20 證明，約 3.5 週一箱。「箱內有這一對」是 Wiki／mabitw 的說法，官方未列內容物。',
+   src:T.w+' glas-rune-box、roadmap　'+T.p+' /runes　'+T.o+' 8/12 更新日誌（商店價格）' },
+ { imp:'high', cat:'徽章', name:'徽章符文：絢爛',
+   why:'基礎表全職預設；mabitw 稱台版玩家把暴擊率＋暴擊傷害型稱為絢爛，是頂級徽章方向；俐落／強烈是拿到絢爛前的泛用下位（強擊／連擊看實際打出的傷害而非技能標籤，玩家實測）。',
+   fit:'官方徽章池 ★6 共 7 顆各 14.29%（堅實＋、俐落＋、強烈＋、狂暴＋、絢爛、睿智、冷酷）。戰士另有睿智、女神的加護的備選（見基礎表）。',
+   timing:'徽章符文刻印成功率 100%，最先刻。徽章來源：職業等級 25／35／45／55／65 各 1 枚職業大師勳章，5 枚換徽章，重購免費、刻的符文保留（mabitw）；格里斯貝恩徽章隨機箱 50 證明（官方，絢爛機率官方未寫）；深淵傳說壺沒有徽章符文（mabitw）。'+T.c+' ★5→★6 成功 10%，指定命中絢爛約 1.43%／次。',
+   src:T.o+' 晉階／刻印機率頁　'+T.p+' /jobs、/runes、/abyss' },
+ { imp:'high', cat:'武器', name:'千把劍',
+   why:'基礎表 18／19 職列入（17 職給 5★）。加成進面板攻擊力、不進戰力（Wiki）。',
+   fit:'要同一角色的 6 個劍職各練到職業等級 40 才滿層（mabitw）；單職業 0→40 約 3,800–3,900 個「痕跡」、6 職合計約 2 萬以上（Wiki 估算）。層數不足 3 層（12%）時，基礎表實戰修正建議改千錘百鍊。千把劍 vs 盲目憤怒：盲目憤怒要深淵 900 點，連擊在王的紅光（憤怒）狀態會被壓低，千把劍不看判定較穩（mabitw）。',
+   timing:'中後期才有感，新號 0%；與累計職業等級 675 的稱號同一條路，「順路疊、不專程」（Wiki）。',
+   src:T.w+' thousand-swords　'+T.p+' /runes　'+T.o+' 晉階頁傳說武器池' },
+ { imp:'high', cat:'系統', name:'刻印強化的順序與停損',
+   why:'65 級後金幣第一名（Wiki）。刻印強化最多 20 階；獨特裝備等部分裝備無法強化（官方）。',
+   fit:'全職通用。優先序：武器 > 飾品 > 防具／徽章；全身先推 +10，只有武器繼續衝到 +13（+10／+13 是 Wiki 實測停損建議，非官方）。',
+   timing:'催化劑等 +10 以後再掛。覆蓋新符文會保留強化點數、分解會重置階段（官方）；不要先把便宜裝備衝到 +8 再刻印——刻印／覆蓋的金幣隨強化階暴增（mabitw 玩家實測）。各階成功率與期望次數請用 <a href="enhance-calculator.html">強化計算機</a>。',
+   src:T.o+' 刻印強化指南、刻印強化機率頁　'+T.w+' rune-enhance-order　'+T.p+' /runes' },
+ { imp:'depends', cat:'取得', name:'白魅魔掉落符文',
+   why:'每次通關戰利品含 3 個「★3～★6 武器／防具／飾品符文中的 1 個」，另有史詩防具專用附魔卷軸「白薔薇」1 張（官方）。「各部位各 1 顆」是 Wiki 的讀法，官方未明說。',
+   fit:'4 人團隊副本，65 級＋「朝向那片大海」任務進行中。隨機抽，不保證關鍵符文。',
+   timing:'每角色每週 1 份，與格里斯貝恩分開計算；9/21 開放、首次重置 9/28 06:00。活動「幻影的低語」至 10/14 有額外獎勵，見 <a href="succubus.html">魅魔攻略</a>。',
+   src:T.o+' 9/16 更新日誌、幻影的低語　'+T.w+' white-succubus-raid' },
+ { imp:'depends', cat:'附魔', name:'附魔卷軸與符文的關係',
+   why:'附魔 9/9 上線：卷軸有 1 個基本效果，另依均等機率獲得 0～2 個附加效果（官方）。',
+   fit:'依裝備類型分專用卷軸。白薔薇（史詩防具，白魅魔每週 1 張）；狐狸（★6 飾品）400 赤紅深淵的化石，9/14 起在茉莉。',
+   timing:'10/5 起貓船長的商店販售「附魔卷軸選擇箱：格里斯貝恩」（120 證明）。不要把附魔貼在過渡裝備上；<b>分解已附魔的裝備拿不回卷軸</b>（官方）。',
+   src:T.o+' 9/9 更新日誌、附魔遊戲指南　'+T.w+' enchant-scrolls' },
+ { imp:'trap', cat:'系統', name:'史詩→傳說合成（現階段別急）',
+   why:'★5→★6 成功率 10%（官方機率頁，與 <a href="enhance-calculator.html">強化計算機</a>同值）；Wiki 試算期望約需 21 顆史詩，催化劑版本成功率 19%、約 11.5 顆。',
+   fit:'官方傳說池不含共鳴水晶、毀滅烙印、乾涸之地、平原流浪者、傭兵王（防具），也不含遺忘時代、魔法探究者（武器）。也就是想要的關鍵符文，合成未必拿得到。',
+   timing:'賽季前現役槽位合到傳說就停手，多餘史詩／傳說「抱著別拆」（Wiki，該站標明結論有期限）。別把史詩徽章符文當合成材料。',
+   src:T.o+' 晉階機率頁　'+T.w+' rune-fusion-hold　'+T.p+' /runes' },
+ { imp:'trap', cat:'武器', name:'遺忘時代',
+   why:'冷卻是 +6%（變長）而非縮短，已有玩家看反。',
+   fit:'基礎表只有長弓手、樂師、雙刀客的武器符文列入（3 職）。',
+   timing:'官方傳說武器池不含遺忘時代，只能靠其他內容取得——不用急著找。',
+   src:T.p+' /runes　'+T.c+' 統計自基礎表　'+T.o+' 晉階頁傳說武器池' },
+ { imp:'trap', cat:'防具', name:'紅色盟約',
+   why:'站在符文上才生效（站樁才有加成）。',
+   fit:'基礎表評價兩極：戰士 ★1、治癒師 ★4——要移動的職業別碰，常站定的（治癒）才合適。',
+   timing:'官方傳說防具池有這顆，但不是取得優先目標。',
+   src:T.p+' /runes　'+T.o+' 晉階頁　'+T.c+' 統計自基礎表' },
+ { imp:'trap', cat:'裝備', name:'獨特裝備只算過渡',
+   why:'獨特裝備無法刻印強化（官方刻印強化指南）。',
+   fit:'9/9 起野外首領困難的特別戰利品含獨特稀有度裝備；深淵通關也有獨特裝備獎勵池。',
+   timing:'9/30 更新後瑪斯深淵全難度的通關獨特裝備獎勵池調整；9/28 重置後到更新前仍用舊池，Wiki 建議這兩天先不清瑪斯深淵。',
+   src:T.o+' 9/16 更新日誌、刻印強化指南　'+T.w+' raid-prep-0921' },
+ { imp:'trap', cat:'系統', name:'高星刻印與高強化裝備',
+   why:'★5、★6 刻印成功率只有 25%（四次失敗三次），要備解咒（官方刻印機率；mabitw 提醒）。',
+   fit:'全職通用；★2～3 60%、★4 40%、★5～6 25%、徽章 100%。',
+   timing:'+10 以上的裝備，多位玩家建議「直接覆蓋新符文，別分解」；「先衝綠藍符文再轉橘」不划算（mabitw 玩家實測）。',
+   src:T.o+' 刻印機率頁　'+T.p+' /runes' }
+];
+
+const chips = document.getElementById('chips');
+const itemsEl = document.getElementById('items');
+let filter = 'all';
+function drawChips(){
+  const opts = [['all','全部 ('+ITEMS.length+')']].concat(Object.keys(IMP).map(k => [k, IMP[k]+' ('+ITEMS.filter(i => i.imp===k).length+')']));
+  chips.innerHTML = opts.map(o => '<button class="chip" data-k="'+o[0]+'" aria-pressed="'+(filter===o[0])+'">'+o[1]+'</button>').join('');
+  chips.querySelectorAll('button').forEach(b => b.onclick = () => { filter = b.dataset.k; drawChips(); drawItems(); });
+}
+function drawItems(){
+  itemsEl.innerHTML = ITEMS.filter(i => filter==='all' || i.imp===filter).map(i =>
+    '<article class="it '+i.imp+'"><h3><span class="imp '+i.imp+'">'+IMP[i.imp]+'</span>'+i.name+'<span class="cat">'+i.cat+'</span></h3>'
+    +'<div class="why">'+i.why+'</div>'
+    +'<div class="row"><span class="lab">適用性</span><span>'+i.fit+'</span></div>'
+    +'<div class="row"><span class="lab">時機性</span><span>'+i.timing+'</span></div>'
+    +'<div class="src" style="margin-top:.4rem;">依據：'+i.src+'</div></article>').join('');
+}
+drawChips(); drawItems();
+
+// 適用性統計：巴哈基礎表 19 職（統計自 runes.html DATA，2026-09-26）。[符文, 幾職列入, 5★職數]
+const STAT_W = [['千把劍',18,17],['荊棘藤蔓',9,4],['千錘百鍊',8,1],['盲目憤怒',8,3],['靈魂收割者',7,2],['連續',4,1],['爆裂',4,0],['決鬥+',3,1],['驚異+',3,2],['遺忘時代',3,1]];
+const STAT_A = [['岩石巨人',16,13],['魔力激流',15,13],['穩定+',11,1],['陰險一擊',9,2],['火炬',8,2],['吸血+',8,1],['領悟',8,0],['碎冰',6,2],['平原流浪者',5,4],['共鳴水晶',5,4],['毀滅烙印',4,4],['神聖修養',3,3]];
+function statRows(rows){ return rows.map(r => '<tr><td>'+r[0]+'</td><td class="bar"><i style="width:'+Math.round(r[1]/19*100)+'%"></i><span>'+r[1]+' 職</span></td><td>'+r[2]+'</td></tr>').join(''); }
+document.getElementById('stat-w').innerHTML = statRows(STAT_W);
+document.getElementById('stat-a').innerHTML = statRows(STAT_A);
+
+// 日期節點：以台灣時間（UTC+8）判斷是否已過；data-end 為該列日期的當天結束
+(function(){
+  const now = Date.now() + 8*3600*1000;
+  document.querySelectorAll('#timeline tr[data-end]').forEach(tr => {
+    const end = Date.parse(tr.dataset.end + 'T23:59:59Z');
+    if (end < now) tr.classList.add('past');
+  });
+})();
+</script>
+</body>
+</html>

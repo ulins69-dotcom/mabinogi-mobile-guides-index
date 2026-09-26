@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 白魅魔・黑魅魔攻略</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b;
+      --official:#27ae60; --kr:#c0392b; --player:#2980b9; --raise:#f1f5f9; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.65; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    header p { margin:0; opacity:.85; font-size:.9rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .6rem; text-decoration:none; font-size:.92rem; white-space:nowrap; display:inline-block; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:960px; margin:1.5rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; margin-top:2rem; }
+    .legend { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:.6rem; margin-bottom:1.2rem; }
+    .lg { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.6rem .8rem; font-size:.84rem; border-left-width:5px; }
+    .lg b { display:block; margin-bottom:.15rem; }
+    .lg.o { border-left-color:var(--official); } .lg.k { border-left-color:var(--kr); } .lg.p { border-left-color:var(--player); }
+    .tier { font-size:.7rem; font-weight:700; padding:.05rem .45rem; border-radius:10px; color:#fff; white-space:nowrap; vertical-align:middle; }
+    .tier.o { background:var(--official); } .tier.k { background:var(--kr); } .tier.p { background:var(--player); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; margin-bottom:1rem; }
+    .clarify { background:#fff8e1; border:1px solid #f0d98c; color:#6b5000; border-radius:8px; padding:.9rem 1.1rem; margin-bottom:1.2rem; font-size:.9rem; }
+    .clarify ul { margin:.4rem 0 0; padding-left:1.2rem; } .clarify li { margin:.3rem 0; }
+    table { border-collapse:collapse; width:100%; }
+    th { text-align:left; font-size:.75rem; color:var(--muted); padding:.5rem .7rem; border-bottom:2px solid var(--line); background:var(--raise); }
+    td { padding:.55rem .7rem; border-bottom:1px solid var(--line); font-size:.88rem; vertical-align:top; }
+    tr:last-child td { border-bottom:none; }
+    td.k { font-weight:700; color:var(--dark); white-space:nowrap; width:8.5rem; }
+    details.fold { background:var(--card); border:1px solid var(--line); border-radius:8px; margin-bottom:.8rem; }
+    details.fold summary { cursor:pointer; padding:.75rem 1rem; font-weight:700; color:var(--dark); list-style:none; }
+    details.fold summary::-webkit-details-marker { display:none; }
+    details.fold summary::before { content:"▸ "; color:var(--brand); } details.fold[open] summary::before { content:"▾ "; }
+    .fold-body { padding:0 1rem 1rem; } .fold-body ul { margin:.3rem 0; padding-left:1.2rem; } .fold-body li { margin:.4rem 0; font-size:.9rem; }
+    .warn { background:#fdecea; border-left:4px solid var(--warn); border-radius:0 6px 6px 0; padding:.6rem .9rem; font-size:.86rem; margin:.7rem 0; }
+    .src { font-size:.75rem; color:var(--muted); }
+    .src a, .card a, .fold-body a, td a { color:var(--brand); }
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+    footer p { margin:.3rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌹 白魅魔・黑魅魔 攻略整理</h1>
+    <p>官方確認 → 韓服機制整理 → 台服首日回報，三種證據等級分開標示，不混在一起</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html">🔮 符文配置表</a>
+      <a href="rune-research.html">🔬 符文研究</a>
+      <a href="jiankang.html">🩺 角色健檢</a>
+      <a href="sidequests.html">🗺️ 特殊支線</a>
+      <a href="trade-items.html">🔄 以物易物</a>
+      <a href="succubus.html" class="active">🌹 魅魔攻略</a>
+      <a href="lifeskills.html">🌾 生活技能</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="legend">
+      <div class="lg o"><b><span class="tier o">官方</span> 台服官網原文</b>9/16 更新日誌、活動頁、遊戲指南——日期、規則、獎勵以這一級為準。</div>
+      <div class="lg k"><b><span class="tier k">韓服</span> 韓服 S1 社群整理</b>經瑪奇 Mobile Wiki DB 轉述，招式名、血條數、限時<u>台服都還沒驗證</u>，以遊戲內為準。</div>
+      <div class="lg p"><b><span class="tier p">玩家</span> 台服首日單人回報</b>mabitw 轉述巴哈玩家實測，二手、個案，只能當參考。</div>
+    </div>
+
+    <div class="clarify">
+      <b>先釐清：「黑魅魔」「白魅魔」到底是什麼？</b>
+      <ul>
+        <li><b>兩隻是同一個 4 人副本裡的兩個敵人，不是兩個副本。</b>白魅魔是場外的首領本體；黑魅魔是被拉進「夢境」的兩人要對付的敵人，沒有獨立的入場條件、難度或獎勵。<span class="tier k">韓服</span> 巴哈也有玩家文直接把這個副本稱為「全新4人副本《白魅魔&黑魅魔》」。<span class="tier o">官方</span> 台服文字只寫「白魅魔」，沒有出現「黑魅魔」三個字。</li>
+        <li><b>「扒魅魔衣服」不是掉時裝。</b><span class="tier k">韓服</span> Wiki 說那是白魅魔戰鬥中累積傷害後的服裝損毀演出（分兩階段）；台服官方的時裝獎勵是另一回事（見下方獎勵）。</li>
+        <li>另有兩個容易混進來的「魅魔」：Wiki 資料庫「拉維的深度」一列標深層首領為魅魔（<span class="tier k">韓服</span>，台服未確認）；PC 版劇情 NPC 克莉絲原是萊比地下城的魅魔（設定背景）。都不是這個副本。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">① 基本資料 <span class="tier o">官方</span></h2>
+    <div class="card">
+      <table>
+        <tr><td class="k">開放時間</td><td>9/16 維護新增，<b>9/21（一）06:00 起</b>可進行。</td></tr>
+        <tr><td class="k">人數</td><td>團隊副本，最多 <b>4 人</b>，也可以<b>單人</b>（單人會套用「減緩模式與屬性」）。</td></tr>
+        <tr><td class="k">解鎖條件</td><td>角色 65 級，並在「朝向那片大海」任務進行中解鎖團隊副本；團隊副本指南補充需先通關「向那深邃黑暗的彼端」，再與伊文對話進行該任務。</td></tr>
+        <tr><td class="k">難度</td><td>更新日誌沒列難度；活動頁寫「[困難] 通關白魅魔團隊副本」。台服目前是否只有這一檔、日後會不會加更高難度，官方未公布。</td></tr>
+        <tr><td class="k">入場消耗</td><td>官方對白魅魔<b>查無入場道具說明</b>。魔族貢品／銀幣是深層、一般地下城的入場貨幣，別套用在這裡。</td></tr>
+        <tr><td class="k">復活</td><td>整隊共 <b>5 次</b>；道具復活與隊友拉起都算。進首領房前只要隊員一人摸營火，就補回 5 次；全滅後隊長在安全處復活也回到 5 次；剩餘次數在倒地時顯示。</td></tr>
+        <tr><td class="k">中途離隊</td><td>團隊副本通則有離隊冷卻（第 3 次離開 1 分、第 4 次 5 分、第 5 次起 10 分，通關後重置）；是否適用白魅魔，官方指南沒明寫，屬通則推定。</td></tr>
+        <tr><td class="k">每週限制</td><td>通關戰利品<b>每角色每週 1 次</b>，「參與」次數不限；每週一 06:00 重置，首次重置 <b>9/28（一）06:00</b>；跟格里斯貝恩的次數分開計算。</td></tr>
+      </table>
+      <p class="src">來源：<a href="https://tw.nexon.com/mabinogimobile/home/news/update/3545629" target="_blank" rel="noopener noreferrer">9/16 更新日誌</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/notice/3545320" target="_blank" rel="noopener noreferrer">9/16 例行維護公告</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3545409" target="_blank" rel="noopener noreferrer">幻影的低語活動說明</a>。官方團隊副本指南的表格目前仍只列格里斯貝恩，尚未加入白魅魔。</p>
+    </div>
+
+    <h2 class="sec">② 獎勵 <span class="tier o">官方</span></h2>
+    <div class="card">
+      <table>
+        <tr><td class="k">通關戰利品</td><td>金幣 100,000；粗糙的黑曜石或粗糙的鑽石（擇一）×2；符文 ×3（官方寫「★3~★6 武器/防具/飾品符文中的 1 個」，數量 3）；附魔卷軸：白薔薇 ×1（史詩、防具專用）；映夢的鏡子碎片 ×1。</td></tr>
+        <tr><td class="k">特別戰利品</td><td>蝕影時裝 ×1（「依既定機率」掉落）。</td></tr>
+      </table>
+      <div class="warn"><span class="tier k">韓服</span> 白薔薇（韓服暫譯「白玫瑰」）效果在官方文字只有「史詩、防具專用」；韓服資料是攻擊力 +100 並帶 0～2 條戰鬥能力值、五個防具部位一週一張。映夢的鏡子碎片韓服拿去杜巴頓 NPC 西蒙換蝕影時裝（每部位 3 片、四部位共 12 片≈12 週），<b>台服兌換表官方查無</b>，數字以遊戲內為準。</div>
+    </div>
+
+    <h2 class="sec">③ 進行中的相關活動 <span class="tier o">官方</span></h2>
+    <div class="card">
+      <ul style="margin:.2rem 0;padding-left:1.2rem;">
+        <li><b>幻影的低語</b>（9/21 06:00 ～ 10/14 05:59，以伺服器為單位、每伺服器 1 次）：通關 [困難] 1／2／3 次分別得 符文碎片 300＋抗魔石粉末 5；符文重設稜鏡 5＋抗魔石粉末 10；菁英鍊金術再燃燒催化劑 3＋抗魔石粉末 20。首週可打 3 次（第 1 次領戰利品，第 2、3 次順便練習並解活動）。</li>
+        <li><b>星星，一起，強大</b>（9/21 ～ 10/7，官方 Discord）：貼通關結算截圖、四位隊員都簽到，符合資格者各得重生石 1，另抽實體周邊。</li>
+        <li><b>拒絕誘惑！暈船仔互助會</b>（9/21 ～ 10/7，官方 Discord）：發攻略／分工／機制解析／心得，標題須含「拒絕誘惑！」，評選 20 名各得 MyCard 1,000 點。</li>
+      </ul>
+      <p class="src">來源：<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3545409" target="_blank" rel="noopener noreferrer">幻影的低語</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3540562" target="_blank" rel="noopener noreferrer">星星，一起，強大</a>、<a href="https://tw.nexon.com/mabinogimobile/home/news/event/3540561" target="_blank" rel="noopener noreferrer">拒絕誘惑！</a>。日期以官方頁面為準。</p>
+      <p class="src">順帶一提（不是白魅魔獎勵）：同一份更新日誌預告深淵「地獄 4」<b>9/28 06:00</b> 開放，9/30 更新後瑪斯深淵全難度的獨特裝備獎勵會調整，9/28～9/30 期間仍是舊獎勵池。</p>
+    </div>
+
+    <h2 class="sec">④ 機制與打法 <span class="tier k">韓服</span></h2>
+    <div class="warn"><b>這一整段都是韓服 S1 社群整理</b>（出處：Wiki DB「白魅魔 9/21 開門」與怪物資料庫，內含 Inven、Nexon Peak 等韓服社群說法）。Wiki 自己也標「韓服前瞻、台服招式名要等客戶端」。台服的招式中文名、血條數與觸發刻度、限時都<b>還沒有官方或實測數字</b>，下面當「心理準備」而不是照抄的軸。</div>
+
+    <details class="fold" open>
+      <summary>血量節奏：四個輸出窗（[困難] 991 條血，韓服數字）</summary>
+      <div class="fold-body">
+        <table>
+          <thead><tr><th>階段</th><th>血條</th><th>占比</th></tr></thead>
+          <tr><td>第一窗</td><td>991 → 790（201 條）</td><td>約 20%</td></tr>
+          <tr><td>第二窗</td><td>790 → 600（190 條）</td><td>約 19%</td></tr>
+          <tr><td>第三窗</td><td>600 → 420（180 條）</td><td>約 18%</td></tr>
+          <tr><td>第四窗</td><td>420 → 0（420 條）</td><td>約 42%</td></tr>
+        </table>
+        <ul>
+          <li>招式「進夢的邀請」在 790／600／420 條各觸發一次，把戰鬥切成四段。建議<b>把爆發留給第四段</b>，在第五次循環前打完。</li>
+          <li>韓服限時有兩種說法（8 分鐘／9 分 20 秒），Wiki 並列、以遊戲內為準。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>五個關鍵機制</summary>
+      <div class="fold-body"><ul>
+        <li><b>① 強制分隊：</b>首領瞬移後朝「離她最遠、且沒有『失眠』標記」的人放扇形玫瑰藤，被打中的<b>兩人睡著、進夢境打黑魅魔</b>，另外兩人留在現實。</li>
+        <li><b>② 站位可控：</b>想進夢的人站遠；「失眠」出夢後約 90 秒內不會再被拉，所以第二輪一定換另一組（A 組第一輪、B 組第二輪、A 組第三輪）。</li>
+        <li><b>③ 裡外連動：</b>夢外兩人要盡快殺兩隻惡夢之影，每殺一隻，夢裡的破防增益疊一層；同時紫色玫瑰會爬向睡著的隊友，碰到即死，夢外的人要用身體擋。</li>
+        <li><b>④ 唯一直接團滅：</b>夢裡破防失敗（外面太慢還會放毒地板），或出夢後沒接上對白魅魔的破防 → 觸發「惡夢顯現」→ 黑魅魔跳到現實放「心臟強奪」，單體即死、無敵擋不掉。</li>
+        <li><b>⑤ 常駐招：</b>八方向鐮刀（「惡夢之舞」）附精神類持續傷害，普通繃帶解不掉，要祝福的／完美的繃帶；白色波浪鎖定一人追蹤扇形，被鎖者站著別動，亂動會把魅惑地板拖到隊友身上。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>分工、職業與常見失誤</summary>
+      <div class="fold-body"><ul>
+        <li><b>標準解 2／1／1：</b>兩個固定在外面的輸出負責殺影與擋花，另兩人輪流進夢。每組一近一遠（四個近戰會搶目標）。</li>
+        <li><b>破防能力決定體驗：</b>韓服社群點名冰系法師；也有回報雙刀客與戰士能單扛夢裡那半。困難不一定需要補師。</li>
+        <li><b>韓服首日常見失誤：</b>三人一起被拉進夢（站位沒拉開）、沒人擋紫花（一次復活被扣兩條）、把它當純輸出戰。</li>
+        <li><b>與格里斯貝恩的差異（Wiki 論述）：</b>8 人副本的機制常常是「某幾個人的事」，白魅魔的 4 人全部都是機制位；復活次數也不同（格里斯貝恩入門 20／困難 10 次，白魅魔 5 次）。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>準備清單與戰力</summary>
+      <div class="fold-body"><ul>
+        <li><b>消耗品：</b>祝福／完美繃帶、復活道具、移速與減傷秘藥。進首領房前摸營火把 5 次復活補滿。</li>
+        <li><b>戰力：</b>台服官方未公布建議戰力。韓服建議 27,000，但韓服社群明寫「未達也能入場」，回報 2.4～2.6 萬的隊伍能過。（Wiki 內部對 27,000 的占比說法也前後矛盾，別把它當通關線。）</li>
+        <li><b>符文與能力值：</b>想準備符文，見本站<a href="runes.html">符文配置表</a>；破防、爆發窗口的補位比單純戰力數字重要。</li>
+      </ul></div>
+    </details>
+
+    <h2 class="sec">⑤ 台服首日單人回報 <span class="tier p">玩家</span></h2>
+    <div class="card">
+      <p style="margin-top:0;">9/21 開放當天的單人個案（mabitw 整理，原文在巴哈，非官方、屬二手）：</p>
+      <ul style="margin:.2rem 0;padding-left:1.2rem;">
+        <li>2.4 萬戰力的大劍，全自動約 <b>5 分鐘</b>通關。</li>
+        <li>25,441 戰力的修道士，全自動通關（用了 2 瓶最高級藥水）。</li>
+        <li>2.8 萬戰力的冰霜術士，單人<b>打不過</b>。</li>
+      </ul>
+      <p>結論：<b>單人結果看職業、符文、循環與破防能力，戰力數字不能直接當通關線</b>；多名首日通關者也說，單人不必照搬四人版的分隊與擋玫瑰協作。</p>
+      <p class="src">延伸閱讀（巴哈玩家文，本站索引已收錄）：<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2954" target="_blank" rel="noopener noreferrer">白魅魔團本單人回報</a>、<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2955" target="_blank" rel="noopener noreferrer">擊破白魅魔戰績分享串（冰法單人）</a>、<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2870" target="_blank" rel="noopener noreferrer">開服前機制整理（韓版）</a>、<a href="https://forum.gamer.com.tw/C.php?bsn=32564&snA=2478" target="_blank" rel="noopener noreferrer">《白魅魔&黑魅魔》機制與故事內容</a>。</p>
+    </div>
+
+    <h2 class="sec">⑥ 還沒驗證／來源打架的地方</h2>
+    <div class="card">
+      <ul style="margin:.2rem 0;padding-left:1.2rem;">
+        <li><b>難度檔數：</b>官方只露「[困難]」；「台服只有這一檔」是 Wiki 的推論。</li>
+        <li><b>建議戰力 27,000：</b>只有韓服數字；Wiki 不同頁面對它的占比說法互相矛盾。</li>
+        <li><b>卷軸名：</b>Wiki 資料庫與部分 YouTube 標題寫「白玫瑰」，台服官方正式名是「附魔卷軸：白薔薇」。</li>
+        <li><b>蝕影時裝：</b>官方只說是機率性特別戰利品；韓服另有碎片保底兌換，台服兌換表未公布。兩個粉絲站對「魅魔時裝」歸屬的敘述也不一致（且都是韓服資料）。</li>
+        <li><b>符文 ×3：</b>官方沒說「各部位各一個」，那是 Wiki 的解讀。</li>
+        <li><b>「20 秒攔召喚」等 YouTube 標題上的細節：</b>官網、Wiki、mabitw 三個來源都查不到對應說法，先不採用。</li>
+        <li><b>待台服實測或官方補充：</b>招式中文名、血條與觸發刻度、限時、台服建議戰力、鏡子碎片兌換清單、「失眠 90 秒」與「5 次復活」在台服是否一致。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">來源</h2>
+    <div class="card src" style="font-size:.8rem;">
+      <b>官方（tw.nexon.com/mabinogimobile）</b>：9/16 更新日誌（thread 3545629）、9/16 維護公告（3545320）、幻影的低語（3545409）、星星，一起，強大（3540562）、拒絕誘惑！（3540561）、團隊副本指南（3474927）、地下城／深層地下城指南（3474913）。<br>
+      <b>瑪奇 Mobile Wiki DB</b>（nipponhashi，非官方）：<a href="https://mabinogimobile.nipponhashi.com/guides/white-succubus-raid/" target="_blank" rel="noopener noreferrer">白魅魔 9/21 開門</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/raid-prep-0921/" target="_blank" rel="noopener noreferrer">開門前四天清單</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/succubus-fashion-free-or-gacha/" target="_blank" rel="noopener noreferrer">魅魔時裝免費拿得到嗎</a>。<br>
+      <b>mabitw 台服工具箱</b>（非官方）：<a href="https://mabitw.com/abyss" target="_blank" rel="noopener noreferrer">深淵入門（含 9/21 台服首日單人回報）</a>。<br>
+      整理日期：2026-09-26。以上為本站分類轉述，完整與最新內容請以來源頁面為準。
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 瑪奇 Mobile 攻略索引網站</p>
+    <p style="opacity:.8;font-size:.78rem;">官方頁面日期規則若有調整，以 tw.nexon.com 公告為準；韓服資料僅供心理準備。</p>
+  </footer>
+</body>
+</html>

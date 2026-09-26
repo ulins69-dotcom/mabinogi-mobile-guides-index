@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瑪奇 Mobile 生活技能養成</title>
+  <style>
+    :root { --bg:#f9f9f9; --card:#fff; --ink:#333; --muted:#666; --line:#ddd;
+      --brand:#3498db; --dark:#2c3e50; --featured:#f39c12; --warn:#c0392b;
+      --official:#27ae60; --kr:#c0392b; --player:#2980b9; --raise:#f1f5f9; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; margin:0;
+      background:var(--bg); color:var(--ink); line-height:1.65; }
+    header { background:var(--dark); color:#fff; padding:1.2rem 1rem; text-align:center; }
+    header h1 { margin:0 0 .3rem; font-size:1.5rem; }
+    header p { margin:0; opacity:.85; font-size:.9rem; }
+    nav { background:var(--dark); text-align:center; padding-bottom:.6rem; }
+    nav a { color:#cfe3f3; margin:0 .6rem; text-decoration:none; font-size:.92rem; white-space:nowrap; display:inline-block; }
+    nav a:hover, nav a.active { color:#fff; text-decoration:underline; }
+    .container { max-width:960px; margin:1.5rem auto; padding:0 1rem; }
+    h2.sec { border-left:5px solid var(--brand); padding-left:.6rem; color:var(--brand); font-size:1.25rem; margin-top:2rem; }
+    .legend { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:.6rem; margin-bottom:1.2rem; }
+    .lg { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.6rem .8rem; font-size:.84rem; border-left-width:5px; }
+    .lg b { display:block; margin-bottom:.15rem; }
+    .lg.o { border-left-color:var(--official); } .lg.k { border-left-color:var(--kr); } .lg.p { border-left-color:var(--player); }
+    .tier { font-size:.7rem; font-weight:700; padding:.05rem .45rem; border-radius:10px; color:#fff; white-space:nowrap; vertical-align:middle; }
+    .tier.o { background:var(--official); } .tier.k { background:var(--kr); } .tier.p { background:var(--player); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; margin-bottom:1rem; }
+    .key { background:#eef6fb; border:1px solid #cfe3f3; border-radius:8px; padding:.9rem 1.1rem; margin-bottom:1.2rem; font-size:.9rem; }
+    .key ol { margin:.4rem 0 0; padding-left:1.3rem; } .key li { margin:.35rem 0; }
+    table { border-collapse:collapse; width:100%; }
+    th { text-align:left; font-size:.75rem; color:var(--muted); padding:.5rem .7rem; border-bottom:2px solid var(--line); background:var(--raise); }
+    td { padding:.55rem .7rem; border-bottom:1px solid var(--line); font-size:.88rem; vertical-align:top; }
+    tr:last-child td { border-bottom:none; }
+    td.k { font-weight:700; color:var(--dark); white-space:nowrap; width:7rem; }
+    details.fold { background:var(--card); border:1px solid var(--line); border-radius:8px; margin-bottom:.8rem; }
+    details.fold summary { cursor:pointer; padding:.75rem 1rem; font-weight:700; color:var(--dark); list-style:none; }
+    details.fold summary::-webkit-details-marker { display:none; }
+    details.fold summary::before { content:"▸ "; color:var(--brand); } details.fold[open] summary::before { content:"▾ "; }
+    .fold-body { padding:0 1rem 1rem; } .fold-body ul { margin:.3rem 0; padding-left:1.2rem; } .fold-body li { margin:.4rem 0; font-size:.9rem; }
+    .fold-body h4 { margin:.9rem 0 .2rem; font-size:.92rem; color:var(--dark); }
+    .warn { background:#fdecea; border-left:4px solid var(--warn); border-radius:0 6px 6px 0; padding:.6rem .9rem; font-size:.86rem; margin:.7rem 0; }
+    .src { font-size:.75rem; color:var(--muted); }
+    a { color:var(--brand); }
+    footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
+    footer p { margin:.3rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌾 生活技能養成</h1>
+    <p>官方機制優先；技能名稱、等級與練法多半來自韓服數據，逐項標示可信度</p>
+    <nav>
+      <a href="index.html">攻略索引</a>
+      <a href="calculator.html">🗡️ 傷害計算機</a>
+      <a href="enhance-calculator.html">⚒️ 強化／符文計算機</a>
+      <a href="runes.html">🔮 符文配置表</a>
+      <a href="rune-research.html">🔬 符文研究</a>
+      <a href="jiankang.html">🩺 角色健檢</a>
+      <a href="sidequests.html">🗺️ 特殊支線</a>
+      <a href="trade-items.html">🔄 以物易物</a>
+      <a href="succubus.html">🌹 魅魔攻略</a>
+      <a href="lifeskills.html" class="active">🌾 生活技能</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="legend">
+      <div class="lg o"><b><span class="tier o">官方</span> 台服官網原文</b>遊戲指南、更新日誌、常態商品說明——機制與規則以這一級為準（本頁已逐項回官網核對）。</div>
+      <div class="lg k"><b><span class="tier k">韓服</span> Wiki DB 整理</b>等級解鎖、批次時間、練級順序多為韓服數值或站方推論，台服<u>待驗證</u>，以遊戲內為準。</div>
+      <div class="lg p"><b><span class="tier p">玩家</span> mabitw／玩家回報</b>台服玩家實測或回報，個案性質，僅供參考。</div>
+    </div>
+
+    <div class="key">
+      <b>先看這 6 點</b>
+      <ol>
+        <li><b>官方沒有公布生活技能清單、等級表或練級路線</b>，只寫機制。技能名稱、等級上限、解鎖等級幾乎都來自 Wiki DB（韓服數值）與 mabitw（玩家）。</li>
+        <li><span class="tier o">官方</span> <b>生活技能升級、累積生活經驗值、加工設備升等、製作台升級，全部由同一伺服器內所有角色共享</b>——分身不必為了這些再練一次。但生活工具、背包提供的生活力只算裝備者自己。</li>
+        <li><span class="tier o">官方</span> 9/9 更新：「部分生活技能上限將擴充」（沒給數字）；加工設備與製作台可升到 Lv.4。</li>
+        <li><span class="tier k">韓服</span>「靈魂潮流」（全服生活力／戰力／魅力換算成「소울」）是韓服 S2 系統，<b>官方台服文字查無這個詞</b>，台服目前沒有。所以「為了靈魂潮流而練生活」在台服不成立。</li>
+        <li><span class="tier o">官方</span> <b>背包整理有陷阱</b>：「簡單整理」預設會賣掉持有 200 個以上材料的一半、「大膽整理」材料只留 20 個——可能賣掉之後要拿去換物的原木與礦石（詳見第④節）。</li>
+        <li><span class="tier o">官方</span> 時間點：每日 06:00 換日；基本兼職每日 06:00、18:00 各新增 1 項；每週一 06:00 重置。</li>
+      </ol>
+    </div>
+
+    <h2 class="sec">① 技能總覽</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>類別</th><th>內容</th><th>可信度</th></tr></thead>
+        <tr><td class="k">採集</td><td>官方確認的採集地點類型：徒手（蜘蛛網、果園、巢穴）、空瓶（水、乳牛放牧地）、工具（礦脈、釣魚場、田地、蘑菇、光群、藥草、綿羊放牧地、菜園、特殊樹種）。Wiki 另列 8 種技能：伐木、挖礦、藥草、剪羊毛、採收、鋤地、昆蟲、釣魚，加上不需工具的「日常採集」。</td><td><span class="tier o">官方</span> 只給類型；技能名稱 <span class="tier k">韓服</span> 以遊戲內為準</td></tr>
+        <tr><td class="k">釣魚</td><td>釣竿、餌、悠閒／專注兩種模式、釣魚場狀態。</td><td><span class="tier o">官方</span> 詳細</td></tr>
+        <tr><td class="k">加工</td><td><b>不是個人技能，是設備</b>：金屬、木材、皮革、布料、藥品、食材共 6 台，9/9 起可升到 Lv.4。</td><td><span class="tier o">官方</span></td></tr>
+        <tr><td class="k">製作</td><td>武器、防具、藥品、食物、多用途 5 種製作台；Wiki 稱有料理、藥水調製、鍛造、裁縫、木工等技能。</td><td>製作台 <span class="tier o">官方</span>；技能名稱 <span class="tier k">韓服</span></td></tr>
+        <tr><td class="k">鍊金術</td><td>完成「討伐賽維爾地下城 1 層！」任務後學習；需配戴鍊金術工具。</td><td><span class="tier o">官方</span></td></tr>
+        <tr><td class="k">兼職</td><td>5 種：基本、每週、特殊（需生活會員）、幸運機會、週末。給生活經驗值與獎勵。</td><td><span class="tier o">官方</span></td></tr>
+      </table>
+      <div class="warn"><b>等級上限：三個來源互相衝突。</b> Wiki（韓服數值）：採集系 37、日常採集 35、製作系 35、鍊金術 10；mabitw（玩家）：採集／鋤地卡在 20、其他技能有人到 30、「37」未確認；官方 9/9 只寫「部分生活技能上限將擴充」沒有數字。<b>以遊戲內生活技能視窗顯示的「等級／上限」為準。</b></div>
+    </div>
+
+    <h2 class="sec">② 各技能養成</h2>
+
+    <details class="fold" open>
+      <summary>通用：成長指南與生活力</summary>
+      <div class="fold-body"><ul>
+        <li><span class="tier o">官方</span> 官方唯一的「練級路線」是<b>成長指南 → 生活力</b>：會列出各生活技能等級的推薦活動與適合現在等級的工具，按「進行」可直接前往。</li>
+        <li><span class="tier o">官方</span> 生活力有兩種：共享的（技能升級、累積經驗、加工設備與製作台升等）＋角色專屬的（裝備有採集能力值的生活工具、加重量的背包）。</li>
+        <li><span class="tier o">官方</span> 生活力有實際門檻：班克爾吉爾摩的雜貨店賣的「精巧道具部件」（9,600 金幣）要<b>生活力 7,000 以上</b>才買得到。</li>
+        <li><span class="tier p">玩家</span> 樂器也有生活力門檻（例：3 和弦魯特琴 3,000、3 和弦曼陀林 5,000，更高的到 16,000），mabitw 與韓服值交叉整理，台服請以遊戲內為準。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>採集</summary>
+      <div class="fold-body"><ul>
+        <li><span class="tier o">官方</span> 用途是取得加工與製作材料；<b>採集與成果各人獨立，不跟其他冒險家競爭</b>。工具越好（生活力越高）一次採到的越多。</li>
+        <li><span class="tier o">官方</span> 找位置：個人資料 → 生活技能頁籤，選採集物卡片按「尋找附近位置」；道具卡的「取得方法」也能導航到採集點。</li>
+        <li><span class="tier k">韓服</span> 等級解鎖（Wiki 韓服調查，台服地圖同構但待驗證）：伐木 Lv.1 原木／Lv.5 幼蟲／Lv.10 高級原木；挖礦 Lv.1 礦石／Lv.5 煤炭／Lv.10 銅礦石／Lv.20 白銅礦石；藥草 Lv.1 血紅藥草／Lv.10 咻咻蘑菇／Lv.20 淨淨蘑菇孢子與傷痕花；釣魚 Lv.10 毒囊／Lv.20 真愛魚；採收 Lv.10 豆（班克爾）。</li>
+        <li><span class="tier k">韓服</span> 練級順序（Wiki 依「換物需求」算出的推論，不是官方）：各技能先推到 21（韓服共識，21 後經驗放緩），再優先伐木、挖礦，剪羊毛與採收先擺後面。這些材料的去處見本站<a href="trade-items.html">以物易物整理</a>。</li>
+        <li><b>自動採集／掛機：</b>官方指南對此<b>查無說明</b>；Wiki 提到內建自動採集與韓服社群做法、mabitw 有 9/12「罰站」回報（三名玩家，核對中）。第三方巨集是另一回事，韓服規章對違規有停權處分——本頁不建議也不提供做法。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>釣魚</summary>
+      <div class="fold-body"><ul>
+        <li><span class="tier o">官方</span> <b>悠閒釣魚</b>：首次預設，等待較久但<b>不會失敗</b>、不受釣魚場狀態影響。<b>專注釣魚</b>：較快，但有小遊戲、可能失敗，且吃釣魚場狀態。</li>
+        <li><span class="tier o">官方</span> 釣魚場水面偶爾浮現「不足」或「豐足」字樣（沒字＝普通）：狀態只影響專注釣魚，越好越容易釣到實用道具，「不足」較常釣到沒用的雜物；途中變化要到下次拋竿才套用。</li>
+        <li><span class="tier o">官方</span> 團隊副本甲板等地點需要一定的釣魚等級才能釣（韓服資料顯示 Lv.20，台服待驗證）。</li>
+        <li><span class="tier k">韓服</span> 實用產出：真愛魚、暗影幽靈魚、毒囊，都是以物易物的材料（見<a href="trade-items.html">以物易物整理</a>：瓦爾特收真愛魚換愛心幣、收暗影幽靈魚換魔法榴彈）。Wiki 把釣魚排在換物需求第二。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>加工（設備）</summary>
+      <div class="fold-body"><ul>
+        <li><span class="tier o">官方</span> 6 台設備：金屬（礦石→金屬錠）、木材（原木→木材）、皮革（生皮→皮革）、布料（羊毛→布料、蜘蛛絲→絲綢）、藥品（藥草、蘑菇加工，並從特殊昆蟲萃取屬性結晶）、食材（美乃滋、奶油、麵粉等）。</li>
+        <li><span class="tier o">官方</span> <b>加工不是角色親自做</b>：把工作交給設備後自動進行；每台設備可委託的數量有限、依先後順序逐一進行；各地區同種設備共享同一份進度（在堤爾克那委託，去杜巴頓工坊也能領）；設備等級與加工現況全伺服器角色共享。</li>
+        <li><span class="tier o">官方</span> 設備升等後才能加工更高階製作所需的材料；9/9 起加工設備與製作台可升到 Lv.4。</li>
+        <li><span class="tier k">韓服</span> 批次時間（韓服實測為主）：Lv.1 約 16–18 分鐘；Lv.2 約 4–6 小時；Lv.3 約 10 小時（特殊鋼錠、高級木材+）。Wiki 建議木材台、金屬台先升到 Lv.3——睡前排 10 小時批次、白天排短批次。</li>
+        <li><span class="tier k">韓服</span>「設計圖(3級)」（升設備用）官方指南完全不提，來源是以物易物：例如特蕾西收幼蟲×5、艾爾文收布料+×5、西蒙收幽靈螢火蟲×2、阿爾米斯收煤炭×20、基利安收毒囊×3，見<a href="trade-items.html">以物易物整理</a>。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>製作與料理</summary>
+      <div class="fold-body">
+        <h4><span class="tier o">官方</span> 製作機制</h4>
+        <ul>
+          <li>要備齊<b>材料、生活技能等級、設備等級</b>；一次最多連續製作 10 次；製作台等級全伺服器角色共用。</li>
+          <li>生活技能等級低於配方建議等級時<b>可能失敗</b>，製作詳細資訊會顯示成功率；失敗材料會消失，但依機率退回部分。</li>
+          <li>升級製作台要備材料，按「升等」可看需求；材料取得方式用材料卡的「獲得方法」查。</li>
+        </ul>
+        <h4><span class="tier k">韓服</span> 料理（Wiki，等級為韓服記錄）</h4>
+        <ul>
+          <li>料理 Lv.1／5／10 搭配食物製作台 Lv.1／2／3，可解 16 條「煮好的菜交給 NPC 換東西」路線；料理 Lv.10 是換物的終點，之後主要為 buff。</li>
+          <li>每日必煮：<b>炒蔬菜</b>（艾爾文，換高級木材 ×4，每日 2 次）、<b>蘋果汁</b>（麗莎，換高級鍊金術再燃燒催化劑，每日 1 次）——與本站<a href="trade-items.html">以物易物整理</a>一致。蒸蛤蜊那條被標「別換」。</li>
+          <li>9/9 新增班克爾路線：生命的魔力石為料理 Lv.13、鱸魚辣魚湯為料理 Lv.20，換銀合金錠 ×10（每週 1 次）。</li>
+        </ul>
+        <h4><span class="tier o">官方</span> 食物 buff</h4>
+        <ul><li>食物持續時間內<b>最大體力 +50%</b> 並隨時間逐漸減少；多吃不疊加，吃另一種會刷新持續時間，可從新舊食物效果中擇一生效。坐在營火旁可把食物分送給同坐的玩家。Wiki 提過台服社群有「最高 +150%」的寫法，與官方衝突，<b>以官方為準</b>。</li></ul>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>鍊金術</summary>
+      <div class="fold-body"><ul>
+        <li><span class="tier o">官方</span> 鍊金術有成功／失敗機率：失敗時道具可能被破壞或詛咒，但<b>放在「主材料」欄的道具可以安全取回</b>。</li>
+        <li><span class="tier o">官方</span> <b>鍊金術再燃燒催化劑</b>：成功時依機率獲得兩倍產物；失敗時會再重試一次。</li>
+        <li><span class="tier k">韓服</span> 解鎖階梯（Wiki 引韓服維基，台服待驗證）：Lv.1 寶石鍊金與原石變換；Lv.3 符文晉階；Lv.5 時裝晉階／合成；Lv.10 性能改善，中間等級不開新功能。Wiki 的建議是先衝到 3，看需求再到 5，最後才決定要不要推到 10。符文晉階的機率請看本站<a href="enhance-calculator.html">強化／符文計算機</a>。</li>
+      </ul></div>
+    </details>
+
+    <details class="fold">
+      <summary>兼職</summary>
+      <div class="fold-body"><ul>
+        <li><span class="tier o">官方</span> <b>基本兼職</b>：每週一 06:00 生成 6 項，之後每日 06:00 與 18:00 各新增 1 項（一週最多 20 件）；未做的會在下次更新換成別的。基本、特殊、幸運機會兼職接受後要在限時內完成才領獎。</li>
+        <li><span class="tier o">官方</span> <b>每週兼職</b>：每週一生成 1 項，可進入「週幾地下城」；週幾地下城要接受<b>32 級以上</b>才能進行的每週兼職才能入場，每個星期開放的地下城不同、每天僅能入場一次。</li>
+        <li><span class="tier o">官方</span> <b>特殊兼職</b>：每週一新增 1 項，購買生活會員後才能進行；<b>幸運機會兼職</b>：滿足解鎖條件後每日 06:00／18:00 以低機率生成，最多同時 1 項；<b>週末兼職</b>：週末期間可做。基本兼職等會給生活經驗值。</li>
+        <li><span class="tier k">韓服</span> Wiki 估算一件基本兼職約 1,900 金幣、一週約 38,000（一般玩家收入級距，僅供參考）。</li>
+      </ul></div>
+    </details>
+
+    <h2 class="sec">③ 建議養成順序</h2>
+    <div class="card">
+      <p style="margin-top:0;font-size:.85rem;color:var(--muted);">以下是把官方機制、Wiki 與 mabitw 的建議彙整成順序，屬<b>本站整理的參考</b>，不是官方路線；標註的來源代表誰這樣建議。</p>
+      <b>新手（到 65 級）</b>
+      <ol style="margin:.3rem 0 .8rem;padding-left:1.3rem;font-size:.9rem;">
+        <li>先推主線與等級，生活技能順手練（<span class="tier o">官方</span> 成長指南；mabitw 也把生活排第四優先）。</li>
+        <li>完成「討伐賽維爾地下城 1 層！」後開鍊金術，做原石變換與寶石合成，先衝到能符文晉階的階段（<span class="tier k">韓服</span> 階梯待驗證）。</li>
+        <li>採集掛著，再選一條製作線；料理是好起點，每天煮炒蔬菜 ×2、蘋果汁 ×1（<span class="tier k">韓服</span> Wiki）。</li>
+        <li>每天處理兼職；只有打算跑生活線才考慮生活會員（Wiki 的建議）。</li>
+        <li>分身不練生活技能（<span class="tier o">官方</span> 共享機制）。</li>
+        <li>卡關時打開成長指南 → 生活力，照它推薦的活動與工具走。</li>
+      </ol>
+      <b>中期（65 級以後）</b>
+      <ol style="margin:.3rem 0 .2rem;padding-left:1.3rem;font-size:.9rem;">
+        <li>技能先全部推到 21，再優先伐木、挖礦（<span class="tier k">韓服</span> 共識＋Wiki 推論）。</li>
+        <li>木材台、金屬台先升 Lv.3 再看 Lv.4；睡前排 10 小時批次（Wiki；mabitw 的排程做法一致）。</li>
+        <li>生活力目標：7,000（精巧道具部件，<span class="tier o">官方</span>）；樂器另有門檻（<span class="tier p">玩家</span>）。</li>
+        <li>鍊金術看需求推到時裝晉階或性能改善的階段（<span class="tier k">韓服</span>）；料理練到能解完換物路線就可以停。</li>
+      </ol>
+    </div>
+
+    <h2 class="sec">④ 限制與陷阱（避免白白浪費）</h2>
+    <div class="card">
+      <ul style="margin:.2rem 0;padding-left:1.2rem;font-size:.9rem;">
+        <li><span class="tier o">官方</span> <b>背包基礎重量 400</b>，超過需要「背包」道具；超重會<b>移動變慢、攻擊力減少</b>，採集和進入地下城也會受限。</li>
+        <li><span class="tier o">官方</span> <b>簡單整理</b>會依條件自動分解／販售：材料類「持有選擇數量的 50% 以上就販售該數量」，<b>初始設定為持有 200 個以上時販售</b>，可在 選單 → 環境設定 → 遊戲 → 背包設定 調整；<b>大膽整理</b>對沉重材料<b>只保留 20 個、其餘全賣</b>。之後要拿去以物易物的原木、礦石很容易被誤賣——先調整設定再整理。</li>
+        <li><span class="tier o">官方</span> <b>生活會員</b>（官方常態商品）：採集物獲得量增加 2 倍、生活經驗值 +5%、加工進行速度 +50%、每日銀幣 5 個箱、每日未加工德卡原石 1 個。是否值得買，看你有沒有在跑生活線。</li>
+        <li><span class="tier o">官方</span> 稱號有的僅「持有」就提升能力值、有的要「裝備／套用」才有；Wiki 整理生活類稱號裡帶持有效果的很少，結論是<b>不必為生活稱號改行程</b>。</li>
+        <li><span class="tier o">官方</span> 官方沒有把生活力換算成戰鬥力的說明（戰鬥力、生活力、魅力是三個獨立分數）。生活技能與戰力的間接關係主要是鍊金術（寶石、符文晉階、性能改善）與製作裝備。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">⑤ 還沒驗證／來源打架的地方</h2>
+    <div class="card">
+      <ul style="margin:.2rem 0;padding-left:1.2rem;font-size:.88rem;">
+        <li><b>等級上限：</b>見第①節的三方衝突，以遊戲內為準。</li>
+        <li><b>料理體力加成：</b>官方 +50%；台服社群「最高 +150%」的說法與官方衝突。料理 buff 持續多久（社群說前 15 分鐘滿、15–20 分鐘遞減），官方只寫「逐漸減少」。</li>
+        <li><b>生活會員「採集物 ×2」的範圍：</b>官方商品表列為會員福利，Wiki 指出韓服原文綁在專屬兼職，台服待實測。</li>
+        <li><b>「加工門檻只看設備等級、不看技能等級」：</b>Wiki 從資料推論，官方沒寫；官方只說製作要技能等級加設備等級。</li>
+        <li><b>鍊金術階梯、料理等級檔位、批次時間：</b>都是韓服記錄，台服待驗證。</li>
+        <li><b>自動採集：</b>官方查無；其餘為韓服社群與玩家回報。</li>
+        <li><b>Wiki 站內不一致：</b>例如料理頁首段寫「三檔」但表格有 Lv.13、Lv.20；部分頁面橫幅仍標「韓服前瞻」但內文已寫 9/9 開放。引用時以主文與遊戲內為準。</li>
+        <li><b>mabitw 單一來源：</b>設施升級書（班克爾雜貨店、每本 15 愛心幣）、9/12 掛採罰站、9/13 保管箱卡頓，都是玩家回報。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">來源</h2>
+    <div class="card src" style="font-size:.8rem;">
+      <b>官方（tw.nexon.com/mabinogimobile，遊戲指南板）</b>：採集、釣魚、加工、製作、鍊金術、食物、兼職、每週兼職、角色分數與能力值、成長指南、稱號、背包整理、背包重量等指南；9/9 更新日誌（生活擴充、班克爾商店）；常態商品說明（會員福利）。<br>
+      <b>瑪奇 Mobile Wiki DB</b>（nipponhashi，非官方）：<a href="https://mabinogimobile.nipponhashi.com/guides/life-skill-caps/" target="_blank" rel="noopener noreferrer">生活技能上限</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/gathering-priority/" target="_blank" rel="noopener noreferrer">採集優先序</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/processing-facilities/" target="_blank" rel="noopener noreferrer">加工設備</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/cooking-trades/" target="_blank" rel="noopener noreferrer">料理換物</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/alchemy-min-invest/" target="_blank" rel="noopener noreferrer">鍊金術最小投資</a>、<a href="https://mabinogimobile.nipponhashi.com/guides/soulstream/" target="_blank" rel="noopener noreferrer">靈魂潮流</a>。<br>
+      <b>mabitw 台服工具箱</b>（非官方）：<a href="https://mabitw.com/life" target="_blank" rel="noopener noreferrer">生活系統入門</a>、<a href="https://mabitw.com/music" target="_blank" rel="noopener noreferrer">樂器生活力門檻</a>。<br>
+      整理日期：2026-09-26；官方部分已於當日回官網 API 逐項核對。完整與最新內容請以來源頁面與遊戲內為準。
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 瑪奇 Mobile 攻略索引網站</p>
+    <p style="opacity:.8;font-size:.78rem;">韓服數值僅供心理準備，台服請以遊戲內顯示為準。</p>
+  </footer>
+</body>
+</html>
