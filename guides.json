@@ -2,6 +2,24 @@
   "updated_at": "2026-09-26",
   "guides": [
     {
+      "id": "bahamut-3040",
+      "title": "製作道具關聯小工具我弄了一個製作道具查詢關聯的工具網站，裡面只有製作相關的道具，以外的幾乎沒有就是， 用來方便查詢自己是否要保留相關的道具 例如:你不想做榴彈，覺得相關的東西很佔空間",
+      "title_original": "製作道具關聯小工具我弄了一個製作道具查詢關聯的工具網站，裡面只有製作相關的道具，以外的幾乎沒有就是， 用來方便查詢自己是否要保留相關的道具 例如:你不想做榴彈，覺得相關的東西很佔空間",
+      "author": "kingex1124",
+      "category": "新手指南",
+      "tags": [
+        "製作"
+      ],
+      "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=3040",
+      "summary": "我弄了一個製作道具查詢關聯的工具網站，裡面只有製作相關的道具，以外的幾乎沒有就是， 用來方便查詢自己是否要保留相關的道具 例如:你不想做榴彈，覺得相關的東西很佔空間，就把它賣光之類的 網址如下: https://kingex1124.github.io/MabiMGuide/ 下面是查詢介面 點開道…",
+      "key_points": [],
+      "source": "bahamut",
+      "region": "tw",
+      "published_at": "2026-09-26",
+      "is_featured": false,
+      "thumbnail": ""
+    },
+    {
       "id": "bahamut-3039",
       "title": "跟茉莉約會！第一次約會有點緊張 小姐真水喔！ 要抱抱",
       "title_original": "跟茉莉約會！第一次約會有點緊張 小姐真水喔！ 要抱抱",
@@ -207,7 +225,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=3026",
       "summary": "人權值戰力 24765 裝備 此機體為落花流 雖然是分身但裝備其實接近湊完的狀態 因為沒資源所以沒刻意刷詞條 由於防具飾品就我所知點上去的效益沒很高 所以都是 +0~+2（性能改善後解咒弄出來的） 最初我是副本剛開放就看到有戰力 24000 能通關 自己就想把分身也給一個一個清理完 結果給自己開啟了…",
-      "key_points": [],
+      "key_points": [
+        "「最初我是副本剛開放就看到有戰力 24000 能通關」",
+        "「造成的傷害起碼是所有技能中的 50% 或以上」",
+        "「DPS 起碼要穩定在 40000 以上才能通關」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-25",
@@ -229,24 +251,6 @@
       "published_at": "2026-09-25",
       "is_featured": true,
       "thumbnail": ""
-    },
-    {
-      "id": "youtube-YYvPM6FVOro",
-      "title": "A迪魚｜瑪奇Mobile｜09/25 中秋節就是要打瑪奇，沒有烤肉的都一起來，我陪你們打副本！",
-      "title_original": "A迪魚｜瑪奇Mobile｜09/25 中秋節就是要打瑪奇，沒有烤肉的都一起來，我陪你們打副本！",
-      "author": "A迪魚EDY",
-      "category": "副本攻略",
-      "tags": [
-        "副本"
-      ],
-      "url": "https://www.youtube.com/watch?v=YYvPM6FVOro",
-      "summary": "#瑪奇 #mobile  #a迪魚edy #魅魔\n\n我需要你們追蹤我的哀居\nhttps://www.instagram.com/edy.0216    (edy.0216)\n\n(小心瑪奇m兩千多人詐騙群-鱷魚吃包子)  打著討論的假群組行詐",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-25",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/YYvPM6FVOro/hqdefault.jpg"
     },
     {
       "id": "bahamut-3017",
@@ -280,7 +284,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=3022",
       "summary": "首先說說這流派在玩什麼 首先想拚榜1的帥哥美女們這裡不適合你們照抄.但理解吟遊詩人在幹嘛應該OK.甚至可以拿來練小號 玩法就是讓自己成為最強裝備.可以去蹭別人大腿! 提供整個隊伍 補血. 15%增傷. 25%攻速 .無視防禦50%.暴率50% . 技能冷卻減少 文長編輯中 裝備選擇 < 符文 > 武…",
-      "key_points": [],
+      "key_points": [
+        "「由於是技能輪轉以及BUFF的核心(目前)」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-24",
@@ -296,7 +302,11 @@
       "tags": [],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=3011",
       "summary": "大家好 因為達到了自己設定的里程碑,所以發文來聊聊目前瑪奇的一些心得及感想 很多人常問 無課到底能不能玩瑪奇M 我會說可以,要麻你儲值,不然就當分身流 畢竟這遊戲不用跟人比,我有朋友每天上線玩音樂,21K抱大腿打魅魔 也是過得很開心 目前自己推測S0無課的頂標應該是落在32K (朝目標前進中 簡易分…",
-      "key_points": [],
+      "key_points": [
+        "「畢竟這遊戲不用跟人比,我有朋友每天上線玩音樂,21K抱大腿打魅魔」",
+        "「假如身上已經有五個防裝T1 除非其他部位不缺,不然不要特別花資源在T1>T0上」",
+        "「裝備 : 現在已接近長草期, 會建議少合成符文(寧可拆掉去點裝備),畢竟現在合出來的東西」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-24",
@@ -486,6 +496,66 @@
       "published_at": "2026-09-24",
       "is_featured": false,
       "thumbnail": ""
+    },
+    {
+      "id": "youtube-JJmo7tSPx34",
+      "title": "《瑪奇 Mobile》中秋節活動攻略！絕版「月兔帽」取得方式、活動食物加成與超划算禮包懶人包 |  #瑪奇Mobile #附魔卷軸  #瑪奇CP計畫 #我的曠野征服日誌",
+      "title_original": "《瑪奇 Mobile》中秋節活動攻略！絕版「月兔帽」取得方式、活動食物加成與超划算禮包懶人包 |  #瑪奇Mobile #附魔卷軸  #瑪奇CP計畫 #我的曠野征服日誌",
+      "author": "CharlesKT",
+      "category": "活動情報",
+      "tags": [
+        "活動",
+        "催化劑"
+      ],
+      "url": "https://www.youtube.com/watch?v=JJmo7tSPx34",
+      "summary": "《瑪奇 Mobile》各位《瑪奇 Mobile》的玩家中秋節快樂！\n這次官方推出了三個中秋節特別活動，除了滿滿的養成材料、催化劑之外，還有錯過就沒有的「限定可愛月兔帽」！這支影片幫大家整理了活動重點、最快拿到月兔帽的天數，以及這次中秋禮包的",
+      "key_points": [
+        "00:00 影片開場與中秋活動簡介",
+        "00:20 活動一：迎中秋 集中遊玩（滿月箱獎勵介紹）",
+        "01:08 活動二：中秋就是要戴月兔帽（月兔帽最快取得天數計算）"
+      ],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-24",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/JJmo7tSPx34/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-Wrsr2kRjyyM",
+      "title": "快速獲得👇月兔帽子！中秋限定活動教學 | 瑪奇 Mobile #瑪奇Mobile #Mabinogimobile #瑪奇CP計畫 #9月曠野的閃光更新介紹 #전격술사 #마비노기모바일 #白魅魔副本",
+      "title_original": "快速獲得👇月兔帽子！中秋限定活動教學 | 瑪奇 Mobile #瑪奇Mobile #Mabinogimobile #瑪奇CP計畫 #9月曠野的閃光更新介紹 #전격술사 #마비노기모바일 #白魅魔副本",
+      "author": "CharlesKT",
+      "category": "副本攻略",
+      "tags": [
+        "電擊術士",
+        "副本",
+        "活動",
+        "魔法師"
+      ],
+      "url": "https://www.youtube.com/watch?v=Wrsr2kRjyyM",
+      "summary": "#電擊術士 #曠野的閃光 #瑪奇Mobile #전격술사 #마비노기모바일 #白魅魔副本\n快速獲得👇月兔帽子！中秋限定活動教學 🔔#9月曠野的閃光更新介紹\n《瑪奇 Mobile》活動相關資訊 , KT參加 瑪奇CP計畫,主題系列為9月曠野的",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-24",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/Wrsr2kRjyyM/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-2JwKKTlj_iE",
+      "title": "令人不快的毒層。深淵周常效果 [瑪奇 Mobile]",
+      "title_original": "불쾌한 독장판. 어비스 주간 효과 [마비노기 모바일]",
+      "author": "빙식이",
+      "category": "副本攻略",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=2JwKKTlj_iE",
+      "summary": "비매너 댓글은 통보 없이 삭제 및 차단조치 될 수 있습니다.\n- 씨미 : https://ci.me/@bingsik\n- 채널 멤버쉽 가입 : https://www.youtube.com/channel/UCVRFMSz2E",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-09-24",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/2JwKKTlj_iE/hqdefault.jpg"
     },
     {
       "id": "bahamut-3004",
@@ -822,24 +892,6 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-fzXpQkYT8a4",
-      "title": "瑪奇Mobile｜魅魔是瑪奇M最簡單的副本了。4人入夢簡易通關教學，學不會的去面壁。#瑪奇Mobile #瑪奇CP計畫  #我的曠野征服日誌",
-      "title_original": "瑪奇Mobile｜魅魔是瑪奇M最簡單的副本了。4人入夢簡易通關教學，學不會的去面壁。#瑪奇Mobile #瑪奇CP計畫  #我的曠野征服日誌",
-      "author": "A迪魚EDY",
-      "category": "副本攻略",
-      "tags": [
-        "副本"
-      ],
-      "url": "https://www.youtube.com/watch?v=fzXpQkYT8a4",
-      "summary": "#瑪奇 #mobile  #a迪魚edy #魅魔 #雙刀\n\n(0:00-2:00 打之前需要知道的重點)\n(2:10-4:00 白魅魔一階段)\n(4:02-5:12 黑魅魔階段)\n(5:13-7:47 白魅魔二階段)\n(7:48-7:57 ",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-23",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/fzXpQkYT8a4/hqdefault.jpg"
-    },
-    {
       "id": "youtube-8FA-cKxlmns",
       "title": "瑪奇 Mobile 週三 9/23 未停機更新速報 中秋節獎勵不容錯過 #瑪奇Mobile #瑪奇CP計畫 #我的曠野征服日誌",
       "title_original": "瑪奇 Mobile 週三 9/23 未停機更新速報 中秋節獎勵不容錯過 #瑪奇Mobile #瑪奇CP計畫 #我的曠野征服日誌",
@@ -853,12 +905,55 @@
       ],
       "url": "https://www.youtube.com/watch?v=8FA-cKxlmns",
       "summary": "#瑪奇mobile #修道士 #GAooU #嘎喔 #마비노기모바일\n\n懶人包:\n1.每天最多獲得兩個滿月箱喔\n2.祝福各位都能獲得金色的箱子~\n\n時間軸:\n00:00 前言\n00:19 開始\n00:59 商城套組\n01:39 迎接月光活動",
-      "key_points": [],
+      "key_points": [
+        "00:19 開始",
+        "00:59 商城套組",
+        "01:39 迎接月光活動"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-23",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/8FA-cKxlmns/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-lBxV3XPRK1Q",
+      "title": "🐰16箱直接送兔子帽！《瑪奇 Mobile》中秋活動懶人包🌙 #shorts #瑪奇Mobile #瑪奇CP計畫 #9月曠野的閃光更新介紹",
+      "title_original": "🐰16箱直接送兔子帽！《瑪奇 Mobile》中秋活動懶人包🌙 #shorts #瑪奇Mobile #瑪奇CP計畫 #9月曠野的閃光更新介紹",
+      "author": "古今小教室",
+      "category": "活動情報",
+      "tags": [
+        "活動"
+      ],
+      "url": "https://www.youtube.com/watch?v=lBxV3XPRK1Q",
+      "summary": "HI！大家好！我是古今！\n帶大家快速整理《瑪奇 Mobile》2026 中秋活動重點！🌙\n\n除了可以透過狩獵場、地下城與深層地下城取得「撲朔迷離滿月箱」，\n累計開箱達 16 次還能直接獲得限定的「月光兔毛帽」！\n\n另外也會介紹金色滿月箱的獎",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-23",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/lBxV3XPRK1Q/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-GGyEjgUBRWE",
+      "title": "超划算👇中秋節紀念！迎佳節套組 | 瑪奇 Mobile #瑪奇Mobile #Mabinogimobile #瑪奇CP計畫 #9月曠野的閃光更新介紹 #전격술사 #마비노기모바일 #白魅魔副本",
+      "title_original": "超划算👇中秋節紀念！迎佳節套組 | 瑪奇 Mobile #瑪奇Mobile #Mabinogimobile #瑪奇CP計畫 #9月曠野的閃光更新介紹 #전격술사 #마비노기모바일 #白魅魔副本",
+      "author": "CharlesKT",
+      "category": "副本攻略",
+      "tags": [
+        "電擊術士",
+        "副本",
+        "活動",
+        "魔法師"
+      ],
+      "url": "https://www.youtube.com/watch?v=GGyEjgUBRWE",
+      "summary": "#電擊術士 #曠野的閃光 #瑪奇Mobile #전격술사 #마비노기모바일 #白魅魔副本\n超划算👇中秋節紀念！迎佳節套組🔔#9月曠野的閃光更新介紹\n《瑪奇 Mobile》活動相關資訊 , KT參加 瑪奇CP計畫,主題系列為9月曠野的閃光更新",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-23",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/GGyEjgUBRWE/hqdefault.jpg"
     },
     {
       "id": "bahamut-essence-574",
@@ -921,7 +1016,9 @@
       "tags": [],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2970",
       "summary": "因為白天都是用手機掛自動的人 晚上才有空用電腦打 偶遇滅了二十把以上 把三個職業次數都清完了 大概整理一下滅團點 首先最重要的分兩兩一組 生存力很糟的職業最好分一個補師 破防準備很充分的人最好去不同組 盡量平均分配 檢查一下喵喵榴彈有沒有放到快捷鍵 有高階火焰榴彈更好 然後重複同一個流程： 打一打白…",
-      "key_points": [],
+      "key_points": [
+        "「破防準備很充分的人最好去不同組」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-22",
@@ -943,7 +1040,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2978",
       "summary": "目前已經玩一週左右，還沒課過， 只玩法師， 符文搭配參考了版上幾篇法師文， 已經配到理想的有： 飾品： 隕石+ / 霜刺 / 山崩 (之後會換粉或橘) 武器： 疾風 防具： 陰險一擊 / 魔力激流 徽章還在湊三粉，現在只亂刻一個紫的。 目前戰力來到18500左右， 深淵可和NPC過地獄1，入門格單人…",
-      "key_points": [],
+      "key_points": [
+        "「目前是全身+5左右，怕自己認知不夠清楚不敢亂衝，版上有一篇太早衝裝的文，他是衝了寫\"等級60以上\"」",
+        "「寶石的合成版上有人說不要急著合」",
+        "「第一次是三個粉色100%換橘色(自己合只有10%機率)」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-22",
@@ -1017,7 +1118,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2979",
       "summary": "你各位本尊玩長弓的都是真愛 長弓的主屬性是意志&技巧 我自己是356boss戰破防特化流 單人困難小格5分 單人魅魔4分 長弓大招傷害最大放法 架弓後，2223 目前基本款符文推薦 徽章:絢爛(固定) 武器: 千把劍( 或你喜歡就好 防具1: 岩石巨人 (固定) 核心攻擊增幅 防具2: 魔力激流 (…",
-      "key_points": [],
+      "key_points": [
+        "「飾品2:356流派用\"集中\"&136流派用\"內傷\"」",
+        "「韓服S2版本 爆擊4000後 細項屬性提升推薦」",
+        "「反而技能威力雖然也不是第一優先，但裝備洗到可以保留」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-22",
@@ -1040,7 +1145,7 @@
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-22",
-      "is_featured": true,
+      "is_featured": false,
       "thumbnail": ""
     },
     {
@@ -1052,7 +1157,9 @@
       "tags": [],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2975",
       "summary": "為什麼明明知道白魅魔要拉人入夢，但你還是過不了本? 因為通常 都是紫薔薇把人給毒死的 .. 但請別怪外面的玩家沒把紫薔薇擋好.. 應該先怪你自己入夢的地點錯了.. 好了.. 正確的入夢地點必須遠離白魅魔施放入夢的地點 但很多人可能知道..但卻做不到.. 你看了其他攻略會告訴你第一次入夢會在白魅魔80…",
-      "key_points": [],
+      "key_points": [
+        "「你看了其他攻略會告訴你第一次入夢會在白魅魔800血左右」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-22",
@@ -1076,25 +1183,6 @@
       "published_at": "2026-09-22",
       "is_featured": false,
       "thumbnail": ""
-    },
-    {
-      "id": "youtube-KNmSYKjZzWI",
-      "title": "瑪奇Mobile 雙刀客 白魅魔 困難 獨自進行 #火炬 #火苗寵",
-      "title_original": "瑪奇Mobile 雙刀客 白魅魔 困難 獨自進行 #火炬 #火苗寵",
-      "author": "威爾妙willmiu遊戲",
-      "category": "職業解析",
-      "tags": [
-        "雙刀客",
-        "盜賊"
-      ],
-      "url": "https://www.youtube.com/watch?v=KNmSYKjZzWI",
-      "summary": "",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-21",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/KNmSYKjZzWI/hqdefault.jpg"
     },
     {
       "id": "bahamut-2955",
@@ -1162,7 +1250,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2961",
       "summary": "因為我們很閒加上每隻小號都需要卷軸於是測試二帶二打法 此攻略方法小號本尊都適用 先上人權 1.開局先22分組 此局我們大劍弓手一組 冰法吟遊一組，每組需要有破防能力高的職業 2.BOSS剩800條血時，A組靠鏡子、B組靠鏡子對向的雕像。boss剩780條血時會施放紅玫瑰，被紅玫瑰鎖定的人和夥伴往場邊…",
-      "key_points": [],
+      "key_points": [
+        "「開局先22分組 此局我們大劍弓手一組 冰法吟遊一組，每組需要有破防能力高的職業 2」",
+        "「黑魅魔那組優先破防，記得躲招，會降低破防速度」",
+        "「白魅魔組負責優先擊敗小怪，BOSS扇形技能也會打到睡著的夥伴」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-21",
@@ -1200,7 +1292,10 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2966",
       "summary": "身為忙碌的現代人， 除了地獄3與新白魅魔團體副本等高難度關卡會手動外，其他副本能自動就自動吧。 目前劍術士裝備已基本成型（戰力 32k），僅剩落花還是粉色符文，預計這週末能換橘色符文。 當初剛玩時還抓不到反擊時機才選落花，但這幾週漸漸習慣反擊後，開始猶豫該換「猛烈」 ▍目前配置狀態 戰力：32k 符…",
-      "key_points": [],
+      "key_points": [
+        "「目前劍術士裝備已基本成型（戰力 32k），僅剩落花還是粉色符文，預計這週末能換橘色符文」",
+        "「猛烈 4分58秒 5分06秒 未通關(死2次後黑魅魔出來失敗)」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-21",
@@ -1237,7 +1332,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2963",
       "summary": "小弟因為很懶得每次爬文配裝時都要按進去遊戲裡， 或是要在背包、置物箱東翻西找來回確認， 所以寫了一個陽春的小工具 https://blog.dryverstudio.com/mabinogi-mobile/rune-memo 記錄是存在各使用者自己的瀏覽器中， 並且附有匯出文字檔的方式方便大家分享配…",
-      "key_points": [],
+      "key_points": [
+        "「中文翻譯良好的符文、獨特裝備資料來源，只要我還沒退坑，都會在推出新劇情、新符文裝備時，盡快整理新資料進去」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-21",
@@ -1271,7 +1368,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2960",
       "summary": "玩這款遊戲滿打滿算接近兩個月了，最初是用大劍起手的，不可否認的是 MH 玩家只要看到大劍，還有那個雙手握著大劍拉桿蓄力的動作，都會有滿滿的安全感。就選擇了大劍當第一個角色的主職業。 一開始也就正握反握分不清楚，瞎七八亂砍 + 自動就練到滿級了。然後才開始認真研究該挑選什麼符文，出招的順序怎麼樣才最合…",
-      "key_points": [],
+      "key_points": [
+        "「角色開了四周，打了三周深淵跟小格，全身上下有價值的就是小格的遠征證明，還有 1500 片藍化石跟少量紅化石」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-21",
@@ -1289,7 +1388,10 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2959",
       "summary": "各位大家好！昨天好不容易約到三個朋友，終於挑戰了這個「白魅魔與黑魅魔」四人副本。 廢話不多說，馬上來分享一下我們實際通關的心得，希望能幫助到還在卡關的朋友！ 一開始我們覺得「白魅魔」沒什麼，不就是傳送進去打Boss嗎？結果實戰才知道，這真的是要團隊合作。 白魅魔會讓隊友進到夢境，而在夢境中的隊友視角…",
-      "key_points": [],
+      "key_points": [
+        "「我們的打法是先把所有高爆發技能留到這個階段，一看到白魅魔召喚就全部丟出去，務必在召喚完成前中斷她」",
+        "「總結這次的通關經驗，覺得這個副本雖然有點難度，但只要機制弄清楚、團隊配合好，其實也沒有想像中那麼可怕」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-21",
@@ -1347,7 +1449,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2956",
       "summary": "玩家將扮演壞人棒打這對百合 對 人家百合搞的好好的 為什麼我們去打擾 （？） 唯美的動畫推薦體驗～ 有單人模式 單人多人獎勵沒差 單人我體感進去就閃招隨便打 畢竟目前只是最低難度 多人攻略 其實看大機制就好沒那麼複雜 這個怕被雷就不要偶遇 找看過攻略懂機制的正常人 不然為何不單人 https://w…",
-      "key_points": [],
+      "key_points": [
+        "「To在意戰力的人： 老樣子 大致上一張附魔捲+100戰」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-21",
@@ -1392,41 +1496,6 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-ONYSg5SGY6o",
-      "title": "《瑪奇Mobile》早上6:00 黑白魅魔GOGO【愛麗沙／火焰術士】",
-      "title_original": "《瑪奇Mobile》早上6:00 黑白魅魔GOGO【愛麗沙／火焰術士】",
-      "author": "庫麻Kumma Channel",
-      "category": "職業解析",
-      "tags": [
-        "火焰術士",
-        "魔法師"
-      ],
-      "url": "https://www.youtube.com/watch?v=ONYSg5SGY6o",
-      "summary": "#瑪奇M #手遊 \n\n【觀眾名】玩伴\n【圖奇】https://www.twitch.tv/KummaNote\n【綠界贊助】 https://p.ecpay.com.tw/25F7176\n【bgm】MOMIZizm MUSiC（もみじば）おや",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-21",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ONYSg5SGY6o/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-JGENONOR31E",
-      "title": "Eirelle 難度極高🎶 新增舞蹈模式！關鍵策略 #MabinogiM #MabinogiMobile",
-      "title_original": "에이렐 매우 어려움🎶  춤추는 패턴이 생김! 핵심 공략 #마비노기m #마비노기모바일",
-      "author": "모닝이 게임영상",
-      "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=JGENONOR31E",
-      "summary": "에이렐 매우 어려움 난이도 드디어 나왔지\n\n이번에 추가된 패턴들 몇 가지만 딱 알면 \n충분히 클리어할 수 있을 거야! ✨\n\n춤추는 패턴부터 새로운 쉼표 악보까지, \n꼭 알아야 할 핵심 공략법들 영상에 다 담아놨어!\n",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2026-09-21",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/JGENONOR31E/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-essence-566",
       "title": "我的這把刀可是塗滿了毒藥的毒刃 盜賊心得 (9/15更新獎勵卡內容)",
       "title_original": "我的這把刀可是塗滿了毒藥的毒刃 盜賊心得 (9/15更新獎勵卡內容)",
@@ -1462,7 +1531,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2945",
       "summary": "這篇想給誰看的：剛來到這遊戲的第一個角色，你的遊戲資源會在這個角色上 職業選擇： 1~25等 任意 (這裡我用魔法師，治癒系或劍系職業應該也算輕鬆) 升級獎勵卡照推薦即可，不用特別改，一開始跟著主線到要前往杜巴頓 (約25等) (基本上就是點任務，解地下城，看劇情，部分劇情可跳過) 25等之後在 杜…",
-      "key_points": [],
+      "key_points": [
+        "「註：本遊戲可隨時改職業，65等這遊戲正式開始，故推薦冰霜術士，坦+輸出+護盾，65之後依舊穩定」",
+        "「武器的符文有一個千把劍，也需要練冰霜的職業等級到40，未確定職業前選該職業」",
+        "「25到55等階段 (第一天建議到32，解鎖周幾地下城，等級達到後隔天才會出現地下城)」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-20",
@@ -1533,7 +1606,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2948",
       "summary": "帶著4個角色去刷小格的記錄，一時不知道該發在哪、怎麼發，想想就當小説來寫好了。 日記體，第一人稱，非專業寫作人員，文筆粗陋請見諒。 2026/9/19 星期六 ( 大劍三哥) 昨天小四妹去地城清銀幣後也登上65級，因為身為倉庫號她身上東西總是很多，所以從小就有隨時合(爆)符文的習慣，這個幸運女孩早早…",
-      "key_points": [],
+      "key_points": [
+        "「一套整理下來大姊二哥的戰力都過了24K而我則是21K，於是約好一起去小格(困)玩~」",
+        "「她說好像曾經有看過相同的情況，明明戰力達標，卻沒辦法自動過困格，當時是建議改卡片的樣子」",
+        "「而少掉的600防禦，體感上在入門小格這裡是可以承受的範圍，深淵可能要再打看看才知道行不行」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-20",
@@ -1577,25 +1654,6 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-rcAola-crwk",
-      "title": "【瑪奇Mobile】S0 🎶吟遊詩人🎶職業攻略介紹：符文搭配、職業定位",
-      "title_original": "【瑪奇Mobile】S0 🎶吟遊詩人🎶職業攻略介紹：符文搭配、職業定位",
-      "author": "Nia尼亞",
-      "category": "職業解析",
-      "tags": [
-        "吟遊詩人",
-        "符文"
-      ],
-      "url": "https://www.youtube.com/watch?v=rcAola-crwk",
-      "summary": "🎯  用LDCloud雲手機24/7全天在線\n🚀 通過我的鏈接註冊LDCloud可獲取 LDCloud 6小時試用特惠：https://t.ldcloud.net/nia7265\n\n加入LDCloud discord 領取更多優惠 :   ",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-20",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/rcAola-crwk/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-2940",
       "title": "一些樸實無華且枯燥得遊戲小技巧(你可能不知道的事)我想大部分的人可能已經知道了 但如果有新朋友不知道的 並且能幫助到的話 那就太好了 1.小遊戲 私人劇場 可以快速回到提村前期解個支線可以拿到一個「私人劇場」 進去後再離開",
       "title_original": "一些樸實無華且枯燥得遊戲小技巧(你可能不知道的事)我想大部分的人可能已經知道了 但如果有新朋友不知道的 並且能幫助到的話 那就太好了 1.小遊戲 私人劇場 可以快速回到提村前期解個支線可以拿到一個「私人劇場」 進去後再離開",
@@ -1606,7 +1664,10 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2940",
       "summary": "我 想大部分的人可能已經知道了 但如果有新朋友不知道的 並且能幫助到的話 那就太好了 1.小遊戲 私人劇場 可以快速回到提村 前期解個支線可以拿到一個「私人劇場」 進去後再離開會直接回到 提爾納克 2.8人副本 可以直接飛到庫漢 同理 PC按下ESC選到 團隊副本 在開啟偶遇的狀態下進入 能直接登船…",
-      "key_points": [],
+      "key_points": [
+        "「深淵 及 團隊副本 不像是地下城 或 狩獵場 需要其他隊員抵達入口才能進入，比如說 要打 深淵，而隊員在班克爾」",
+        "「如果再王房前隊伍已經倒地3次，那在進入王房之前只要有隊伍任何一人 在火堆坐下 就能重置復活次數」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-19",
@@ -1643,7 +1704,10 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2942",
       "summary": "版友好, 本身火法開局, 目前體質如附圖, 符文配置如下 武:盲目憤怒 飾:灰燼/噴發/熱風 徽:絢爛 防:火炬/岩石巨人/魔力激流/共鳴水晶/碎冰(固定團有冰法buf) 最近換了另一顆主流推薦飾品符文 \"火柱\" , 但不論打深淵3或困格都未感受輸出較 \"熱風\" 有顯著提升 因次嘗試遊戲內打稻草人檢…",
-      "key_points": [],
+      "key_points": [
+        "「最近換了另一顆主流推薦飾品符文 \"火柱\" , 但不論打深淵3或困格都未感受輸出較 \"熱風\" 有顯著提升」",
+        "「因次嘗試遊戲內打稻草人檢定傷害, 時間設置5分鐘分別三次, 結果卻是熱風穩勝一籌」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-19",
@@ -1681,7 +1745,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2939",
       "summary": "這個打法是當初 小格遇到高戰力野團 傾囊相授的 大家應該都知道 格里斯貝恩整個過程 會切地板3次 每次之前會吼叫 然後把玩家吼飛 不過在第2次吼完後 會給玩家上詛咒印記 這時候被上印記的玩家 小格是會優先追你的 可以利用這個機制提前引到他第3次吼叫的位置(在前兩次被切掉形成的一個角落) 這樣的好處是…",
-      "key_points": [],
+      "key_points": [
+        "「他第3次吼叫的時候 只要貼身打不會被吼飛 大家就能持續穩定輸出」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-19",
@@ -1758,7 +1824,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=rFfhckc5-JY",
       "summary": "下載《瑪奇 Mobile》：https://mabinogimobiletw.go.link/dcaks\n※遊戲包含付費廣告及機率型道具\n\n『🔰』加入璐洛洛的Discord群組👉 https://lihi1.cc/PiOsX​​​\n『💰』加",
-      "key_points": [],
+      "key_points": [
+        "00:00 ​​ 章節",
+        "01:02 職業定位與簡評",
+        "02:03 魔力"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-19",
@@ -1861,7 +1931,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2926",
       "summary": "------前提------ 我是PC+平板玩家 但釣魚等級一直讓我很困擾 就算用電腦掛一整晚進度也是極慢 因為我還有其它生活等級要養 一開始都是先掛其它生活 練滿後才來慢慢研究釣魚 ------正文------ 一開始爬文相關文章也不多 基本上生活採集相關的文章有大大寫得很詳細豐富 但關於釣魚 大…",
-      "key_points": [],
+      "key_points": [
+        "「這邊教大家想要手動的玩家只需要記住1點」",
+        "「建議刷到未知的釣魚場後把導航關掉 另外我自己是右上角地圖下方副本時間剩餘30S就會去回任務」",
+        "「裡面副本時間大概可以釣個10幾分鐘 目前沒試過超過時限會怎麼樣」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-18",
@@ -1919,6 +1993,47 @@
       "thumbnail": ""
     },
     {
+      "id": "youtube-O5W7lBnDl9A",
+      "title": "從單人排位副本到記憶印記預設和自動刷圖⚡完整更新匯總【瑪奇 Mobile】",
+      "title_original": "1인 랭킹 던전부터 기억각인 프리셋, 자동 파밍까지⚡ 업데이트 총정리【마비노기 모바일 】",
+      "author": "모닝이 게임영상",
+      "category": "副本攻略",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=O5W7lBnDl9A",
+      "summary": "다들 기다려왔던 가을 업데이트 소식, \n핵심만 쏙쏙 뽑아 정리해왔어! 👋\n\n혼자서 한계를 시험하는 나이트메어 던전부터 \n에이렐/룬다어비스 지옥3, 필드 보스까지 난이도 팍팍 올라갔다고! 💪\n보상도 놓치지 말자구~\n특",
+      "key_points": [
+        "00:00 秋季更新重點",
+        "00:13 全新單人地下城：惡夢",
+        "00:37 Eirelle＆Runda深淵地獄3"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-09-18",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/O5W7lBnDl9A/hqdefault.jpg"
+    },
+    {
+      "id": "youtube--DfMELnyYo8",
+      "title": "【瑪奇 Mobile】這次的武器造型真的太棒了哈哈。我已經把每個職業的玫瑰武器都看完了。",
+      "title_original": "[마비노기 모바일] 이번 패션무기 제대로 뽑았다ㅋㅋ 직업별 장미 무기 전부 봤습니다",
+      "author": "황산갈매기",
+      "category": "副本攻略",
+      "tags": [
+        "戰士",
+        "弓手",
+        "魔法師",
+        "盜賊"
+      ],
+      "url": "https://www.youtube.com/watch?v=-DfMELnyYo8",
+      "summary": "마비노기 모바일 9월 17일 업데이트로 추가된 신규 장미 테마 패션 무기를 직업별로 전부 살펴봤습니다.\n\n전격술사, 화염술사, 격투가, 검술사, 듀얼블레이드, 궁수 등 각 직업 무기를 직접 보면서 디자인과 활용도를 ",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-09-18",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/-DfMELnyYo8/hqdefault.jpg"
+    },
+    {
       "id": "bahamut-2919",
       "title": "徵求精華組員",
       "title_original": "徵求精華組員",
@@ -1949,7 +2064,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2920",
       "summary": "祭司這職業的定位基本上是輸出(AKA光炮法師)，同時帶有一點團輔能力和治療能力，而且有強大的範圍瞬間抬血能力 下面簡單介紹一下 核心技能 1.聖矛/穿刺之光 (AKA雅各布天梯) 最為核心的輸出技能，獨攬了祭司大概80%以上的輸出，所以玩祭司的時候，基本上要以如何打出更多 聖矛 和如何最大化 聖矛 …",
-      "key_points": [],
+      "key_points": [
+        "「最為核心的輸出技能，獨攬了祭司大概80%以上的輸出，所以玩祭司的時候，基本上要以如何打出更多」",
+        "「最為核心的被動技能，要注意符文提供的傷害打出」",
+        "「這三個技能的連動基本構成了祭司的核心輸出思路」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-17",
@@ -1971,7 +2090,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2910",
       "summary": "有鑑於這遊戲已經開放快兩個月，又是台灣特別版的趕場式更新，對於現在摸熟遊戲就準備要進入 S1 的新手來說，副本裝備的取得方式，已經跟一開始前一個月開放時天差地遠了。 所以開這一串，專門給現在想要入坑、或者剛入坑不久的人看。 💡 幾個先決條件 盡量不要打重複的地下城(有首通獎勵)。 不建議符文晉階：可…",
-      "key_points": [],
+      "key_points": [
+        "「在角色達到 50 等左右的時候，建議開一隻分身」",
+        "「最核心的點，在於第五階段後的 60、63、65 級大獎勵箱，記得要留給本尊領」",
+        "「下一樓，我會把重點放在「65 等的戰力提升方式」」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-17",
@@ -2034,22 +2157,6 @@
       "thumbnail": ""
     },
     {
-      "id": "bahamut-2918",
-      "title": "生活工具數值問題想問工具數值愈高，是採摘速度變快？數量變多？ 還是沒差別，只看效果？",
-      "title_original": "生活工具數值問題想問工具數值愈高，是採摘速度變快？數量變多？ 還是沒差別，只看效果？",
-      "author": "ccwhk1015",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2918",
-      "summary": "想問工具數值愈高，是採摘速度變快？數量變多？ 還是沒差別，只看效果？",
-      "key_points": [],
-      "source": "bahamut",
-      "region": "tw",
-      "published_at": "2026-09-17",
-      "is_featured": false,
-      "thumbnail": ""
-    },
-    {
       "id": "bahamut-essence-565",
       "title": "（圖多）還在痛苦的手動採素材嗎……該來學無限自動採集啦！（5.55更）更新推薦表至ver.3.3+黃金苔蘚以外的選擇",
       "title_original": "（圖多）還在痛苦的手動採素材嗎……該來學無限自動採集啦！（5.55更）更新推薦表至ver.3.3+黃金苔蘚以外的選擇",
@@ -2066,6 +2173,26 @@
       "published_at": "2026-09-17",
       "is_featured": true,
       "thumbnail": ""
+    },
+    {
+      "id": "youtube-eiJeDQikoJI",
+      "title": "10星神話符文&全新韓服🎑活動福利概要，包含跳躍功能！ 【瑪奇 Mobile】",
+      "title_original": "10성 신화 룬 & 신규 한복🎑 점핑까지 이벤트 혜택 정리!【마비노기 모바일 】",
+      "author": "모닝이 게임영상",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=eiJeDQikoJI",
+      "summary": "벌써 추석이라니 시간 진짜 빠르지? 🎑 \n이번 명절 이벤트! 60일 출석하면 10성 신화 룬 주고, \n신규/복귀 유저들을 위한 55/85 레벨 건너뛰기 티켓도 뿌린대!\n\n기존 유저들도 버닝 이벤트로 골드랑 강화권 왕",
+      "key_points": [
+        "00:07 出席活動介紹",
+        "00:54 燃燒與成長活動",
+        "01:55 鬆餅交換！獲得韓服"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-09-17",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/eiJeDQikoJI/hqdefault.jpg"
     },
     {
       "id": "youtube-YBX8wiAQDtE",
@@ -2169,7 +2296,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=8-GtrWi1r8Y",
       "summary": "懶人包:\n1.下周更新白魅魔副本\n2.又有獎勵啦!!\n3.生活400次獎勵全拿\n\n時間軸:\n00:00 前言\n00:11 開始\n00:20 On-Time獎勵\n00:39 月光豐收\n01:01 白魅魔副本相關\n01:33 深淵難度4說明\n0",
-      "key_points": [],
+      "key_points": [
+        "00:11 開始",
+        "00:20 On-Time獎勵",
+        "00:39 月光豐收"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-16",
@@ -2293,24 +2424,6 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-B5c-LigGJB8",
-      "title": "《瑪奇 Mobile》白魅魔團本開服前先看懂：王有兩隻、夢之邀請、擋玫瑰、20 秒攔召喚、白玫瑰附魔（韓版機制整理）",
-      "title_original": "《瑪奇 Mobile》白魅魔團本開服前先看懂：王有兩隻、夢之邀請、擋玫瑰、20 秒攔召喚、白玫瑰附魔（韓版機制整理）",
-      "author": "C.K.魁桑",
-      "category": "副本攻略",
-      "tags": [
-        "副本"
-      ],
-      "url": "https://www.youtube.com/watch?v=B5c-LigGJB8",
-      "summary": "台服 9/21 要開第二個團隊副本「白魅魔」。這支把韓版的機制整理成 4 分半：王有兩隻（白魅魔在現實、黑魅魔在夢裡）、四人分兩組的「夢之邀請」怎麼觸發、夢裡怎麼無力化黑魅魔、外面要拉開王、殺惡夢之影、擋紫玫瑰，還有整場最關鍵的 20 秒：",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-15",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/B5c-LigGJB8/hqdefault.jpg"
-    },
-    {
       "id": "youtube-QfgSZpGRSxI",
       "title": "《瑪奇 Mobile》⚡8位電擊術士 VS 格里斯貝恩！💥滿場雷電直接轟爆BOSS！#瑪奇Mobile #瑪奇CP計畫 #마비노기모바일 #我的曠野征服日誌",
       "title_original": "《瑪奇 Mobile》⚡8位電擊術士 VS 格里斯貝恩！💥滿場雷電直接轟爆BOSS！#瑪奇Mobile #瑪奇CP計畫 #마비노기모바일 #我的曠野征服日誌",
@@ -2322,7 +2435,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=QfgSZpGRSxI",
       "summary": "Hi！ 大家好！我是古今！\n⚡8位電擊術士，全員集合！\n這次直接挑戰《瑪奇 Mobile》的格里斯貝恩！\n💥 8位雷法同時出手，滿場雷電瘋狂轟炸！\n究竟格里斯貝恩能撐多久？一起看看這場超狂的「雷法大軍」！\n\n✨影片內容✨\n00:00 HI！",
-      "key_points": [],
+      "key_points": [
+        "00:00 HI！大家好，我是古今！",
+        "01:30 第1小關",
+        "02:58 第2小關"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-15",
@@ -2330,23 +2447,26 @@
       "thumbnail": "https://i.ytimg.com/vi/QfgSZpGRSxI/hqdefault.jpg"
     },
     {
-      "id": "youtube-ZJ2e4KRctb8",
-      "title": "🔥《瑪奇 Mobile》地獄3挑戰成功！💀瑪斯深淵【地獄３】⚔️三大BOSS＋DEBUFF一次看！",
-      "title_original": "🔥《瑪奇 Mobile》地獄3挑戰成功！💀瑪斯深淵【地獄３】⚔️三大BOSS＋DEBUFF一次看！",
-      "author": "古今小教室",
+      "id": "youtube-B5c-LigGJB8",
+      "title": "《瑪奇 Mobile》白魅魔團本開服前先看懂：王有兩隻、夢之邀請、擋玫瑰、20 秒攔召喚、白玫瑰附魔（韓版機制整理）",
+      "title_original": "《瑪奇 Mobile》白魅魔團本開服前先看懂：王有兩隻、夢之邀請、擋玫瑰、20 秒攔召喚、白玫瑰附魔（韓版機制整理）",
+      "author": "C.K.魁桑",
       "category": "副本攻略",
       "tags": [
-        "副本",
-        "深淵"
+        "副本"
       ],
-      "url": "https://www.youtube.com/watch?v=ZJ2e4KRctb8",
-      "summary": "🔥 地獄3挑戰正式開始！\n這次來挑戰《瑪奇 Mobile》最新高難度副本——瑪斯深淵・地獄3！\n\n三大關卡、三位BOSS，還有每週隨機出現的副本DEBUFF！\n本片直接帶大家看完整攻略過程，包含 BOSS機制、DEBUFF效果、實戰應對與通",
-      "key_points": [],
+      "url": "https://www.youtube.com/watch?v=B5c-LigGJB8",
+      "summary": "台服 9/21 要開第二個團隊副本「白魅魔」。這支把韓版的機制整理成 4 分半：王有兩隻（白魅魔在現實、黑魅魔在夢裡）、四人分兩組的「夢之邀請」怎麼觸發、夢裡怎麼無力化黑魅魔、外面要拉開王、殺惡夢之影、擋紫玫瑰，還有整場最關鍵的 20 秒：",
+      "key_points": [
+        "00:00 開場：王有兩隻，別讓黑魅魔來到現實",
+        "00:19 基本資料：4 人、Lv.65、27,000 戰力、9 分 20 秒",
+        "00:42 核心機制：夢之邀請（80% 第一次，之後每 90 秒）"
+      ],
       "source": "youtube",
       "region": "tw",
-      "published_at": "2026-09-14",
+      "published_at": "2026-09-15",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ZJ2e4KRctb8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/B5c-LigGJB8/hqdefault.jpg"
     },
     {
       "id": "bahamut-2841",
@@ -2382,25 +2502,6 @@
       "published_at": "2026-09-13",
       "is_featured": false,
       "thumbnail": ""
-    },
-    {
-      "id": "youtube-vc7ynTs3qZM",
-      "title": "【瑪奇Mobile】治療師半手動進階教學｜比全自動更穩的實戰操作技巧",
-      "title_original": "【瑪奇Mobile】治療師半手動進階教學｜比全自動更穩的實戰操作技巧",
-      "author": "小妃",
-      "category": "副本攻略",
-      "tags": [
-        "技能",
-        "副本"
-      ],
-      "url": "https://www.youtube.com/watch?v=vc7ynTs3qZM",
-      "summary": "《瑪奇Mobile》治療師進階操作教學！\n全自動補血容易慢半拍，全手動又容易手忙腳亂？這次分享實戰中更好控制的半手動操作方式，包含技能開關、補線、護盾擴散與走位調整，提升副本中的容錯率與治療穩定性。\n\n這套操作並不是「開了就無敵」，遇到持續",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-12",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/vc7ynTs3qZM/hqdefault.jpg"
     },
     {
       "id": "bahamut-2812",
@@ -2513,7 +2614,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2688",
       "summary": "AI鎮樓圖！ （注意！AI圖只是好玩而已，技能資訊請依照實際遊戲內為主！) 生成關鍵字：娜歐+電擊術士.....這AI很可以啊! 為了大眾的需求也避免被認真，我請AI修改了一下~希望能滿足大眾~ 正文開始 單純分享一些個人配裝思路，最終效果有待確認。 技能名稱 先列出技能說明，方便照表查看。(已比照…",
-      "key_points": [],
+      "key_points": [
+        "「符文刻印： 暴擊達約3000後，以強擊強化 ＞ 技能威力 ＞ 連打強化為主要方向」",
+        "「實際符文現行(第0季)配置建議」",
+        "「使用劍類職業達成職業等級40時,攻擊力每次增加4%,該效果最多可疊加6次」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-09",
@@ -2553,54 +2658,16 @@
       ],
       "url": "https://www.youtube.com/watch?v=E_yZEYtzS3E",
       "summary": "#瑪奇mobile #修道士 #GAooU #嘎喔 #마비노기모바일\n\n懶人包:\n1.更新附魔，更新新地圖\n2.寶石整合\n3.更新大量時裝\n4.有鋼琴跟大鼓啦~\n5.通行證介紹\n6.每日獎勵\n\n時間軸:\n00:00 前言\n00:15 開始\n",
-      "key_points": [],
+      "key_points": [
+        "00:15 開始",
+        "00:25 曠野閃光活動",
+        "00:36 重生石獎勵"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-09",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/E_yZEYtzS3E/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-ayzP3t3eBtQ",
-      "title": "《瑪奇Mobile》曠野的女巫更新內容👇新區域班赫與電擊術士 黑白魅魔|  後續分享符文攻略 |  #電擊術士 #荒野的閃光 #瑪奇Mobile #전격술사 #마비노기모바일",
-      "title_original": "《瑪奇Mobile》曠野的女巫更新內容👇新區域班赫與電擊術士 黑白魅魔|  後續分享符文攻略 |  #電擊術士 #荒野的閃光 #瑪奇Mobile #전격술사 #마비노기모바일",
-      "author": "KenneSport",
-      "category": "職業解析",
-      "tags": [
-        "電擊術士",
-        "活動",
-        "符文",
-        "魔法師"
-      ],
-      "url": "https://www.youtube.com/watch?v=ayzP3t3eBtQ",
-      "summary": "《瑪奇 Mobile》曠野的女巫更新內容👇新區域班赫與電擊術士 |  後續分享符文攻略 |  #瑪奇Mobile #Mabinogimobile  #瑪奇CP計畫 #我在瑪奇Mobile中體驗過的冒險紀錄\n每天只要花一點時間體驗劇情、解活動",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-09",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ayzP3t3eBtQ/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-EdoX2W7PUbk",
-      "title": "解放雙手👇智慧魔法羅盤 掛副本 | 瑪奇 Mobile #瑪奇Mobile #瑪奇CP計畫 #9月愛爾琳小教室 #전격술사 #마비노기모바일 #白魅魔副本",
-      "title_original": "解放雙手👇智慧魔法羅盤 掛副本 | 瑪奇 Mobile #瑪奇Mobile #瑪奇CP計畫 #9月愛爾琳小教室 #전격술사 #마비노기모바일 #白魅魔副本",
-      "author": "CharlesKT",
-      "category": "副本攻略",
-      "tags": [
-        "電擊術士",
-        "副本",
-        "活動",
-        "魔法師"
-      ],
-      "url": "https://www.youtube.com/watch?v=EdoX2W7PUbk",
-      "summary": "#電擊術士 #曠野的閃光 #瑪奇Mobile  #Mabinogimobile #전격술사 #마비노기모바일 #白魅魔副本\n解放雙手👇智慧魔法羅盤 掛副本🔔#9月愛爾琳小教室\n《瑪奇 Mobile》活動相關資訊 , KT參加 瑪奇CP計畫,",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-09",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/EdoX2W7PUbk/hqdefault.jpg"
     },
     {
       "id": "youtube-eWsu7SDoUUw",
@@ -2619,29 +2686,6 @@
       "published_at": "2026-09-09",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/eWsu7SDoUUw/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-UF5JKLZhJnU",
-      "title": "《瑪奇M》電擊術士雷電降臨！開服無痛秒轉職 | 電擊術士 2 大核心符文 | 狐狸附魔獲取 | 巴里礦洞與白魅魔前瞻",
-      "title_original": "《瑪奇M》電擊術士雷電降臨！開服無痛秒轉職 | 電擊術士 2 大核心符文 | 狐狸附魔獲取 | 巴里礦洞與白魅魔前瞻",
-      "author": "亞亞 Mia ",
-      "category": "職業解析",
-      "tags": [
-        "法師",
-        "電擊術士",
-        "轉職",
-        "改版",
-        "符文",
-        "魔法師"
-      ],
-      "url": "https://www.youtube.com/watch?v=UF5JKLZhJnU",
-      "summary": "嗨！我是亞亞mia\n《瑪奇 Mobile》超大型改版\n萬眾矚目的魔法師系第四職業終於霸氣登場啦！\n這次更新不只帶來了超炫酷的新職業\n還同步開放了新地圖與全新的附魔卷軸\n今天就來跟大家分享～\n=====\n【出走玩家聯盟】https://dis",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-09",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/UF5JKLZhJnU/hqdefault.jpg"
     },
     {
       "id": "youtube-eZvM9ZwNuIE",
@@ -2684,28 +2728,16 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=00tTFnEhL8w",
       "summary": "00:00 시즌1 룬 9/17부터 못쓴다\n00:35 AI커넥터 사전안내\n00:53 없데이트 내용\n01:16 9월 로드맵\n01:31 개인적인 의견\n\n8월 13일 사과방송에서 보여준 로드맵을 지키지 않는 데브캣\n이제는 ",
-      "key_points": [],
+      "key_points": [
+        "00:00 第一季符文將於9月17日起無法使用",
+        "00:35 AI連接器預告",
+        "00:53 無更新內容"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-09-09",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/00tTFnEhL8w/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-dI4a2ac7BOY",
-      "title": "《瑪奇 Mobile》不練分身會很虧嗎？分身帶來的好處有什麼！分身職業的選擇推薦！",
-      "title_original": "《瑪奇 Mobile》不練分身會很虧嗎？分身帶來的好處有什麼！分身職業的選擇推薦！",
-      "author": "刺蝟先生",
-      "category": "職業解析",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=dI4a2ac7BOY",
-      "summary": "",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-08",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/dI4a2ac7BOY/hqdefault.jpg"
     },
     {
       "id": "bahamut-2660",
@@ -2723,7 +2755,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2660",
       "summary": "9/20 更新 今天有把『荊棘藤蔓』更換『千把劍』，有稍微測試跟大家分享 強化都是+10，技能特化都有兩個相同，符文效果就不太一樣 個別打3場單人小格入門全自動不閃招，2個秒數都在2:55(正負2~3秒) 簡單分享重點 1.實際副本輸出感受不太出來明顯差異（但千把劍感覺在打狂風弩箭的數值有比較平均？…",
-      "key_points": [],
+      "key_points": [
+        "「個別打3場單人小格入門全自動不閃招，2個秒數都在2:55(正負2~3秒)」",
+        "「有看到別人分享，如果武器是用攻擊％，防具可以配傷害％（我配平原流浪者）」",
+        "「目前使用「荊棘藤蔓」打小格時，還配平原流浪者增加跑速躲傷害不然受到傷害增加 25% 其實也蠻不舒服的」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-08",
@@ -2753,6 +2789,27 @@
       "thumbnail": "https://i.ytimg.com/vi/2siH2NUBj9Q/hqdefault.jpg"
     },
     {
+      "id": "youtube-CB9uVmSjLoo",
+      "title": "《瑪奇Mobile》曠野的女巫更新內容👇新區域班赫與電擊術士 黑白魅魔|  後續分享符文攻略 |  #電擊術士 #曠野的閃光 #瑪奇Mobile #전격술사 #마비노기모바일",
+      "title_original": "《瑪奇Mobile》曠野的女巫更新內容👇新區域班赫與電擊術士 黑白魅魔|  後續分享符文攻略 |  #電擊術士 #曠野的閃光 #瑪奇Mobile #전격술사 #마비노기모바일",
+      "author": "CharlesKT",
+      "category": "職業解析",
+      "tags": [
+        "電擊術士",
+        "活動",
+        "符文",
+        "魔法師"
+      ],
+      "url": "https://www.youtube.com/watch?v=CB9uVmSjLoo",
+      "summary": "《瑪奇 Mobile》曠野的女巫更新內容👇新區域班赫與電擊術士 |  後續分享符文攻略 |  #瑪奇Mobile #Mabinogimobile  #瑪奇CP計畫 #我在瑪奇Mobile中體驗過的冒險紀錄\n每天只要花一點時間體驗劇情、解活動",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-08",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/CB9uVmSjLoo/hqdefault.jpg"
+    },
+    {
       "id": "youtube-l3IuHwTwD40",
       "title": "探索第二季的強化元素😎 從法師抗性到寵物裝飾的指南【瑪奇 Mobile】",
       "title_original": "시즌2 스펙업 요소 알아보기😎 마도 저항부터 펫 장식까지 공략 【마비노기 모바일 】",
@@ -2761,28 +2818,16 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=l3IuHwTwD40",
       "summary": "마도 저항부터 소울 스트림, 시즌 스킬, \n그리고 붉은 달 인장, 전설 인챈트, 초월 각인, 펫 장식까지!\n장비 세팅 꿀팁이랑 내실 다지는 방법 알려줄게. 😎\n알려준 팁들만 따라 하면 인싸 스펙 금방 만들 수 있을 ",
-      "key_points": [],
+      "key_points": [
+        "00:08 優先考慮魔法抗性",
+        "01:48 框架：靈魂之流",
+        "03:04 增強裝備欄位"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-09-08",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/l3IuHwTwD40/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-CPMxurxt9bc",
-      "title": "9月10日星期四沒有更新。你們明明說路線圖會9月初發售！ ！ [瑪奇 Mobile]",
-      "title_original": "9월 10일(목) 없데이트. 로드맵 9월초라며!! [마비노기 모바일]",
-      "author": "빙식이",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=CPMxurxt9bc",
-      "summary": "비매너 댓글은 통보 없이 삭제 및 차단조치 될 수 있습니다.\n- 씨미 : https://ci.me/@bingsik\n- 채널 멤버쉽 가입 : https://www.youtube.com/channel/UCVRFMSz2E",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2026-09-08",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/CPMxurxt9bc/hqdefault.jpg"
     },
     {
       "id": "youtube-LR23TiuPCUE",
@@ -2817,6 +2862,26 @@
       "thumbnail": "https://i.ytimg.com/vi/8RzvktbFSxg/hqdefault.jpg"
     },
     {
+      "id": "youtube-MIn76WI-foI",
+      "title": "【瑪奇M】總點數9600全數送出🔥嚴浩鬼抓人大賽(球球盃)🔥｜觀眾活動｜MyCard獎勵｜Mabinogi Mobile",
+      "title_original": "【瑪奇M】總點數9600全數送出🔥嚴浩鬼抓人大賽(球球盃)🔥｜觀眾活動｜MyCard獎勵｜Mabinogi Mobile",
+      "author": "嚴浩長不大",
+      "category": "副本攻略",
+      "tags": [
+        "副本",
+        "活動",
+        "獎勵"
+      ],
+      "url": "https://www.youtube.com/watch?v=MIn76WI-foI",
+      "summary": "今晚不是打副本，是來逃命的！🤣\n第一屆「嚴浩盃 鬼抓人」正式開跑！\n\n👻 鬼組：想辦法把所有人通通抓光\n🏃 人組：能躲多久就躲多久，活到最後就是王者！\n\n⏰ 晚上 7:00 開播｜講解規則＋事前準備\n🔥 晚上 8:00 正式開始鬼抓人！\n\n",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-06",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/MIn76WI-foI/hqdefault.jpg"
+    },
+    {
       "id": "bahamut-2616",
       "title": "【吊帶襪】分享串狂刷愛心幣終於換出來了！ 吊帶襪能染的區域是 1.絲襪 2.鞋子 3.吊帶 可惜褲子那區的不能染... 讓我看看大家的吊帶襪都怎麼配！ 目前愛心幣獲取途徑 ➤商城免費區能刷新出20~50顆",
       "title_original": "【吊帶襪】分享串狂刷愛心幣終於換出來了！ 吊帶襪能染的區域是 1.絲襪 2.鞋子 3.吊帶 可惜褲子那區的不能染... 讓我看看大家的吊帶襪都怎麼配！ 目前愛心幣獲取途徑 ➤商城免費區能刷新出20~50顆",
@@ -2827,7 +2892,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2616",
       "summary": "狂刷愛心幣終於換出來了！ 吊帶襪能染的區域是 1.絲襪 2.鞋子 3.吊帶 可惜褲子那區的不能染... 讓我看看大家的吊帶襪都怎麼配！ 目前愛心幣獲取途徑 ➤商城免費區能刷新出20~50顆愛心幣(每日1次) ➤副本的貓商人，1貓條換1顆(每日3次) ➤釣魚的真愛魚在杜巴頓雜貨店換5條換1顆(每日2次…",
-      "key_points": [],
+      "key_points": [
+        "「➤全副本各難度通關1次成就每個10顆(僅1次)」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-05",
@@ -2848,12 +2915,32 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2631",
       "summary": "看了 cycs160 大大的這篇，推薦治療向詩人符文 https://forum.gamer.com.tw/Co.php?bsn=32564&sn=7489 但站上介紹是比較常見的134的傷害型吟遊詩人，但治癒、支援方向的介紹比較少。 因為我自己的吟遊詩人規劃使用「機智」符文，主要用途是補血與照顧隊…",
-      "key_points": [],
+      "key_points": [
+        "「治癒型可以準備約2000左右的快速技能，剩餘屬性再搭配暴擊、連擊、強擊或追擊」",
+        "「其中「勇猛讚歌」具有演奏傷害增加30%的效果，因此即使是治癒型，只要希望兼顧一些傷害，仍然值得維持」",
+        "「純傷害型通常會優先堆暴擊，但機智治癒型可以稍微降低暴擊，將快速技能提高至約2000左右，讓技能與治療循環更加順暢」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-09-05",
       "is_featured": true,
       "thumbnail": ""
+    },
+    {
+      "id": "youtube-ZwCdAA2KYTo",
+      "title": "[瑪奇MOBILE] 韓服未來視 全網最完整! 2025時裝幸運箱搶先看 全服裝外觀一覽【鈉煮蝸牛】#瑪奇Mobile",
+      "title_original": "[瑪奇MOBILE] 韓服未來視 全網最完整! 2025時裝幸運箱搶先看 全服裝外觀一覽【鈉煮蝸牛】#瑪奇Mobile",
+      "author": "鈉煮蝸牛",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=ZwCdAA2KYTo",
+      "summary": "🎯  用LDCloud雲手機24/7全天在線\n🚀 通過我的鏈接註冊LDCloud可獲取 LDCloud 6小時試用特惠：https://t.ldcloud.net/Sodium\n\n加入LDCloud discord 領取更多優惠 : htt",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-09-05",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/ZwCdAA2KYTo/hqdefault.jpg"
     },
     {
       "id": "youtube-GR7f0YwhO5U",
@@ -2872,7 +2959,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=GR7f0YwhO5U",
       "summary": "嗨！我是亞亞mia\n《瑪奇 Mobile》台服即將在 9 月 9 日迎來超大型更新！\n這次不僅魔法師系列第四職業正式登場\n還會同步實裝新地圖與新主線\n亞亞幫大家整理了更新前核心備戰清單\n避免大家改版當天手忙腳亂～\n=====\n【出走玩家聯盟",
-      "key_points": [],
+      "key_points": [
+        "00:36 電擊術士",
+        "02:52 韓服未來視",
+        "03:28 課金建議"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-05",
@@ -2898,25 +2989,20 @@
       "thumbnail": "https://i.ytimg.com/vi/_mkevFcoO3A/hqdefault.jpg"
     },
     {
-      "id": "youtube-XAgNi_qugd0",
-      "title": "《瑪奇 Mobile》9/9 大更新「曠野的閃光」搶先看！新職業電擊術士技能全解析｜事前登記開跑",
-      "title_original": "《瑪奇 Mobile》9/9 大更新「曠野的閃光」搶先看！新職業電擊術士技能全解析｜事前登記開跑",
-      "author": "C.K.魁桑",
-      "category": "職業解析",
-      "tags": [
-        "電擊術士",
-        "技能",
-        "獎勵",
-        "魔法師"
-      ],
-      "url": "https://www.youtube.com/watch?v=XAgNi_qugd0",
-      "summary": "瑪奇Mobile 九月九號大更新「曠野的閃光」來了！事前登記已經開放，完成登記就送三樣限定獎勵：時裝眼部裝飾「電光太陽眼鏡」、稱號「充電完畢」，還有動作「靈光」。\n\n▶ 事前登記由此去：https://tw.nexon.com/mabino",
+      "id": "youtube-KnWeCNDlrHc",
+      "title": "【瑪奇 Mobile】一款類似平壤冷麵的遊戲？更新速度慢，但商業模式發展迅速。",
+      "title_original": "[마비노기 모바일] 평양냉면 같은 게임? 업데이트는 느린데 BM은 빠르다",
+      "author": "황산갈매기",
+      "category": "活動情報",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=KnWeCNDlrHc",
+      "summary": "마비노기 모바일을 플레이하면서 최근 콘텐츠 공급 속도와 BM에 대해 느낀 점을 이야기해봤습니다.\n\n예전 MMORPG처럼 천천히 세계를 유지하고 유저들이 그 안에서 놀게 만드는 운영 방식 자체가 나쁘다고 생각하지는 않",
       "key_points": [],
       "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-09-01",
+      "region": "kr",
+      "published_at": "2026-09-03",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/XAgNi_qugd0/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/KnWeCNDlrHc/hqdefault.jpg"
     },
     {
       "id": "youtube-gA7bSQAaz-c",
@@ -2932,7 +3018,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=gA7bSQAaz-c",
       "summary": "Hi！ 大家好！我是古今！\n即將在 ９/９ 推出的「曠野的閃光」改版！\n\n🎁還有「事前預約」活動！\n只要完成「事前預約」就能拿到 限定獎勵！\n🎁時裝「電光太陽眼鏡」、稱號「充電完畢」、動作「靈光」\n趕快參加事前預約，把獎勵帶回家吧！\n連結：",
-      "key_points": [],
+      "key_points": [
+        "00:00 HI！大家好，我是古今！",
+        "00:34 事前預約",
+        "00:56 電擊術士"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-09-01",
@@ -2989,7 +3079,10 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2514",
       "summary": "在繁體版瑪奇mobile好像比較少人玩「吟遊詩人」這一職業。 以我所了解是因為詩人需要高配置才能發揮應有的威力，除非你對結他有愛，否則有更多其他更好的選擇。 本人有幸於各個副本中獲得的傳說符文，無心插柳地促使我朝着這一個講究「技能速度」，「爆擊」和「追擊」的流派發展。 利益申報：本人持有兩個17HK…",
-      "key_points": [],
+      "key_points": [
+        "「好像是打第一次深層掉出來的，對於玩速度流派的詩人無疑是必需品，234技能無間斷施放，核心技能之一」",
+        "「12%傷害加成和30%移動速度巧妙運用是一個非常好的配搭」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-30",
@@ -3073,25 +3166,6 @@
       "thumbnail": "https://i.ytimg.com/vi/2Mw02BvQ64I/hqdefault.jpg"
     },
     {
-      "id": "youtube-4qloobSBufg",
-      "title": "瑪奇 Mobile 困難格里斯貝恩 舞者自我紀錄 半自動 戰力24416",
-      "title_original": "瑪奇 Mobile 困難格里斯貝恩 舞者自我紀錄 半自動 戰力24416",
-      "author": "YAYEI",
-      "category": "職業解析",
-      "tags": [
-        "舞者",
-        "吟遊詩人"
-      ],
-      "url": "https://www.youtube.com/watch?v=4qloobSBufg",
-      "summary": "",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-25",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/4qloobSBufg/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-essence-545",
       "title": "你喜歡猜拳？那你來玩戰士 (劍盾)",
       "title_original": "你喜歡猜拳？那你來玩戰士 (劍盾)",
@@ -3132,28 +3206,6 @@
       "thumbnail": "https://i.ytimg.com/vi/2fOM007e31w/hqdefault.jpg"
     },
     {
-      "id": "youtube-cBEOmt7HrPE",
-      "title": "EP.1 瑪奇Mobile 新手開局實錄｜創角到6級全流程，吟遊詩人主線＋狼之森林S級通關",
-      "title_original": "EP.1 瑪奇Mobile 新手開局實錄｜創角到6級全流程，吟遊詩人主線＋狼之森林S級通關",
-      "author": "Y_Verse_Y",
-      "category": "新手指南",
-      "tags": [
-        "騎士",
-        "吟遊詩人",
-        "新手",
-        "戰士",
-        "尚未開放"
-      ],
-      "url": "https://www.youtube.com/watch?v=cBEOmt7HrPE",
-      "summary": "第一次玩《瑪奇 Mobile》，從創角一路打到 6 級的完整開局流程。這支影片沒有快轉、\n沒有剪掉任何步驟，新手照著走就知道前 20 分鐘會遇到什麼。\n選的是吟遊詩人，內容包含：六大職業選擇、捏臉系統、序章劇情、盔甲騎士 BOSS 戰、\n堤",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-24",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/cBEOmt7HrPE/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-2354",
       "title": "高等傳說寵物指南+未來視因為太多人問了 直接做成一篇 最重要的先寫在前面 傳說寵物 是一個很貴 提升卻沒有很多的高課金項目 (經過水表DPS驗證 一般泛用型寵物 史詩>傳說大約僅有3-5%的DPS提升) 這個差",
       "title_original": "高等傳說寵物指南+未來視因為太多人問了 直接做成一篇 最重要的先寫在前面 傳說寵物 是一個很貴 提升卻沒有很多的高課金項目 (經過水表DPS驗證 一般泛用型寵物 史詩>傳說大約僅有3-5%的DPS提升) 這個差",
@@ -3166,7 +3218,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2354",
       "summary": "因為太多人問了 直接做成一篇 最重要的先寫在前面 傳說寵物 是一個很貴 提升卻沒有很多的高課金項目 (經過水表DPS驗證 一般泛用型寵物 史詩>傳說大約僅有3-5%的DPS提升) 這個差距很容易計算出來 傳說比史詩寵物約強5X全能力加100左右的雙同行素質以及多一條技能 乍看好像不少 但考量到人物五…",
-      "key_points": [],
+      "key_points": [
+        "「傳說比史詩寵物約強5X全能力加100左右的雙同行素質以及多一條技能」",
+        "「乍看好像不少 但考量到人物五維2XXX+能力屬性都是幾千的情況下」",
+        "「原因是只有3神速貓頭鷹才能在雷法的大絕持續時間裡面放出兩次BUFF」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-23",
@@ -3186,7 +3242,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2355",
       "summary": "大家豪，這裡是 愛麗莎 的 歐藤島灰 樂師真D好玩，所以又嘗試開發其他玩法，這次來介紹一下樂師的【凶星】玩法 自己有研發傷害水表，發現凶星有個還滿不錯的特性，下面再介紹~ 前一篇 ※ 二重終章流 ※ 已有基本技能的介紹，此篇就不再重述 8/25更新 : 經巴友提醒，目前凶星前2段傷害疑似有BUG，文…",
-      "key_points": [],
+      "key_points": [
+        "「8/25更新 : 經巴友提醒，目前凶星前2段傷害疑似有BUG，文章內容是發現BUG前的玩法，會再找時間測試新的玩法」",
+        "「➤能看情況使用漸強強化，例如缺情緒的時候，但注意必須在12秒內能再次用漸強進入第2樂章」",
+        "「➤盡量觸發情緒50%跨越的被動效果」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-23",
@@ -3205,7 +3265,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=TSGy9x8dUCM",
       "summary": "《瑪奇 Mobile》👇現在入坑還來得及嗎？職業選擇、符文系統與每日必做全解析！ |  #瑪奇Mobile #Mabinogimobile  #瑪奇CP計畫 #我在瑪奇Mobile中體驗過的冒險紀錄\n每天只要花一點時間體驗劇情、解活動，這款",
-      "key_points": [],
+      "key_points": [
+        "00:00 前言：瑪奇 Mobile 適合哪些玩家入坑？",
+        "00:30 職業系統：5大職業與18種進階職業切換（職業大師徽章）",
+        "00:58 主線與支線任務升級建議"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-08-23",
@@ -3213,25 +3277,22 @@
       "thumbnail": "https://i.ytimg.com/vi/TSGy9x8dUCM/hqdefault.jpg"
     },
     {
-      "id": "youtube-0JYvOxQ_ja4",
-      "title": "【瑪奇Mobile】別再合符文🔥改版你可能會後悔！資源花在這CP值更高｜強化碎片｜符文合成｜副職業｜精靈的痕跡｜催化劑",
-      "title_original": "【瑪奇Mobile】別再合符文🔥改版你可能會後悔！資源花在這CP值更高｜強化碎片｜符文合成｜副職業｜精靈的痕跡｜催化劑",
-      "author": "阿貝手遊頻道 MrBay",
-      "category": "職業解析",
+      "id": "youtube-vtJuewT0PTQ",
+      "title": "最新雙刀攻略，連艾莉莎都能看懂【瑪奇 Mobile】",
+      "title_original": "알리사도 이해하는 듀얼 블레이드 최신 공략 [마비노기 모바일]",
+      "author": "센터로드TV",
+      "category": "副本攻略",
       "tags": [
-        "改版",
-        "強化",
-        "符文",
-        "催化劑"
+        "盜賊"
       ],
-      "url": "https://www.youtube.com/watch?v=0JYvOxQ_ja4",
-      "summary": "★工商合作來信→s89021393@gmail.com\n立即下載『瑪奇Mobile』→https://mabinogimobiletw.go.link/jZqbJ\n★精選『深度攻略』播放清單點此看→https://www.youtube.c",
+      "url": "https://www.youtube.com/watch?v=vtJuewT0PTQ",
+      "summary": "#마비노기모바일#넥슨#모비노기#mabinogimobile #瑪奇Mobile\n\n구독: http://bit.ly/2qGYbPM\n카톡문의(ID): centerlordtv\n투네이션 후원: https://toon.at/don",
       "key_points": [],
       "source": "youtube",
-      "region": "tw",
+      "region": "kr",
       "published_at": "2026-08-22",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/0JYvOxQ_ja4/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/vtJuewT0PTQ/hqdefault.jpg"
     },
     {
       "id": "bahamut-2333",
@@ -3242,7 +3303,9 @@
       "tags": [],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=2333",
       "summary": "懶人包 ： 史詩套裝選四件套 （可以透過時裝圖鑑確認） --- 本篇是給微課玩家，傳說時裝大老可以跳過XD 無課玩家也可以跳過，因為紫升粉需要以下道具，並且成功機率只有25% --- 相信現在很多微課玩家，都會選擇多開分身來農「時裝碎片箱子」，為的就是希望能白嫖出一整套的 史詩時裝套裝 。但是如果沒…",
-      "key_points": [],
+      "key_points": [
+        "「只要集滿4件即可擁有最大套裝效果」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-21",
@@ -3342,26 +3405,6 @@
       "published_at": "2026-08-19",
       "is_featured": true,
       "thumbnail": ""
-    },
-    {
-      "id": "youtube-Aziw7gBORJo",
-      "title": "瑪奇Mobile 治癒師  格里斯貝恩 困難 戰力22649 裝備分享",
-      "title_original": "瑪奇Mobile 治癒師  格里斯貝恩 困難 戰力22649 裝備分享",
-      "author": "威爾妙willmiu遊戲",
-      "category": "副本攻略",
-      "tags": [
-        "治癒師",
-        "副本",
-        "裝備"
-      ],
-      "url": "https://www.youtube.com/watch?v=Aziw7gBORJo",
-      "summary": "0:00 裝備分享\n1:37 副本開始\n4:33 格里斯貝恩",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-19",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Aziw7gBORJo/hqdefault.jpg"
     },
     {
       "id": "youtube-Zs1pyx_jLJY",
@@ -3475,44 +3518,6 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-c9Nd_vgCM5E",
-      "title": "《瑪奇MOBILE 》 提升祭司戰力，我獨自打深淵地獄1難度~",
-      "title_original": "《瑪奇MOBILE 》 提升祭司戰力，我獨自打深淵地獄1難度~",
-      "author": "J個世界",
-      "category": "副本攻略",
-      "tags": [
-        "祭司",
-        "深淵",
-        "治癒師"
-      ],
-      "url": "https://www.youtube.com/watch?v=c9Nd_vgCM5E",
-      "summary": "《瑪奇MOBILE 》 祭司、MMORPG",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-18",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/c9Nd_vgCM5E/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-RPuvm7CuCkY",
-      "title": "瑪奇M ｜採集這樣分最省事🔥 多角色掛生活材料效率直接起飛",
-      "title_original": "瑪奇M ｜採集這樣分最省事🔥 多角色掛生活材料效率直接起飛",
-      "author": "嚴浩長不大",
-      "category": "新手指南",
-      "tags": [
-        "採集"
-      ],
-      "url": "https://www.youtube.com/watch?v=RPuvm7CuCkY",
-      "summary": "🎯  用LDCloud雲手機24/7全天在線\n🚀 通過我的鏈接註冊LDCloud可獲取 LDCloud 6小時試用特惠：   https://t.ldcloud.net/yanhao\n加入LDCloud discord 領取更多優惠 :  ",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-18",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/RPuvm7CuCkY/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-essence-137",
       "title": "分享一個全職業搭配符文的攻略站（更新中文）",
       "title_original": "分享一個全職業搭配符文的攻略站（更新中文）",
@@ -3531,20 +3536,23 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-5084lye590k",
-      "title": "卡布拉克困難模式攻略🛡️ 輕鬆掌握避免石化和即死的「關鍵模式」【瑪奇 Mobile】",
-      "title_original": "레이드 카브락 어려움🛡️ 석화&즉사 피하는 '핵심 패턴' 쉽게 정리【마비노기 모바일 】",
-      "author": "모닝이 게임영상",
+      "id": "youtube-nXW4RN4wmYY",
+      "title": "瑪奇mobile - 深淵難度「地獄2」& 格里斯貝恩「困難」無課通關。",
+      "title_original": "瑪奇mobile - 深淵難度「地獄2」& 格里斯貝恩「困難」無課通關。",
+      "author": "妖kuso",
       "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=5084lye590k",
-      "summary": "드디어 카브락 어려움 패턴 공략 들고 왔어! \n 15000줄 피통 실화냐...😨\n\n침식의 모래 스택 쌓여서 돌멩이 되기 전에 피해야 하고, \n\"혼자서는 정신이 버틸 수 없을 것 같다\" 문구 뜨면 \n무조건 파티원들이랑",
+      "tags": [
+        "深淵",
+        "活動"
+      ],
+      "url": "https://www.youtube.com/watch?v=nXW4RN4wmYY",
+      "summary": "瑪奇mobile -最新釋出，深淵難度「地獄2」& 格里斯貝恩「困難」登場。\n\n#瑪奇Mobile #MabinogiMobile #活動速報",
       "key_points": [],
       "source": "youtube",
-      "region": "kr",
+      "region": "tw",
       "published_at": "2026-08-17",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/5084lye590k/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/nXW4RN4wmYY/hqdefault.jpg"
     },
     {
       "id": "youtube-LTKWDw7IRjI",
@@ -3571,7 +3579,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=3Xt5ko06V1E",
       "summary": "마이홈에 드디어 캐릭터랑 상호작용 \n가능한 신박한 데코템들이 추가됐다구!\n\n티 파티 세트로 맛있는 디저트 냠냠, 홍차 호로록 마시는 모션부터, \n핸드 벨 딸랑딸랑 부르는 귀요미 모션까지! 🍰☕\n\n거울 앞에서 뽐내기,",
-      "key_points": [],
+      "key_points": [
+        "00:00 新的互動裝飾",
+        "00:15 茶會套裝和手鈴",
+        "01:00 推薦超好玩單品（鏡子/娃娃）"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-08-15",
@@ -3598,6 +3610,24 @@
       "thumbnail": "https://i.ytimg.com/vi/UimCZfph1dQ/hqdefault.jpg"
     },
     {
+      "id": "youtube-w6Nkpkm5qFA",
+      "title": "[瑪奇Mobile] 解一下活動跟支線｜寶可夢終於要贏來最黑暗的年代【Twitch雙開中】【希望豬豬早日出院】",
+      "title_original": "[瑪奇Mobile] 解一下活動跟支線｜寶可夢終於要贏來最黑暗的年代【Twitch雙開中】【希望豬豬早日出院】",
+      "author": "Grega",
+      "category": "活動情報",
+      "tags": [
+        "活動"
+      ],
+      "url": "https://www.youtube.com/watch?v=w6Nkpkm5qFA",
+      "summary": "#GAME",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-08-13",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/w6Nkpkm5qFA/hqdefault.jpg"
+    },
+    {
       "id": "youtube-ctMDjc7q95U",
       "title": "【瑪奇 Mobile】新手必看8大巨坑🔥開荒T0職業/24H自動掛機/免費拿畢業徽章/速衝封頂/打造畢業神裝/自選最強符文全攻略/每日每週必做",
       "title_original": "【瑪奇 Mobile】新手必看8大巨坑🔥開荒T0職業/24H自動掛機/免費拿畢業徽章/速衝封頂/打造畢業神裝/自選最強符文全攻略/每日每週必做",
@@ -3618,26 +3648,6 @@
       "thumbnail": "https://i.ytimg.com/vi/ctMDjc7q95U/hqdefault.jpg"
     },
     {
-      "id": "youtube-jXLuarp91qU",
-      "title": "瑪奇 Mobile 更新完後就上線，帶你們看看更新了什麼",
-      "title_original": "瑪奇 Mobile 更新完後就上線，帶你們看看更新了什麼",
-      "author": "嘎喔桑 GAooU",
-      "category": "職業解析",
-      "tags": [
-        "修道士",
-        "獎勵",
-        "治癒師"
-      ],
-      "url": "https://www.youtube.com/watch?v=jXLuarp91qU",
-      "summary": "#瑪奇mobile #修道士 #GAooU #嘎喔 #마비노기모바일\n\n懶人包:\n1.去杜巴頓廣場拍照嚕!\n2.時裝太好笑了\n3.兌換獎勵全部給他換好換滿\n4.感謝各位支持\n\n時間軸\n00:00 早上好\n00:11 台灣要素場景\n01:00",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-12",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/jXLuarp91qU/hqdefault.jpg"
-    },
-    {
       "id": "youtube-hoj4xZ1uKmg",
       "title": "全新地獄難度、符文，甚至髮型——一切盡在詳解✨ 重要更新摘要！ 【瑪奇 Mobile】",
       "title_original": "신규 지옥 난이도 & 룬, 헤어까지 싹 다 정리✨ 업데이트 핵심 요약!【마비노기 모바일 】",
@@ -3646,12 +3656,32 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=hoj4xZ1uKmg",
       "summary": "이번주 업데이트 소식 들고 왔어!\n드디어 카브락 레이드 어려움이랑 룬다 어비스 지옥2가 열린다구! \n전투력/마도저항 빵빵하게 챙겨둬야 할 거야!\n\n새로운 레이드 룬부터 간지나는 패션, 헤어, 눈까지! \n나만의 캐릭터",
-      "key_points": [],
+      "key_points": [
+        "00:00 新難度更新",
+        "00:09 卡布拉克困難模式",
+        "00:55 Runda 深淵地獄 2 難度"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-08-12",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/hoj4xZ1uKmg/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-DpSASz93jjI",
+      "title": "《瑪奇》手遊毀了。",
+      "title_original": "마비노기 모바일 망했다",
+      "author": "지존조세",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=DpSASz93jjI",
+      "summary": "생방송 : 치지직\n\n링크 : https://chzzk.naver.com/b9a295ea982b0f1e879e5cb646e4e23f\n\n문의 : tusim@naver.com\n\n\n\n\n\n광고, 돈, 숙제아님\n광고, 돈, 숙",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-08-12",
+      "is_featured": true,
+      "thumbnail": "https://i.ytimg.com/vi/DpSASz93jjI/hqdefault.jpg"
     },
     {
       "id": "youtube-syPjlFQ_vFU",
@@ -3670,22 +3700,6 @@
       "thumbnail": "https://i.ytimg.com/vi/syPjlFQ_vFU/hqdefault.jpg"
     },
     {
-      "id": "youtube-1m8cpju8O4U",
-      "title": "《瑪奇Mobile》能自動戰鬥?又是換皮免洗手遊? | 熊哥貝卡 #瑪奇mobile #瑪奇CP計畫 #成長戰鬥TIP",
-      "title_original": "《瑪奇Mobile》能自動戰鬥?又是換皮免洗手遊? | 熊哥貝卡 #瑪奇mobile #瑪奇CP計畫 #成長戰鬥TIP",
-      "author": "熊哥貝卡",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=1m8cpju8O4U",
-      "summary": "PC版老玩家常見問題解答",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-10",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/1m8cpju8O4U/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-1968",
       "title": "關於使用電腦PC進行遊戲的改善，分享一些Unity額外的調整，還有一些稍微讓你順暢一點的小撇步",
       "title_original": "關於使用電腦PC進行遊戲的改善，分享一些Unity額外的調整，還有一些稍微讓你順暢一點的小撇步",
@@ -3700,6 +3714,24 @@
       "published_at": "2026-08-10",
       "is_featured": false,
       "thumbnail": ""
+    },
+    {
+      "id": "youtube-bkXdmEVNlwE",
+      "title": "[瑪奇Mobile] 新手亂農【Twitch雙開中】【希望豬豬早日出院】",
+      "title_original": "[瑪奇Mobile] 新手亂農【Twitch雙開中】【希望豬豬早日出院】",
+      "author": "Grega",
+      "category": "新手指南",
+      "tags": [
+        "新手"
+      ],
+      "url": "https://www.youtube.com/watch?v=bkXdmEVNlwE",
+      "summary": "#GAME",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-08-09",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/bkXdmEVNlwE/hqdefault.jpg"
     },
     {
       "id": "bahamut-1929",
@@ -3728,7 +3760,10 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=1951",
       "summary": "LV10釣點 生活職業釣魚LV18(手動6小時的樂趣~.~) (有巴友問所以我補充都有用餌喔) 總共有5種反應- 1.魚兒咬鉤了+2.浮標晃動了 這些反應馬上按要( 拉鉤2次浪費時間 ) 或讀條開始從下降到上升按會直接拉鉤，大概在30%區間,要自己抓一下( 節省時間 回升太晚到80%以上按還要回底才…",
-      "key_points": [],
+      "key_points": [
+        "「樹枝、各種結晶、分解的零件裝備、血紅藥草、空瓶(都+14經驗)」",
+        "「相信現在大家都LV65了，也會刷藍洞、紅洞拿徽章符文」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-09",
@@ -3820,7 +3855,9 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=1857",
       "summary": "大家安安~我是 GAooU \"目前\" 修道士就是全力拚輸出就對了 鎮樓圖 這篇文章主要是要來介紹修道士目前為止的心得 先附上自己的裝備圖~ 先講一下總結目前我這隻是 攻擊型的修道士 所以這篇文章都是 以攻擊 方面為主 但因為技能中有 補血 跟些許 護盾 他 目前 還算是有坦度 主要是目前的副本還沒有…",
-      "key_points": [],
+      "key_points": [
+        "「技能循環是修道士核心，所以我選擇」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-07",
@@ -3841,7 +3878,11 @@
       ],
       "url": "https://forum.gamer.com.tw/C.php?bsn=32564&snA=1862",
       "summary": "火法在這版本相對算強勢 範圍輸出T0 單體輸出也有T0~T1之間 但相對的吃裝吃理解還有詞條選擇 因為是進階版 太過基礎的就跳過不說了 符文那些我就不截圖 遊戲內圖鑑都可以看 首先先講解火法的機制 我相信很多人都還在蝦雞巴AUTO 其實不知道火法的主要傷害機制來自於哪裡 簡單的來說 火法的核心技能是…",
-      "key_points": [],
+      "key_points": [
+        "「火法的核心技能是飾品符文變換後的5技能(灰燼+)」",
+        "「其他技能都是為了5技能所需要的熱氣而服務」",
+        "「其實都是要想辦法去湊5技能需要的50熱氣而達成循環」"
+      ],
       "source": "bahamut",
       "region": "tw",
       "published_at": "2026-08-07",
@@ -3863,6 +3904,24 @@
       "published_at": "2026-08-07",
       "is_featured": true,
       "thumbnail": ""
+    },
+    {
+      "id": "youtube-6kp7LraX2-0",
+      "title": "【瑪奇Mobile】是時候該開小號拿稱號了 日常搞定就開始 ! 65大劍的日常&活動&地下城｜愛麗沙 $309｜EP.17【萊德RyDer】Mabinogi Mobile",
+      "title_original": "【瑪奇Mobile】是時候該開小號拿稱號了 日常搞定就開始 ! 65大劍的日常&活動&地下城｜愛麗沙 $309｜EP.17【萊德RyDer】Mabinogi Mobile",
+      "author": "萊德RyDer",
+      "category": "活動情報",
+      "tags": [
+        "活動"
+      ],
+      "url": "https://www.youtube.com/watch?v=6kp7LraX2-0",
+      "summary": "萊德RyDer 感謝各位的訂閱點讚與分享 \n你們的支持與鼓勵 是持續更新下去的動力\n\n\nDC社群 : https://discord.gg/bt4uRv8USj \nYT頻道會員 : https://reurl.cc/pyQmOd \n----",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-08-07",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/6kp7LraX2-0/hqdefault.jpg"
     },
     {
       "id": "bahamut-1813",
@@ -3899,38 +3958,6 @@
       "thumbnail": "https://i.ytimg.com/vi/Jo1TI_YJeR8/hqdefault.jpg"
     },
     {
-      "id": "youtube-QFfGmdVAKjU",
-      "title": "還是說沒有更新？最後，殯儀館開門營業了。 [瑪奇 Mobile]",
-      "title_original": "이래도 없데이트라고? 결국 장례식장 열렸다 [마비노기 모바일]",
-      "author": "센터로드TV",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=QFfGmdVAKjU",
-      "summary": "#마비노기모바일#넥슨#모비노기#mabinogimobile #瑪奇Mobile\n\n구독: http://bit.ly/2qGYbPM\n카톡문의(ID): centerlordtv\n투네이션 후원: https://toon.at/don",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2026-08-06",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/QFfGmdVAKjU/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-M2251Egf1Yc",
-      "title": "瑪奇Mobile-格里斯貝恩入門單人攻略",
-      "title_original": "瑪奇Mobile-格里斯貝恩入門單人攻略",
-      "author": "天空黑漆漆",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=M2251Egf1Yc",
-      "summary": "",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-05",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/M2251Egf1Yc/hqdefault.jpg"
-    },
-    {
       "id": "bahamut-1761",
       "title": "格里斯貝恩挑戰-戰績分享串678冰法全程站A送冰球 火球燒地板才走位 第一次打，大紅水手動喝了三罐 主要是血太厚打很久，不然生存方面冰法無壓力。 是說終於直接開到傳說武器了，原本還在用四星武器打小格",
       "title_original": "格里斯貝恩挑戰-戰績分享串678冰法全程站A送冰球 火球燒地板才走位 第一次打，大紅水手動喝了三罐 主要是血太厚打很久，不然生存方面冰法無壓力。 是說終於直接開到傳說武器了，原本還在用四星武器打小格",
@@ -3961,22 +3988,6 @@
       "published_at": "2026-08-05",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/0jJ9TidMHKw/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-NXVnBQG53Iw",
-      "title": "【瑪奇 mobile-沉默的遺跡-攻略】",
-      "title_original": "【瑪奇 mobile-沉默的遺跡-攻略】",
-      "author": "星語世紀",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=NXVnBQG53Iw",
-      "summary": "",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-08-04",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/NXVnBQG53Iw/hqdefault.jpg"
     },
     {
       "id": "bahamut-1732",
@@ -4021,7 +4032,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=q-xNT_r2Uc8",
       "summary": "伺服器：愛麗莎\n公會名稱：只想躺平\n-\n感謝各位的支持\n公會因人數變多\n因此更改為審核機制\n如想入會，麻煩自我介紹打上是YT觀眾\n有名額的話會優先審核～\n-\n0:00 開場\n0:30 城鎮裡的佈告欄\n1:12 人體保管箱\n1:25 地圖導航",
-      "key_points": [],
+      "key_points": [
+        "0:30 城鎮裡的佈告欄",
+        "1:12 人體保管箱",
+        "1:25 地圖導航功能"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-08-04",
@@ -4067,6 +4082,24 @@
       "published_at": "2026-08-03",
       "is_featured": true,
       "thumbnail": ""
+    },
+    {
+      "id": "youtube-EoGsP3v_7U4",
+      "title": "【瑪奇MOBILE】別爭了🥇職業等級🥇速成攻略！「地下城刷銀幣」與「精靈痕跡」，優缺點完整拆解不踩雷 ⚔️！🥇",
+      "title_original": "【瑪奇MOBILE】別爭了🥇職業等級🥇速成攻略！「地下城刷銀幣」與「精靈痕跡」，優缺點完整拆解不踩雷 ⚔️！🥇",
+      "author": "Nia尼亞",
+      "category": "新手指南",
+      "tags": [
+        "路線"
+      ],
+      "url": "https://www.youtube.com/watch?v=EoGsP3v_7U4",
+      "summary": "別再為了解哪一個划算吵架啦！今天這支影片直接幫大家用數據和實測，完整拆解【地下城刷銀幣】與【精靈痕跡】這兩種職業等級速成練法的本質差異。不管你是想省時間的課長，還是想追求最大化益處的無課玩家，看完這支影片包準不踩雷，找到最適合自己的升級路線",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-08-03",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/EoGsP3v_7U4/hqdefault.jpg"
     },
     {
       "id": "bahamut-1590",
@@ -4248,7 +4281,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=o3zpe7tjujA",
       "summary": "我花了60個小時深度遊玩《瑪奇 Mobile》後\n我最大的感受是 它真的不是一款急著催你衝戰力的 MMORPG\n而是一款會讓人不知不覺放慢腳步、享受世界的遊戲\n\n遊戲下載連結: https://mabinogimobiletw.go.lin",
-      "key_points": [],
+      "key_points": [
+        "0:00 瑪奇Mobile心得",
+        "0:39 全新的冒險",
+        "1:56 無職業綁定"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-08-01",
@@ -4351,7 +4388,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=4CAQIjgiFow",
       "summary": "這部影片整理了新手入門必須知道7件事\n包含每天與每週必做以及必買的懶人包\n自動掛機讓你材料自由並能提升生活技能的技巧\n還有必拿100%傳說徽章的攻略\n\n遊戲下載連結: https://mabinogimobiletw.go.link/7gI",
-      "key_points": [],
+      "key_points": [
+        "0:00 瑪奇Mobile攻略",
+        "0:22 每日每週任務必做清單",
+        "2:56 愛心幣和聖水的用途"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-31",
@@ -4377,6 +4418,31 @@
       "thumbnail": "https://i.ytimg.com/vi/JXt8TktVW_Y/hqdefault.jpg"
     },
     {
+      "id": "youtube-oDju1bcOoSA",
+      "title": "《瑪奇 Mobile》深淵副本全攻略！關卡機制拆解！橘色傳說符文穩穩拿手！#瑪奇Mobile #瑪斯深淵 #瑪奇CP計畫  #我的瑪奇Mobile角色誕生記",
+      "title_original": "《瑪奇 Mobile》深淵副本全攻略！關卡機制拆解！橘色傳說符文穩穩拿手！#瑪奇Mobile #瑪斯深淵 #瑪奇CP計畫  #我的瑪奇Mobile角色誕生記",
+      "author": "古今小教室",
+      "category": "副本攻略",
+      "tags": [
+        "副本",
+        "深淵",
+        "獎勵",
+        "符文"
+      ],
+      "url": "https://www.youtube.com/watch?v=oDju1bcOoSA",
+      "summary": "HI！ 大家好！ 我是古今！\n這次要來跟大家分享打「深淵」的小撇步！\n如果你還沒有通關「深淵副本」，可以參考看看！\n\n「深淵副本」一週只能獲得「３次獎勵」，不管打甚麼難度，都算在一起！\n打完可以用「深淵的化石」購買「傳說符文(橘色符文)」唷",
+      "key_points": [
+        "00:00 HI！ 大家好！ 我是古今！",
+        "02:09 深淵副本「沉沒的遺跡」",
+        "04:30 深淵副本「崩塌的祭壇」"
+      ],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-31",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/oDju1bcOoSA/hqdefault.jpg"
+    },
+    {
       "id": "youtube-8aD9Iwu6tEM",
       "title": "【日常突發／瑪奇Mobile／愛麗莎】這裡是喜歡日常的無會員玩家，好想要草帽【薇妮 Winnie🐾】",
       "title_original": "【日常突發／瑪奇Mobile／愛麗莎】這裡是喜歡日常的無會員玩家，好想要草帽【薇妮 Winnie🐾】",
@@ -4393,6 +4459,24 @@
       "published_at": "2026-07-31",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/8aD9Iwu6tEM/hqdefault.jpg"
+    },
+    {
+      "id": "youtube--dfCODldq38",
+      "title": "瑪奇Mobile(活動)  大家一起肌肉力量/時裝染色  マビノギモバイル Mabinogi Mobile",
+      "title_original": "瑪奇Mobile(活動)  大家一起肌肉力量/時裝染色  マビノギモバイル Mabinogi Mobile",
+      "author": "喵喵ニャーニャー",
+      "category": "活動情報",
+      "tags": [
+        "活動"
+      ],
+      "url": "https://www.youtube.com/watch?v=-dfCODldq38",
+      "summary": "03:21 染色",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-30",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/-dfCODldq38/hqdefault.jpg"
     },
     {
       "id": "bahamut-essence-76",
@@ -4432,24 +4516,22 @@
       "thumbnail": "https://i.ytimg.com/vi/IA59tkk-POo/hqdefault.jpg"
     },
     {
-      "id": "youtube-cpMc4SShaP8",
-      "title": "【瑪奇 Mobile】今天目標整套粉色時裝!實測100抽可以整套入魂?!",
-      "title_original": "【瑪奇 Mobile】今天目標整套粉色時裝!實測100抽可以整套入魂?!",
-      "author": "嚴浩長不大",
-      "category": "新手指南",
+      "id": "youtube-mjcUfKwOTcY",
+      "title": "《瑪奇 Mobile》萊妮的愛爾琳成長日記 Day 1｜真正的冒險開始！",
+      "title_original": "《瑪奇 Mobile》萊妮的愛爾琳成長日記 Day 1｜真正的冒險開始！",
+      "author": "瑪奇 Mobile",
+      "category": "活動情報",
       "tags": [
-        "副本",
-        "新手",
-        "裝備"
+        "活動"
       ],
-      "url": "https://www.youtube.com/watch?v=cpMc4SShaP8",
-      "summary": "不管你是剛入坑的新手、回鍋老玩家，還是正在觀望要不要玩的朋友，都歡迎進來一起聊！\n\n今天可以一起聊：\n\n🎮 職業選擇與遊玩心得\n⚔️ 角色養成、副本與裝備\n👗 時裝、外觀與遊戲內容\n💬 新手問題、玩家交流\n✨ 瑪奇回憶與愛爾琳冒險\n\n聊天室",
+      "url": "https://www.youtube.com/watch?v=mjcUfKwOTcY",
+      "summary": "四周限定活動進行中，立即下載《瑪奇 Mobile》\n▶ https://mabinogimobiletw.go.link/nXTeb\n──────\n《萊妮的愛爾琳成長日記 Day 1｜真正的冒險開始！》\n\n每一場冒險，都從第一天開始。🌿\n\n",
       "key_points": [],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-30",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/cpMc4SShaP8/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/mjcUfKwOTcY/hqdefault.jpg"
     },
     {
       "id": "bahamut-1334",
@@ -4542,26 +4624,6 @@
       "published_at": "2026-07-29",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/ia1krb-MumQ/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-IfVwI_gPdOk",
-      "title": "《瑪奇 Mobile》首次大改版震撼登場！第一波三大副本前瞻：深淵副本＋亡靈之塔，準備好接受挑戰了嗎！？！|08|CD喜德",
-      "title_original": "《瑪奇 Mobile》首次大改版震撼登場！第一波三大副本前瞻：深淵副本＋亡靈之塔，準備好接受挑戰了嗎！？！|08|CD喜德",
-      "author": "CD喜德",
-      "category": "副本攻略",
-      "tags": [
-        "副本",
-        "深淵",
-        "改版"
-      ],
-      "url": "https://www.youtube.com/watch?v=IfVwI_gPdOk",
-      "summary": "瑪奇M遊戲討論群 https://reurl.cc/XxerOa\n\n\n「CD喜德真愛粉觀眾群」月月抽獎 https://reurl.cc/LQA5ex\n訂閱CD喜德           https://reurl.cc/O4pagg\n歐富寶",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-07-29",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/IfVwI_gPdOk/hqdefault.jpg"
     },
     {
       "id": "bahamut-1283",
@@ -4667,22 +4729,61 @@
       "thumbnail": ""
     },
     {
-      "id": "youtube-voWb0aBxwhQ",
-      "title": "瑪奇 Mobile實測值不值得玩？ 課金要素超多但無課也能玩？｜VS MEDIAｘ@阿瑞斯Ares",
-      "title_original": "瑪奇 Mobile實測值不值得玩？ 課金要素超多但無課也能玩？｜VS MEDIAｘ@阿瑞斯Ares",
-      "author": "VS MEDIA Taiwan",
-      "category": "新手指南",
+      "id": "youtube-a9p72ELLlIs",
+      "title": "《瑪奇 Mobile》強化細節大公開：教你省下超多錢！五星以上再開始搞裝備！？|06|CD喜德",
+      "title_original": "《瑪奇 Mobile》強化細節大公開：教你省下超多錢！五星以上再開始搞裝備！？|06|CD喜德",
+      "author": "CD喜德",
+      "category": "活動情報",
       "tags": [
-        "課金"
+        "裝備",
+        "強化"
       ],
-      "url": "https://www.youtube.com/watch?v=voWb0aBxwhQ",
-      "summary": "#VSMEDIA\n#原創授權 ✔阿瑞斯Ares👉 https://youtu.be/9vN27TgqVL8\n#瑪奇 Mobile\n\n🆚創作者全面徵稿中 ▶https://goo.gl/ISUxJs\n🆚按讚VS MEDIA臉書 ▶ https",
+      "url": "https://www.youtube.com/watch?v=a9p72ELLlIs",
+      "summary": "瑪奇M遊戲討論群 https://reurl.cc/XxerOa\n\n\n「CD喜德真愛粉觀眾群」月月抽獎 https://reurl.cc/LQA5ex\n訂閱CD喜德           https://reurl.cc/O4pagg\n歐富寶",
       "key_points": [],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-28",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/voWb0aBxwhQ/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/a9p72ELLlIs/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-4U5vvYXZb74",
+      "title": "靈魂之流：你需要知道的一切💥攻擊力節點+重置技巧✨【瑪奇 Mobile】",
+      "title_original": "소울 스트림 이것만 알면 끝💥 공격력 노드+초기화 꿀팁✨【마비노기 모바일 】",
+      "author": "모닝이 게임영상",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=4U5vvYXZb74",
+      "summary": "소울 스트림 노드 꿀팁 가지고 왔어!\n공격력 노드 효율 미쳤다고? ✨ \n게다가 초기화로 각인 강화랑 공격력 둘 다 챙기는 비법까지!\n\n매력 스탯 부족해서 소울 생산 최대치 못 찍는 친구들 많지?\n 숨겨진 매력 노드 ",
+      "key_points": [
+        "00:00 今日靈魂之流小貼士",
+        "00:49 攻擊力節點建議",
+        "02:13 利用節點初始化的實用技巧"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-07-28",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/4U5vvYXZb74/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-Qo2VaCZ_DcY",
+      "title": "《瑪奇Mobile》時裝還是坐騎？課金前先看這篇真實心得！",
+      "title_original": "《瑪奇Mobile》時裝還是坐騎？課金前先看這篇真實心得！",
+      "author": "ZN160",
+      "category": "新手指南",
+      "tags": [
+        "課金"
+      ],
+      "url": "https://www.youtube.com/watch?v=Qo2VaCZ_DcY",
+      "summary": "#瑪奇Mobile #瑪奇M #MabinogiMobile #遊戲課金 #坐騎 #時裝\n上一部影片有人問：課時裝，還是買套組，對戰力的CP值比較高，所以這次就分享一下我的體驗\n\n目前遊戲對戰力的要求還不高，課金也不一定強很多，但會變帥!😂",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-27",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/Qo2VaCZ_DcY/hqdefault.jpg"
     },
     {
       "id": "youtube-Bnb7GvhVyM4",
@@ -4701,7 +4802,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=Bnb7GvhVyM4",
       "summary": "嗨！我是亞亞mia\n《瑪奇Mobile》亞亞目前已經\n順利衝到 65 級戰力達到 21743\n等級封頂後要如何繼續提高戰力\n無論你是平民玩家還是大課長都有一些坑需要注意\n除此之外還要教大家生活職業\n掛機升級的方法 ~\n=====\n【出走玩家",
-      "key_points": [],
+      "key_points": [
+        "00:29 商店購買資源",
+        "01:03 好友邀請已修復",
+        "01:15 魅力值迷思"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-27",
@@ -4709,20 +4814,24 @@
       "thumbnail": "https://i.ytimg.com/vi/Bnb7GvhVyM4/hqdefault.jpg"
     },
     {
-      "id": "youtube-2hlSzaEF728",
-      "title": "【瑪奇Mobile】滿等後每日必做清單 黑色洞坑、召喚結界 週幾地下城",
-      "title_original": "【瑪奇Mobile】滿等後每日必做清單 黑色洞坑、召喚結界 週幾地下城",
-      "author": "聶寶",
-      "category": "活動情報",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=2hlSzaEF728",
-      "summary": "聶寶和DLsite合作 透過網站只可以領取優惠券購買黃遊 https://reurl.cc/qG99dR\n\n與魔性的她抽獎網站:gleam.io/3HigT/campaign\n神秘代碼：DEVILISHHER\n\n\n喜歡我的影片可以到我粉絲團",
+      "id": "youtube-jEDgG3sotSI",
+      "title": "【瑪奇Mobile】用這招爽嫖金色徽章🔥錯過就沒囉！竟有90%的人還不知道！？｜頂級裝備最速取得管道｜催化劑必囤在這用｜符文高CP值合成方式",
+      "title_original": "【瑪奇Mobile】用這招爽嫖金色徽章🔥錯過就沒囉！竟有90%的人還不知道！？｜頂級裝備最速取得管道｜催化劑必囤在這用｜符文高CP值合成方式",
+      "author": "阿貝手遊頻道 MrBay",
+      "category": "新手指南",
+      "tags": [
+        "裝備",
+        "符文",
+        "催化劑"
+      ],
+      "url": "https://www.youtube.com/watch?v=jEDgG3sotSI",
+      "summary": "★工商合作來信→s89021393@gmail.com\n立即下載『瑪奇Mobile』→https://mabinogimobiletw.go.link/jZqbJ\n★精選『深度攻略』播放清單點此看→https://www.youtube.c",
       "key_points": [],
       "source": "youtube",
       "region": "tw",
-      "published_at": "2026-07-27",
+      "published_at": "2026-07-26",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/2hlSzaEF728/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/jEDgG3sotSI/hqdefault.jpg"
     },
     {
       "id": "youtube-Ek_PlM6M8h4",
@@ -4796,6 +4905,52 @@
       "thumbnail": ""
     },
     {
+      "id": "youtube-mqgoADQlS5Y",
+      "title": "瑪奇Mobile - 第0賽季🎯弩手🎯全面解析！【驅動力】核心天賦與技能循環超詳細拆解！",
+      "title_original": "瑪奇Mobile - 第0賽季🎯弩手🎯全面解析！【驅動力】核心天賦與技能循環超詳細拆解！",
+      "author": "Nia尼亞",
+      "category": "職業解析",
+      "tags": [
+        "弩手",
+        "技能",
+        "天賦",
+        "強化",
+        "弓手"
+      ],
+      "url": "https://www.youtube.com/watch?v=mqgoADQlS5Y",
+      "summary": "-🏹 戰場收割者！《瑪奇Mobile》第0賽季弩手核心流派全面解析！\n這支影片幫大家深度拆解第0賽季輸出天花板「弩手」的運作邏輯！我們會將重點放在如何完美觸發核心天賦【驅動力】來拉滿 2 次威力強化，並公開最流暢的【技能循環】與實戰連招。同",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-25",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/mqgoADQlS5Y/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-zQtB3MsXooQ",
+      "title": "【旋風刀客】瑪奇Mobile - ⚔️雙刀客⚔️第0賽季完整指南：極致連擊技能點法、符文搭配、升級卡與寵物選擇！⚔️",
+      "title_original": "【旋風刀客】瑪奇Mobile - ⚔️雙刀客⚔️第0賽季完整指南：極致連擊技能點法、符文搭配、升級卡與寵物選擇！⚔️",
+      "author": "Nia尼亞",
+      "category": "副本攻略",
+      "tags": [
+        "雙刀客",
+        "技能",
+        "配點",
+        "天賦",
+        "符文",
+        "寵物",
+        "盜賊"
+      ],
+      "url": "https://www.youtube.com/watch?v=zQtB3MsXooQ",
+      "summary": "⚔️ 極致攻速、一秒百斬！《瑪奇Mobile》第0賽季雙刀客全方位畢業指南！這支影片幫大家全面拆解第0賽季近戰人氣王「雙刀客」的標準答案！我們會從核心【旋風與極致連擊】的技能配點與割草連招開始，教你如何利用天賦最大化攻擊段數。同時，影片也會",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-25",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/zQtB3MsXooQ/hqdefault.jpg"
+    },
+    {
       "id": "youtube-sDMOJ1bnlQI",
       "title": "《瑪奇Mobile》玩了幾天就想課金｜給還沒入坑朋友的遊玩心得",
       "title_original": "《瑪奇Mobile》玩了幾天就想課金｜給還沒入坑朋友的遊玩心得",
@@ -4812,6 +4967,30 @@
       "published_at": "2026-07-25",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/sDMOJ1bnlQI/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-z6gsojYvyqk",
+      "title": "【少走彎路】瑪奇Mobile - 冰霜術士第0賽季完整指南：技能點法、符文搭配、升級卡與寵物選擇",
+      "title_original": "【少走彎路】瑪奇Mobile - 冰霜術士第0賽季完整指南：技能點法、符文搭配、升級卡與寵物選擇",
+      "author": "Nia尼亞",
+      "category": "新手指南",
+      "tags": [
+        "法師",
+        "冰霜術士",
+        "技能",
+        "新手",
+        "符文",
+        "寵物",
+        "魔法師"
+      ],
+      "url": "https://www.youtube.com/watch?v=z6gsojYvyqk",
+      "summary": "-❄️ 全網最硬核！《瑪奇Mobile》第0賽季冰霜法師全方位畢業指南！\n這支影片幫大家全面拆解第0賽季冰霜術士的「標準答案」！\n從核心技能點法、符文最大化收益、升級卡挑選邏輯，到最適合法師的寵物羈絆一次看懂，不管是新手開局還是想優化傷害的",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-24",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/z6gsojYvyqk/hqdefault.jpg"
     },
     {
       "id": "bahamut-744",
@@ -4994,6 +5173,24 @@
       "thumbnail": "https://i.ytimg.com/vi/1Wd4wjVlLrU/hqdefault.jpg"
     },
     {
+      "id": "youtube-gQQbpHHkdSo",
+      "title": "《瑪奇 Mobile》開服12小時極限開荒：韓國人為什麼說不要課金？最真實的遊戲體驗與避坑指南|伺服器:愛莉沙|02|CD喜德#瑪奇Mobile#瑪奇CP計畫#我的瑪奇Mobile角色誕生記",
+      "title_original": "《瑪奇 Mobile》開服12小時極限開荒：韓國人為什麼說不要課金？最真實的遊戲體驗與避坑指南|伺服器:愛莉沙|02|CD喜德#瑪奇Mobile#瑪奇CP計畫#我的瑪奇Mobile角色誕生記",
+      "author": "CD喜德",
+      "category": "活動情報",
+      "tags": [
+        "課金"
+      ],
+      "url": "https://www.youtube.com/watch?v=gQQbpHHkdSo",
+      "summary": "「CD喜德真愛粉觀眾群」月月抽獎 https://reurl.cc/LQA5ex\n訂閱CD喜德           https://reurl.cc/O4pagg\n歐富寶贊助飲料       https://pse.is/4q8pbv\n綠界",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-22",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/gQQbpHHkdSo/hqdefault.jpg"
+    },
+    {
       "id": "youtube-VR_xmU9_RAs",
       "title": "【瑪奇Mobile】新手開局必看攻略！體力別亂花｜符文介紹&裝備選擇【小月】",
       "title_original": "【瑪奇Mobile】新手開局必看攻略！體力別亂花｜符文介紹&裝備選擇【小月】",
@@ -5007,7 +5204,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=VR_xmU9_RAs",
       "summary": "《瑪奇 Mobile》新手開局攻略來了！\n\n這支影片我整理了開服前幾天最容易踩坑的地方，包含：\n• 職業怎麼選\n• 體力怎麼分配\n• 裝備強化順序\n• 主線卡關怎麼辦\n• 每日必做內容\n• 無課／小課玩家的開局方向\n\n很多資源在前期只有一次",
-      "key_points": [],
+      "key_points": [
+        "0:21 推主線開啟新功能",
+        "0:46 體力優先順序",
+        "1:06 體力獲得方式"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-22",
@@ -5046,7 +5247,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=vD34NSLglQ4",
       "summary": "【出走玩家聯盟】https://discord.gg/sZMEz8kCK4\n各種遊戲討論群組\n還會不定時舉辦小遊戲\n不同獎勵發送~~\n_____________________________________________________",
-      "key_points": [],
+      "key_points": [
+        "00:26 推薦職業",
+        "01:21 10大核心內容",
+        "05:23 活動相關"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-22",
@@ -5065,7 +5270,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=1BPgyy9J_iA",
       "summary": "嗨！我是亞亞mia\n《瑪奇Mobile》亞亞目前也順利通關第一章主線啦！\n不過在親自拓荒的過程中\n亞亞發現這款遊戲其實藏了許多新手超容易踩坑的地方\n你們也踩到了嗎 ? \n=====\n【出走玩家聯盟】https://discord.gg/Ne",
-      "key_points": [],
+      "key_points": [
+        "00:25 10歲打倒熊",
+        "01:08 開服陷阱",
+        "01:43 時裝獲取"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-22",
@@ -5131,6 +5340,46 @@
       "thumbnail": "https://i.ytimg.com/vi/n7T9ZvkOBkA/hqdefault.jpg"
     },
     {
+      "id": "youtube-bATa_v0k6kg",
+      "title": "第二季每週必備內容指南📖只需遵循以下步驟！ [瑪奇 Mobile]",
+      "title_original": "시즌2 주간 필수 콘텐츠 가이드북 📖 이대로만 따라와! [마비노기 모바일]",
+      "author": "모닝이 게임영상",
+      "category": "副本攻略",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=bATa_v0k6kg",
+      "summary": "마비노기 모바일 시즌2 주간 필수 콘텐츠, \n이번 주 뭐 해야 할지 딱 알려줄게! 🤩\n\n심층 던전, 어비스, 필드 보스 앙그르바한부터 \n결계랑 검은 구멍까지 매일매일 챙겨야 해.\n\n시간 아끼는 꿀팁(마물 퇴치 증표!",
+      "key_points": [
+        "00:03 第二季每週要點總結",
+        "00:20 每週關鍵戰鬥內容",
+        "01:29 屏障與黑洞"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-07-20",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/bATa_v0k6kg/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-MJo-XTuIjq8",
+      "title": "【遊戲閒聊#593】瑪奇 Mobile 值得玩嗎？經典MMORPG回來了！生活、社交、職業自由特色一次整理！",
+      "title_original": "【遊戲閒聊#593】瑪奇 Mobile 值得玩嗎？經典MMORPG回來了！生活、社交、職業自由特色一次整理！",
+      "author": "狐狸牧場 foxranch",
+      "category": "職業解析",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=MJo-XTuIjq8",
+      "summary": "相約愛爾琳見，享受系統豐富的遊戲體驗。\n重點是要提早預約把自己想要的名字搶下來阿！\n詳細內容請參考：https://abr.ge/9ndisj3\n\n遊戲聊天頻道@Fox_Wing \n赤狐與毛：https://www.youtube.com/",
+      "key_points": [
+        "0:00 ~0:59 開場",
+        "0:59 ~2:24 世界觀",
+        "2:24 ~3:20 捏角"
+      ],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-07-18",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/MJo-XTuIjq8/hqdefault.jpg"
+    },
+    {
       "id": "youtube-Ft9ZHG92u1k",
       "title": "瑪奇 Mobile｜還在猶豫要選什麼職業嗎？職業怎麼選？不知道要玩什麼？｜選職業前先看！職業懶人包、遊玩風格｜想玩坦、輸出還是補師？｜iOS / Android / PC",
       "title_original": "瑪奇 Mobile｜還在猶豫要選什麼職業嗎？職業怎麼選？不知道要玩什麼？｜選職業前先看！職業懶人包、遊玩風格｜想玩坦、輸出還是補師？｜iOS / Android / PC",
@@ -5146,28 +5395,16 @@
       ],
       "url": "https://www.youtube.com/watch?v=Ft9ZHG92u1k",
       "summary": "今天要帶大家一次認識《瑪奇 Mobile》目前18種正式職業，\n從能坦能打的戰士、遠距離狙擊的長弓兵，到補血輔助的祭司與吟遊詩人，每個職業的玩法和操作感都完全不一樣。\n\n這支影片會簡單整理每個職業的核心玩法、優點與缺點，\n不只看哪個職業傷害",
-      "key_points": [],
+      "key_points": [
+        "00:00 ▸ 開場",
+        "00:22 ▸ 戰士系列：戰士、大劍戰士、劍術士",
+        "01:39 ▸ 弓手系列：弓手、弩手、長弓兵"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-18",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/Ft9ZHG92u1k/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-MJo-XTuIjq8",
-      "title": "【遊戲閒聊#593】瑪奇 Mobile 值得玩嗎？經典MMORPG回來了！生活、社交、職業自由特色一次整理！",
-      "title_original": "【遊戲閒聊#593】瑪奇 Mobile 值得玩嗎？經典MMORPG回來了！生活、社交、職業自由特色一次整理！",
-      "author": "狐狸牧場 foxranch",
-      "category": "職業解析",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=MJo-XTuIjq8",
-      "summary": "相約愛爾琳見，享受系統豐富的遊戲體驗。\n重點是要提早預約把自己想要的名字搶下來阿！\n詳細內容請參考：https://abr.ge/9ndisj3\n\n遊戲聊天頻道@Fox_Wing \n赤狐與毛：https://www.youtube.com/",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2026-07-18",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/MJo-XTuIjq8/hqdefault.jpg"
     },
     {
       "id": "youtube-Rxn_QHkXfhw",
@@ -5178,7 +5415,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=Rxn_QHkXfhw",
       "summary": "※影片錄製於媒體試玩會專用版，不代表遊戲最終品質。\n官方網站：https://tw.nexon.com/mabinogimobile/preregistration/\n00:00 創角-職業選擇\n01:09 創角-外觀選擇\n04:31 前導",
-      "key_points": [],
+      "key_points": [
+        "00:00 創角-職業選擇",
+        "01:09 創角-外觀選擇",
+        "04:31 前導動畫劇情"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-07-17",
@@ -5236,22 +5477,6 @@
       "thumbnail": "https://i.ytimg.com/vi/aSGLgtYjPXw/hqdefault.jpg"
     },
     {
-      "id": "youtube-LEDMCAcYA_A",
-      "title": "卡布拉克 初級難度💎 只要知道「這個」就能輕鬆通關！ 【瑪奇 Mobile】",
-      "title_original": "카브락 입문 난이도💎 '이것'만 알면 쉽게 클리어! [마비노기 모바일 ]",
-      "author": "모닝이 게임영상",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=LEDMCAcYA_A",
-      "summary": "마비노기 모바일 카브락 입문 난이도 드디어 열렸다구! 🥳\n이번 영상에서는 핵심 패턴부터 즉사기 피하는 꿀팁까지! \n초보자도 쉽게 클리어할 수 있도록 싹 정리해 봤어.\n\n꼬리치기, 석화 숨결, 장판 유도, 그리고 돌기",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2026-07-16",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/LEDMCAcYA_A/hqdefault.jpg"
-    },
-    {
       "id": "youtube-fSxka-pnMGI",
       "title": "【實機】《瑪奇 Mobile》黒船鼠｜4Gamers",
       "title_original": "【實機】《瑪奇 Mobile》黒船鼠｜4Gamers",
@@ -5276,7 +5501,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=sENbPp0Lfl0",
       "summary": "마비노기 모바일 시즌2 업데이트를 맞이하여 \n새로 시작하시는 뉴비분들과 오랜만에 돌아오신 복귀 유저분들을 위한 \n'1레벨부터 100레벨까지'의 압축 육성 가이드를 준비했습니다! ☘️\n\n시즌2 대격변에 맞춰 지금 메타",
-      "key_points": [],
+      "key_points": [
+        "00:15 關鍵策略",
+        "02:28 遊戲初期技巧",
+        "03:46 成長過程"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-07-08",
@@ -5301,6 +5530,26 @@
       "published_at": "2026-07-05",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/Yi3ZLT81UJA/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-G-GcxroHGsY",
+      "title": "法師抗性🔥 即使是新手也能輕鬆掌握的「性價比超高」技巧【瑪奇 Mobile】",
+      "title_original": "마도 저항🔥 초보도 쉽게 맞추는 '가성비 꿀팁'은 이것【마비노기 모바일 】",
+      "author": "모닝이 게임영상",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=G-GcxroHGsY",
+      "summary": "마도 저항 요즘 핫하다던데, 제대로 알고 있어? \n이번 영상에서는 새로 추가된 \n마도 압력과 마도 저항 세팅법을 알려줄게! \n\n단순 방어 스탯이 아니라 최종 딜 \n최대 40%까지 뻥튀기 해주는 꿀 스펙이라는 거 😲\n",
+      "key_points": [
+        "00:09 為什麼魔法抗性很重要？",
+        "00:58 目前目標和符文設置",
+        "01:31 新設備和成長"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-07-04",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/G-GcxroHGsY/hqdefault.jpg"
     },
     {
       "id": "youtube-r8XBBcFBSbk",
@@ -5348,7 +5597,11 @@
       ],
       "url": "https://www.youtube.com/watch?v=ImlJgelFZxY",
       "summary": "歡迎來到冒險與相遇的世界–瑪奇 Mobile。\n一起搶先認識「魔法師系列」職業的魅力吧！\n⭐前往事前預約：https://tw.nexon.com/mabinogimobile/preregistration/\n⭐官網職業介紹：https:",
-      "key_points": [],
+      "key_points": [
+        "00:07 魔法師",
+        "00:26 火焰術士",
+        "00:47 冰霜術士"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2026-06-27",
@@ -5364,7 +5617,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=pDwO4I4HtWA",
       "summary": "#마비노기모바일 #마비노기 #모비노기 #마비노기모바일시즌2 #마비노기시즌2 #모비노기시즌2 \n\n넥슨 크리에이터즈 ♥팔로우♥\nhttps://creators.nexon.com/kr/s/GGHwi%232274?servic",
-      "key_points": [],
+      "key_points": [
+        "0:25 靈魂之流",
+        "2:16 主線任務與賽季技能",
+        "2:41 達到98級到100級的順序"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-06-27",
@@ -5404,6 +5661,54 @@
       "thumbnail": "https://i.ytimg.com/vi/99CbyGJCd7w/hqdefault.jpg"
     },
     {
+      "id": "youtube-HPGtj7SwtmA",
+      "title": "《瑪奇 Mobile》我們一起展開浪漫、相遇與冒險的世界｜完整版",
+      "title_original": "《瑪奇 Mobile》我們一起展開浪漫、相遇與冒險的世界｜完整版",
+      "author": "瑪奇 Mobile",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=HPGtj7SwtmA",
+      "summary": "🔻🔻完成本支影片下方指定3步驟，抽 MyCard 點數與限量周邊！🔻🔻\n\n👉 立即前往事前預約：\nhttps://mabinogimobiletw.pse.is/98vecv\n-\n我們的故事即將由此展開，立即參加事前預約，即享限定時裝與專屬",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2026-06-24",
+      "is_featured": true,
+      "thumbnail": "https://i.ytimg.com/vi/HPGtj7SwtmA/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-r8zvHFmCrQE",
+      "title": "為什麼《瑪奇 Mobile》第二季是新手進坑的最佳時機",
+      "title_original": "마비노기 모바일 시즌2 뉴비가 딱 하기 좋은 타이밍인 이유",
+      "author": "센터로드TV",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=r8zvHFmCrQE",
+      "summary": "#넥슨#마비노기모바일#모비노기\n\n시즌 2 사전등록 https://nexon.link/bGA\n\n구독: http://bit.ly/2qGYbPM\n카톡문의(ID): centerlordtv\n투네이션 후원: https://to",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-06-23",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/r8zvHFmCrQE/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-8iWGz3sP3UM",
+      "title": "花園遊戲 20 回合評測、策略與技巧 [瑪奇 Mobile]",
+      "title_original": "텃밭 20판 플레이 후기와 공략, 팁 [마비노기 모바일]",
+      "author": "엽이",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=8iWGz3sP3UM",
+      "summary": "* 최종 2250점 달성\n* 입문 텃밭 비법사 구매해서 2단계 카드를 선택해야하는듯 합니다",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-05-08",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/8iWGz3sP3UM/hqdefault.jpg"
+    },
+    {
       "id": "youtube-S5CvsmAgbXc",
       "title": "深入了解全新「騎士」職業🔍 從配置到實用技巧，我將為你一一講解【瑪奇 Mobile】",
       "title_original": "신직업 '기사' 제대로 알아보기🔍 세팅부터 꿀팁까지 알려줄게【마비노기 모바일 】",
@@ -5434,31 +5739,16 @@
       ],
       "url": "https://www.youtube.com/watch?v=jAhKZcHQTws",
       "summary": "무료 의상 세트에 클래스 변경 스크롤까지 뿌린대! 😲\n\n5월 6일 딱 한 번 접속해서 스크롤 받아가고, \n기사 클래스 키우면 룬이랑 골드까지 쏟아진다고!\n(스크롤은 5/21까지 꼭 쓰기!)\n\n귀여운 병아리 인형 모아",
-      "key_points": [],
+      "key_points": [
+        "00:00 活動摘要及介紹",
+        "00:15 裝備變形滾動事件",
+        "00:27 騎士職業訓練活動"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-23",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/jAhKZcHQTws/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-Z-1WKJoBAdA",
-      "title": "【瑪奇 Mobile】騎士更新，SSP裝備轉換技能標籤：關鍵點綜合總結，解釋滿意度僅35%的原因",
-      "title_original": "[마비노기 모바일] 기사 업데이트, SSP 장비변환 스킬태그 핵심만 총정리, 만족도 35% 나온 이유 정리",
-      "author": "황산갈매기",
-      "category": "職業解析",
-      "tags": [
-        "戰士",
-        "尚未開放"
-      ],
-      "url": "https://www.youtube.com/watch?v=Z-1WKJoBAdA",
-      "summary": "4월 22일 마비노기 모바일 업데이트 패치노트 정리 영상입니다.\n기사 클래스 출시와 신규 시스템과 주의해야 할 포인트를 짚어드립니다.\n\n▼ 핵심 포인트\n- 기사 클래스 추가, 단 슬롯 확장은 없음 (부캐 억제 기조)",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2026-04-22",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Z-1WKJoBAdA/hqdefault.jpg"
     },
     {
       "id": "youtube-EARnGqR3lKA",
@@ -5472,12 +5762,32 @@
       ],
       "url": "https://www.youtube.com/watch?v=EARnGqR3lKA",
       "summary": "기다리던 4월 23일 업데이트 미리보기 소식 드디어 떴다! 😲\n\n직업 변경 소식부터 장비 변환 스크롤로 \n장비 걱정 없이 갈아탈 수 있고, \n보석 스킬 태그도 싹 바꿔서 세팅 완전 편해졌어. ✨\n\n신규 클래스 '기사",
-      "key_points": [],
+      "key_points": [
+        "00:11 工作變動：設備改造",
+        "00:46 更換職業後的寶石設置",
+        "01:43 介紹新職業“騎士”"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-15",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/EARnGqR3lKA/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-UzMV2b8hX-E",
+      "title": "4月9日（週四）例行維護通知 瑪奇 Mobile",
+      "title_original": "4/9(목) 정기점검 안내 공지 [마비노기 모바일]",
+      "author": "빙식이",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=UzMV2b8hX-E",
+      "summary": "- 씨미 : https://ci.me/@bingsik\n- 채널 멤버쉽 가입 : https://www.youtube.com/channel/UCVRFMSz2EKb_eghbeaEe4Ug/join\n- 팬카페「아이스카페」: ",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-04-07",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/UzMV2b8hX-E/hqdefault.jpg"
     },
     {
       "id": "youtube-ZBMAk1xGZig",
@@ -5488,7 +5798,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=ZBMAk1xGZig",
       "summary": "개인 의견에 따라 제작한 가이드 콘텐츠 입니다😀\n\n📌 이번 영상 핵심 요약\n- 마비노기 모바일 1주년 보상 100% 활용! 무과금 전투력 43,500(보스 컨텐츠 여유 진입 컷) 프리패스 로드맵\n- 투력 뻥튀기 핵심",
-      "key_points": [],
+      "key_points": [
+        "01:22 +獎勵：升到滿級前需要知道的超多實用技巧！",
+        "03:44 正式的規格升級正在進行中",
+        "04:48 [重要] 主要規格升級"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-03",
@@ -5504,7 +5818,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=p2QVdE5NRTc",
       "summary": "#마비노기모바일 #마비노기 #모비노기\n#모비노기가이드 #모비노기가이드북\n\n'확률형 아이템 포함'\n'개인 의견에 따라 제작한 가이드 입니다'\n\n넥슨 크리에이터즈 ♥팔로우♥\nhttps://creators.nexon.co",
-      "key_points": [],
+      "key_points": [
+        "0:34 如何達到85級",
+        "1:20 我該穿戴哪些裝備？",
+        "1:46 什麼是符文？"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-04-02",
@@ -5520,7 +5838,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=Pck5BYiNTEY",
       "summary": "*개인 의견에 따라 제작한 가이드 콘텐츠 입니다:)\n📌 이번 영상 핵심 요약\n- 마비노기 모바일 1주년 '역대급 보상' 100% 활용 완전 정복\n- ‘신화 룬 선택 가이드’ 추천 \n- 여러 보상 수령 전 필수 확인 ",
-      "key_points": [],
+      "key_points": [
+        "02:26 如何充分利用破紀錄的周年慶典獎勵",
+        "02:59 [重要] 神話符文推薦",
+        "04:53 伺服器推薦與課程選擇"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-03-29",
@@ -5536,12 +5858,36 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=UI8cvn0XNZk",
       "summary": "마비노기 모바일 1주년 축하합니다! 🎉\n이번 영상을 위해 1레벨부터 85레벨까지 직접 다시 키우며 모든 육성 노하우를 정리했습니다.\n신규 유저분들과 오랜만에 돌아오신 복귀 유저분들이 시행착오 없이 가장 효율적으로 성",
-      "key_points": [],
+      "key_points": [
+        "00:48 指南配置",
+        "01:06 訓練方法",
+        "03:26 重要提示"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-03-29",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/UI8cvn0XNZk/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-D5DiAcfeK1A",
+      "title": "無需戰鬥即可升級？ 💰 免費新手必備課程（生活技能與交易）【新手指南 第一部】【瑪奇 Mobile】",
+      "title_original": "전투 1도 없이 스펙업? 💰 무소과금 초보자 필수 코스 (생활&물물교환) [뉴비 가이드 1편] 【마비노기 모바일 】",
+      "author": "모닝이 게임영상",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=D5DiAcfeK1A",
+      "summary": "* 개인 의견에 따라 제작한 가이드 입니다.\n\n무소과금도 스펙업하고 데카 벌이 가능한 꿀팁이 여기 있어!\n생활 컨텐츠로 스펙업은 물론, \n거래소 수익 2~3배 뻥튀기하는 물물교환 꿀팁까지! 💸 \n이 영상 끝까지 보면",
+      "key_points": [
+        "00:00 免費玩家升級技巧",
+        "01:04 生活技能基礎3級",
+        "02:08 製作等級提升和熱門物品"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-03-26",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/D5DiAcfeK1A/hqdefault.jpg"
     },
     {
       "id": "youtube-xGKlkSUz3ek",
@@ -5558,6 +5904,22 @@
       "published_at": "2026-02-16",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/xGKlkSUz3ek/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-IsXxJBF2iDY",
+      "title": "新版「聖騎士升級資源掉落」塔巴塔斯「極難」5分鐘通關攻略 | #瑪奇 Mobile #瑪奇 #塔巴塔斯",
+      "title_original": "신규 스펙업 '팔라딘 렙업 재화 드랍' 타바르타스 '매우어려움' 5분컷 공략 | #마비노기모바일  #모비노기 #타바르타스",
+      "author": "손해보는 용사 [손용]",
+      "category": "副本攻略",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=IsXxJBF2iDY",
+      "summary": "[📌 이번 영상 핵심 내용]\n\"매우어려움, 패턴만 알면 정말 쉽습니다!\"\n드디어 열린 타바르타스 '매우어려움' 난이도!\n단순히 피통만 늘어난 게 아니라, 기존 패턴의 변화와 까다로운 신규 패턴들이 추가되었습니다.\n여",
+      "key_points": [],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-02-16",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/IsXxJBF2iDY/hqdefault.jpg"
     },
     {
       "id": "youtube-rDnLv2YOKD0",
@@ -5584,7 +5946,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=wyoK7nye7uo",
       "summary": "춤은 그만 추고 싶어요🕺💃\n\n에이렐 노래만 들으면서\n고상하게 클리어하고 싶으신 분들!\n\n에이렐 패턴 공략과 클리어 소감을 담아 봤습니다.\n재밌게 나온 레이드 함께 즐겨 봅시다!\n\n#에이렐 #레이드 #공략 #춤 #노래",
-      "key_points": [],
+      "key_points": [
+        "00:00 艾瑞爾介紹",
+        "00:56 突襲開始",
+        "05:46 清晰回顧"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2026-01-16",
@@ -5624,6 +5990,29 @@
       "thumbnail": "https://i.ytimg.com/vi/oxNKGyXC5cc/hqdefault.jpg"
     },
     {
+      "id": "youtube-zeLltDeZLKc",
+      "title": "新手職業推薦排名表【瑪奇 Mobile】",
+      "title_original": "뉴비 직업 추천 티어리스트 [마비노기 모바일]",
+      "author": "새크리마",
+      "category": "新手指南",
+      "tags": [
+        "戰士",
+        "弓手"
+      ],
+      "url": "https://www.youtube.com/watch?v=zeLltDeZLKc",
+      "summary": "0:00~1:10 환영 및 직업 추천 기준\n1:10~02:47 검방전사\n02:47~04:17 대검전사\n04:17~06:14 검술사\n06:14~07:49 궁수\n07:49~09:06 석궁\n09:06~10:40 장궁\n10",
+      "key_points": [
+        "0:00 ~1:10 歡迎與職位推薦標準",
+        "1:10 ~ 02:47 劍與盾戰士",
+        "02:47 ~04:17 大劍戰士"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2026-01-08",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/zeLltDeZLKc/hqdefault.jpg"
+    },
+    {
       "id": "youtube-8DcuwX0YXXs",
       "title": "新深淵「污染垃圾場」7分鐘攻略，重點講解關鍵點（極難）| #瑪奇 Mobile #瑪奇 #塔巴塔斯",
       "title_original": "신규 어비스 '오염된 폐기장' 핵심만 7분컷 공략(매우어려움 기준)  | #마비노기모바일  #모비노기 #타바르타스",
@@ -5640,20 +6029,20 @@
       "thumbnail": "https://i.ytimg.com/vi/8DcuwX0YXXs/hqdefault.jpg"
     },
     {
-      "id": "youtube-49Q1hq7qtSs",
-      "title": "塔巴塔斯困難模式攻略 | 所有攻擊模式在一段時間後都會變成即死攻擊？ 【瑪奇 Mobile】",
-      "title_original": "타바르타스 어려움 공략 | 일정 시간후 모든 패턴이 즉사기가 된다고? [마비노기 모바일]",
-      "author": "꽝라멩",
+      "id": "youtube-cgQVxts1g04",
+      "title": "在《瑪奇 Mobile》中挑戰塔巴塔斯困難模式之前，你必須觀看此影片。",
+      "title_original": "마비노기 모바일 타바르타스 어려움 가기전에 꼭 봐야함",
+      "author": "라이트모카(lightmocca)",
       "category": "副本攻略",
       "tags": [],
-      "url": "https://www.youtube.com/watch?v=49Q1hq7qtSs",
-      "summary": "🕔타임라인\n00:00 인트로\n00:34 짓뭉개기 [계속 신경써야 하는 패턴 Start]\n02:15 불사로 짓뭉개기 캐리하는 법\n02:42 보라 장판\n03:04 전기 장판\n03:23 구슬 [알고 있으면 되는 패턴 St",
+      "url": "https://www.youtube.com/watch?v=cgQVxts1g04",
+      "summary": "즐겁게 시청하시고 행복한 하루되세요\n#마비노기모바일 #타바르타스 #타르타르 #타라리 #어려움 #어비스 #레이드 #공략 #오토 #확률형아이템포함\n\n[팬카페] https://cafe.naver.com/lightmocca",
       "key_points": [],
       "source": "youtube",
       "region": "kr",
-      "published_at": "2025-12-07",
+      "published_at": "2025-11-30",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/49Q1hq7qtSs/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/cgQVxts1g04/hqdefault.jpg"
     },
     {
       "id": "youtube-i1KarIelVBk",
@@ -5696,28 +6085,16 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=04HDx19YXIU",
       "summary": "안녕하세요! 댓츠미어드벤처입니다 🐾✨\n\n이번 영상은 마비노기 모바일 어비스 던전 ‘지옥 난이도 1~10’\n🔥 첫날 오픈런 실전 리뷰 & 핵심 공략 요약 🔥\n\n새로 공개된 지옥 난이도 1~6 구간을 직접 돌며 확인한 ",
-      "key_points": [],
+      "key_points": [
+        "00:30 戰鬥力和規格",
+        "01:32 策略 - 奇招 [藥水限制]",
+        "01:46 攻略 - 機關 [閃電戒指]"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-11-17",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/04HDx19YXIU/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-IJlKmKHO_5Y",
-      "title": "Tabartas 新手指南 | 輕鬆理解的 2 分鐘休息時間！ [瑪奇 Mobile]",
-      "title_original": "타바르타스 입문 공략 | 이해하기 쉬운 2분 컷! [마비노기 모바일]",
-      "author": "꽝라멩",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=IJlKmKHO_5Y",
-      "summary": "🕔타임라인\n00:00 인트로\n00:12 공략 시작\n00:19 ①짓뭉개기\n00:48 ②구슬 먹기\n01:11 ③확산포\n01:24 ④마력 충전\n02:00 총정리 및 아웃트로\n\n영상 클릭해주셔서 감사합니다.😊\n\n🔊BGM\n🎵",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-11-16",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/IJlKmKHO_5Y/hqdefault.jpg"
     },
     {
       "id": "youtube-tambo9x1EVg",
@@ -5728,7 +6105,10 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=tambo9x1EVg",
       "summary": "[📌 이번 영상 핵심 내용]\n- 출시 첫날, 타바르타스 패턴/기믹 전부 정리\n- 핵심 패턴 3가지만 알면 5분컷 클리어 가능\n- “짓뭉개기 / 마력기폭 / 마력충전” 생존·파훼 완전 분석\n- 보상 구성·전용 재화·초",
-      "key_points": [],
+      "key_points": [
+        "00:46 要點總結（獎勵等）",
+        "01:43 關鍵模式策略"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-11-13",
@@ -5760,7 +6140,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=RC9egI9hmzs",
       "summary": "#마비노기모바일 #마비노기m #바리어비스\n\n\n바리 어비스가 나왔습니다\n마스 어비스와 다르게 난이도가 있는 것 같아요\n초보자&뉴비 분들도 이해하기 쉽게 만들었고 다양한 패턴과 공략법을 담았으니 바리 어비스를 가기 전 ",
-      "key_points": [],
+      "key_points": [
+        "00:11 地下大洞穴",
+        "01:47 混沌神殿",
+        "03:23 復活聖地"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-10-02",
@@ -5776,7 +6160,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=SVUJlsUVUVE",
       "summary": "[📌이번 영상 핵심 내용]\n- 바리 어비스 공략(지하대공동, 혼돈의신전, 부활의신전)\n- 빠른 패턴 숙지\n\n[⏲️Timestamp]\n00:00 인트로\n00:34 '지하대공동' 공략\n01:59 '혼돈의신전' 공략\n04",
-      "key_points": [],
+      "key_points": [
+        "00:34 「地下大洞穴」攻略",
+        "01:59 「混沌神殿」攻略",
+        "04:31 「復活神殿」攻略"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-10-02",
@@ -5816,56 +6204,6 @@
       "thumbnail": "https://i.ytimg.com/vi/J72oY27i_uw/hqdefault.jpg"
     },
     {
-      "id": "youtube-fGGxCORpp7s",
-      "title": "【瑪奇 Mobile】魅魔討伐戰最新攻略：四人同時進入輕鬆通關",
-      "title_original": "[마비노기 모바일] 서큐버스 레이드 최신공략 , 4인 동시 입장으로 이렇게 쉽게 깹니다",
-      "author": "노동자_게임방송",
-      "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=fGGxCORpp7s",
-      "summary": "간만에 마비노기 모바일 영상을 만들었습니다!\n\n마비노기 모바일 오픈 첫날부터 유튜브 채널을 시작했는데,\n초기에 게임에 편법이 많았어요! 그런 부분들을 집중해서 공략하다보니\n악플도 많았고, 시간이 지날수록 컨텐츠도 고",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-09-13",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/fGGxCORpp7s/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-jPcGFVdmD5o",
-      "title": "瑪奇 Mobile Glas Gievnen 非常難指南#Game #MabinogiMobile #GlasGievnen",
-      "title_original": "마비노기 모바일 글라스 기브넨 매우 어러움 공략 #게임 #마비노기모바일 #글라스기브넨",
-      "author": "석궁사수",
-      "category": "副本攻略",
-      "tags": [
-        "弓手"
-      ],
-      "url": "https://www.youtube.com/watch?v=jPcGFVdmD5o",
-      "summary": "마비노기 모바일\n마비노기 모바일 석궁사수\n\n마비노기 모바일 레이드 글라스 기브넨 매우 어려움\n난이도 공략영상",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-08-29",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/jPcGFVdmD5o/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-ADF69PlhKfI",
-      "title": "Gulgi 困難模式指南 瑪奇 Mobile",
-      "title_original": "글기 매어 공략 [마비노기 모바일]",
-      "author": "김바탕",
-      "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=ADF69PlhKfI",
-      "summary": "#예술 #낭만 #마비노기모바일 #모비노기 #글라스기브넨매우어려움공략 #레이드공략",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-07-28",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/ADF69PlhKfI/hqdefault.jpg"
-    },
-    {
       "id": "youtube-zcrL07EnTPg",
       "title": "請訂閱收看（Mabinogi)瑪奇20週年活動新手回鍋不用1週星晨10秘法同步8還有許多福利佛心20250706",
       "title_original": "請訂閱收看（Mabinogi)瑪奇20週年活動新手回鍋不用1週星晨10秘法同步8還有許多福利佛心20250706",
@@ -5901,52 +6239,24 @@
       "thumbnail": "https://i.ytimg.com/vi/kXfzn4lzxQs/hqdefault.jpg"
     },
     {
-      "id": "youtube-akBSKgyqxXY",
-      "title": "【瑪奇 Mobile】#000000 用一種染料染出三色黑色 #瑪奇 Mobile #瑪奇 #染料",
-      "title_original": "[마비노기모바일] #000000 리블 3파트 염색약 하나로 염색하기 #마비노기모바일 #모비노기 #염색",
-      "author": "디꿀",
+      "id": "youtube-BhwhgbZoIcw",
+      "title": "《瑪奇》手遊新手指南及攻略 第一部分（聖騎士更新後已刪除不必要的章節）",
+      "title_original": "마비노기 모바일 초보자를 위한 공략 및 가이드 1편 (팔라딘 업데이트 이후 필요 없는 부분 삭제 완료)",
+      "author": "호두박사",
       "category": "新手指南",
       "tags": [],
-      "url": "https://www.youtube.com/watch?v=akBSKgyqxXY",
-      "summary": "",
-      "key_points": [],
+      "url": "https://www.youtube.com/watch?v=BhwhgbZoIcw",
+      "summary": "이 영상에 포함된 내용은 뉴비 가이드 2편에서 다루지 않을 예정이라 마비노기 모바일 처음하시는 분들은 이 영상을 통해 기본적인 것들부터 알고 넘어가시면 좋을 것 같아서 팔라딘 업데이트 이후 필요 없는 부분은 삭제하였",
+      "key_points": [
+        "0:47 新手入門（選擇伺服器）",
+        "1:30 工作選擇",
+        "2:03 角色創建"
+      ],
       "source": "youtube",
       "region": "kr",
-      "published_at": "2025-06-06",
+      "published_at": "2025-05-23",
       "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/akBSKgyqxXY/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-oJjYIjBS6zY",
-      "title": "Raid Hard 排名 2 #MabinogiMobile #MobileMabinogi #Ranking",
-      "title_original": "레이드 어려움 서열2  #마비노기모바일 #모바일마비노기 #서열",
-      "author": "강우",
-      "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=oJjYIjBS6zY",
-      "summary": "카카오톡:  rkddn362 \n이메일:rkddn3621@naver.com\n\n계좌후원: 카카오뱅크 3333-07-5623419 \n투네이션 후원주소:  https://toon.at/donate/rkddn\n아프리카TV: ",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-05-25",
-      "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/oJjYIjBS6zY/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-Devq-H_itns",
-      "title": "【瑪奇 Mobile】格拉斯·吉卜南副本「困難」攻略（3分鐘速成指南，重點講解關鍵要點）",
-      "title_original": "[ 마비노기 모바일 ] 글라스기브넨 레이드 \"어려움\" 공략 (핵심만 빠르게 3분컷 공략)",
-      "author": "탕튜브",
-      "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=Devq-H_itns",
-      "summary": "#마비노기 #마비노기M #마비노기모바일 #넥슨 #넥슨게임 #모비노기 #마비노기모바일레이드 #모비노기레이드 #글라스기브넨어려움 #글라스기브넨패턴 #글라스기브넨공략 #글라스기브넨어려움공략 #글기패턴 #글기기믹 #글기공략",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-05-19",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/Devq-H_itns/hqdefault.jpg"
+      "thumbnail": "https://i.ytimg.com/vi/BhwhgbZoIcw/hqdefault.jpg"
     },
     {
       "id": "youtube-uLZBabajXMk",
@@ -5957,78 +6267,16 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=uLZBabajXMk",
       "summary": "00:00 시작\n00:26 뉴비 가이드 시작\n01:28 65레벨 빨리 찍는 방법\n04:15 직업추천\n05:45 전투력 올리는 방법\n10:19 과금추천\n13:36 딜상승 시키는 방법\n\n댓글,좋아요는 큰 도움이 됩니다.",
-      "key_points": [],
+      "key_points": [
+        "00:26 新手指南開始",
+        "01:28 如何快速達到65級",
+        "04:15 工作推薦"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-05-17",
       "is_featured": true,
       "thumbnail": "https://i.ytimg.com/vi/uLZBabajXMk/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-f6KUzIry8oM",
-      "title": "《瑪奇 Mobile劍傳》攻略【從入門到精通】",
-      "title_original": "마비노기 모바일 검술사 가이드 [입문부터 실전까지]",
-      "author": "김진솔",
-      "category": "新手指南",
-      "tags": [
-        "戰士"
-      ],
-      "url": "https://www.youtube.com/watch?v=f6KUzIry8oM",
-      "summary": "00:00 시작\n00:51 검술사란?\n01:38 레벨업 보너스 카드\n02:35 필요 스텟\n03:47 장신구 룬\n05:05 스킬\n14:09 딜 사이클\n16:52 실전 레이드\n\nBGM\n🎵Music provided by ",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-05-14",
-      "is_featured": true,
-      "thumbnail": "https://i.ytimg.com/vi/f6KUzIry8oM/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-dUJ4LNKvK-c",
-      "title": "格拉斯·吉布寧攻略？很簡單，因為是給新手準備的~ #瑪奇 Mobile #我不知道姐姐 #KkwaKkwaBebe",
-      "title_original": "글라스기브넨 공략? 입문이라 쉬워~ #마비노기모바일 #잘몰라누나 #꽈꽈베베야",
-      "author": "새라새라 게임채널",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=dUJ4LNKvK-c",
-      "summary": "#넥슨 #마비노기모바일 #새라새라\n마비노기 모바일 꿀팁(?)영상 재미로 봐주세요~\n\n구독, 댓글, 좋아요는 항상 큰 힘이 됩니다♥\n오늘도 시청해주셔서 감사합니다.\n\n♾️생방송 보러가기 : https://ch.soop",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-04-26",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/dUJ4LNKvK-c/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-L1jG4YZcnbU",
-      "title": "瑪奇抄本攻略：格拉斯吉卜南介紹 - 簡明說明",
-      "title_original": "마비노기 레이드 공략 글라스기브넨 입문 간단 설명",
-      "author": "봉두야",
-      "category": "新手指南",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=L1jG4YZcnbU",
-      "summary": "안녕하세요 봉두입니다\n구독 좋아요 댓글 부탁드립니다!\n\n#마비노기모바일 #게임",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-04-25",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/L1jG4YZcnbU/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-J3ugEPNZkIg",
-      "title": "在《瑪奇 Mobile》中進入深淵之前，建議閱讀以下實用指南",
-      "title_original": "마비노기 모바일 어비스 가기전에 보면 좋은 공략들",
-      "author": "라이트모카(lightmocca)",
-      "category": "副本攻略",
-      "tags": [],
-      "url": "https://www.youtube.com/watch?v=J3ugEPNZkIg",
-      "summary": "즐겁게 시청하시고 행복한 하루되세요\n#마비노기모바일 #어비스 #공략 #랫맨 #확률형아이템포함 \n\n[팬카페] https://cafe.naver.com/lightmocca",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-04-16",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/J3ugEPNZkIg/hqdefault.jpg"
     },
     {
       "id": "youtube-7S62J3ihaQs",
@@ -6039,7 +6287,11 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=7S62J3ihaQs",
       "summary": "#마비노기 #마비노기모바일\n\n0:00 인트로\n0:45 직업선택\n1:36 나이는10살로\n2:00 시네마틱 영상 스킵\n2:20 레벨업 보너스 카드\n2:38 플레이힌트\n3:01 은동전\n3:42 성장가이드\n4:00 효율과금",
-      "key_points": [],
+      "key_points": [
+        "0:45 工作選擇",
+        "1:36 年齡是10歲。",
+        "跳過 2:00 電影視頻"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-04-09",
@@ -6063,24 +6315,6 @@
       "thumbnail": "https://i.ytimg.com/vi/rq-taq8NQ8U/hqdefault.jpg"
     },
     {
-      "id": "youtube-MO2m2w_Lz5Q",
-      "title": "《瑪奇》手機版吟遊詩人新手指南（排名第一的直接教學）",
-      "title_original": "마비노기 모바일 음유시인 입문 초보자 가이드 (랭킹 1등 직강)",
-      "author": "점검중",
-      "category": "新手指南",
-      "tags": [
-        "吟遊詩人"
-      ],
-      "url": "https://www.youtube.com/watch?v=MO2m2w_Lz5Q",
-      "summary": "#유료광고 #확률형아이템포함\n우리 음유시인 정말 매력적인 직업입니다. 많이 사랑해주세요!\n궁금하신 점은 댓글 달아주시면 답변 드리겠습니다.\n*장신구 룬 추천 화음, 조롱 +  재치 or 기만 으로 수정하겠습니다*\n*",
-      "key_points": [],
-      "source": "youtube",
-      "region": "kr",
-      "published_at": "2025-04-07",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/MO2m2w_Lz5Q/hqdefault.jpg"
-    },
-    {
       "id": "youtube-UMxTwcaa-fo",
       "title": "【瑪奇 Mobile】新手完全指南影片！ ！",
       "title_original": "[마비노기 모바일] 찐 뉴비들을 위한 종합 가이드 영상!!",
@@ -6089,12 +6323,36 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=UMxTwcaa-fo",
       "summary": "#마비노기모바일 #꿀팁 #공략 \n\n🎵Music provided by 브금대통령\n🎵Track : 강아지같아 - https://www.youtube.com/watch?v=tPxR7npln9w\n🎵Track : 뒤뚱뒤뚱 -",
-      "key_points": [],
+      "key_points": [
+        "00:20 如何在遊戲初期快速升級",
+        "00:41 如何解決故事卡住的問題",
+        "01:32 工作變動 + 職位級別"
+      ],
       "source": "youtube",
       "region": "kr",
       "published_at": "2025-04-05",
       "is_featured": false,
       "thumbnail": "https://i.ytimg.com/vi/UMxTwcaa-fo/hqdefault.jpg"
+    },
+    {
+      "id": "youtube-i8_IyiY-9N4",
+      "title": "【瑪奇 Mobile】簡單易懂的裝備搭配指南（性能強化、骰子使用、屬性、符文、寶石）",
+      "title_original": "[마비노기 모바일] 알기 쉬운 장비 세팅 공략 (성능 주입, 다이스 활용, 스텟, 룬, 보석)",
+      "author": "주깽아",
+      "category": "職業解析",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=i8_IyiY-9N4",
+      "summary": "#마비노기모바일 #마비노기m #마비노기모바일장비 \n* 본 게임은 '확률형 아이템'을 포함하고 있습니다.\n \n마비노기 모바일 장비 가이드입니다\n장비, 보석, 룬, 강화, 다이스, 저주 해제까지 최대한 많은 내용을 담으",
+      "key_points": [
+        "00:00 引言",
+        "00:12 統計數據",
+        "00:53 寶石"
+      ],
+      "source": "youtube",
+      "region": "kr",
+      "published_at": "2025-04-02",
+      "is_featured": true,
+      "thumbnail": "https://i.ytimg.com/vi/i8_IyiY-9N4/hqdefault.jpg"
     },
     {
       "id": "youtube-GFjkSiQBLKE",
@@ -6113,6 +6371,22 @@
       "thumbnail": "https://i.ytimg.com/vi/GFjkSiQBLKE/hqdefault.jpg"
     },
     {
+      "id": "youtube-dqetkgbU3fE",
+      "title": "【瑪奇Mobile】正版瑪奇M新資訊！全面介紹瑪奇Mobile的世界觀、才能系統、生活系統、戰鬥冒險、捏臉、服裝、染色！能帶給我們什麼體驗！遊戲將於3月27日正式上市！(韓國區域)",
+      "title_original": "【瑪奇Mobile】正版瑪奇M新資訊！全面介紹瑪奇Mobile的世界觀、才能系統、生活系統、戰鬥冒險、捏臉、服裝、染色！能帶給我們什麼體驗！遊戲將於3月27日正式上市！(韓國區域)",
+      "author": "歐昊",
+      "category": "新手指南",
+      "tags": [],
+      "url": "https://www.youtube.com/watch?v=dqetkgbU3fE",
+      "summary": "大家好我是歐昊\n喜歡我的影片可以幫我按喜歡與訂閱我唷\n有問題也歡迎大家留言\n感謝大家\n儲值享優惠：https://chain.ldshop.gg/T4ml67rTX\n\nFB粉絲專頁記得去按個讚\nhttps://www.facebook.co",
+      "key_points": [],
+      "source": "youtube",
+      "region": "tw",
+      "published_at": "2025-02-11",
+      "is_featured": false,
+      "thumbnail": "https://i.ytimg.com/vi/dqetkgbU3fE/hqdefault.jpg"
+    },
+    {
       "id": "youtube-3YD7UEsLeXo",
       "title": "耗時 8 年《瑪奇 Mobile》確定 3 月上市！5 分鐘看完 Showcase 最新情報懶人包",
       "title_original": "耗時 8 年《瑪奇 Mobile》確定 3 月上市！5 分鐘看完 Showcase 最新情報懶人包",
@@ -6121,30 +6395,16 @@
       "tags": [],
       "url": "https://www.youtube.com/watch?v=3YD7UEsLeXo",
       "summary": "00:00 《瑪奇 Mobile》\n00:28 世界觀與故事劇情 \n01:18 生活系統\n01:39 冒險\n02:23 才能(職業)系統\n03:23 自訂角色外型 \n04:00 未來更新\n\n#mabinogifantasylife #mab",
-      "key_points": [],
+      "key_points": [
+        "00:00 《瑪奇 Mobile》",
+        "00:28 世界觀與故事劇情",
+        "01:18 生活系統"
+      ],
       "source": "youtube",
       "region": "tw",
       "published_at": "2025-02-06",
       "is_featured": true,
       "thumbnail": "https://i.ytimg.com/vi/3YD7UEsLeXo/hqdefault.jpg"
-    },
-    {
-      "id": "youtube-TZQxhbDWv0g",
-      "title": "新瑪奇Mabinogi｜15周年慶 coming soon!",
-      "title_original": "新瑪奇Mabinogi｜15周年慶 coming soon!",
-      "author": "MabinogiTW",
-      "category": "活動情報",
-      "tags": [
-        "活動"
-      ],
-      "url": "https://www.youtube.com/watch?v=TZQxhbDWv0g",
-      "summary": "目前活動 - \n娜歐伺服器慶祝活動👉 https://reurl.cc/7X4rWb\n龍的主人登入送👉 https://reurl.cc/Y14Onn\n浪漫島👉 https://reurl.cc/arZ98Z\n\n🔥新瑪奇官網 https:/",
-      "key_points": [],
-      "source": "youtube",
-      "region": "tw",
-      "published_at": "2020-05-08",
-      "is_featured": false,
-      "thumbnail": "https://i.ytimg.com/vi/TZQxhbDWv0g/hqdefault.jpg"
     },
     {
       "id": "bahamut-essence-576",
