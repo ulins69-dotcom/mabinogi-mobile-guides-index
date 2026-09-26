@@ -182,6 +182,76 @@ _mp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "mnemonics.
 if os.path.exists(_mp):
     with open(_mp, encoding="utf-8") as _f:
         for _gid, _v in json.load(_f)["items"].items():
-            assert re.match(r"^(bahamut(-essence)?-\d+|youtube-[A-Za-z0-9_-]{11})$", _gid), _gid
+            assert re.match(r"^(bahamut(-essence)?-\d+|youtube-[A-Za-z0-9_-]{11}|inven-(news|tip)-\d+)$", _gid), _gid
             assert import_mnemonics.MIN_LEN <= len(_v["text"]) <= import_mnemonics.MAX_LEN, _gid
 print("=== 口訣匯出／匯入測試通過 ===")
+
+# ── 巴哈列表標題（2026-09-27 修正）：有縮圖的列標題是 <p class="b-list__main__title">、整塊包在 <a> 裡，
+# 舊版會把「精華」標記、頁碼、內文預覽全黏進標題。純離線，用實際抓到的 HTML 結構。──
+_list_html = """<table><tr class="b-list__row"><td class="b-list__main"><a href="C.php?bsn=32564&amp;snA=973&amp;tnum=414">
+<div class="imglist-text"><div class="b-list__tile"><div class="b-list__summary__mark b-mark b-mark--feature">精華</div>
+<p class="b-list__main__title">【心得】蓋個外觀分享樓</p><span class="b-list__main__pages"><span>19</span><span>20</span></span></div>
+<p class="b-list__brief">染色劑隨機染色真的很難抓</p></div></a></td></tr>
+<tr class="b-list__row"><td class="b-list__main"><div class="b-list__tile">
+<a class="b-list__main__title" href="C.php?bsn=32564&amp;snA=810&amp;tnum=2">【問題】好友送禮的問題</a></div></td></tr></table>"""
+_rows = bahamut._parse_list(_list_html)
+assert [r["title"] for r in _rows] == ["蓋個外觀分享樓", "好友送禮的問題"], [r["title"] for r in _rows]
+assert [r["raw_tag"] for r in _rows] == ["心得", "問題"]
+assert _rows[0].get("is_featured") is True and "is_featured" not in _rows[1], "版主精華標記要帶出來"
+print("=== 巴哈列表標題解析測試通過 ===")
+
+# ── YouTube 每個關鍵字要搜兩次：不限時間（長青、給精選）＋最近 21 天（給台版／韓版分頁）。monkeypatch，不打網路。──
+import youtube
+_calls = []
+youtube._key = lambda: "fake"
+youtube._search_ids = lambda q, lang, key, published_after=None: (_calls.append((q, published_after)) or [q + ("-new" if published_after else "-old")])
+youtube._video_details = lambda ids, region, key: [{"id": i, "region": region} for i in ids]
+_yt_items = youtube.fetch()
+_n_q = sum(len(qs) for qs, _ in youtube.QUERIES.values())
+assert len(_calls) == 2 * _n_q, _calls
+assert sum(1 for _, a in _calls if a) == _n_q and all(re.match(r"^\d{4}-\d{2}-\d{2}T00:00:00Z$", a) for _, a in _calls if a)
+assert len(_yt_items) == 2 * _n_q
+print("=== YouTube 近期搜尋測試通過 ===")
+
+# ── Inven（2026-09-27 重寫）：新聞列表與攻略板解析，用實測的 HTML 結構。純離線。──
+import inven
+_news_html = """<div class="webzineNewsList tableType2"><table><tr><td><div class="content">
+<a href="https://www.inven.co.kr/webzine/news/?news=320623&amp;site=mabimo"><span class="cols title">"AI, 양털 20개만 깎아줘" 마비노기 모바일 <span class="cmtnum">[25]</span></span>
+<span class="cols summary">넥슨은 9일 '마비노기 모바일'에 외부 AI를 연결해</span></a>
+<span class="info"><span class="category">게임뉴스</span> 김규만 기자 (Frann@inven.co.kr) | 2026-09-09 19:10 </span></div></td></tr></table></div>"""
+_n = inven._parse_news(_news_html)
+assert len(_n) == 1 and _n[0]["id"] == "inven-news-320623" and _n[0]["published_at"] == "2026-09-09"
+assert _n[0]["replies"] == 25 and "[25]" not in _n[0]["title"] and "@" not in _n[0]["author"], _n[0]
+_tips_html = """<table><tbody>
+<tr><td class="tit"><a class="subject-link" href="https://www.inven.co.kr/board/mabimo/6366/605"><span class="category">[공략]</span> 타바르타스 레이드 간단 공략 및 후기 </a>
+<span class="con-comment">[2]</span></td><td class="user"><span class="layerNickName">작성자</span></td><td class="date">11-13</td><td class="view">14,367</td></tr>
+<tr><td class="tit"><a class="subject-link" href="https://www.inven.co.kr/board/mabimo/6366/622"><span class="category">[공략]</span> 한눈에 비교하는 소울스트림 </a></td>
+<td class="date">06-28</td><td class="view">16,075</td></tr></tbody></table>"""
+_t = inven._parse_tips(_tips_html)
+assert [x["id"] for x in _t] == ["inven-tip-622", "inven-tip-605"], "要依文章編號新到舊"
+assert _t[1]["title"] == "타바르타스 레이드 간단 공략 및 후기" and _t[1]["views"] == 14367 and _t[1]["replies"] == 2
+assert all(x["published_at"] == "" for x in _t), "列表沒有年份，不能猜，要進內頁補"
+_d = inven._parse_detail('<div class="articleDate">2026-06-28 07:24</div><div id="powerbbsContent">오랜만에 공략 올립니다.</div>')
+assert _d[0] == "2026-06-28" and _d[1] == "오랜만에 공략 올립니다."
+assert import_mnemonics.parse_reply("inven-tip-622｜소울스트림 한눈에") == [("inven-tip-622", "소울스트림 한눈에")]
+print("=== Inven 解析測試通過 ===")
+
+# ── 韓服摘要翻譯：只翻最近 21 天＋Inven，且有字數上限（成本原則）。monkeypatch，不打網路。──
+translate.has_translate = lambda: True
+_sent = []
+translate.translate_batch = lambda texts, target="zh-TW": (_sent.extend(texts) or ["中：" + t for t in texts])
+_kr_items = [
+    {"region": "kr", "source": "youtube", "published_at": "2026-09-20", "summary": "최신 영상"},
+    {"region": "kr", "source": "youtube", "published_at": "2026-05-01", "summary": "오래된 영상"},
+    {"region": "kr", "source": "inven", "published_at": "2025-11-13", "summary": "인벤 공략"},
+    {"region": "tw", "source": "bahamut", "published_at": "2026-09-20", "summary": "台服不用翻"},
+]
+ai_enrich._pretranslate_kr_summaries(_kr_items, today=_dt.date(2026, 9, 27))
+assert _sent == ["최신 영상", "인벤 공략"], _sent
+ai_enrich._apply_rule_fallback(_kr_items[0])
+assert _kr_items[0]["summary"] == "中：최신 영상"
+_sent.clear()
+_big = [{"region": "kr", "source": "inven", "published_at": "", "summary": "가" * 5000} for _ in range(3)]
+ai_enrich._pretranslate_kr_summaries(_big, today=_dt.date(2026, 9, 27))
+assert sum(len(t) for t in _sent) <= ai_enrich.SUMMARY_CHAR_BUDGET, "超過每次字數上限"
+print("=== 韓服摘要翻譯（範圍與字數上限）測試通過 ===")

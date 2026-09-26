@@ -26,6 +26,7 @@ Translation API，獨立配額），在 Gemini 開始跑之前先幫每篇韓服
 """
 
 from __future__ import annotations
+import datetime
 import json
 import os
 import time
@@ -172,6 +173,47 @@ def _call_gemini(prompt: str, key: str) -> list | None:
     return None
 
 
+SUMMARY_FRESH_DAYS = 21          # 只翻首頁會顯示的新文章摘要（跟 index.html FRESH_DAYS 一致）
+SUMMARY_CHAR_BUDGET = 8000       # 每次管線最多翻這麼多字的摘要（成本原則：Cloud Translation 綁帳單，
+                                 # 免費額度以月計，這個上限讓每週跑一次再加幾次手動也遠低於免費額度）
+
+
+def _is_fresh(item: dict, today: datetime.date) -> bool:
+    try:
+        return (today - datetime.date.fromisoformat(item.get("published_at", ""))).days <= SUMMARY_FRESH_DAYS
+    except (TypeError, ValueError):
+        return False
+
+
+def _pretranslate_kr_summaries(items: list[dict], today: datetime.date | None = None) -> None:
+    """韓服摘要打底翻譯（寫入 item["summary_zh_mt"]）。2026-09-27 新增：Gemini 失效後韓版卡片
+    的摘要一直是韓文。只翻「最近 21 天」與 Inven 攻略（精選候選），並有每次字數上限。"""
+    if not translate.has_translate():
+        return
+    today = today or datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
+    todo, used = [], 0
+    for it in items:
+        text = (it.get("summary") or "").strip()
+        if it.get("region") != "kr" or not text:
+            continue
+        if not (_is_fresh(it, today) or it.get("source") == "inven"):
+            continue
+        if used + len(text) > SUMMARY_CHAR_BUDGET:
+            break
+        todo.append(it)
+        used += len(text)
+    if not todo:
+        return
+    translated = translate.translate_batch([it["summary"] for it in todo])
+    if translated is None:
+        print("[翻譯] 韓服摘要這次沒有翻譯結果，維持原文")
+        return
+    for it, t in zip(todo, translated):
+        if t:
+            it["summary_zh_mt"] = t
+    print(f"[翻譯] 韓服摘要打底翻譯 {len(todo)} 篇（{used} 字，上限 {SUMMARY_CHAR_BUDGET}）")
+
+
 def _pretranslate_kr_titles(items: list[dict]) -> None:
     """韓服標題先用 Cloud Translation 打底翻譯，寫入 item["title_zh_mt"]。
     跑在 Gemini 之前、獨立配額——Gemini 失敗時的翻譯安全網（見本檔開頭說明）。
@@ -199,6 +241,8 @@ def _apply_rule_fallback(item: dict) -> None:
     item["category"] = classify.classify_category(item)
     item["tags"] = classify.extract_tags(item)
     item.setdefault("title_zh", item.get("title_zh_mt") or item.get("title", ""))
+    if item.get("summary_zh_mt"):
+        item["summary"] = item["summary_zh_mt"]
     item.setdefault("key_points", [])
     item["_rule_fallback"] = True  # extract.apply() 只補這些「AI 沒處理到」的項目
 
@@ -209,6 +253,7 @@ def enrich(items: list[dict]) -> list[dict]:
     有金鑰用 AI，否則整批走規則版。回傳同一批（就地修改）。
     """
     _pretranslate_kr_titles(items)  # 翻譯安全網，跑在 Gemini 之前、獨立配額
+    _pretranslate_kr_summaries(items)
 
     key = _key()
     if not key:
@@ -259,7 +304,7 @@ def enrich(items: list[dict]) -> list[dict]:
                 tags = r.get("tags")
                 it["tags"] = [str(t) for t in tags if t] if isinstance(tags, list) else classify.extract_tags(it)
                 it["title_zh"] = str(r.get("title_zh") or it.get("title_zh_mt") or it.get("title", ""))
-                it["summary"] = str(r.get("summary_zh") or it.get("summary", ""))
+                it["summary"] = str(r.get("summary_zh") or it.get("summary_zh_mt") or it.get("summary", ""))
                 kp = r.get("key_points")
                 it["key_points"] = (
                     [str(k).strip() for k in kp if isinstance(k, str) and k.strip()][:3]

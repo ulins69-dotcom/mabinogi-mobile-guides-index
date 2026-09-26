@@ -27,7 +27,7 @@ TW = datetime.timezone(datetime.timedelta(hours=8))
 
 _LINE = re.compile(
     r"^\s*(?:[-*•>]|\d+[.、)])?\s*[\[【]?\s*"
-    r"((?:bahamut(?:-essence)?-\d+)|(?:youtube-[A-Za-z0-9_-]{11}))"
+    r"((?:bahamut(?:-essence)?-\d+)|(?:youtube-[A-Za-z0-9_-]{11})|(?:inven-(?:news|tip)-\d+))"
     r"\s*[\]】]?\s*[|｜:：\t]\s*(.+?)\s*$"
 )
 _SKIP = re.compile(r"^[（(]?\s*(?:略|無|N/?A|none|-+)\s*[)）]?[。.]?$", re.IGNORECASE)

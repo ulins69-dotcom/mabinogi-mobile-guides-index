@@ -80,7 +80,7 @@ def _parse_list(html: str) -> list[dict]:
     for row in rows:
         link = _first(row, [
             "a.b-list__main__title",
-            ".b-list__main a",
+            ".b-list__main a[href*='C.php']",
             "a[href*='C.php']",
         ])
         if not link or not link.get("href"):
@@ -92,7 +92,13 @@ def _parse_list(html: str) -> list[dict]:
             continue
         sn = m.group(1)
 
-        title = link.get_text(strip=True)
+        # 2026-09-27 修正：有縮圖的列，標題是 <p class="b-list__main__title">、外面整塊包在 <a> 裡，
+        # 舊版拿 <a> 的全部文字當標題，會把「精華」標記、頁碼、內文預覽全黏進標題
+        # （例：「精華【心得】蓋個外觀分享樓192021染色劑隨機…」）。一律只取標題元素本身。
+        title_el = _first(row, [".b-list__main__title"]) or link
+        title = title_el.get_text(strip=True)
+        # 巴哈版主標的「精華」（b-mark--feature）＝人工篩選過，比照精華區直接視為精華
+        board_featured = row.select_one(".b-mark--feature") is not None
 
         # 分類前綴標籤，如【攻略】【情報】
         raw_tag = ""
@@ -127,6 +133,8 @@ def _parse_list(html: str) -> list[dict]:
             "replies": replies,
             "thumbnail": "",
         })
+        if board_featured:
+            items[-1]["is_featured"] = True  # classify.mark_featured 會保留預先標記的精華
     return items
 
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 資料管線代理人 —— 總指揮（v2 台韓雙軌）。
-流程：爬取(台服:巴哈+YT台 / 韓服:Inven+Nexon+YT韓) → AI 翻譯/分類/打標/評精華
+流程：爬取(台服:巴哈+YT台 / 韓服:Inven+YT韓；Nexon 韓服官網因地區分流停用) → AI 翻譯/分類/打標/評精華
       → 去重 → schema 驗證 → 產出 guides.json
 
 用法：
@@ -21,7 +21,6 @@ import bahamut
 import bahamut_essence
 import youtube
 import inven
-import nexon_kr
 import ai_enrich
 import extract
 import schema
@@ -62,10 +61,10 @@ def build(no_youtube=False, no_kr=False, pages=2) -> dict:
             raw.extend(inven.fetch())
         except Exception as e:
             print(f"[主控] Inven 略過（{e}）", file=sys.stderr)
-        try:
-            raw.extend(nexon_kr.fetch())
-        except Exception as e:
-            print(f"[主控] NexonKR 略過（{e}）", file=sys.stderr)
+        # Nexon 韓服官網已停用（2026-09-27）：官網依來源 IP 分流，非韓國 IP（含 GitHub Actions
+        # 的美國主機、站長所在的台灣）一律被導到只有宣傳內容的 /en/Main，沒有公告列表，
+        # 從上線起就沒抓到過任何一筆。韓服官方動態改由 Inven 新聞（inven.py）與 YouTube 補。
+        # 模組保留（nexon_kr.py），日後若有可用的公開端點再接回來。
 
     # YouTube（台+韓）
     if not no_youtube:

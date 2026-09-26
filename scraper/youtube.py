@@ -6,10 +6,15 @@ YouTube Data API v3 攻略影片抓取（台服中文 + 韓服韓文）。
 策略：少數關鍵字 search.list 拿 videoId → 合併去重 → 批次 videos.list 抓詳情。
 台服 3 個關鍵字 + 韓服 2 個 = 5 次搜尋 = 500 units，遠在免費額度內。
 
+2026-09-27：首頁只列最近 21 天的攻略（見 index.html FRESH_DAYS），但 relevance 排序偏好
+舊的長青影片，韓服 21 天內只剩 18 篇。每個關鍵字再加一次「限最近 RECENT_DAYS 天」的
+搜尋（一樣用 relevance，避免 order=date 撈進一堆低品質短片），共 10 次搜尋 = 1,000 units。
+
 金鑰放環境變數 YOUTUBE_API_KEY。
 """
 
 from __future__ import annotations
+import datetime
 import os
 import requests
 
@@ -20,6 +25,7 @@ QUERIES = {
     "tw": (["瑪奇 Mobile 攻略", "瑪奇 Mobile 新手", "瑪奇 Mobile 活動"], "zh-Hant"),
     "kr": (["마비노기 모바일 공략", "마비노기 모바일 업데이트"], "ko"),
 }
+RECENT_DAYS = 21  # 跟首頁 FRESH_DAYS 一致
 MAX_PER_QUERY = 50  # YouTube API 上限；search.list 每次固定收 100 units，跟 maxResults 無關，拉滿不加錢
 
 
@@ -30,10 +36,12 @@ def _key() -> str:
     return key
 
 
-def _search_ids(query: str, lang: str, key: str) -> list[str]:
+def _search_ids(query: str, lang: str, key: str, published_after: str | None = None) -> list[str]:
     params = {"part": "snippet", "q": query, "type": "video",
               "maxResults": MAX_PER_QUERY, "relevanceLanguage": lang,
               "order": "relevance", "key": key}
+    if published_after:
+        params["publishedAfter"] = published_after  # RFC 3339，例：2026-09-06T00:00:00Z
     r = requests.get(f"{API_BASE}/search", params=params, timeout=15)
     r.raise_for_status()
     return [it["id"]["videoId"] for it in r.json().get("items", [])
@@ -68,15 +76,18 @@ def _video_details(video_ids: list[str], region: str, key: str) -> list[dict]:
 
 def fetch() -> list[dict]:
     key = _key()
+    recent = (datetime.datetime.now(datetime.timezone.utc)
+              - datetime.timedelta(days=RECENT_DAYS)).strftime("%Y-%m-%dT00:00:00Z")
     all_items = []
     for region, (queries, lang) in QUERIES.items():
         ids = []
         for q in queries:
-            print(f"[YT/{region}] 搜尋：{q}")
-            try:
-                ids.extend(_search_ids(q, lang, key))
-            except requests.RequestException as e:
-                print(f"[YT/{region}] 搜尋失敗 {q}: {e}")
+            for after, label in ((None, ""), (recent, f"（近 {RECENT_DAYS} 天）")):
+                print(f"[YT/{region}] 搜尋：{q}{label}")
+                try:
+                    ids.extend(_search_ids(q, lang, key, published_after=after))
+                except requests.RequestException as e:
+                    print(f"[YT/{region}] 搜尋失敗 {q}{label}: {e}")
         ids = list(dict.fromkeys(ids))
         if ids:
             all_items.extend(_video_details(ids, region, key))
