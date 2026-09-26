@@ -23,6 +23,7 @@ requests 抓得到不用跑 JS）擷取前 SUMMARY_MAX_CHARS 字當摘要——
 """
 
 from __future__ import annotations
+import datetime
 import time
 import re
 import requests
@@ -133,28 +134,62 @@ def _to_int(s: str) -> int:
     return int(s) if s else 0
 
 
-def _normalize_date(s: str) -> str:
-    # 巴哈常見格式 2026-08-05 或 08/05；統一成 YYYY-MM-DD，失敗留空
+def _taiwan_today() -> datetime.date:
+    return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
+
+
+def _normalize_date(s: str, today: datetime.date | None = None) -> str:
+    """巴哈時間字串 → YYYY-MM-DD，失敗留空。
+
+    2026-09-26 健檢發現：巴哈列表頁顯示的是「昨天 22:16」「前天 23:13」
+    「09-04 15:20」這類相對/無年份格式（而且是「最新回覆」時間），舊版只認
+    YYYY-MM-DD，導致 177 筆巴哈文章裡 142 筆沒有日期、排序全沉到最底。
+    這裡補齊相對日期與無年份格式；列表頁的日期只當備援，真正的發文日期
+    改由內文頁抓（見 _fetch_detail）。
+    """
+    s = s or ""
     m = re.search(r"(\d{4})[-/](\d{1,2})[-/](\d{1,2})", s)
     if m:
         return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
+    today = today or _taiwan_today()
+    for word, back in (("今天", 0), ("昨天", 1), ("前天", 2)):
+        if word in s:
+            return (today - datetime.timedelta(days=back)).isoformat()
+    m = re.search(r"(?<!\d)(\d{1,2})[-/](\d{1,2})(?!\d)", s)
+    if m:
+        month, day = int(m.group(1)), int(m.group(2))
+        try:
+            d = datetime.date(today.year, month, day)
+        except ValueError:
+            return ""
+        if d > today + datetime.timedelta(days=1):  # 無年份且落在未來 → 其實是去年
+            d = datetime.date(today.year - 1, month, day)
+        return d.isoformat()
     return ""
 
 
-def _fetch_summary(url: str) -> str:
-    """進文章內頁抓一小段內文當摘要。抓不到就回傳空字串，不拖垮整批。"""
+def _fetch_detail(url: str) -> tuple[str, str]:
+    """進文章內頁抓 (摘要, 樓主發文日期)。抓不到的欄位回傳空字串，不拖垮整批。"""
     html = _get(url)
     if not html:
-        return ""
+        return "", ""
     soup = BeautifulSoup(html, "html.parser")
+
+    posted = ""
+    stamp = soup.select_one(".c-post__header__info a.edittime, a.edittime[data-mtime]")
+    if stamp:  # 第一個就是 1 樓（樓主）的發文時間
+        posted = _normalize_date(stamp.get("data-mtime") or stamp.get_text(strip=True))
+
+    summary = ""
     el = _first(soup, [".c-article__content", ".c-post__body"])
-    if not el:
-        return ""
-    text = el.get_text(separator=" ", strip=True)
-    text = re.sub(r"\s+", " ", text)
-    if len(text) > SUMMARY_MAX_CHARS:
-        text = text[:SUMMARY_MAX_CHARS] + "…"
-    return text
+    if el:
+        text = re.sub(r"\s+", " ", el.get_text(separator=" ", strip=True))
+        summary = text[:SUMMARY_MAX_CHARS] + "…" if len(text) > SUMMARY_MAX_CHARS else text
+    return summary, posted
+
+
+def _fetch_summary(url: str) -> str:
+    return _fetch_detail(url)[0]
 
 
 def fetch(pages: int = 1) -> list[dict]:
@@ -171,7 +206,10 @@ def fetch(pages: int = 1) -> list[dict]:
 
     print(f"[巴哈] 共取得 {len(all_items)} 筆，開始逐篇補摘要...")
     for i, item in enumerate(all_items, 1):
-        item["summary"] = _fetch_summary(item["url"])
+        summary, posted = _fetch_detail(item["url"])
+        item["summary"] = summary
+        if posted:  # 內文頁的樓主發文日期比列表頁的「最新回覆」時間準
+            item["published_at"] = posted
         time.sleep(REQUEST_DELAY_SEC)
         if i % 10 == 0:
             print(f"[巴哈] 摘要進度 {i}/{len(all_items)}")

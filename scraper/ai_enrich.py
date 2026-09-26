@@ -58,6 +58,8 @@ VALID_CATEGORIES = ["新手指南", "職業解析", "副本攻略", "活動情�
 BATCH_DELAY_SEC = 4  # 批次間固定延遲，降低撞到每分鐘速率上限的機率
 RATE_LIMIT_RETRIES = 2
 RATE_LIMIT_BACKOFF_SEC = 20  # 429/503 是暫時性的，等一下再試大機率會過
+MAX_CONSECUTIVE_FAILURES = 2  # 連續失敗幾批就放棄呼叫 Gemini（斷路器，見 enrich()）
+_diagnosed = False
 
 
 def _key() -> str:
@@ -100,6 +102,26 @@ def _build_prompt(batch: list[dict]) -> str:
 """
 
 
+def _diagnose_models(key: str) -> None:
+    """第一次失敗時列一次「這把金鑰看得到哪些模型」（ListModels 不消耗生成配額），
+    方便判斷是不是模型名稱/免費額度的問題。只印名稱，不印金鑰。"""
+    global _diagnosed
+    if _diagnosed:
+        return
+    _diagnosed = True
+    try:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                         params={"key": key, "pageSize": 100}, timeout=20)
+        if r.status_code != 200:
+            print(f"[AI][診斷] ListModels 也失敗（HTTP {r.status_code}）：{r.text[:200]}")
+            return
+        names = [m["name"].replace("models/", "") for m in r.json().get("models", [])
+                 if "generateContent" in m.get("supportedGenerationMethods", [])]
+        print(f"[AI][診斷] 這把金鑰可用的 generateContent 模型（{len(names)} 個）：{', '.join(names[:25])}")
+    except (requests.RequestException, ValueError) as e:
+        print(f"[AI][診斷] ListModels 呼叫失敗：{e}")
+
+
 def _call_gemini(prompt: str, key: str) -> list | None:
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -131,7 +153,15 @@ def _call_gemini(prompt: str, key: str) -> list | None:
                     continue
                 print(f"[AI] 呼叫失敗（HTTP {r.status_code}，重試 {RATE_LIMIT_RETRIES} 次仍失敗），這批降級為規則版")
                 return None
-            r.raise_for_status()
+            if r.status_code == 402:
+                # 2026-09-21 起實測回 402 Payment Required（不再是 429）：這把金鑰所屬
+                # 專案對此模型已沒有可用的免費額度，需要在 AI Studio 啟用帳單才能呼叫，
+                # 重試沒有意義。印出原始回應方便判斷。
+                print(f"[AI] 呼叫失敗（HTTP 402 Payment Required），需要啟用帳單或改用仍有免費額度的模型：{r.text[:300]}")
+                return None
+            if r.status_code != 200:
+                print(f"[AI] 呼叫失敗（HTTP {r.status_code}），這批降級為規則版：{r.text[:300]}")
+                return None
             data = r.json()
             text = data["candidates"][0]["content"]["parts"][0]["text"]
             parsed = json.loads(text)
@@ -189,15 +219,26 @@ def enrich(items: list[dict]) -> list[dict]:
     print(f"[AI] 啟用 Gemini（{MODEL}），共 {len(items)} 筆，分 {(len(items)+BATCH_SIZE-1)//BATCH_SIZE} 批")
     failed_batches = 0
     total_batches = 0
+    consecutive_failures = 0
     for start in range(0, len(items), BATCH_SIZE):
         batch = items[start:start + BATCH_SIZE]
         total_batches += 1
-        result = _call_gemini(_build_prompt(batch), key)
-        if result is None:
+        if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+            # 斷路器：連續失敗代表金鑰/配額/帳單出問題，不是偶發，繼續打只會浪費時間
+            # （舊版 14 批 × 2 次重試 × 20 秒 ≈ 10 分鐘白等）。剩下的直接走規則版。
             failed_batches += 1
             for it in batch:
                 _apply_rule_fallback(it)
+            continue
+        result = _call_gemini(_build_prompt(batch), key)
+        if result is None:
+            failed_batches += 1
+            consecutive_failures += 1
+            _diagnose_models(key)
+            for it in batch:
+                _apply_rule_fallback(it)
         else:
+            consecutive_failures = 0
             # 把 AI 回傳依 i 對應回 batch
             by_i = {}
             for r in result:
@@ -228,9 +269,9 @@ def enrich(items: list[dict]) -> list[dict]:
 
     if failed_batches == total_batches and total_batches > 0:
         print(
-            f"[AI] 警告：{total_batches} 批全數呼叫失敗，本次 GEMINI_API_KEY 形同沒設定"
-            "（金鑰本身可能沒問題，常見原因是 MODEL 常數指到的模型已下架/改名，"
-            "去看上面每批印出的失敗原因）"
+            f"[AI] 警告：{total_batches} 批全數呼叫失敗，本次 AI 分類/重點抽取完全沒有生效"
+            "（看上面每批印出的 HTTP 狀態與診斷：402=需要啟用帳單、429=配額/速率、"
+            "401/403=金鑰、404=模型名稱）"
         )
     elif failed_batches:
         print(f"[AI] {failed_batches}/{total_batches} 批呼叫失敗，已降級為規則版")

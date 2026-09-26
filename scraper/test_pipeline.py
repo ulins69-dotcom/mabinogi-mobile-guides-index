@@ -68,3 +68,15 @@ rec2 = schema.to_record(raw2[0])
 assert rec2["title"] == "신규 던전 공략（翻譯測試）", f"翻譯安全網未生效：{rec2['title']!r}"
 assert rec2["title_original"] == "신규 던전 공략"
 print("=== 翻譯安全網（Cloud Translation 降級路徑）測試通過 ===")
+
+# ── 巴哈日期解析（2026-09-26 健檢新增）：列表頁是「昨天 22:16」「09-04 15:20」這類
+# 相對/無年份格式，舊版只認 YYYY-MM-DD 導致 80% 巴哈文章沒有日期。純離線測試。──
+import datetime as _dt
+import bahamut
+_T = _dt.date(2026, 9, 26)
+for _s, _exp in {"昨天 22:16": "2026-09-25", "前天 23:13": "2026-09-24", "今天 08:00": "2026-09-26",
+                 "09-04 15:20": "2026-09-04", "2026-08-05": "2026-08-05", "": "", "22:16": "",
+                 "99-99 10:00": ""}.items():
+    assert bahamut._normalize_date(_s, today=_T) == _exp, f"日期解析錯誤：{_s!r}"
+assert bahamut._normalize_date("12-30 10:00", today=_dt.date(2026, 1, 2)) == "2025-12-30", "跨年推算錯誤"
+print("=== 巴哈日期解析測試通過 ===")

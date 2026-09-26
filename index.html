@@ -29,6 +29,11 @@
     .countdown-item__time { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums;
       color: var(--featured); margin: .2rem 0; }
     .countdown-item__note { font-size: .7rem; opacity: .65; }
+    .countdown-item.is-open { background: rgba(155,89,182,.35); outline: 2px solid #b37fd1; }
+    .countdown-item.is-soon { outline: 2px dashed #b37fd1; }
+    .countdown-item__note.stale { color: #f5b7b1; opacity: 1; }
+    .countdown-caveat { font-size: .74rem; line-height: 1.5; opacity: .78; margin: .8rem 0 0; }
+    .countdown-caveat a { color: #cfe3f3; }
     .resource-links { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1rem; }
     .resource-card { flex: 1 1 260px; background: #eef6fb; border: 1px solid #cfe3f3; border-radius: 8px;
       padding: .8rem 1rem; text-decoration: none; color: var(--ink); transition: box-shadow .15s, border-color .15s; }
@@ -142,7 +147,20 @@
           <div class="countdown-item__time" id="cd-weekly">--:--:--</div>
           <div class="countdown-item__note">每週一 06:00・官方公告確認</div>
         </div>
+        <div class="countdown-item" id="cd-abyss-card">
+          <div class="countdown-item__label">🟣 紫洞（通往深淵）</div>
+          <div class="countdown-item__time" id="cd-abyss">--:--:--</div>
+          <div class="countdown-item__note" id="cd-abyss-note">社群推導・非官方</div>
+        </div>
       </div>
+      <p class="countdown-caveat" id="cd-abyss-caveat">
+        🟣 紫洞是<b>社群推導的滾動週期</b>：每 36 小時 15 分出現一顆、開放 15 分鐘（起點取 9/19 14:38 實測往後推算）。
+        官方只保證「出現前 1 小時會在城鎮地圖預告」；伺服器維護／重啟後起點會重骰，<b>以遊戲內預告為準</b>。
+        來源：官方 9/9 更新日誌、
+        <a href="https://mabinogimobile.nipponhashi.com/timers/" target="_blank" rel="noopener noreferrer">Wiki DB 倒數頁</a>、
+        <a href="https://mabitw.com/abyss" target="_blank" rel="noopener noreferrer">mabitw 深淵頁</a>。
+        （首頁一般「藍洞／紅洞」是另一個 30 分鐘週期，不在此列。）
+      </p>
     </div>
 
     <div class="resource-links">
@@ -263,6 +281,28 @@
       next.setUTCDate(next.getUTCDate() + daysUntilMonday);
       return next;
     }
+    // 紫洞（通往深淵的黑色坑洞）：社群推導的滾動週期，不是官方固定時刻表。
+    // 出處（2026-09-26 查證）：週期 2175 分（36h15m）、開放 15 分、錨點 9/19 14:38 取自
+    // Wiki DB（mabinogimobile.nipponhashi.com/timers/）倒數元件參數，mabitw.com/abyss 記載
+    // 同一次 9/19 14:38–14:53 玩家實測；「出現前 1 小時城鎮預告」為官方 9/9 更新日誌。
+    // 伺服器維護／重啟會重骰起點——錨點過舊時要換成新的實測值（只需改 anchorMs/verifiedOn）。
+    const ABYSS_HOLE = {
+      anchorMs: Date.parse("2026-09-19T14:38:00+08:00"),
+      periodMin: 2175, windowMin: 15, warnMin: 60,
+      verifiedOn: "2026-09-19",
+    };
+    function abyssHoleState(nowMs) {
+      const period = ABYSS_HOLE.periodMin * 60000, win = ABYSS_HOLE.windowMin * 60000;
+      const openStart = ABYSS_HOLE.anchorMs + Math.floor((nowMs - ABYSS_HOLE.anchorMs) / period) * period;
+      if (nowMs < openStart + win) return { open: true, start: openStart, ms: openStart + win - nowMs };
+      const next = openStart + period;
+      return { open: false, start: next, ms: next - nowMs, soon: next - nowMs <= ABYSS_HOLE.warnMin * 60000 };
+    }
+    function fmtTwClock(ms) {  // 台灣時間「9/27(日) 03:53」，只用 getUTC*（先平移 +8h）
+      const d = new Date(ms + 8 * 3600000), pad = (n) => String(n).padStart(2, "0");
+      return (d.getUTCMonth() + 1) + "/" + d.getUTCDate() + "(" + "日一二三四五六"[d.getUTCDay()] + ") "
+        + pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes());
+    }
     function updateCountdowns() {
       const tw = taiwanNow();
       const pad = (n) => String(n).padStart(2, "0");
@@ -272,6 +312,16 @@
       document.getElementById("cd-boss").textContent = fmtDuration(nextBossTime(tw) - tw);
       document.getElementById("cd-daily").textContent = fmtDuration(nextDailyReset(tw) - tw);
       document.getElementById("cd-weekly").textContent = fmtDuration(nextWeeklyReset(tw) - tw);
+
+      const nowMs = Date.now(), ab = abyssHoleState(nowMs);
+      const card = document.getElementById("cd-abyss-card"), note = document.getElementById("cd-abyss-note");
+      const daysStale = Math.floor((nowMs - Date.parse(ABYSS_HOLE.verifiedOn + "T00:00:00+08:00")) / 86400000);
+      document.getElementById("cd-abyss").textContent = (ab.open ? "開放中 " : "") + fmtDuration(ab.ms);
+      card.classList.toggle("is-open", ab.open);
+      card.classList.toggle("is-soon", !ab.open && !!ab.soon);
+      note.textContent = (ab.open ? "本輪至 " : "下次 ") + fmtTwClock(ab.open ? ab.start + ABYSS_HOLE.windowMin * 60000 : ab.start)
+        + (daysStale > 7 ? "・距最後實測 " + daysStale + " 天，可能已偏移" : "・推算非官方");
+      note.classList.toggle("stale", daysStale > 7);
     }
 
     // 官方六大職業系列（tw.nexon.com/mabinogimobile/home/info/class），
