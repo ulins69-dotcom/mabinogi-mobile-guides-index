@@ -4,12 +4,16 @@
  * 用瀏覽器內建的語音合成（Web Speech API），不經過任何伺服器、不需要金鑰、不花錢（本站成本原則）。
  * 聲音來自讀者自己的裝置：電腦用 Edge 的「自然」語音最像真人；手機用系統內建的中文語音。
  *
- * 這支檔案獨立於 novel.html 的原稿程式：只觀察 #app 換頁，在章節頁加上朗讀列，
- * 不改原稿的資料與閱讀程式。小說原稿從 claude.ai artifact 同步回來時，
- * 只要在 </body> 前補回 <script src="novel-tts.js"></script> 這一行即可。
+ * 2026-10-01 起，同一套程式也直接內建在小說原稿（claude.ai artifact）裡；
+ * 網站這支檔案改當備援：原稿已經有朗讀時（window.__erinnTTS），這支什麼都不做。
+ * 萬一日後原稿改版時把內建的朗讀弄掉了，這支會自動補上。
  */
 (function () {
   "use strict";
+
+  // 小說原稿（claude.ai artifact）現在也內建同一套朗讀；已經裝過就不要再裝第二次
+  if (window.__erinnTTS) return;
+  window.__erinnTTS = true;
 
   var app = document.getElementById("app");
   if (!app) return;
