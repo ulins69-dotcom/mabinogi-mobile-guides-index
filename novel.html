@@ -162,7 +162,7 @@ a { color: var(--river); text-underline-offset: 0.2em; }
 .entries p.sk-novel { color: var(--river); font-size: 0.88rem; }
 @media (min-width: 560px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
-/* 攻略網整合：頂端細條（聲明＋回攻略網），2026-10-01 放進瑪奇攻略查詢網 */
+/* 攻略網整合：頂端細條（聲明），2026-10-09 拿掉回攻略網連結 */
 .site-strip { background: var(--paper-2); border-bottom: 1px solid var(--rule); font-family: var(--sans); font-size: 0.8rem; }
 .site-strip .wrap { display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; align-items: center; padding-top: 0.4rem; padding-bottom: 0.4rem; }
 .site-strip a { color: var(--river); text-decoration: none; font-weight: 500; white-space: nowrap; }
@@ -172,7 +172,6 @@ a { color: var(--river); text-underline-offset: 0.2em; }
 <body>
 <div class="site-strip">
   <div class="wrap">
-    <a href="index.html">← 瑪奇攻略查詢網</a>
     <p class="site-scope">📢 聲明：限游離份子及所屬公會運用，如內容差異以官方網站為主</p>
   </div>
 </div>
@@ -23627,9 +23626,6 @@ a { color: var(--river); text-underline-offset: 0.2em; }
   NAV.forEach(function (n) { nav.appendChild(h("a", { href: n[0], text: n[1] })); });
   var foot = document.getElementById("foot");
   foot.appendChild(h("p", { text: str(meta.disclaimer) }));
-  if (typeof meta.guideSiteUrl === "string" && /^https:\/\//.test(meta.guideSiteUrl)) {
-    foot.appendChild(h("p", null, [h("a", { href: meta.guideSiteUrl, rel: "noopener", text: "回到瑪奇攻略查詢網" })]));
-  }
   document.getElementById("theme").addEventListener("click", function () {
     var root = document.documentElement;
     var cur = root.getAttribute("data-theme");
@@ -23718,9 +23714,14 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     ".tts-hint{flex-basis:100%;margin:0;font-size:.75rem;line-height:1.6;color:var(--ink-2)}",
     ".prose p.tts-on{background:var(--paper-2);box-shadow:inset 3px 0 0 var(--lantern);padding:0 .45rem;margin-left:-.45rem;margin-right:-.45rem;border-radius:2px}",
     ".tts-reading .prose p{cursor:pointer}",
-    ".tts-mini{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + .8rem);z-index:20;display:flex;gap:.45rem;align-items:center;background:var(--ink);color:var(--paper);border-radius:999px;padding:.35rem .4rem .35rem .95rem;font-family:var(--sans);font-size:.85rem;box-shadow:0 4px 16px rgba(0,0,0,.25);max-width:calc(100vw - 2rem)}",
-    ".tts-mini[hidden]{display:none}",
-    ".tts-mini button{font:inherit;background:none;color:var(--paper);border:1px solid currentColor;border-radius:999px;padding:.2rem .7rem;cursor:pointer}"
+    ".tts-bar details{flex-basis:100%;margin:0;font-size:.75rem;line-height:1.6;color:var(--ink-2)}",
+    ".tts-bar summary{cursor:pointer;width:max-content}",
+    ".tts-mini{position:fixed;right:max(.75rem,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + .75rem);z-index:20;display:flex;gap:.1rem;align-items:center;background:var(--ink);color:var(--paper);border-radius:999px;padding:.2rem;font-family:var(--sans);font-size:.72rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.22);opacity:.9}",
+    ".tts-mini[hidden],.tts-mini button[hidden]{display:none}",
+    ".tts-mini button{font:inherit;font-size:.85rem;width:2.1rem;height:2.1rem;display:inline-flex;align-items:center;justify-content:center;background:none;color:var(--paper);border:0;border-radius:50%;cursor:pointer;padding:0}",
+    ".tts-mini button:hover,.tts-mini button:focus-visible{background:rgba(255,255,255,.14)}",
+    ".tts-mini .tts-n{padding:0 .15rem 0 .5rem;font-variant-numeric:tabular-nums;white-space:nowrap}",
+    ".tts-mini .tts-n:empty{display:none}"
   ].join("\n");
   document.head.appendChild(style);
 
@@ -23870,13 +23871,29 @@ a { color: var(--river); text-underline-offset: 0.2em; }
       ui.status.textContent = text;
     }
     if (ui.mini) {
-      ui.mini.hidden = state.status === "idle";
-      ui.miniText.textContent = text;
-      ui.miniPlay.textContent = state.status === "playing" ? "❚❚" : "▶";
-      ui.miniPlay.setAttribute("aria-label", state.status === "playing" ? "暫停朗讀" : "繼續朗讀");
+      ui.mini.hidden = !app.querySelector(".prose");
+      ui.miniText.textContent = state.status === "idle" ? "" : n + "／" + total;
+      ui.miniStop.hidden = state.status === "idle";
+      ui.miniPlay.textContent = state.status === "playing" ? "❚❚" : (state.status === "paused" ? "▶" : "🔊");
+      var lbl = state.status === "playing" ? "暫停朗讀" : (state.status === "paused" ? "繼續朗讀" : "從畫面上這一段開始朗讀");
+      ui.miniPlay.setAttribute("aria-label", lbl);
+      ui.miniPlay.setAttribute("title", lbl);
     }
   }
   function toggle() { if (state.status === "playing") pause(); else play(); }
+  // 讀到一半才想聽：從畫面上看得到的第一段開始唸
+  function playFromView() {
+    var head = app.querySelector(".chapter-head"), prose = app.querySelector(".prose");
+    if (!head || !prose) return;
+    if (!state.chunks.length) buildChunks(head, prose);
+    if (head.getBoundingClientRect().bottom > 0) { play(0); return; }
+    for (var i = 0; i < state.paras.length; i++) {
+      if (state.paras[i].getBoundingClientRect().bottom > 80) {
+        for (var j = 0; j < state.chunks.length; j++) if (state.chunks[j].p === i) { play(j); return; }
+      }
+    }
+    play(0);
+  }
 
   function fillVoices() {
     if (!ui.voiceSel) return;
@@ -23929,7 +23946,7 @@ a { color: var(--river); text-underline-offset: 0.2em; }
       h("label", null, ["語速", rateSel]),
       h("label", null, ["聲音", ui.voiceSel]),
       h("label", null, [auto, "讀完自動下一章"]),
-      h("p", { class: "tts-hint", text: "用你裝置內建的語音，免費。電腦建議用 Edge 瀏覽器，選標「自然」的聲音最像真人；手機請保持螢幕開著，鎖屏可能會停。朗讀時點任何一段，就從那段開始。" })
+      h("details", null, [h("summary", { text: "說明" }), "用你裝置內建的語音，免費。讀到一半想聽，按右下角的 🔊，會從畫面上這一段開始；朗讀時點任何一段，就從那段開始。電腦建議用 Edge，選標「自然」的聲音最像真人；手機請保持螢幕開著，鎖屏可能會停。"])
     ]);
     head.appendChild(ui.bar);
 
@@ -23946,12 +23963,12 @@ a { color: var(--river); text-underline-offset: 0.2em; }
 
   function mountMini() {
     if (!supported || ui.mini) return;
-    ui.miniText = h("span");
+    ui.miniText = h("span", { class: "tts-n", role: "status", "aria-live": "off" });
     ui.miniPlay = h("button", { type: "button" });
-    var miniStop = h("button", { type: "button", text: "■", "aria-label": "停止朗讀" });
-    ui.miniPlay.addEventListener("click", toggle);
-    miniStop.addEventListener("click", function () { stop(); });
-    ui.mini = h("div", { class: "tts-mini", hidden: true }, [h("span", { text: "🔊" }), ui.miniText, ui.miniPlay, miniStop]);
+    ui.miniStop = h("button", { type: "button", text: "■", "aria-label": "停止朗讀", title: "停止朗讀" });
+    ui.miniPlay.addEventListener("click", function () { if (state.status === "idle") playFromView(); else toggle(); });
+    ui.miniStop.addEventListener("click", function () { stop(); });
+    ui.mini = h("div", { class: "tts-mini", hidden: true }, [ui.miniText, ui.miniPlay, ui.miniStop]);
     document.body.appendChild(ui.mini);
   }
 
@@ -23962,6 +23979,7 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     if (!head || !prose) { // 離開章節頁（目錄、人物、改名…）就停止
       if (state.status !== "idle") stop();
       state.route = route;
+      render();
       return;
     }
     if (route !== state.route) {
@@ -23975,6 +23993,7 @@ a { color: var(--river); text-underline-offset: 0.2em; }
       state.pendingAuto = false;
       window.setTimeout(function () { play(0); }, 400);
     }
+    render();
   }
 
   mountMini();
