@@ -104,6 +104,14 @@ a { color: var(--river); text-underline-offset: 0.2em; }
 .river .off { color: var(--ink-2); }
 .river .t { font-weight: 600; }
 .river .s { display: block; font-size: 0.9rem; color: var(--ink-2); }
+.river li.read .t { color: var(--ink-2); font-weight: 500; }
+.badge.read { color: var(--river); border-color: var(--river); }
+.badge.here { color: var(--paper); background: var(--lantern); }
+.byline { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-2); margin: -1rem 0 1.5rem; }
+.cover-side .btn + .btn { margin-left: 0.5rem; }
+.btn.ghost { background: none; color: var(--ink); border: 1px solid var(--rule); }
+.resume-note { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-2); background: var(--paper-2); border-left: 3px solid var(--river); padding: 0.5rem 0.8rem; border-radius: 3px; margin: 0 0 1rem; }
+.resume-note button { font: inherit; background: none; border: 0; color: var(--river); text-decoration: underline; cursor: pointer; padding: 0 0 0 0.4rem; }
 .badge { font-family: var(--sans); font-size: 0.72rem; color: var(--lantern); border: 1px solid var(--lantern); border-radius: 2px; padding: 0 0.35rem; margin-left: 0.5rem; vertical-align: 0.1em; }
 
 /* reading */
@@ -196,7 +204,8 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     "version": "第九卷完結",
     "guideSiteUrl": "https://ulins69-dotcom.github.io/mabinogi-mobile-guides-index/",
     "disclaimer": "本站為非官方同人小說。瑪奇 Mabinogi 的名稱、角色與圖像著作權屬 NEXON／devCAT 及各地代理商所有，本站不代表官方立場。",
-    "defaultName": "諾瓦"
+    "defaultName": "諾瓦",
+    "author": "游離份子"
   },
   "params": {
     "missingYears": "十多年"
@@ -5391,7 +5400,7 @@ a { color: var(--river); text-underline-offset: 0.2em; }
             "第二天早上，我們在山路上遇見了一個商人。",
             "在一個方圓五十里沒有路、沒有村子、沒有人的地方，路中間，擺著一個攤子。",
             "攤子上，放著一堆亂七八糟的東西。一把生鏽的鑰匙。三顆看起來很普通的石頭。一頂帽子。一罐不知道是什麼的醃菜。",
-            "攤子後面，坐著一個戴著寬邊帽的男人，翹著腳，在打呵欠。",
+            "攤子後面，坐著一個戴著寬邊帽的男人，翹著腳，在打呵欠。太陽照在他身上，他把眼睛瞇成兩條線，像一隻曬到剛剛好的貓。",
             "「歡迎光臨。」他說，「山頂限定商品，錯過不再。」",
             "「你是誰？」",
             "「普萊斯。」他說，「流浪的商人。到處走，到處賣。」",
@@ -7388,6 +7397,7 @@ a { color: var(--river); text-underline-offset: 0.2em; }
             "可是光熄了以後，那裡多了一個攤子。",
             "攤子上，放著一堆亂七八糟的東西。",
             "攤子後面，坐著一個戴寬邊帽的男人，翹著腳。",
+            "光熄掉的那一瞬間，他落在地上的影子，好像多了一條尾巴，尖端還勾了一下。我眨了一下眼睛，就沒有了。",
             "「決戰限定商品，」普萊斯說，「錯過不再。」",
             "所有人，同時往後退了一步。",
             "普萊斯看著我們，嘆了一口氣。",
@@ -23307,6 +23317,15 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     return null;
   }
 
+  // ---------- reading progress (per-viewer, this browser only) ----------
+  var prog = {};
+  try { prog = JSON.parse(store(true, "erinn-prog") || "{}") || {}; } catch (e) { prog = {}; }
+  if (typeof prog !== "object" || Array.isArray(prog)) prog = {};
+  if (!prog.done || typeof prog.done !== "object") prog.done = {};
+  if (!prog.pos || typeof prog.pos !== "object" || typeof prog.pos.id !== "string") prog.pos = null;
+  function saveProg() { store(false, "erinn-prog", JSON.stringify(prog)); }
+  var resumeId = null, currentId = null;
+
   // ---------- data ----------
   var app = document.getElementById("app");
   var DATA = null;
@@ -23350,13 +23369,34 @@ a { color: var(--river); text-underline-offset: 0.2em; }
   function tocItem(entry, latestId) {
     var it = entry.item;
     var isPub = it.status === "published";
-    var li = h("li", { class: (isPub ? "on " : "") + (it.id === latestId ? "latest" : "") });
+    var isDone = !!prog.done[it.id], isHere = !isDone && prog.pos && prog.pos.id === it.id;
+    var li = h("li", { class: (isPub ? "on " : "") + (it.id === latestId ? "latest " : "") + (isDone ? "read" : "") });
     var titleLine = [h("span", { class: "t", text: (str(it.label) ? str(it.label) + "　" : "") + str(it.title, "（未命名）") })];
     if (it.draft) titleLine.push(h("span", { class: "badge", text: "示範稿" }));
     if (it.kind === "side") titleLine.push(h("span", { class: "badge", text: "外傳" }));
+    if (isPub && isDone) titleLine.push(h("span", { class: "badge read", text: "已讀" }));
+    if (isPub && isHere) titleLine.push(h("span", { class: "badge here", text: "讀到這" }));
     var inner = [h("span", null, titleLine), h("span", { class: "s", text: isPub ? str(it.teaser) : (str(it.teaser) ? str(it.teaser) + "（籌備中）" : "籌備中") })];
     li.appendChild(isPub ? h("a", { href: "#/c/" + encodeURIComponent(it.id) }, inner) : h("div", { class: "off" }, inner));
     return li;
+  }
+
+  function resumeLink() {
+    var pos = prog.pos;
+    if (!pos) return null;
+    var f = findItem(pos.id);
+    if (!f || f.item.status !== "published") return null;
+    var target = f, pct = pos.pct;
+    if (prog.done[pos.id]) { // 這一章讀完了：接下一章
+      var pubs = readable.filter(function (r) { return r.item.status === "published" && (r.group === "samples") === (f.group === "samples"); });
+      var nx = pubs[pubs.indexOf(f) + 1];
+      if (!nx) return null;
+      target = nx; pct = 0;
+    }
+    var tid = target.item.id;
+    var a = h("a", { class: "btn", href: "#/c/" + encodeURIComponent(tid), text: "繼續閱讀：" + (str(target.item.label) ? str(target.item.label) + "　" : "") + str(target.item.title) + (pct > 2 ? "（" + Math.min(99, pct) + "%）" : "") });
+    if (tid === pos.id) a.addEventListener("click", function () { resumeId = pos.id; });
+    return a;
   }
 
   function viewHome() {
@@ -23364,14 +23404,17 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     var latest = null, first = null;
     readable.forEach(function (r) { if (r.item.status === "published") { latest = r.item.id; if (!first) first = r.item.id; } });
 
+    var resume = resumeLink();
     var side = h("div", { class: "cover-side" }, [
       h("p", { class: "kicker", text: str(meta.subtitle) }),
+      str(meta.author) ? h("p", { class: "byline", text: "作者　" + str(meta.author) }) : null,
       h("p", { class: "epigraph", text: str(meta.epigraph) }),
       h("p", { class: "blurb", text: str(meta.blurb) }),
       heroName
         ? h("p", { class: "namecard" }, ["主角：", h("strong", { text: nameNow() }), h("a", { href: "#/name", text: "改名" })])
         : h("p", { class: "namecard" }, ["開始之前，替主角取個名字吧。沒取的話，他會叫「", h("strong", { text: DEFAULT_NAME }), "」。", h("a", { href: "#/name", text: "取名" })]),
-      first ? h("a", { class: "btn", href: "#/c/" + encodeURIComponent(first), text: "開始閱讀" }) : null
+      resume,
+      first ? h("a", { class: resume ? "btn ghost" : "btn", href: "#/c/" + encodeURIComponent(first), text: resume ? "從頭讀" : "開始閱讀" }) : null
     ]);
     frag.appendChild(h("section", { class: "cover" }, [side, h("h1", { class: "title-v", text: str(meta.title, "愛爾琳史詩") })]));
 
@@ -23451,9 +23494,16 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     frag.appendChild(head);
     if (it.draft) frag.appendChild(h("p", { class: "draft-note", text: "示範稿：用來確認語氣，之後可能大幅修改。" }));
     if (it.kind === "side") frag.appendChild(h("p", { class: "draft-note", text: "外傳：主線之外的故事，補上主線沒說完的事。跳過也不影響閱讀。" }));
+    if (prog.pos && prog.pos.id === id && prog.pos.p > 2 && resumeId !== id) {
+      var jumpBtn = h("button", { type: "button", text: "跳過去" });
+      jumpBtn.addEventListener("click", function () { jumpTo(prog.pos.p); note.remove(); });
+      var note = h("p", { class: "resume-note" }, ["上次讀到這一章的 " + Math.min(99, prog.pos.pct || 0) + "%。", jumpBtn]);
+      frag.appendChild(note);
+    }
     frag.appendChild(prose);
     frag.appendChild(pager);
     store(false, "erinn-last", id);
+    currentId = id;
     return { title: str(it.title) + "｜" + str(meta.title), node: frag, reading: true };
   }
 
@@ -23539,10 +23589,24 @@ a { color: var(--river); text-underline-offset: 0.2em; }
   function viewAbout() {
     return { title: "關於｜" + str(meta.title), node: h("div", null, [
       h("h1", { class: "page-h", text: "關於本站" }),
+      str(meta.author) ? h("p", { text: "作者：" + str(meta.author) + "。" }) : null,
       h("p", { text: "這是一部以第一人稱重寫瑪奇主線的同人小說，依故事張力編排，不照遊戲章節順序。" }),
       h("p", { text: "章節、人物、地點會隨更新逐步解鎖，以減少劇透。目前版本：" + str(meta.version) + "。" }),
+      h("p", { text: "閱讀紀錄（讀到哪一章、哪一段、哪些已讀）只存在你這台裝置的這個瀏覽器裡；換手機或清除瀏覽資料就會不見。" }),
+      resetProgBtn(),
       h("p", { text: str(meta.disclaimer) })
     ]) };
+  }
+  function resetProgBtn() {
+    var b = h("button", { type: "button", class: "ghost", text: "清除閱讀紀錄" });
+    b.addEventListener("click", function () {
+      prog = { done: {}, pos: null };
+      saveProg();
+      store(false, "erinn-last", "");
+      b.textContent = "已清除";
+      b.disabled = true;
+    });
+    return b;
   }
 
   function viewSkills() {
@@ -23617,14 +23681,40 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     var up = document.getElementById("fs-up"), down = document.getElementById("fs-down");
     if (up) up.addEventListener("click", function () { bump(0.08); });
     if (down) down.addEventListener("click", function () { bump(-0.08); });
+    routeAt = Date.now();
     window.scrollTo(0, 0);
     app.focus({ preventScroll: true });
+    if (!view.reading) currentId = null;
+    if (view.reading && resumeId && resumeId === currentId && prog.pos && prog.pos.id === currentId) jumpTo(prog.pos.p);
+    resumeId = null;
+  }
+
+  function jumpTo(pi) {
+    var prose = app.querySelector(".prose");
+    var el = prose && prose.children[pi];
+    if (!el) return;
+    var y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo(0, Math.max(0, y));
+  }
+  var lastSave = 0;
+  var routeAt = 0;
+  function trackProgress(pct) {
+    if (!currentId || Date.now() - routeAt < 700) return; // 換頁時自動捲回頂端，不算讀者的位置
+    var prose = app.querySelector(".prose");
+    if (!prose) return;
+    var kids = prose.children, pi = 0;
+    for (var i = 0; i < kids.length; i++) { if (kids[i].getBoundingClientRect().bottom > 80) { pi = i; break; } }
+    prog.pos = { id: currentId, p: pi, pct: Math.round(pct), t: Date.now() };
+    if (pct >= 95) prog.done[currentId] = 1;
+    var now = Date.now();
+    if (now - lastSave > 800 || pct >= 95) { lastSave = now; saveProg(); }
   }
 
   // ---------- chrome ----------
   var nav = document.getElementById("nav");
   NAV.forEach(function (n) { nav.appendChild(h("a", { href: n[0], text: n[1] })); });
   var foot = document.getElementById("foot");
+  if (str(meta.author)) foot.appendChild(h("p", { text: "《" + str(meta.title) + "》作者：" + str(meta.author) }));
   foot.appendChild(h("p", { text: str(meta.disclaimer) }));
   document.getElementById("theme").addEventListener("click", function () {
     var root = document.documentElement;
@@ -23645,7 +23735,9 @@ a { color: var(--river); text-underline-offset: 0.2em; }
     window.requestAnimationFrame(function () {
       var doc = document.documentElement;
       var max = doc.scrollHeight - window.innerHeight;
-      document.getElementById("progress").style.width = (max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0) + "%";
+      var pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+      document.getElementById("progress").style.width = pct + "%";
+      trackProgress(pct);
       ticking = false;
     });
   }, { passive: true });
