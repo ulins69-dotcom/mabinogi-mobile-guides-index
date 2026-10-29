@@ -35,6 +35,11 @@
     .tools { margin-top:2rem; }
     .tool-warn { background:#fdecea; border:1px solid #f5c6cb; color:var(--warn);
       border-radius:6px; padding:.8rem 1rem; font-size:.85rem; }
+    .sim { margin-top:2rem; }
+    .skilltab th { text-align:left; color:var(--muted); font-weight:400; padding:.2rem .15rem; }
+    .skilltab td { padding:.15rem; }
+    .skilltab input { width:100%; padding:.35rem .4rem; font-size:.9rem; border:1px solid var(--line); border-radius:5px; }
+    .result .sub { color:var(--muted); font-size:.8rem; padding:.2rem .2rem .6rem; }
     footer { background:var(--dark); color:#fff; text-align:center; padding:1rem; margin-top:2rem; font-size:.85rem; }
   </style>
 </head>
@@ -117,6 +122,77 @@
       </div>
     </div>
 
+    <div class="sim" id="sim">
+      <h2>⏱️ 60 秒總輸出模擬</h2>
+      <div class="disclaimer">
+        單次傷害看不出「縮短冷卻」的價值。這裡用上方的攻擊力、暴擊等數值，模擬一段時間內<strong>普攻＋技能輪轉</strong>的總傷害。
+        技能依清單順序優先施放，施放期間不普攻。<strong>驚異的冷卻減少方式官方未公布，兩種算法皆為推算</strong>，可切換比較；結果僅供相對比較，不代表實戰 DPS。
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h2>戰鬥設定</h2>
+          <div class="field">
+            <label>戰鬥時間（秒）</label>
+            <input id="simTime" type="number" value="60" min="1" max="600">
+          </div>
+          <div class="field">
+            <label>每秒普攻次數</label>
+            <input id="simAps" type="number" value="2" min="0" step="0.1">
+            <span class="hint">實戰數 10 秒普攻次數 ÷ 10 最準</span>
+          </div>
+          <div class="field">
+            <label>普攻技能係數 %</label>
+            <input id="simBasic" type="number" value="100" min="0">
+          </div>
+          <div class="field">
+            <label>技能冷卻縮減 %</label>
+            <input id="simCdr" type="number" value="0" min="0" max="90">
+            <span class="hint">其他來源的冷卻縮減（不含驚異）</span>
+          </div>
+          <div class="field">
+            <label><input id="simWonder" type="checkbox" checked style="width:auto"> 裝備驚異（普攻命中縮短所有技能冷卻）</label>
+          </div>
+          <div class="field">
+            <label>驚異每次普攻縮短 %</label>
+            <input id="simWonderPct" type="number" value="8" min="0" max="100" step="0.5">
+          </div>
+          <div class="field">
+            <label>驚異算法（推算）</label>
+            <select id="simWonderMode" style="width:100%;padding:.5rem .6rem;font-size:1rem;border:1px solid var(--line);border-radius:6px;">
+              <option value="remain">剩餘冷卻 ×（1 − 8%）（較保守）</option>
+              <option value="base">扣除原始冷卻的 8%（較樂觀）</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>技能清單（依施放優先順序）</h2>
+          <span class="hint">係數＝該技能一次施放的總倍率（%），係數填 0 代表不使用</span>
+          <table class="skilltab" style="width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.85rem;">
+            <thead><tr><th>技能</th><th>係數 %</th><th>冷卻 秒</th><th>施放 秒</th></tr></thead>
+            <tbody id="skillRows"></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>對照組</h2>
+          <div class="field">
+            <label><input id="cmpOn" type="checkbox" checked style="width:auto"> 啟用對照組</label>
+          </div>
+          <div class="field">
+            <label>對照組額外攻擊力增加 %</label>
+            <input id="cmpAtk" type="number" value="24" min="0">
+            <span class="hint">例：千把劍滿層填 24（與上方 B 相加，不是相乘）</span>
+          </div>
+          <div class="field">
+            <label><input id="cmpNoWonder" type="checkbox" checked style="width:auto"> 對照組不裝驚異</label>
+            <span class="hint">例：武器符文從驚異換成千把劍</span>
+          </div>
+          <div class="result" id="simResult"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="tools">
       <h2>相關工具</h2>
       <p style="font-size:.9rem;">想看<strong>實戰即時 DPS</strong>（而非理論值）？社群工具
@@ -179,8 +255,132 @@
       });
     }
 
-    document.querySelectorAll("input").forEach((el) => el.addEventListener("input", compute));
-    compute();
+    // ===== 60 秒總輸出模擬 =====
+    // 係數 1.0 的期望傷害（含暴擊率、亂數取平均），extraAtk 為對照組追加的攻擊力增加 %
+    function hitDamage(extraAtk) {
+      const A = Math.max(0, num("atk"));
+      const B = 1 + (num("atkinc") + extraAtk) / 100;
+      const C = Math.max(0, num("dmgmul"));
+      const D = 1 + num("enh") / 100;
+      const critRate = Math.min(1, Math.max(0, num("critrate") / 100));
+      const critMul = Math.max(1, num("critmul"));
+      const def = Math.max(0, num("def"));
+      const defred = Math.min(100, Math.max(0, num("defred"))) / 100;
+      const I = 1 / (1 + def * (1 - defred) / 10328);
+      return 2 * Math.floor(A * B) * C * D * I * (1 + critRate * (critMul - 1));
+    }
+
+    // 純函式：不碰 DOM，方便測試
+    function simulate(o) {
+      const dt = 0.01;
+      const steps = Math.round(o.time / dt);
+      const cds = o.skills.map(() => 0);
+      const casts = o.skills.map(() => 0);
+      let castLeft = 0, atkTimer = 0, basicHits = 0, skillDmg = 0;
+      const keep = 1 - o.wonderPct / 100;
+      for (let s = 0; s < steps; s++) {
+        for (let i = 0; i < cds.length; i++) if (cds[i] > 0) cds[i] = Math.max(0, cds[i] - dt);
+        if (castLeft > 0) { castLeft -= dt; continue; }
+        const ready = o.skills.findIndex((sk, i) => sk.coef > 0 && cds[i] <= 1e-9);
+        if (ready >= 0) {
+          const sk = o.skills[ready];
+          skillDmg += o.hit * sk.coef / 100;
+          casts[ready]++;
+          cds[ready] = sk.cd * (1 - o.cdr / 100);
+          castLeft = sk.cast;
+          atkTimer = 0;
+          continue;
+        }
+        if (o.aps <= 0) continue;
+        atkTimer -= dt;
+        if (atkTimer <= 1e-9) {
+          atkTimer += 1 / o.aps;
+          basicHits++;
+          if (o.wonder) {
+            for (let i = 0; i < cds.length; i++) {
+              if (cds[i] <= 0) continue;
+              const full = o.skills[i].cd * (1 - o.cdr / 100);
+              cds[i] = o.wonderMode === "base" ? Math.max(0, cds[i] - full * o.wonderPct / 100) : cds[i] * keep;
+            }
+          }
+        }
+      }
+      const basicDmg = basicHits * o.hit * o.basicCoef / 100;
+      return { total: basicDmg + skillDmg, basicDmg, skillDmg, basicHits, casts };
+    }
+
+    const DEFAULT_SKILLS = [
+      ["技能 1", 300, 8, 1], ["技能 2", 500, 15, 1.5], ["技能 3", 1000, 30, 2],
+      ["技能 4", 0, 20, 1], ["技能 5", 0, 60, 2],
+    ];
+    function buildSkillRows() {
+      const tb = $("skillRows");
+      DEFAULT_SKILLS.forEach(([name, coef, cd, cast], i) => {
+        const tr = document.createElement("tr");
+        [["n", name, "text"], ["c", coef, "number"], ["d", cd, "number"], ["t", cast, "number"]].forEach(([k, v, type]) => {
+          const td = document.createElement("td");
+          const inp = document.createElement("input");
+          inp.id = "sk" + k + i; inp.type = type; inp.value = v;
+          if (type === "number") { inp.min = "0"; inp.step = "0.1"; }
+          td.appendChild(inp); tr.appendChild(td);
+        });
+        tb.appendChild(tr);
+      });
+    }
+
+    function readSkills() {
+      return DEFAULT_SKILLS.map((_, i) => ({
+        name: ($("skn" + i).value || ("技能 " + (i + 1))).trim(),
+        coef: Math.max(0, num("skc" + i)),
+        cd: Math.max(0.1, num("skd" + i)),
+        cast: Math.max(0, num("skt" + i)),
+      }));
+    }
+
+    function computeSim() {
+      const time = Math.min(600, Math.max(1, num("simTime")));
+      const base = {
+        time, skills: readSkills(),
+        aps: Math.max(0, num("simAps")),
+        basicCoef: Math.max(0, num("simBasic")),
+        cdr: Math.min(90, Math.max(0, num("simCdr"))),
+        wonderPct: Math.min(100, Math.max(0, num("simWonderPct"))),
+        wonderMode: $("simWonderMode").value,
+      };
+      const a = simulate(Object.assign({}, base, { hit: hitDamage(0), wonder: $("simWonder").checked }));
+      const fmt = (n) => Math.round(n).toLocaleString("en-US");
+      const box = $("simResult");
+      box.textContent = "";
+      const addRow = (label, val, big) => {
+        const row = document.createElement("div"); row.className = "row";
+        const l = document.createElement("span"); l.className = "label"; l.textContent = label;
+        const v = document.createElement("span"); v.className = "val" + (big ? " big" : ""); v.textContent = val;
+        row.appendChild(l); row.appendChild(v); box.appendChild(row);
+      };
+      const addSub = (text) => { const d = document.createElement("div"); d.className = "sub"; d.textContent = text; box.appendChild(d); };
+      const castText = (r) => base.skills.map((s, i) => s.coef > 0 ? s.name + "×" + r.casts[i] : null).filter(Boolean).join("、");
+
+      addRow("本組 " + time + " 秒總傷害", fmt(a.total), true);
+      addSub("平均每秒 " + fmt(a.total / time) + "｜普攻 " + a.basicHits + " 下（佔 " + (a.total ? Math.round(a.basicDmg / a.total * 100) : 0) + "%）｜" + castText(a));
+      if ($("cmpOn").checked) {
+        const b = simulate(Object.assign({}, base, {
+          hit: hitDamage(Math.max(0, num("cmpAtk"))),
+          wonder: $("cmpNoWonder").checked ? false : $("simWonder").checked,
+        }));
+        addRow("對照組 " + time + " 秒總傷害", fmt(b.total), true);
+        addSub("平均每秒 " + fmt(b.total / time) + "｜普攻 " + b.basicHits + " 下｜" + castText(b));
+        const diff = a.total ? (b.total / a.total - 1) * 100 : 0;
+        addRow("對照組 vs 本組", (diff >= 0 ? "+" : "") + diff.toFixed(1) + "%", false);
+      }
+    }
+
+    buildSkillRows();
+    const recalc = () => { compute(); computeSim(); };
+    document.querySelectorAll("input, select").forEach((el) => {
+      el.addEventListener("input", recalc);
+      el.addEventListener("change", recalc);
+    });
+    recalc();
   </script>
 </body>
 </html>
